@@ -1,4 +1,4 @@
-// Templates de commentaires prêts à l'emploi
+// Ready-to-use comment templates
 export interface CommentTemplate {
   id: string;
   category: string;
@@ -8,85 +8,87 @@ export interface CommentTemplate {
 }
 
 export const commentTemplates: CommentTemplate[] = [
-  // Questions virales
-  { id: '1', category: 'Questions virales', icon: '🔥', text: "Attends, c'est vraiment possible ça ?!", description: "Hook d'incrédulité" },
-  { id: '2', category: 'Questions virales', icon: '🔥', text: "Comment t'as fait ça ? Je veux savoir !", description: "Demande de tutoriel" },
-  { id: '3', category: 'Questions virales', icon: '🔥', text: "J'ai la même question depuis des années...", description: "Relatabilité" },
-  { id: '4', category: 'Questions virales', icon: '🔥', text: "ENFIN quelqu'un qui en parle !", description: "Validation sociale" },
-  { id: '5', category: 'Questions virales', icon: '🔥', text: "Tu peux faire une partie 2 stp ?", description: "Engagement suite" },
+  // Viral Questions
+  { id: '1', category: 'Viral Questions', icon: '🔥', text: "Wait, is this really possible?!", description: "Disbelief hook" },
+  { id: '2', category: 'Viral Questions', icon: '🔥', text: "How did you do that? I want to know!", description: "Tutorial request" },
+  { id: '3', category: 'Viral Questions', icon: '🔥', text: "I've had the same question for years...", description: "Relatability" },
+  { id: '4', category: 'Viral Questions', icon: '🔥', text: "FINALLY someone talking about this!", description: "Social validation" },
+  { id: '5', category: 'Viral Questions', icon: '🔥', text: "Can you make a part 2 please?", description: "Follow-up engagement" },
 
-  // Débutants
-  { id: '6', category: 'Débutants', icon: '🌱', text: "Je débute, par où commencer ?", description: "Question de départ" },
-  { id: '7', category: 'Débutants', icon: '🌱', text: "C'est adapté pour les débutants ?", description: "Niveau requis" },
-  { id: '8', category: 'Débutants', icon: '🌱', text: "J'ai 0 expérience, c'est grave ?", description: "Rassurance" },
-  { id: '9', category: 'Débutants', icon: '🌱', text: "Quel est le premier pas à faire ?", description: "Action immédiate" },
-  { id: '10', category: 'Débutants', icon: '🌱', text: "Tu aurais des conseils pour quelqu'un qui commence ?", description: "Conseils personnalisés" },
+  // Beginners
+  { id: '6', category: 'Beginners', icon: '🌱', text: "I'm a beginner, where do I start?", description: "Starting question" },
+  { id: '7', category: 'Beginners', icon: '🌱', text: "Is this suitable for beginners?", description: "Required level" },
+  { id: '8', category: 'Beginners', icon: '🌱', text: "I have 0 experience, is that okay?", description: "Reassurance" },
+  { id: '9', category: 'Beginners', icon: '🌱', text: "What is the first step to take?", description: "Immediate action" },
+  { id: '10', category: 'Beginners', icon: '🌱', text: "Do you have advice for someone just starting?", description: "Personalized advice" },
 
-  // Sceptiques
-  { id: '11', category: 'Sceptiques', icon: '🤔', text: "C'est vraiment efficace ou c'est du bullsh*t ?", description: "Doute direct" },
-  { id: '12', category: 'Sceptiques', icon: '🤔', text: "Et ça marche vraiment ? J'ai du mal à y croire...", description: "Scepticisme poli" },
-  { id: '13', category: 'Sceptiques', icon: '🤔', text: "Prouve-le avec des résultats concrets", description: "Demande de preuve" },
-  { id: '14', category: 'Sceptiques', icon: '🤔', text: "C'est pas trop beau pour être vrai ?", description: "Méfiance" },
-  { id: '15', category: 'Sceptiques', icon: '🤔', text: "Y'a pas un piège quelque part ?", description: "Recherche de catch" },
+  // Skeptics
+  { id: '11', category: 'Skeptics', icon: '🤔', text: "Is this really effective or is it bs?", description: "Direct doubt" },
+  { id: '12', category: 'Skeptics', icon: '🤔', text: "And does it really work? I have a hard time believing it...", description: "Polite skepticism" },
+  { id: '13', category: 'Skeptics', icon: '🤔', text: "Prove it with concrete results", description: "Proof request" },
+  { id: '14', category: 'Skeptics', icon: '🤔', text: "Isn't it too good to be true?", description: "Distrust" },
+  { id: '15', category: 'Skeptics', icon: '🤔', text: "Isn't there a catch somewhere?", description: "Looking for a catch" },
 
   // Motivation
-  { id: '16', category: 'Motivation', icon: '💪', text: "Comment tu restes motivé tous les jours ?", description: "Routine motivation" },
-  { id: '17', category: 'Motivation', icon: '💪', text: "J'ai envie d'abandonner, que faire ?", description: "Moment de doute" },
-  { id: '18', category: 'Motivation', icon: '💪', text: "Comment tu gères les jours sans motivation ?", description: "Gestion bas moments" },
-  { id: '19', category: 'Motivation', icon: '💪', text: "Quel déclic t'as eu pour te lancer ?", description: "Histoire origine" },
-  { id: '20', category: 'Motivation', icon: '💪', text: "Comment tu as surmonté l'échec ?", description: "Résilience" },
+  { id: '16', category: 'Motivation', icon: '💪', text: "How do you stay motivated every day?", description: "Motivation routine" },
+  { id: '17', category: 'Motivation', icon: '💪', text: "I feel like quitting, what should I do?", description: "Moment of doubt" },
+  { id: '18', category: 'Motivation', icon: '💪', text: "How do you handle days without motivation?", description: "Handling low moments" },
+  { id: '19', category: 'Motivation', icon: '💪', text: "What was your turning point to start?", description: "Origin story" },
+  { id: '20', category: 'Motivation', icon: '💪', text: "How did you overcome failure?", description: "Resilience" },
 
-  // Argent
-  { id: '21', category: 'Argent', icon: '💰', text: "Combien ça coûte vraiment ?", description: "Budget réel" },
-  { id: '22', category: 'Argent', icon: '💰', text: "Tu gagnes combien avec ça ?", description: "Revenus directs" },
-  { id: '23', category: 'Argent', icon: '💰', text: "C'est possible sans investir au début ?", description: "Démarrage 0€" },
-  { id: '24', category: 'Argent', icon: '💰', text: "Comment tu as financé le début ?", description: "Financement initial" },
-  { id: '25', category: 'Argent', icon: '💰', text: "C'est rentable au bout de combien de temps ?", description: "ROI timeline" },
+  // Money
+  { id: '21', category: 'Money', icon: '💰', text: "How much does it really cost?", description: "Real budget" },
+  { id: '22', category: 'Money', icon: '💰', text: "How much do you make with this?", description: "Direct income" },
+  { id: '23', category: 'Money', icon: '💰', text: "Is it possible without investing at first?", description: "$0 start" },
+  { id: '24', category: 'Money', icon: '💰', text: "How did you finance the beginning?", description: "Initial funding" },
+  { id: '25', category: 'Money', icon: '💰', text: "How long until it's profitable?", description: "ROI timeline" },
 
-  // Temps
-  { id: '26', category: 'Temps', icon: '⏰', text: "Ça prend combien de temps par jour ?", description: "Investissement quotidien" },
-  { id: '27', category: 'Temps', icon: '⏰', text: "Combien de temps avant les premiers résultats ?", description: "Timeline résultats" },
-  { id: '28', category: 'Temps', icon: '⏰', text: "C'est compatible avec un travail à temps plein ?", description: "Side hustle" },
-  { id: '29', category: 'Temps', icon: '⏰', text: "Comment tu gères ton temps ?", description: "Organisation" },
-  { id: '30', category: 'Temps', icon: '⏰', text: "C'est faisable en 1h par jour ?", description: "Temps limité" },
+  // Time
+  { id: '26', category: 'Time', icon: '⏰', text: "How much time does it take per day?", description: "Daily investment" },
+  { id: '27', category: 'Time', icon: '⏰', text: "How long before the first results?", description: "Results timeline" },
+  { id: '28', category: 'Time', icon: '⏰', text: "Is it compatible with a full-time job?", description: "Side hustle" },
+  { id: '29', category: 'Time', icon: '⏰', text: "How do you manage your time?", description: "Organization" },
+  { id: '30', category: 'Time', icon: '⏰', text: "Is it doable in 1h a day?", description: "Limited time" },
 
-  // Outils
-  { id: '31', category: 'Outils', icon: '🛠️', text: "Tu utilises quoi comme outils ?", description: "Stack technique" },
-  { id: '32', category: 'Outils', icon: '🛠️', text: "C'est quoi ton setup ?", description: "Configuration" },
-  { id: '33', category: 'Outils', icon: '🛠️', text: "Tu recommandes quelle app ?", description: "Recommandation" },
-  { id: '34', category: 'Outils', icon: '🛠️', text: "Quel logiciel tu utilises pour ça ?", description: "Software spécifique" },
-  { id: '35', category: 'Outils', icon: '🛠️', text: "C'est gratuit ou payant ?", description: "Prix outil" },
+  // Tools
+  { id: '31', category: 'Tools', icon: '🛠️', text: "What tools do you use?", description: "Tech stack" },
+  { id: '32', category: 'Tools', icon: '🛠️', text: "What's your setup?", description: "Configuration" },
+  { id: '33', category: 'Tools', icon: '🛠️', text: "Which app do you recommend?", description: "Recommendation" },
+  { id: '34', category: 'Tools', icon: '🛠️', text: "What software do you use for this?", description: "Specific software" },
+  { id: '35', category: 'Tools', icon: '🛠️', text: "Is it free or paid?", description: "Tool price" },
 
-  // Erreurs
-  { id: '36', category: 'Erreurs', icon: '❌', text: "Quelles erreurs tu as faites au début ?", description: "Apprentissage" },
-  { id: '37', category: 'Erreurs', icon: '❌', text: "C'est quoi les pièges à éviter ?", description: "Red flags" },
-  { id: '38', category: 'Erreurs', icon: '❌', text: "Tu regrettes quelque chose ?", description: "Regrets" },
-  { id: '39', category: 'Erreurs', icon: '❌', text: "Qu'est-ce que t'aurais fait différemment ?", description: "Hindsight" },
-  { id: '40', category: 'Erreurs', icon: '❌', text: "C'est quoi la plus grosse erreur des débutants ?", description: "Erreur commune" },
-  { id: '41', category: 'E-commerce', icon: '🛒', text: "C'est quoi les délais de livraison ?", description: "Logistique" },
-  { id: '42', category: 'E-commerce', icon: '🛒', text: "Y'a un code promo pour la première commande ?", description: "Promotion" },
-  { id: '43', category: 'E-commerce', icon: '🛒', text: "C'est satisfait ou remboursé ?", description: "Confiance" },
-  { id: '44', category: 'E-commerce', icon: '🛒', text: "Vous livrez en Belgique / Suisse ?", description: "Géographie" },
-  { id: '45', category: 'E-commerce', icon: '🛒', text: "J'ai reçu ma commande, c'est incroyable !", description: "Avis client" },
-  { id: '46', category: 'Viral', icon: '✨', text: "J'ai testé et ça marche vraiment 🤯", description: "Validation" },
-  { id: '47', category: 'Viral', icon: '✨', text: "Le hack à la fin est dément !", description: "Curiosité" },
-  { id: '48', category: 'Viral', icon: '✨', text: "Regarde ça @ami", description: "Mention ami" },
+  // Mistakes
+  { id: '36', category: 'Mistakes', icon: '❌', text: "What mistakes did you make at the beginning?", description: "Learning" },
+  { id: '37', category: 'Mistakes', icon: '❌', text: "What are the traps to avoid?", description: "Red flags" },
+  { id: '38', category: 'Mistakes', icon: '❌', text: "Do you regret anything?", description: "Regrets" },
+  { id: '39', category: 'Mistakes', icon: '❌', text: "What would you have done differently?", description: "Hindsight" },
+  { id: '40', category: 'Mistakes', icon: '❌', text: "What is the biggest mistake beginners make?", description: "Common mistake" },
+
+  { id: '41', category: 'E-commerce', icon: '🛒', text: "What are the delivery times?", description: "Logistics" },
+  { id: '42', category: 'E-commerce', icon: '🛒', text: "Is there a promo code for the first order?", description: "Promotion" },
+  { id: '43', category: 'E-commerce', icon: '🛒', text: "Is it a money-back guarantee?", description: "Trust" },
+  { id: '44', category: 'E-commerce', icon: '🛒', text: "Do you deliver internationally?", description: "Geography" },
+  { id: '45', category: 'E-commerce', icon: '🛒', text: "I received my order, it's incredible!", description: "Customer review" },
+
+  { id: '46', category: 'Viral', icon: '✨', text: "I tried it and it really works 🤯", description: "Validation" },
+  { id: '47', category: 'Viral', icon: '✨', text: "The hack at the end is insane!", description: "Curiosity" },
+  { id: '48', category: 'Viral', icon: '✨', text: "Look at this @friend", description: "Friend mention" },
 ];
 
 export const templateCategories = [
-  { name: 'Questions virales', icon: '🔥', color: 'from-orange-500 to-red-500' },
-  { name: 'Débutants', icon: '🌱', color: 'from-green-500 to-emerald-500' },
-  { name: 'Sceptiques', icon: '🤔', color: 'from-yellow-500 to-amber-500' },
+  { name: 'Viral Questions', icon: '🔥', color: 'from-orange-500 to-red-500' },
+  { name: 'Beginners', icon: '🌱', color: 'from-green-500 to-emerald-500' },
+  { name: 'Skeptics', icon: '🤔', color: 'from-yellow-500 to-amber-500' },
   { name: 'Motivation', icon: '💪', color: 'from-blue-500 to-indigo-500' },
-  { name: 'Argent', icon: '💰', color: 'from-yellow-400 to-yellow-600' },
-  { name: 'Temps', icon: '⏰', color: 'from-purple-500 to-violet-500' },
-  { name: 'Outils', icon: '🛠️', color: 'from-gray-500 to-gray-700' },
-  { name: 'Erreurs', icon: '❌', color: 'from-red-500 to-rose-500' },
+  { name: 'Money', icon: '💰', color: 'from-yellow-400 to-yellow-600' },
+  { name: 'Time', icon: '⏰', color: 'from-purple-500 to-violet-500' },
+  { name: 'Tools', icon: '🛠️', color: 'from-gray-500 to-gray-700' },
+  { name: 'Mistakes', icon: '❌', color: 'from-red-500 to-rose-500' },
   { name: 'E-commerce', icon: '🛒', color: 'from-blue-400 to-cyan-500' },
   { name: 'Viral', icon: '✨', color: 'from-purple-400 to-pink-500' },
 ];
 
-// Scripts de vidéos prêts à l'emploi
+// Ready-to-use video scripts
 export interface VideoScript {
   id: string;
   type: string;
@@ -103,103 +105,103 @@ export interface VideoScript {
 export const videoScriptTemplates: VideoScript[] = [
   {
     id: 'reply-basic',
-    type: 'Réponse simple',
+    type: 'Simple Response',
     icon: '💬',
-    name: 'Je réponds à un abonné',
+    name: 'I reply to a subscriber',
     duration: '30-60s',
     structure: [
-      { section: 'Hook', content: '[Montre le commentaire] "Quelqu\'un m\'a posé cette question..."', duration: '3s' },
-      { section: 'Transition', content: '"Et c\'est une super question parce que..."', duration: '5s' },
-      { section: 'Réponse principale', content: '[Ta réponse en 3 points max]', duration: '30-40s' },
-      { section: 'CTA', content: '"Et toi, t\'as d\'autres questions ? Dis-le moi en commentaire"', duration: '5s' },
+      { section: 'Hook', content: '[Show comment] "Someone asked me this question..."', duration: '3s' },
+      { section: 'Transition', content: 'And it\'s a great question because..."', duration: '5s' },
+      { section: 'Main answer', content: '[Your answer in max 3 points]', duration: '30-40s' },
+      { section: 'CTA', content: '"What about you, do you have any other questions? Let me know in the comments"', duration: '5s' },
     ]
   },
   {
     id: 'reply-story',
     type: 'Storytelling',
     icon: '📖',
-    name: 'Mon histoire personnelle',
+    name: 'My personal story',
     duration: '60-90s',
     structure: [
-      { section: 'Hook', content: '[Commentaire] "Tu veux savoir comment j\'ai fait ?"', duration: '3s' },
-      { section: 'Le problème', content: '"Il y a [temps], j\'étais exactement comme toi..."', duration: '15s' },
-      { section: 'Le déclic', content: '"Et puis un jour, j\'ai compris que..."', duration: '15s' },
-      { section: 'La solution', content: '"Voilà ce que j\'ai fait..."', duration: '20s' },
-      { section: 'Le résultat', content: '"Aujourd\'hui, [résultat concret]..."', duration: '10s' },
-      { section: 'CTA', content: '"Si tu veux que je t\'explique en détail, like cette vidéo"', duration: '5s' },
+      { section: 'Hook', content: '[Comment] "You want to know how I did it?"', duration: '3s' },
+      { section: 'The problem', content: '"[Time] ago, I was exactly like you..."', duration: '15s' },
+      { section: 'The turning point', content: '"And then one day, I realized that..."', duration: '15s' },
+      { section: 'The solution', content: '"Here is what I did..."', duration: '20s' },
+      { section: 'The result', content: '"Today, [concrete result]..."', duration: '10s' },
+      { section: 'CTA', content: '"If you want me to explain in detail, like this video"', duration: '5s' },
     ]
   },
   {
     id: 'reply-myth',
     type: 'Myth Buster',
     icon: '🧨',
-    name: 'Je casse un mythe',
+    name: 'I bust a myth',
     duration: '30-45s',
     structure: [
-      { section: 'Hook', content: '[Commentaire sceptique] "Beaucoup pensent ça..."', duration: '3s' },
-      { section: 'Le mythe', content: '"On entend souvent que [croyance répandue]..."', duration: '5s' },
-      { section: 'La vérité', content: '"Mais en réalité, c\'est faux parce que..."', duration: '15s' },
-      { section: 'La preuve', content: '"La preuve : [fait/stat/expérience]..."', duration: '10s' },
-      { section: 'CTA', content: '"Partage si tu connaissais pas ça !"', duration: '3s' },
+      { section: 'Hook', content: '[Skeptical comment] "Many think this..."', duration: '3s' },
+      { section: 'The myth', content: '"We often hear that [common belief]..."', duration: '5s' },
+      { section: 'The truth', content: '"But in reality, it\'s false because..."', duration: '15s' },
+      { section: 'The proof', content: '"The proof: [fact/stat/experience]..."', duration: '10s' },
+      { section: 'CTA', content: '"Share if you didn\'t know this!"', duration: '3s' },
     ]
   },
   {
     id: 'reply-tutorial',
-    type: 'Mini-tuto',
+    type: 'Mini-tutorial',
     icon: '🎓',
-    name: 'Tuto rapide étape par étape',
+    name: 'Quick step-by-step tutorial',
     duration: '45-60s',
     structure: [
-      { section: 'Hook', content: '[Commentaire] "Tu veux savoir comment faire ?"', duration: '3s' },
-      { section: 'Étape 1', content: '"Première chose : [action 1]..."', duration: '10s' },
-      { section: 'Étape 2', content: '"Ensuite : [action 2]..."', duration: '10s' },
-      { section: 'Étape 3', content: '"Et enfin : [action 3]..."', duration: '10s' },
-      { section: 'Résultat', content: '"Et voilà le résultat !"', duration: '5s' },
-      { section: 'CTA', content: '"Sauvegarde cette vidéo pour plus tard"', duration: '3s' },
+      { section: 'Hook', content: '[Comment] "You want to know how to do it?"', duration: '3s' },
+      { section: 'Step 1', content: '"First thing: [action 1]..."', duration: '10s' },
+      { section: 'Step 2', content: '"Then: [action 2]..."', duration: '10s' },
+      { section: 'Step 3', content: '"And finally: [action 3]..."', duration: '10s' },
+      { section: 'Result', content: '"And there is the result!"', duration: '5s' },
+      { section: 'CTA', content: '"Save this video for later"', duration: '3s' },
     ]
   },
   {
     id: 'reply-controversial',
-    type: 'Opinion tranchée',
+    type: 'Strong opinion',
     icon: '🔥',
-    name: 'Mon avis impopulaire',
+    name: 'My unpopular opinion',
     duration: '30-45s',
     structure: [
-      { section: 'Hook', content: '[Commentaire] "Attention, ça va pas plaire à tout le monde..."', duration: '3s' },
-      { section: 'Opinion', content: '"Je pense que [opinion tranchée]..."', duration: '10s' },
-      { section: 'Argument 1', content: '"Et voilà pourquoi : [raison 1]..."', duration: '10s' },
-      { section: 'Argument 2', content: '"En plus : [raison 2]..."', duration: '10s' },
-      { section: 'CTA', content: '"T\'es d\'accord ? Dis-le moi en commentaire"', duration: '5s' },
+      { section: 'Hook', content: '[Comment] "Warning, this won\'t please everyone..."', duration: '3s' },
+      { section: 'Opinion', content: '"I think that [strong opinion]..."', duration: '10s' },
+      { section: 'Argument 1', content: '"And here\'s why: [reason 1]..."', duration: '10s' },
+      { section: 'Argument 2', content: '"In addition: [reason 2]..."', duration: '10s' },
+      { section: 'CTA', content: '"Do you agree? Let me know in the comments"', duration: '5s' },
     ]
   },
 ];
 
-// Hooks d'accroche populaires
+// Popular Hooks
 export const popularHooks = [
-  "Personne ne te dira ça mais...",
-  "J'aurais aimé savoir ça plus tôt...",
-  "Arrête de faire cette erreur !",
-  "Ce que 99% des gens ne savent pas...",
-  "La vérité qu'on te cache sur...",
-  "Comment j'ai [résultat] en [temps]...",
-  "3 choses que j'aurais aimé savoir avant...",
-  "Le secret que personne ne veut te dire...",
-  "Pourquoi tu n'arrives pas à [objectif]...",
-  "La méthode que j'utilise pour...",
-  "Ce qui m'a pris [x ans] à comprendre...",
-  "L'erreur #1 que font les débutants...",
+  "No one will tell you this but...",
+  "I wish I knew this earlier...",
+  "Stop making this mistake!",
+  "What 99% of people don't know...",
+  "The truth they hide from you about...",
+  "How I [result] in [time]...",
+  "3 things I wish I knew before...",
+  "The secret no one wants to tell you...",
+  "Why you can't seem to [goal]...",
+  "The method I use to...",
+  "What took me [x years] to understand...",
+  "The #1 mistake beginners make...",
 ];
 
-// Call-to-actions efficaces
+// Effective Call-to-actions
 export const effectiveCTAs = [
-  "Like si t'as appris quelque chose !",
-  "Sauvegarde cette vidéo pour plus tard",
-  "Partage à quelqu'un qui en a besoin",
-  "Commente '🔥' si tu veux la partie 2",
-  "Abonne-toi pour plus de conseils comme ça",
-  "Dis-moi en commentaire ta question",
-  "Tag quelqu'un qui doit voir ça",
-  "Follow pour ne rien rater",
-  "Quel point t'a le plus marqué ?",
-  "T'es d'accord ? Dis-le moi en commentaire",
+  "Like if you learned something!",
+  "Save this video for later",
+  "Share with someone who needs it",
+  "Comment '🔥' if you want part 2",
+  "Subscribe for more tips like this",
+  "Drop your question in the comments",
+  "Tag someone who needs to see this",
+  "Follow to not miss anything",
+  "Which point stood out to you the most?",
+  "Do you agree? Tell me in the comments",
 ];

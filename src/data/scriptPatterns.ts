@@ -6,24 +6,24 @@ export type ScriptLength = 'short' | 'medium' | 'long';
 export type NicheKey = 'business' | 'fitness' | 'finance' | 'devperso' | 'contenu' | 'tech' | 'cuisine' | 'relations' | 'etudes' | 'voyage' | 'general';
 
 export const formatLabels: Record<ScriptFormat, { name: string; desc: string; icon: string }> = {
-    direct: { name: 'Réponse directe', desc: 'Réponse claire et concise', icon: '💬' },
-    story: { name: 'Storytelling', desc: 'Raconte une histoire personnelle', icon: '📖' },
-    tutorial: { name: 'Mini-tutoriel', desc: 'Explique étape par étape', icon: '🎓' },
-    myth: { name: 'Débunkage', desc: 'Casse un mythe ou une idée reçue', icon: '🧨' },
-    list: { name: 'Liste', desc: '3-5 points clés', icon: '📋' },
-    'avant-apres': { name: 'Avant / Après', desc: 'Transformation personnelle', icon: '🔄' },
-    controverse: { name: 'Controverse', desc: 'Opinion tranchée qui divise', icon: '⚡' },
+    direct: { name: 'Direct Response', desc: 'Clear and concise reply', icon: '💬' },
+    story: { name: 'Storytelling', desc: 'Tells a personal story', icon: '📖' },
+    tutorial: { name: 'Mini-tutorial', desc: 'Explains step by step', icon: '🎓' },
+    myth: { name: 'Myth Buster', desc: 'Debunks a myth or misconception', icon: '🧨' },
+    list: { name: 'List', desc: '3-5 key points', icon: '📋' },
+    'avant-apres': { name: 'Before / After', desc: 'Personal transformation', icon: '🔄' },
+    controverse: { name: 'Controversial', desc: 'Strong opinion that divides', icon: '⚡' },
 };
 
 export const toneLabels: Record<ScriptTone, string> = {
-    professional: 'Professionnel',
-    casual: 'Conversationnel',
-    energetic: 'Énergique',
+    professional: 'Professional',
+    casual: 'Casual',
+    energetic: 'Energetic',
 };
 
 export const lengthLabels: Record<ScriptLength, { name: string; duration: string }> = {
-    short: { name: 'Court', duration: '30s' },
-    medium: { name: 'Moyen', duration: '60s' },
+    short: { name: 'Short', duration: '30s' },
+    medium: { name: 'Medium', duration: '60s' },
     long: { name: 'Long', duration: '90s' },
 };
 
@@ -31,14 +31,14 @@ export const nicheLabels: Record<NicheKey, { name: string; icon: string }> = {
     business: { name: 'Business', icon: '💼' },
     fitness: { name: 'Fitness', icon: '💪' },
     finance: { name: 'Finance', icon: '💰' },
-    devperso: { name: 'Dev. perso', icon: '🧠' },
-    contenu: { name: 'Contenu', icon: '🎬' },
+    devperso: { name: 'Pers. Dev.', icon: '🧠' },
+    contenu: { name: 'Content', icon: '🎬' },
     tech: { name: 'Tech', icon: '💻' },
-    cuisine: { name: 'Cuisine', icon: '🍳' },
-    relations: { name: 'Relations', icon: '❤️' },
-    etudes: { name: 'Études', icon: '📚' },
-    voyage: { name: 'Voyage', icon: '✈️' },
-    general: { name: 'Général', icon: '🌐' },
+    cuisine: { name: 'Cooking', icon: '🍳' },
+    relations: { name: 'Relationships', icon: '❤️' },
+    etudes: { name: 'Studies', icon: '📚' },
+    voyage: { name: 'Travel', icon: '✈️' },
+    general: { name: 'General', icon: '🌐' },
 };
 
 function pick<T>(arr: T[]): T {
@@ -48,146 +48,146 @@ function pick<T>(arr: T[]): T {
 // ─── MASTER HOOKS (niche-aware) ─────────────────────────────
 const nicheHooks: Record<NicheKey, string[]> = {
     business: [
-        "Si tu lances un business en {year}, tu DOIS savoir ça...",
-        "L'erreur #1 qui tue 90% des entrepreneurs...",
-        "Ce que personne ne te dit sur le freelance...",
-        "J'ai perdu des milliers d'euros avant de comprendre ça...",
-        "Le secret des entrepreneurs qui réussissent en silence...",
+        "If you're starting a business in {year}, you MUST know this...",
+        "The #1 mistake that kills 90% of entrepreneurs...",
+        "What no one tells you about freelancing...",
+        "I lost thousands of dollars before understanding this...",
+        "The secret of entrepreneurs who succeed in silence...",
     ],
     fitness: [
-        "Si tu fais cette erreur au sport, tu perds ton temps...",
-        "3 mois de transformation, voilà ce qui a changé...",
-        "Ce que ton coach ne te dira jamais...",
-        "J'ai testé pendant 90 jours, voilà les résultats...",
-        "Arrête cet exercice, il te détruit les articulations...",
+        "If you make this mistake at the gym, you're wasting your time...",
+        "3 months of transformation, here is what changed...",
+        "What your coach will never tell you...",
+        "I tried it for 90 days, here are the results...",
+        "Stop this exercise, it's destroying your joints...",
     ],
     finance: [
-        "Si tu n'investis pas encore, regarde ça...",
-        "L'erreur qui te coûte des milliers chaque année...",
-        "Comment j'ai doublé mon épargne en 6 mois...",
-        "Ce que la banque ne veut pas que tu saches...",
-        "3 investissements que j'aurais dû faire plus tôt...",
+        "If you're not investing yet, watch this...",
+        "The mistake costing you thousands every year...",
+        "How I doubled my savings in 6 months...",
+        "What the bank doesn't want you to know...",
+        "3 investments I wish I made earlier...",
     ],
     devperso: [
-        "Le déclic qui a radicalement changé ma vie...",
-        "Arrête de faire ça chaque matin, ça te ruine...",
-        "La routine qui m'a rendu 10x plus productif...",
-        "Ce que j'aurais aimé me dire il y a 5 ans...",
-        "Le mensonge le plus répandu en développement personnel...",
+        "The turning point that radically changed my life...",
+        "Stop doing this every morning, it's ruining your life...",
+        "The routine that made me 10x more productive...",
+        "What I wish I could tell myself 5 years ago...",
+        "The most common lie in personal development...",
     ],
     contenu: [
-        "Comment j'ai explosé de 0 à 100K abonnés...",
-        "L'algorithme favorise CE type de contenu...",
-        "Le secret des vidéos à 1M+ de vues...",
-        "Arrête de poster à cette heure-là...",
-        "Ce que les gros créateurs ne te montrent pas...",
+        "How I exploded from 0 to 100K followers...",
+        "The algorithm favors THIS type of content...",
+        "The secret behind videos with 1M+ views...",
+        "Stop posting at this time...",
+        "What top creators aren't showing you...",
     ],
     tech: [
-        "Ce langage va dominer en {year}...",
-        "L'outil qui m'a fait gagner 10h par semaine...",
-        "Comment devenir dev en 6 mois sans diplôme...",
-        "L'erreur #1 des développeurs débutants...",
-        "L'IA va remplacer les devs ? Ma réponse honnête...",
+        "This language will dominate in {year}...",
+        "The tool that saved me 10 hours a week...",
+        "How to become a dev in 6 months without a degree...",
+        "The #1 mistake beginner developers make...",
+        "Will AI replace devs? My honest answer...",
     ],
     cuisine: [
-        "Cette recette a changé mes dîners pour toujours...",
-        "L'erreur que 90% des gens font en cuisine...",
-        "Repas healthy pour toute la semaine en 1h...",
-        "L'ingrédient secret que personne n'utilise...",
-        "Comment manger sain sans se ruiner...",
+        "This recipe changed my dinners forever...",
+        "The mistake 90% of people make in the kitchen...",
+        "Healthy meals for the whole week in 1 hour...",
+        "The secret ingredient no one uses...",
+        "How to eat healthy on a budget...",
     ],
     relations: [
-        "Le signe #1 que ta relation est en danger...",
-        "Ce que j'aurais aimé savoir avant mon couple...",
-        "La phrase qui a sauvé notre relation...",
-        "Arrête de faire ça, ça tue ton couple...",
-        "Comment savoir si c'est la bonne personne...",
+        "The #1 sign your relationship is in danger...",
+        "What I wish I knew before my relationship...",
+        "The sentence that saved our relationship...",
+        "Stop doing this, it's killing your relationship...",
+        "How to know if they're the right person...",
     ],
     etudes: [
-        "La méthode de révision qui a doublé mes notes...",
-        "Ce que l'école ne t'apprend pas...",
-        "Comment réussir ses exams sans bachoter...",
-        "L'outil qui a changé ma façon de réviser...",
-        "3 erreurs fatales pendant les exams...",
+        "The study method that doubled my grades...",
+        "What school doesn't teach you...",
+        "How to pass your exams without cramming...",
+        "The tool that changed how I study...",
+        "3 fatal mistakes during exams...",
     ],
     voyage: [
-        "Comment je voyage 6 mois par an sans être riche...",
-        "L'erreur #1 des voyageurs débutants...",
-        "Ce pays coûte 15€/jour tout compris...",
-        "Le secret pour voyager en première à prix réduit...",
-        "Comment travailler et voyager en même temps...",
+        "How I travel 6 months a year without being rich...",
+        "The #1 mistake beginner travelers make...",
+        "This country costs $15/day all inclusive...",
+        "The secret to traveling first class on a budget...",
+        "How to work and travel at the same time...",
     ],
     general: [
-        "Personne ne te dira ça mais...",
-        "J'aurais aimé savoir ça plus tôt...",
-        "Ce que 99% des gens ne comprennent pas...",
-        "Le secret que personne ne veut te dire...",
-        "3 choses que j'aurais aimé savoir avant...",
+        "No one will tell you this but...",
+        "I wish I knew this earlier...",
+        "What 99% of people don't understand...",
+        "The secret no one wants to tell you...",
+        "3 things I wish I knew before...",
     ],
 };
 
 // ─── TRANSITIONS ─────────────────────────────
 const transitions: Record<ScriptTone, string[]> = {
     professional: [
-        "Et voici ce que vous devez retenir.",
-        "Permettez-moi de vous expliquer.",
-        "Voici la réponse que j'aurais aimé recevoir.",
-        "Les données parlent d'elles-mêmes.",
-        "Et la réponse va peut-être vous surprendre.",
+        "And here is what you need to remember.",
+        "Allow me to explain.",
+        "Here is the answer I wish I received.",
+        "The data speaks for itself.",
+        "And the answer might surprise you.",
     ],
     casual: [
-        "Laisse-moi t'expliquer.",
-        "Et franchement, c'est plus simple que tu crois.",
-        "OK, voilà le truc.",
-        "Et c'est là que ça devient intéressant.",
-        "Écoute bien, c'est important.",
+        "Let me explain.",
+        "And honestly, it's simpler than you think.",
+        "OK, here's the thing.",
+        "And this is where it gets interesting.",
+        "Listen closely, this is important.",
     ],
     energetic: [
-        "Et je vais te donner LA réponse !",
-        "ATTENTION, ça va changer ta vision !",
-        "Et crois-moi, tu vas pas en revenir !",
-        "Accroche-toi, c'est du LOURD !",
-        "Et là, GAME CHANGER !",
+        "And I'm going to give you THE answer!",
+        "WARNING, this is going to change your perspective!",
+        "And trust me, you won't believe it!",
+        "Hold on tight, this is HUGE!",
+        "And here, GAME CHANGER!",
     ],
 };
 
 // ─── CTAs ─────────────────────────────
 const ctas: Record<ScriptTone, string[]> = {
     professional: [
-        "Partagez votre expérience en commentaire.",
-        "Si ce contenu vous a été utile, enregistrez-le.",
-        "Quel point vous a le plus interpellé ?",
-        "Indiquez-moi vos questions en commentaire.",
+        "Share your experience in the comments.",
+        "If you found this content useful, save it.",
+        "Which point stood out to you the most?",
+        "Leave your questions in the comments.",
     ],
     casual: [
-        "Dis-moi en commentaire ta question !",
-        "Like si t'as appris un truc.",
-        "Sauvegarde cette vidéo pour plus tard.",
-        "Tag quelqu'un qui a besoin de voir ça.",
-        "C'est lequel ton préféré ? Dis-le en com.",
+        "Tell me your question in the comments!",
+        "Like if you learned something.",
+        "Save this video for later.",
+        "Tag someone who needs to see this.",
+        "Which one is your favorite? Tell me in the comments.",
     ],
     energetic: [
-        "LIKE si ça t'a aidé et PARTAGE !",
-        "Commente '🔥' si tu veux la partie 2 !",
-        "SAUVEGARDE ça MAINTENANT !",
-        "Tu veux que je développe ? DIS-LE !",
-        "Partage à quelqu'un qui DOIT voir ça !",
+        "LIKE if this helped you and SHARE!",
+        "Comment '🔥' if you want part 2!",
+        "SAVE this RIGHT NOW!",
+        "You want me to elaborate? TELL ME!",
+        "Share with someone who NEEDS to see this!",
     ],
 };
 
 // ─── NICHE VOCABULARY ─────────────────────────────
 const nicheVocab: Record<NicheKey, { metrics: string[]; actions: string[]; results: string[] }> = {
-    business: { metrics: ["chiffre d'affaires", "clients", "revenus", "marge"], actions: ["closer", "prospecter", "scaler", "automatiser"], results: ["10K/mois", "liberté financière", "indépendance", "croissance"] },
-    fitness: { metrics: ["reps", "séries", "macros", "poids de corps"], actions: ["s'entraîner", "tracker", "récupérer", "progresser"], results: ["transformation physique", "perte de gras", "prise de muscle", "confiance en soi"] },
-    finance: { metrics: ["rendement", "portefeuille", "dividendes", "épargne"], actions: ["investir", "diversifier", "épargner", "analyser"], results: ["indépendance financière", "revenus passifs", "patrimoine", "liberté"] },
-    devperso: { metrics: ["productivité", "habitudes", "objectifs", "mindset"], actions: ["méditer", "journaliser", "visualiser", "prioriser"], results: ["clarté mentale", "confiance", "sérénité", "accomplissement"] },
-    contenu: { metrics: ["vues", "abonnés", "engagement", "watch time"], actions: ["poster", "scripter", "filmer", "monter"], results: ["viralité", "communauté", "monétisation", "impact"] },
-    tech: { metrics: ["lignes de code", "projets", "contributions", "repos"], actions: ["coder", "déployer", "debugger", "apprendre"], results: ["premier emploi", "remote", "freelance", "side project rentable"] },
-    cuisine: { metrics: ["calories", "budget repas", "temps prep", "portions"], actions: ["préparer", "cuisiner", "organiser", "goûter"], results: ["repas sains", "économies", "plaisir", "gain de temps"] },
-    relations: { metrics: ["communication", "confiance", "qualité du temps", "compromis"], actions: ["écouter", "communiquer", "surprendre", "grandir ensemble"], results: ["couple solide", "complicité", "épanouissement", "bonheur"] },
-    etudes: { metrics: ["notes", "heures étudiées", "fiches", "examens réussis"], actions: ["réviser", "organiser", "pratiquer", "mémoriser"], results: ["mention", "diplôme", "compréhension", "confiance"] },
-    voyage: { metrics: ["budget/jour", "pays visités", "km parcourus", "jours de voyage"], actions: ["réserver", "explorer", "photographier", "s'adapter"], results: ["liberté", "découverte", "souvenirs", "ouverture d'esprit"] },
-    general: { metrics: ["résultats", "progrès", "objectifs", "étapes"], actions: ["commencer", "persévérer", "ajuster", "mesurer"], results: ["réussite", "transformation", "croissance", "accomplissement"] },
+    business: { metrics: ["revenue", "clients", "income", "margin"], actions: ["close", "prospect", "scale", "automate"], results: ["10K/month", "financial freedom", "independence", "growth"] },
+    fitness: { metrics: ["reps", "sets", "macros", "body weight"], actions: ["train", "track", "recover", "progress"], results: ["physical transformation", "fat loss", "muscle gain", "self-confidence"] },
+    finance: { metrics: ["yield", "portfolio", "dividends", "savings"], actions: ["invest", "diversify", "save", "analyze"], results: ["financial independence", "passive income", "wealth", "freedom"] },
+    devperso: { metrics: ["productivity", "habits", "goals", "mindset"], actions: ["meditate", "journal", "visualize", "prioritize"], results: ["mental clarity", "confidence", "serenity", "achievement"] },
+    contenu: { metrics: ["views", "followers", "engagement", "watch time"], actions: ["post", "script", "film", "edit"], results: ["virality", "community", "monetization", "impact"] },
+    tech: { metrics: ["lines of code", "projects", "contributions", "repos"], actions: ["code", "deploy", "debug", "learn"], results: ["first job", "remote work", "freelance", "profitable side project"] },
+    cuisine: { metrics: ["calories", "meal budget", "prep time", "portions"], actions: ["prepare", "cook", "organize", "taste"], results: ["healthy meals", "savings", "pleasure", "time saved"] },
+    relations: { metrics: ["communication", "trust", "quality time", "compromise"], actions: ["listen", "communicate", "surprise", "grow together"], results: ["solid relationship", "connection", "fulfillment", "happiness"] },
+    etudes: { metrics: ["grades", "hours studied", "flashcards", "exams passed"], actions: ["revise", "organize", "practice", "memorize"], results: ["honors", "degree", "understanding", "confidence"] },
+    voyage: { metrics: ["budget/day", "countries visited", "miles traveled", "travel days"], actions: ["book", "explore", "photograph", "adapt"], results: ["freedom", "discovery", "memories", "open-mindedness"] },
+    general: { metrics: ["results", "progress", "goals", "milestones"], actions: ["start", "persevere", "adjust", "measure"], results: ["success", "transformation", "growth", "achievement"] },
 };
 
 // ─── SCRIPT GENERATION ENGINE ─────────────────────────────
@@ -198,7 +198,7 @@ export function generateScript(
     length: ScriptLength,
     niche: NicheKey,
 ): string {
-    const q = question || `Comment réussir en ${nicheLabels[niche].name.toLowerCase()}`;
+    const q = question || `How to succeed in ${nicheLabels[niche].name.toLowerCase()}`;
     const year = new Date().getFullYear();
     const hook = pick(nicheHooks[niche]).replace('{year}', String(year));
     const transition = pick(transitions[tone]);
@@ -208,7 +208,7 @@ export function generateScript(
     const action = pick(vocab.actions);
     const result = pick(vocab.results);
 
-    const g = tone === 'energetic' ? 'STOP ! ' : tone === 'casual' ? '' : '';
+    const g = tone === 'energetic' ? 'STOP! ' : tone === 'casual' ? '' : '';
     const cas = tone === 'casual';
     const ene = tone === 'energetic';
     const pro = tone === 'professional';
@@ -217,91 +217,91 @@ export function generateScript(
 
     // Helper to add a section
     const add = (label: string, dur: string, ...lines: string[]) => {
-        sections.push(`[${label} — ${dur}]\n${lines.filter(Boolean).join('\n')}`);
+        sections.push(`[${label} — ${dur}]\\n${lines.filter(Boolean).join('\\n')}`);
     };
 
     if (format === 'direct') {
         add('HOOK', '3s', `${g}"${q}"`, hook);
         add('TRANSITION', '5s', transition);
-        if (length !== 'short') add('CONTEXTE', '10s',
-            `${cas ? 'En fait, ' : ''}cette question revient tout le temps.`,
-            `${ene ? 'Et la réponse va te SURPRENDRE ! ' : ''}C'est un sujet qui touche beaucoup de monde.`
+        if (length !== 'short') add('CONTEXT', '10s',
+            `${cas ? 'Actually, ' : ''}this question comes up all the time.`,
+            `${ene ? 'And the answer will SURPRISE you! ' : ''}It's a topic that affects a lot of people.`
         );
-        add('RÉPONSE', length === 'short' ? '20s' : '30s',
-            `${cas ? 'Voilà le truc : ' : 'Voici ma réponse : '}il y a ${length === 'long' ? 'quatre' : 'trois'} éléments essentiels.`,
-            `\nPremièrement, ${ene ? 'et c\'est CRUCIAL : ' : ''}${action}. C'est la base pour atteindre ${result}.`,
-            `\nDeuxièmement, mesure ton ${metric}. ${cas ? 'Ce qui se mesure s\'améliore.' : 'La mesure permet l\'optimisation.'}`,
-            `\nTroisièmement, sois régulier. ${ene ? 'La CONSTANCE bat le talent !' : 'La régularité prime sur l\'intensité.'}`
+        add('ANSWER', length === 'short' ? '20s' : '30s',
+            `${cas ? "Here's the thing: " : 'Here is my answer: '}there are ${length === 'long' ? 'four' : 'three'} essential elements.`,
+            `\\nFirst, ${ene ? "and it's CRUCIAL: " : ''}${action}. It's the foundation for achieving ${result}.`,
+            `\\nSecond, track your ${metric}. ${cas ? 'What gets measured gets improved.' : 'Measurement allows optimization.'}`,
+            `\\nThird, be consistent. ${ene ? 'CONSISTENCY beats talent!' : 'Consistency is more important than intensity.'}`
         );
-        if (length === 'long') add('APPROFONDISSEMENT', '20s',
-            `${cas ? 'Et le point bonus : ' : 'Quatrième élément : '}entoure-toi des bonnes personnes.`,
-            `Ton environnement détermine tes ${metric}. ${ene ? 'C\'est NON-NÉGOCIABLE !' : ''}`
+        if (length === 'long') add('DEEP DIVE', '20s',
+            `${cas ? 'And the bonus point: ' : 'Fourth element: '}surround yourself with the right people.`,
+            `Your environment determines your ${metric}. ${ene ? "It's NON-NEGOTIABLE!" : ''}`
         );
         add('CALL-TO-ACTION', '5s', cta);
     }
 
     else if (format === 'story') {
-        add('HOOK', '3s', `${g}"${q}" — Cette question me ramène à un moment précis.`);
+        add('HOOK', '3s', `${g}"${q}" — This question takes me back to a specific moment.`);
         add('SITUATION', length === 'short' ? '10s' : '15s',
-            `${cas ? 'Figure-toi qu\'' : ''}il y a quelques années, j'étais dans une situation compliquée.`,
-            `${ene ? 'Genre VRAIMENT dans le dur ! ' : ''}Je me posais exactement cette question.`,
-            length !== 'short' ? `J'avais tout essayé. ${cas ? 'Rien marchait.' : 'Sans résultat probant.'}` : ''
+            `${cas ? 'Get this, ' : ''}a few years ago, I was in a tough situation.`,
+            `${ene ? 'Like REALLY struggling! ' : ''}I was asking myself exactly this question.`,
+            length !== 'short' ? `I had tried everything. ${cas ? 'Nothing worked.' : 'With no meaningful results.'}` : ''
         );
-        if (length !== 'short') add('DÉCLIC', '15s',
-            `Et puis un jour, quelqu'un m'a dit : "${cas ? 'Arrête de chercher la perfection.' : 'Cessez d\'attendre les conditions idéales.'}"`,
-            `${ene ? 'Et là, DÉCLIC ! ' : ''}J'ai compris que je devais ${action} immédiatement.`
+        if (length !== 'short') add('TURNING POINT', '15s',
+            `And then one day, someone told me: "${cas ? 'Stop looking for perfection.' : 'Stop waiting for ideal conditions.'}"`,
+            `${ene ? 'And then, it CLICKED! ' : ''}I realized I needed to ${action} immediately.`
         );
-        add('RÉSULTAT', length === 'short' ? '10s' : '15s',
-            `${cas ? 'Et devinez quoi ? ' : ''}Les résultats ont suivi. ${result}.`,
-            `${ene ? 'Et crois-moi, ça en valait TELLEMENT la peine !' : ''}`,
-            `Ce que j'ai appris : ${cas ? 'fais le premier pas, même si c\'est imparfait.' : 'l\'action imparfaite bat l\'inaction parfaite.'}`
+        add('RESULT', length === 'short' ? '10s' : '15s',
+            `${cas ? 'And guess what? ' : ''}The results followed. ${result}.`,
+            `${ene ? 'And trust me, it was SO worth it!' : ''}`,
+            `What I learned: ${cas ? "take the first step, even if it's imperfect." : 'imperfect action beats perfect inaction.'}`
         );
         add('CALL-TO-ACTION', '5s', cta);
     }
 
     else if (format === 'tutorial') {
-        add('HOOK', '3s', `${g}"${q}" — ${cas ? 'Je te montre étape par étape.' : 'Voici la méthode.'}`);
+        add('HOOK', '3s', `${g}"${q}" — ${cas ? "I'll show you step-by-step." : 'Here is the method.'}`);
         if (length !== 'short') add('INTRO', '8s',
-            `${cas ? 'Rien de compliqué, tu vas voir.' : 'C\'est plus simple qu\'il n\'y paraît.'}`,
-            `${ene ? 'Prends des notes, c\'est du LOURD !' : ''}`
+            `${cas ? "It's not complicated, you'll see." : "It's simpler than it seems."}`,
+            `${ene ? "Take notes, this is HUGE!" : ''}`
         );
-        add('ÉTAPE 1', '10s', `Première étape : ${action}.`, `${cas ? 'C\'est la base, commence par là.' : 'C\'est le fondement de la méthode.'}`);
-        add('ÉTAPE 2', '10s', `Deuxième étape : mesure ton ${metric} régulièrement.`, `${ene ? 'Ce qui se mesure s\'AMÉLIORE !' : ''}`);
-        add('ÉTAPE 3', '10s', `Troisième étape : ajuste en fonction des résultats.`, `${cas ? 'C\'est normal si c\'est pas parfait du premier coup.' : ''}`);
-        if (length === 'long') add('ÉTAPE 4', '10s', `Quatrième étape : optimise pour ${result}.`, `C'est là que tu passes au niveau supérieur.`);
+        add('STEP 1', '10s', `First step: ${action}.`, `${cas ? "That's the basics, start there." : 'This is the foundation of the method.'}`);
+        add('STEP 2', '10s', `Second step: track your ${metric} regularly.`, `${ene ? 'What gets measured gets IMPROVED!' : ''}`);
+        add('STEP 3', '10s', `Third step: adjust based on the results.`, `${cas ? "It's normal if it's not perfect on the first try." : ''}`);
+        if (length === 'long') add('STEP 4', '10s', `Fourth step: optimize for ${result}.`, `This is where you go to the next level.`);
         add('CALL-TO-ACTION', '5s', cta);
     }
 
     else if (format === 'myth') {
-        add('HOOK', '3s', `${g}"${q}" — ${ene ? 'Il faut qu\'on parle de ce MYTHE !' : 'Déconstruisons cette croyance.'}`);
-        add('LE MYTHE', '10s',
-            `Beaucoup pensent qu'il faut ${pick(['des années d\'expérience', 'un gros budget', 'des contacts', 'un diplôme'])} pour réussir.`,
-            `${cas ? 'C\'est une croyance qui bloque énormément de monde.' : 'Cette croyance est limitante.'}`
+        add('HOOK', '3s', `${g}"${q}" — ${ene ? 'We need to talk about this MYTH!' : "Let's debunk this belief."}`);
+        add('THE MYTH', '10s',
+            `Many think you need ${pick(['years of experience', 'a big budget', 'connections', 'a degree'])} to succeed.`,
+            `${cas ? "It's a belief that holds a lot of people back." : 'This is a limiting belief.'}`
         );
-        add('LA VÉRITÉ', length === 'short' ? '15s' : '25s',
-            `${ene ? 'La VÉRITÉ : ' : 'En réalité, '}c'est faux.`,
-            `Ce qui compte vraiment : ${action} et mesurer son ${metric}.`,
-            `${cas ? 'J\'ai vu des gens atteindre ' : 'Des personnes ont atteint '}${result} en partant de zéro.`,
-            length !== 'short' ? `Les conditions parfaites n'existent pas. ${ene ? 'Arrête d\'attendre !' : ''}` : ''
+        add('THE TRUTH', length === 'short' ? '15s' : '25s',
+            `${ene ? 'The TRUTH: ' : 'In reality, '}it's false.`,
+            `What really matters: ${action} and tracking your ${metric}.`,
+            `${cas ? "I've seen people achieve " : 'People have achieved '}${result} starting from scratch.`,
+            length !== 'short' ? `Perfect conditions don't exist. ${ene ? 'Stop waiting!' : ''}` : ''
         );
-        if (length === 'long') add('LA PREUVE', '15s',
-            `${cas ? 'Regarde ' : 'Observez '}les success stories. ${ene ? 'AUCUNE ' : 'Aucune '}n'a commencé avec tout.`,
-            `Le point commun : passer à l'action malgré les doutes.`
+        if (length === 'long') add('THE PROOF', '15s',
+            `${cas ? 'Look at ' : 'Observe '}the success stories. ${ene ? 'NONE ' : 'None '}started with everything.`,
+            `The common denominator: taking action despite doubts.`
         );
         add('CALL-TO-ACTION', '5s', cta);
     }
 
     else if (format === 'list') {
         const count = length === 'short' ? 3 : length === 'medium' ? 5 : 7;
-        add('HOOK', '3s', `${g}${count} vérités sur "${q}"`);
+        add('HOOK', '3s', `${g}${count} truths about "${q}"`);
         const points = [
-            `Commence là où tu es. ${ene ? 'Pas demain, MAINTENANT !' : ''}`,
-            `Mesure ton ${metric}. ${cas ? 'Ce qui se mesure s\'améliore.' : ''}`,
-            `${pick(['Sois régulier.', 'La constance > l\'intensité.'])} ${ene ? 'C\'est CRUCIAL !' : ''}`,
-            `Entoure-toi des bonnes personnes. ${cas ? 'Ton environnement te définit.' : ''}`,
-            `Apprends en faisant. ${ene ? 'L\'action bat la théorie !' : ''}`,
-            `Investis en toi. ${cas ? 'Ton meilleur investissement.' : ''}`,
-            `Commence avant d'être prêt. ${ene ? 'Le moment parfait n\'existe PAS !' : ''}`,
+            `Start where you are. ${ene ? 'Not tomorrow, NOW!' : ''}`,
+            `Track your ${metric}. ${cas ? 'What gets measured gets improved.' : ''}`,
+            `${pick(['Be consistent.', 'Consistency > intensity.'])} ${ene ? "It's CRUCIAL!" : ''}`,
+            `Surround yourself with the right people. ${cas ? 'Your environment defines you.' : ''}`,
+            `Learn by doing. ${ene ? 'Action beats theory!' : ''}`,
+            `Invest in yourself. ${cas ? 'Your best investment.' : ''}`,
+            `Start before you're ready. ${ene ? 'The perfect moment DOES NOT exist!' : ''}`,
         ];
         for (let i = 0; i < count; i++) {
             add(`POINT ${i + 1}`, length === 'short' ? '8s' : '10s', points[i]);
@@ -310,52 +310,52 @@ export function generateScript(
     }
 
     else if (format === 'avant-apres') {
-        add('HOOK', '3s', `${g}"${q}" — Ma transformation en quelques mois.`);
-        add('AVANT', length === 'short' ? '12s' : '20s',
-            `${cas ? 'Avant, ' : 'Il y a quelques mois, '}j'étais bloqué. Mon ${metric} était au plus bas.`,
-            `${ene ? 'Genre ZÉRO résultat !' : ''}`,
-            length !== 'short' ? `Je faisais les mauvaises choses. ${cas ? 'Je perdais mon temps sans le savoir.' : ''}` : ''
+        add('HOOK', '3s', `${g}"${q}" — My transformation in a few months.`);
+        add('BEFORE', length === 'short' ? '12s' : '20s',
+            `${cas ? 'Before, ' : 'A few months ago, '}I was stuck. My ${metric} was at rock bottom.`,
+            `${ene ? 'Like ZERO results!' : ''}`,
+            length !== 'short' ? `I was doing the wrong things. ${cas ? 'I was wasting my time without knowing it.' : ''}` : ''
         );
-        add('LE CHANGEMENT', length === 'short' ? '8s' : '15s',
-            `J'ai décidé de ${action}. De tout repenser.`,
-            `${ene ? 'Et là, TOUT a changé !' : 'Les résultats ont commencé à arriver.'}`
+        add('THE CHANGE', length === 'short' ? '8s' : '15s',
+            `I decided to ${action}. To rethink everything.`,
+            `${ene ? 'And then, EVERYTHING changed!' : 'The results started to show.'}`
         );
-        add('APRÈS', length === 'short' ? '10s' : '20s',
-            `Aujourd'hui : ${result}.`,
-            `Mon ${metric} a complètement changé.`,
-            `${cas ? 'Et le plus fou ?' : ''} C'était pas aussi compliqué que je le pensais.`
+        add('AFTER', length === 'short' ? '10s' : '20s',
+            `Today: ${result}.`,
+            `My ${metric} has completely changed.`,
+            `${cas ? 'And the craziest part?' : ''} It wasn't as complicated as I thought.`
         );
-        if (length === 'long') add('LEÇON', '10s',
-            `La leçon : ${cas ? 'faut juste commencer.' : 'l\'action est le seul chemin.'}`,
-            `${ene ? 'Chaque jour compte !' : ''}`
+        if (length === 'long') add('LESSON', '10s',
+            `The lesson: ${cas ? 'you just have to start.' : 'action is the only path.'}`,
+            `${ene ? 'Every day counts!' : ''}`
         );
         add('CALL-TO-ACTION', '5s', cta);
     }
 
     else if (format === 'controverse') {
-        add('HOOK', '3s', `${g}"${q}" — ${ene ? 'Attention, ça va diviser !' : 'Mon avis va surprendre.'}`);
+        add('HOOK', '3s', `${g}"${q}" — ${ene ? 'Warning, this is going to divide!' : 'My opinion might surprise you.'}`);
         add('OPINION', length === 'short' ? '10s' : '15s',
-            `${cas ? 'Je pense que ' : 'Mon opinion : '}${pick([
-                `la majorité se trompe sur ce sujet.`,
-                `on fait tout à l'envers.`,
-                `le conseil le plus répandu est faux.`,
+            `${cas ? 'I think that ' : 'My opinion: '}${pick([
+                `the majority is wrong about this.`,
+                `we're doing it all backwards.`,
+                `the most common advice is wrong.`,
             ])}`,
-            `${ene ? 'Et je vais vous le PROUVER !' : ''}`
+            `${ene ? "And I'm going to PROVE it to you!" : ''}`
         );
         add('ARGUMENT 1', '12s',
-            `Premier argument : les résultats parlent.`,
-            `Ceux qui ${action} obtiennent ${result}. ${cas ? 'C\'est un fait.' : ''}`
+            `First argument: results speak for themselves.`,
+            `Those who ${action} achieve ${result}. ${cas ? "It's a fact." : ''}`
         );
         if (length !== 'short') add('ARGUMENT 2', '12s',
-            `Deuxième argument : le ${metric} ne ment pas.`,
-            `${ene ? 'Les CHIFFRES prouvent que j\'ai raison !' : 'Les données confirment cette approche.'}`
+            `Second argument: ${metric} doesn't lie.`,
+            `${ene ? "The NUMBERS prove I'm right!" : 'The data confirms this approach.'}`
         );
         if (length === 'long') add('NUANCE', '10s',
-            `${cas ? 'Bon, je nuance quand même : ' : 'Cependant, '}chaque situation est unique.`,
-            `Mais le principe reste valable dans ${pro ? 'la grande majorité des cas.' : '90% des cas.'}`
+            `${cas ? "Well, I'll add a nuance though: " : 'However, '}every situation is unique.`,
+            `But the principle remains valid in ${pro ? 'the vast majority of cases.' : '90% of cases.'}`
         );
-        add('CALL-TO-ACTION', '5s', `${cas ? 'T\'es d\'accord ? ' : 'Quel est votre avis ? '}${cta}`);
+        add('CALL-TO-ACTION', '5s', `${cas ? 'Do you agree? ' : "What's your opinion? "}${cta}`);
     }
 
-    return sections.join('\n\n');
+    return sections.join('\\n\\n');
 }

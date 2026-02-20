@@ -16,7 +16,7 @@ export function YouTubeComment({ username, comment, likes, time, avatarUrl, veri
       <div className="flex gap-3">
         <div className="flex-shrink-0">
           <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-            <img src={avatarUrl} alt="" className="w-full h-full object-cover" crossOrigin="anonymous" />
+            <img src={avatarUrl} alt="youtube comment sticker generator overlay" className="w-full h-full object-cover" crossOrigin="anonymous" />
           </div>
         </div>
         <div className="flex-1 min-w-0">
@@ -32,7 +32,7 @@ export function YouTubeComment({ username, comment, likes, time, avatarUrl, veri
             </div>
             <ThumbsDown className="w-4 h-4 text-gray-600" />
             <button className="text-xs text-gray-600 font-medium ml-2 hover:bg-gray-100 px-2 py-1 rounded-full">
-              Répondre
+              Reply
             </button>
           </div>
         </div>

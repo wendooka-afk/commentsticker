@@ -21,8 +21,8 @@ export function SnapchatComment({ username, comment, time, avatarUrl, verified }
               <span className="font-bold text-sm text-gray-900">{username}</span>
               {verified && (
                 <svg className="w-4 h-4 text-[#FFFC00] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" fill="#FFFC00" stroke="#000" strokeWidth="2"/>
-                  <path d="M9 12l2 2 4-4" stroke="#000" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="10" fill="#FFFC00" stroke="#000" strokeWidth="2" />
+                  <path d="M9 12l2 2 4-4" stroke="#000" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               )}
               <span className="text-xs text-gray-500">• {time}</span>
@@ -36,12 +36,12 @@ export function SnapchatComment({ username, comment, time, avatarUrl, verified }
       {/* Bottom bar */}
       <div className="mt-3 flex items-center justify-center gap-2">
         <div className="bg-white/80 rounded-full px-4 py-2 flex items-center gap-2">
-          <span className="text-xs font-semibold text-gray-700">Envoyer un chat</span>
+          <span className="text-xs font-semibold text-gray-700">Send a chat</span>
         </div>
         <div className="bg-white/80 rounded-full p-2">
           <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-            <circle cx="12" cy="13" r="3"/>
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+            <circle cx="12" cy="13" r="3" />
           </svg>
         </div>
       </div>

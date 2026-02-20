@@ -47,23 +47,23 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
       <div className="space-y-4">
         <div className={`rounded-xl p-5 border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
           <h2 className={`text-sm font-semibold uppercase tracking-wide mb-4 ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
-            Configuration du script
+            Script Configuration
           </h2>
 
           <div className="space-y-4">
             {/* Question */}
             <div>
               <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                Question du commentaire
+                Comment Question
               </label>
               <textarea
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
-                placeholder="Ex: Comment tu as commencé ton business ?"
+                placeholder="Ex: How did you start your business?"
                 rows={2}
                 className={`w-full px-4 py-3 rounded-lg border text-sm transition-colors resize-none ${darkMode
-                    ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500 focus:border-neutral-600'
-                    : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-300'
+                  ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500 focus:border-neutral-600'
+                  : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-300'
                   } focus:outline-none`}
               />
             </div>
@@ -72,7 +72,7 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
             <div>
               <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
                 <Sparkles className="w-3.5 h-3.5 inline mr-1.5" />
-                Niche (adapte le vocabulaire et les hooks)
+                Niche (adapts vocabulary and hooks)
               </label>
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5">
                 {(Object.keys(nicheLabels) as NicheKey[]).map((n) => (
@@ -80,8 +80,8 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
                     key={n}
                     onClick={() => setNiche(n)}
                     className={`flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-xs font-medium transition-all ${niche === n
-                        ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-                        : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                      ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+                      : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                       }`}
                   >
                     <span>{nicheLabels[n].icon}</span>
@@ -96,7 +96,7 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
         {/* Format Selection */}
         <div className={`rounded-xl p-5 border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
           <h3 className={`text-sm font-semibold uppercase tracking-wide mb-4 ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
-            Format de la vidéo
+            Video Format
           </h3>
           <div className="grid grid-cols-1 gap-2">
             {(Object.keys(formatLabels) as ScriptFormat[]).map((f) => (
@@ -104,8 +104,8 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
                 key={f}
                 onClick={() => setFormat(f)}
                 className={`flex items-center justify-between px-4 py-3 rounded-lg text-left transition-all ${format === f
-                    ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-                    : darkMode ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+                  : darkMode ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                   }`}
               >
                 <div className="flex items-center gap-3">
@@ -129,7 +129,7 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
             className="w-full flex items-center justify-between px-5 py-4 text-left"
           >
             <span className={`text-sm font-semibold uppercase tracking-wide ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
-              Options avancées
+              Advanced Options
             </span>
             <ChevronDown className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''} ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
           </button>
@@ -137,15 +137,15 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
           {showAdvanced && (
             <div className="px-5 pb-5 space-y-4">
               <div>
-                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Ton</label>
+                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Tone</label>
                 <div className="flex gap-2">
                   {(Object.keys(toneLabels) as ScriptTone[]).map((t) => (
                     <button
                       key={t}
                       onClick={() => setTone(t)}
                       className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${tone === t
-                          ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-                          : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                        ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+                        : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                         }`}
                     >
                       {toneLabels[t]}
@@ -155,15 +155,15 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
               </div>
 
               <div>
-                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Durée</label>
+                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Duration</label>
                 <div className="flex gap-2">
                   {(Object.keys(lengthLabels) as ScriptLength[]).map((l) => (
                     <button
                       key={l}
                       onClick={() => setLength(l)}
                       className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${length === l
-                          ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-                          : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                        ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+                        : darkMode ? 'bg-neutral-800 text-neutral-400 hover:bg-neutral-750' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                         }`}
                     >
                       <span>{lengthLabels[l].name}</span>
@@ -180,12 +180,12 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
         <button
           onClick={handleGenerate}
           className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm transition-all ${darkMode
-              ? 'bg-white text-neutral-900 hover:bg-neutral-100'
-              : 'bg-neutral-900 text-white hover:bg-neutral-800'
+            ? 'bg-white text-neutral-900 hover:bg-neutral-100'
+            : 'bg-neutral-900 text-white hover:bg-neutral-800'
             }`}
         >
           <FileText className="w-5 h-5" />
-          Générer le script
+          Generate script
         </button>
       </div>
 
@@ -194,7 +194,7 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
         <div className={`flex items-center justify-between px-5 py-4 border-b ${darkMode ? 'border-neutral-800' : 'border-neutral-200'}`}>
           <div className="flex items-center gap-3">
             <h3 className={`font-semibold ${darkMode ? 'text-white' : 'text-neutral-900'}`}>
-              Script généré
+              Generated script
             </h3>
             {generatedScript && (
               <span className={`text-xs px-2 py-1 rounded-full ${darkMode ? 'bg-neutral-800 text-neutral-400' : 'bg-neutral-100 text-neutral-500'}`}>
@@ -208,19 +208,19 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
               <button
                 onClick={handleGenerate}
                 className={`p-2 rounded-lg transition-colors ${darkMode ? 'hover:bg-neutral-800 text-neutral-400' : 'hover:bg-neutral-100 text-neutral-500'}`}
-                title="Régénérer (nouveau contenu aléatoire)"
+                title="Regenerate (new random content)"
               >
                 <RefreshCw className="w-4 h-4" />
               </button>
               <button
                 onClick={handleCopy}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${copied
-                    ? 'bg-green-500 text-white'
-                    : darkMode ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  ? 'bg-green-500 text-white'
+                  : darkMode ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                   }`}
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                {copied ? 'Copié' : 'Copier'}
+                {copied ? 'Copied' : 'Copy'}
               </button>
             </div>
           )}
@@ -234,9 +234,9 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
           ) : (
             <div className={`text-center py-16 ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
               <FileText className="w-12 h-12 mx-auto mb-4 opacity-30" />
-              <p className="font-medium">Aucun script généré</p>
-              <p className="text-sm mt-1">Choisis ta niche, ton format et clique sur "Générer"</p>
-              <p className="text-xs mt-3 opacity-60">💡 Chaque génération produit un résultat unique</p>
+              <p className="font-medium">No script generated</p>
+              <p className="text-sm mt-1">Choose your niche, format and click "Generate"</p>
+              <p className="text-xs mt-3 opacity-60">💡 Each generation produces a unique result</p>
             </div>
           )}
         </div>

@@ -20,14 +20,14 @@ interface StickerGeneratorProps {
 }
 
 const sampleComments = [
-    "Comment tu as commencé ?",
-    "C'est quoi ton secret ?",
-    "Tu peux expliquer plus en détail ?",
-    "J'ai la même question depuis longtemps",
-    "Comment c'est possible ?",
-    "Tu recommandes quoi pour débuter ?",
-    "C'est vraiment efficace ?",
-    "Combien de temps ça t'a pris ?",
+    "How did you start?",
+    "What's your secret?",
+    "Can you explain in more detail?",
+    "I've had the same question for a long time",
+    "How is this possible?",
+    "What do you recommend for beginners?",
+    "Is it really effective?",
+    "How long did it take you?",
 ];
 
 function randomFrom<T>(arr: T[]): T {
@@ -44,7 +44,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
     const [selectedPlatform, setSelectedPlatform] = useState<Platform>('tiktok');
     const [username, setUsername] = useState('user_curieux_2024');
     const [displayName, setDisplayName] = useState('User Curieux');
-    const [comment, setComment] = useState(initialComment || "Comment tu as commencé ?");
+    const [comment, setComment] = useState(initialComment || "How did you start?");
     const [likes, setLikes] = useState('1.2K');
     const [time, setTime] = useState('2h');
     const [avatarUrl, setAvatarUrl] = useState(defaultAvatars[0]);
@@ -65,7 +65,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
 
     const randomize = useCallback(() => {
         setUsername(randomFrom(sampleUsernames));
-        setDisplayName(randomFrom(['Alex P.', 'Marie L.', 'Lucas M.', 'Emma R.', 'Hugo D.', 'Léa B.']));
+        setDisplayName(randomFrom(['Alex P.', 'Marie L.', 'Lucas M.', 'Emma R.', 'Hugo D.', 'Lea B.']));
         setComment(randomFrom(sampleComments));
         setLikes(formatNumber(Math.floor(Math.random() * 50000)));
         setTime(randomFrom(['1m', '5m', '15m', '1h', '2h', '5h', '1j']));
@@ -201,9 +201,9 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                 <div className={`rounded-3xl p-6 border transition-all ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
                     <div className="flex items-center justify-between mb-6">
                         <h2 className={`text-xs font-black uppercase tracking-[0.2em] ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
-                            Choisir Plateforme
+                            Choose Platform
                         </h2>
-                        <div className="px-2 py-1 rounded bg-pink-500/10 text-pink-500 text-[10px] font-bold">8 réseaux</div>
+                        <div className="px-2 py-1 rounded bg-pink-500/10 text-pink-500 text-[10px] font-bold">8 networks</div>
                     </div>
                     <div className="grid grid-cols-4 gap-3">
                         {platforms.map(platform => (
@@ -228,7 +228,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                 <div className={`rounded-3xl p-6 border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
                     <div className="flex items-center justify-between mb-6">
                         <h2 className={`text-xs font-black uppercase tracking-[0.2em] ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
-                            Photo de Profil
+                            Profile Picture
                         </h2>
                         <button
                             onClick={randomize}
@@ -236,7 +236,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                 }`}
                         >
                             <Shuffle className="w-3.5 h-3.5" />
-                            Aléatoire
+                            Random
                         </button>
                     </div>
 
@@ -254,7 +254,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                 <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
                             </div>
                             <div className="flex-1">
-                                <p className="text-sm font-bold mb-2">Changer l'avatar</p>
+                                <p className="text-sm font-bold mb-2">Change avatar</p>
                                 <div className="flex flex-wrap gap-2 items-center">
                                     {defaultAvatars.slice(0, 4).map((url, i) => (
                                         <button
@@ -294,7 +294,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                     type="url"
                                     value={customUrl}
                                     onChange={(e) => setCustomUrl(e.target.value)}
-                                    placeholder="URL de l'image..."
+                                    placeholder="Image URL..."
                                     className={`flex-1 px-4 py-2 rounded-xl border text-xs transition-all focus:outline-none ${darkMode ? 'bg-neutral-800 border-neutral-700 focus:border-pink-500' : 'bg-neutral-50 border-neutral-100 focus:border-pink-500'
                                         }`}
                                 />
@@ -334,7 +334,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                 <div className={`rounded-3xl p-6 border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-xl shadow-black/[0.02]'}`}>
                     <div className="flex items-center justify-between mb-6">
                         <h2 className={`text-xs font-black uppercase tracking-[0.2em] ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
-                            Commentaire
+                            Comment
                         </h2>
                         <div className="flex gap-1.5">
                             <button onClick={() => onNavigate('finder')} className="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-pink-500 hover:text-white transition-all shadow-sm">
@@ -351,14 +351,14 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                             value={comment}
                             onChange={e => setComment(e.target.value)}
                             rows={3}
-                            placeholder="Rédigez votre commentaire ici..."
+                            placeholder="Write your comment here..."
                             className={`w-full px-5 py-4 rounded-2xl border text-sm font-medium leading-relaxed transition-all resize-none focus:outline-none ${darkMode ? 'bg-neutral-800 border-neutral-700 focus:border-pink-500' : 'bg-neutral-50 border-neutral-100 focus:border-pink-500'
                                 }`}
                         />
 
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-[10px] font-black uppercase tracking-widest text-neutral-500 mb-2 px-1">Temps</label>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-neutral-500 mb-2 px-1">Time</label>
                                 <input type="text" value={time} onChange={e => setTime(e.target.value)} className={`w-full px-4 py-3 rounded-2xl border text-sm font-bold focus:outline-none ${darkMode ? 'bg-neutral-800 border-neutral-700' : 'bg-neutral-50 border-neutral-100'}`} />
                             </div>
                             <div>
@@ -373,14 +373,14 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                 className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${verified ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/20' : darkMode ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-100 text-neutral-400'
                                     }`}
                             >
-                                Vérifié
+                                Verified
                             </button>
                             <button
                                 onClick={() => setLiked(!liked)}
                                 className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${liked ? 'bg-pink-500 text-white shadow-lg shadow-pink-500/20' : darkMode ? 'bg-neutral-800 text-neutral-500' : 'bg-neutral-100 text-neutral-400'
                                     }`}
                             >
-                                Liké
+                                Liked
                             </button>
                             {onGoToScript && (
                                 <button
@@ -388,7 +388,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                     className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all border ${darkMode ? 'border-neutral-700 text-neutral-400 hover:text-white' : 'border-neutral-200 text-neutral-500 hover:text-neutral-900'
                                         }`}
                                 >
-                                    Générer Script
+                                    Generate Script
                                 </button>
                             )}
                         </div>
@@ -436,7 +436,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                 }`}
                         >
                             {showSuccess ? <Check className="w-5 h-5" /> : downloading ? <div className="w-5 h-5 border-2 border-current/30 border-t-current rounded-full animate-spin" /> : <Download className="w-5 h-5" />}
-                            {showSuccess ? 'Prêt !' : 'Exporter PNG'}
+                            {showSuccess ? 'Ready !' : 'Export PNG'}
                         </button>
 
                         <button
@@ -447,7 +447,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                                 }`}
                         >
                             {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
-                            {copied ? 'Copié' : 'Copier'}
+                            {copied ? 'Copied' : 'Copy'}
                         </button>
                     </div>
 
@@ -458,7 +458,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
                         </div>
                         <div className="text-center">
                             <div className="text-xl font-black">{replies}</div>
-                            <div className="text-[9px] font-black uppercase text-neutral-500 tracking-widest">Réponses</div>
+                            <div className="text-[9px] font-black uppercase text-neutral-500 tracking-widest">Replies</div>
                         </div>
                         <div className="text-center">
                             <div className="text-xl font-black">{retweets}</div>

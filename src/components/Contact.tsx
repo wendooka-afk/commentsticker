@@ -14,7 +14,7 @@ export function Contact({ darkMode, onNavigate }: LegalPageProps) {
                     className="flex items-center gap-2 text-sm font-bold hover:text-pink-500 transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4" />
-                    Retour à l'accueil
+                    Back to home
                 </button>
             </nav>
 
@@ -29,7 +29,7 @@ export function Contact({ darkMode, onNavigate }: LegalPageProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-8">
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 font-medium">
-                            Une question, une suggestion ou un bug à signaler ? Notre équipe est à votre écoute.
+                            A question, suggestion or bug to report? Our team is listening.
                         </p>
 
                         <div className="space-y-4">
@@ -48,7 +48,7 @@ export function Contact({ darkMode, onNavigate }: LegalPageProps) {
                                 </div>
                                 <div>
                                     <div className="text-xs font-black uppercase text-neutral-400 tracking-widest">Discord</div>
-                                    <div className="font-bold">Rejoindre la communauté</div>
+                                    <div className="font-bold">Join the community</div>
                                 </div>
                             </div>
                         </div>
@@ -56,19 +56,19 @@ export function Contact({ darkMode, onNavigate }: LegalPageProps) {
 
                     <form className={`p-8 rounded-[2.5rem] border space-y-4 ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-white shadow-xl shadow-black/5'}`} onSubmit={(e) => e.preventDefault()}>
                         <div className="space-y-2">
-                            <label className="text-xs font-black uppercase tracking-widest text-neutral-400">Nom</label>
-                            <input type="text" className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="Votre nom" />
+                            <label className="text-xs font-black uppercase tracking-widest text-neutral-400">Name</label>
+                            <input type="text" className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="Your name" />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-black uppercase tracking-widest text-neutral-400">Email</label>
-                            <input type="email" className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="votre@email.com" />
+                            <input type="email" className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="your@email.com" />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-black uppercase tracking-widest text-neutral-400">Message</label>
-                            <textarea rows={4} className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                            <textarea rows={4} className={`w-full px-4 py-3 rounded-xl border ${darkMode ? 'bg-neutral-950 border-neutral-800' : 'bg-neutral-50 border-neutral-100'}`} placeholder="How can we help you?"></textarea>
                         </div>
                         <button className="w-full py-4 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-2xl font-black transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
-                            Envoyer
+                            Send
                             <Send className="w-4 h-4" />
                         </button>
                     </form>

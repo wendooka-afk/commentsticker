@@ -26,7 +26,7 @@ export function ThreadsComment({ username, comment, likes, time, avatarUrl, veri
               <span className="font-semibold text-[15px]">{username}</span>
               {verified && (
                 <svg className="w-4 h-4 text-[#0095f6] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.5 14.5l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.5 14.5l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z" />
                 </svg>
               )}
             </div>
@@ -48,9 +48,9 @@ export function ThreadsComment({ username, comment, likes, time, avatarUrl, veri
             </button>
           </div>
           <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
-            <span>{replies} réponses</span>
+            <span>{replies} replies</span>
             <span>•</span>
-            <span>{likes} J'aime</span>
+            <span>{likes} Likes</span>
           </div>
         </div>
       </div>

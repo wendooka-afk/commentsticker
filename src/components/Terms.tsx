@@ -14,7 +14,7 @@ export function TermsOfService({ darkMode, onNavigate }: LegalPageProps) {
                     className="flex items-center gap-2 text-sm font-bold hover:text-pink-500 transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4" />
-                    Retour à l'accueil
+                    Back to home
                 </button>
             </nav>
 
@@ -23,41 +23,41 @@ export function TermsOfService({ darkMode, onNavigate }: LegalPageProps) {
                     <div className="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500">
                         <FileText className="w-6 h-6" />
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 dark:text-white">Conditions d'Utilisation</h1>
+                    <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 dark:text-white">Terms of Service</h1>
                 </div>
 
                 <div className={`prose prose-neutral ${darkMode ? 'prose-invert' : ''} max-w-none space-y-8 text-neutral-600 dark:text-neutral-400 font-medium leading-relaxed`}>
                     <section>
                         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
                             <Zap className="w-5 h-5 text-orange-500" />
-                            1. Acceptation des conditions
+                            1. Acceptance of Terms
                         </h2>
                         <p>
-                            En accédant à CommentSticker, vous acceptez d'être lié par ces conditions d'utilisation et par toutes les lois et réglementations applicables. Si vous n'acceptez pas ces conditions, il vous est interdit d'utiliser ce site.
+                            By accessing CommentSticker, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
                             <Scale className="w-5 h-5 text-orange-500" />
-                            2. Licence d'utilisation
+                            2. Use License
                         </h2>
                         <p>
-                            L'outil est fourni gratuitement pour un usage personnel et commercial. Vous êtes libre de générer, télécharger et utiliser les stickers pour vos propres contenus sur les réseaux sociaux.
+                            The tool is provided free of charge for both personal and commercial use. You are free to generate, download, and use the stickers for your own content on social media.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">3. Clause de non-responsabilité</h2>
+                        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">3. Disclaimer</h2>
                         <p>
-                            Les outils de CommentSticker sont fournis "en l'état". Nous ne donnons aucune garantie, expresse ou implicite, et déclinons par la présente toute autre garantie, y compris, sans limitation, les garanties implicites de qualité marchande ou d'adéquation à un usage particulier.
+                            The materials on CommentSticker are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">4. Limitations</h2>
                         <p>
-                            En aucun cas CommentSticker ou ses fournisseurs ne pourront être tenus responsables de tout dommage (y compris, sans limitation, les dommages pour perte de données ou de profit, ou en raison d'une interruption d'activité) découlant de l'utilisation ou de l'impossibilité d'utiliser les outils.
+                            In no event shall CommentSticker or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the tools on CommentSticker's website.
                         </p>
                     </section>
                 </div>

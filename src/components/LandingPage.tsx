@@ -18,6 +18,7 @@ import {
   Facebook
 } from 'lucide-react';
 import { AdSense } from './AdSense';
+import { PlatformIcon } from './PlatformIcons';
 
 interface LandingPageProps {
   darkMode: boolean;
@@ -36,25 +37,57 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
 
   const faqItems = [
     {
-      q: "Est-ce que c'est gratuit ?",
-      a: "Toutes les fonctionnalités de base sont gratuites pour vous aider à booster vos premiers contenus."
+      q: "Is this fake comment maker completely free?",
+      a: "Yes, all our core comment generator features are 100% free to help you boost your initial content engagement."
     },
     {
-      q: "Quelles plateformes sont supportées ?",
-      a: "Nous supportons TikTok, Instagram, YouTube, Twitter (X), Facebook, Threads, Snapchat et Discord. Chaque sticker est conçu pour être pixel-perfect."
+      q: "Which platforms are supported?",
+      a: "We support TikTok, Instagram, YouTube, Twitter (X), Facebook, Threads, Snapchat, and Discord. Each comment sticker is designed natively to be pixel-perfect."
     },
     {
-      q: "Puis-je utiliser mes propres photos ?",
-      a: "Absolument. Vous pouvez uploader n'importe quelle photo de profil par drag & drop ou via un lien direct pour personnaliser vos stickers."
+      q: "Can I use these comment stickers in CapCut?",
+      a: "Absolutely. You can download the generated sticker as a transparent PNG and drop it directly into CapCut, Premiere Pro, or any video editor."
     },
     {
-      q: "Le Script Generator utilise-t-il l'IA ?",
-      a: "Notre moteur utilise des algorithmes de patterns viraux basés sur les meilleures pratiques de contenu pour générer des scripts qui captent l'attention dès les premières secondes."
+      q: "How to make a comment transparent?",
+      a: "Our free generator automatically removes the background. Just input your text and hit download to get your transparent PNG overlay instantly."
     }
   ];
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a TikTok comment sticker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A TikTok comment sticker is a visual overlay used in videos to showcase a specific comment from a viewer. It helps increase engagement, build social proof, and drive the narrative of UGC or TikTok Ads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to add a comment sticker on a TikTok video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can add a comment sticker natively in the TikTok app by tapping a comment and selecting 'Reply with video'. Alternatively, for custom or fake TikTok comments, use a free TikTok comment generator like CommentSticker to create a transparent PNG, and overlay it using video editors like CapCut or Premiere Pro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are fake TikTok comments useful for UGC and Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, custom or fake TikTok comments are widely used in UGC (User Generated Content) and TikTok Ads to highlight common pain points, FAQs, or positive reviews, making the ad feel more organic and native to the platform."
+        }
+      }
+    ]
+  };
+
   return (
     <div className={`min-h-screen font-sans selection:bg-pink-500/30 ${darkMode ? 'bg-neutral-950 text-white' : 'bg-neutral-50 text-neutral-900'}`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* --- NAVBAR --- */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-4`}>
@@ -72,8 +105,9 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium hover:text-pink-500 transition-colors">Fonctionnalités</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-pink-500 transition-colors">Témoignages</a>
+            <button onClick={() => onNavigate('blog')} className="text-sm font-medium text-pink-500 hover:text-pink-400 font-bold transition-colors">Blog & Guides</button>
+            <a href="#features" className="text-sm font-medium hover:text-pink-500 transition-colors">Features</a>
+            <a href="#testimonials" className="text-sm font-medium hover:text-pink-500 transition-colors">Testimonials</a>
             <a href="#faq" className="text-sm font-medium hover:text-pink-500 transition-colors">FAQ</a>
           </div>
 
@@ -81,7 +115,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             onClick={() => onNavigate('generator')}
             className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95"
           >
-            Lancer l'App
+            Launch App
           </button>
         </div>
       </nav>
@@ -95,18 +129,18 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
         <div className="max-w-7xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-500 text-xs font-bold uppercase tracking-wider animate-bounce">
             <Sparkles className="w-3 h-3" />
-            Nouveau: Upload Photo par Drag & Drop
+            New: Transparent PNG Download
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-[8.5rem] font-black leading-[0.85] tracking-tighter">
-            Boostez votre <br />
+          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black leading-[0.9] tracking-tighter">
+            Free Comment <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500">
-              reach social.
+              Sticker Generator.
             </span>
           </h1>
 
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
-            L'outil ultime pour les créateurs. Générez des stickers de commentaires réalistes, des scripts optimisés par des patterns viraux et trouvez les meilleures questions pour votre niche.
+            Boost your video engagement. Generate custom, realistic <span className="font-bold text-neutral-900 dark:text-white">fake comments</span> for TikTok, Instagram Reels, and YouTube Shorts in one click. Download as transparent PNG.
           </p>
 
           <div className="max-w-md mx-auto pt-4">
@@ -114,33 +148,33 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
               }`}>
               <input
                 type="email"
-                placeholder="Votre adresse email..."
+                placeholder="Your email address..."
                 className="flex-1 bg-transparent px-4 py-3 text-sm focus:outline-none"
               />
               <button
                 onClick={() => onNavigate('generator')}
                 className="px-6 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-pink-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                C'est parti
+                Get Started
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
             <p className="mt-4 text-[11px] font-bold uppercase tracking-widest text-neutral-500 flex items-center justify-center gap-2">
               <CheckCircle2 className="w-3 h-3 text-green-500" />
-              Pas de carte requise • 100% Gratuit
+              No credit card required • 100% Free
             </p>
           </div>
 
           {/* Social Proof Bar */}
           <div className="pt-20">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 mb-8">Propulsez vos contenus sur</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 mb-8">Create Native Overlays For</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-              <span className="font-black text-2xl tracking-tighter">TikTok</span>
-              <span className="font-black text-2xl tracking-tighter">Instagram</span>
-              <span className="font-black text-2xl tracking-tighter">YouTube</span>
-              <span className="font-black text-2xl tracking-tighter">Twitter</span>
-              <span className="font-black text-2xl tracking-tighter">Snapchat</span>
-              <span className="font-black text-2xl tracking-tighter">Discord</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="tiktok" size={28} /> TikTok</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="instagram" size={28} /> Instagram</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="youtube" size={32} /> YouTube</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="twitter" size={28} /> Twitter</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="snapchat" size={28} /> Snapchat</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="discord" size={28} /> Discord</span>
             </div>
           </div>
         </div>
@@ -152,41 +186,38 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
           <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 to-orange-500 rounded-[2.5rem] opacity-20 blur-2xl group-hover:opacity-30 transition-opacity" />
           <div className={`relative rounded-[2rem] border overflow-hidden aspect-video md:aspect-auto md:h-[600px] flex items-center justify-center ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-white shadow-2xl'
             }`}>
-            {/* Abstract Mockup Elements */}
+            {/* Abstract Mockup Elements with Images and Float Animations */}
             <div className="relative w-full h-full p-20 flex flex-col items-center justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-                {/* Fake UI Cards */}
-                <div className={`p-6 rounded-2xl border-2 rotate-[-4deg] scale-110 translate-x-12 ${darkMode ? 'bg-neutral-800/50 border-neutral-700 backdrop-blur-md' : 'bg-white/70 border-white shadow-xl backdrop-blur-md'}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-pink-500/20" />
-                    <div className="flex-1 space-y-1.5">
-                      <div className="h-2 w-24 bg-neutral-400/20 rounded-full" />
-                      <div className="h-1.5 w-16 bg-neutral-400/10 rounded-full" />
+                {/* Fake TikTok UI Card */}
+                <div className={`p-6 rounded-2xl border-2 rotate-[-4deg] scale-110 translate-x-12 animate-[bounce_8s_infinite] shadow-[0_20px_50px_rgba(236,72,153,0.3)] ${darkMode ? 'bg-neutral-800/80 border-pink-500/30 backdrop-blur-xl' : 'bg-white/90 border-pink-500/20 shadow-xl backdrop-blur-xl'}`}>
+                  <div className="flex items-start gap-3 mb-2">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="User Avatar" className="w-10 h-10 rounded-full object-cover shadow-sm bg-neutral-200" />
+                    <div className="flex-1 space-y-1">
+                      <div className="text-sm font-bold text-neutral-500">@sarah.ugc</div>
+                      <div className="text-[15px] font-medium leading-tight text-neutral-900 dark:text-white">Does this actually work for oily skin? I need to know before buying! 😭</div>
                     </div>
                   </div>
-                  <div className="h-3 w-full bg-neutral-400/20 rounded-full mb-2" />
-                  <div className="h-3 w-2/3 bg-neutral-400/10 rounded-full" />
                 </div>
 
-                <div className={`p-6 rounded-2xl border-2 rotate-[6deg] -translate-x-12 translate-y-12 ${darkMode ? 'bg-neutral-800/80 border-neutral-700 backdrop-blur-md' : 'bg-white border-neutral-100 shadow-2xl'}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-500/20" />
-                    <div className="flex-1 space-y-1.5">
-                      <div className="h-2 w-20 bg-neutral-400/20 rounded-full" />
-                      <div className="h-1.5 w-12 bg-neutral-400/10 rounded-full" />
+                {/* Fake Instagram UI Card */}
+                <div className={`p-6 rounded-2xl border-2 rotate-[6deg] -translate-x-12 translate-y-12 animate-[bounce_10s_infinite_reverse] shadow-[0_20px_50px_rgba(249,115,22,0.3)] ${darkMode ? 'bg-neutral-800/90 border-orange-500/30 backdrop-blur-xl' : 'bg-white border-orange-500/20 shadow-2xl'}`}>
+                  <div className="flex items-start gap-3 mb-2">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" alt="User Avatar" className="w-10 h-10 rounded-full object-cover shadow-sm bg-neutral-200" />
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center gap-1">
+                        <div className="text-sm font-bold text-neutral-900 dark:text-white">alex_reviews</div>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
+                      </div>
+                      <div className="text-[15px] font-normal leading-tight text-neutral-900 dark:text-white">Drop the link immediately. This is exactly what I've been looking for 🔥</div>
+                      <div className="text-xs text-neutral-500 font-semibold mt-1">Reply</div>
                     </div>
-                  </div>
-                  <div className="h-3 w-full bg-neutral-400/20 rounded-full mb-2" />
-                  <div className="h-3 w-3/4 bg-neutral-400/10 rounded-full" />
-                  <div className="mt-4 flex gap-2">
-                    <div className="h-6 w-16 bg-pink-500/10 rounded-full border border-pink-500/10" />
-                    <div className="h-6 w-16 bg-orange-500/10 rounded-full border border-orange-500/10" />
                   </div>
                 </div>
               </div>
 
-              <div className="mt-12 text-center text-4xl font-black opacity-10 uppercase tracking-widest">
-                Générateur de stickers UI
+              <div className="mt-16 text-center text-3xl font-black opacity-20 uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500">
+                Comment Sticker UI Generator
               </div>
             </div>
           </div>
@@ -202,8 +233,8 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
       <section id="features" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black">Tout ce dont vous avez besoin.</h2>
-            <p className="text-neutral-500 dark:text-neutral-400 font-medium">4 outils puissants intégrés en une seule plateforme gratuite.</p>
+            <h2 className="text-3xl md:text-5xl font-black">How to Create a Fake Comment Sticker?</h2>
+            <p className="text-neutral-500 dark:text-neutral-400 font-medium">3 simple steps to generate your transparent PNG overlay.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
@@ -214,23 +245,23 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
                 <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-pink-500/20">
                   <Layout className="w-7 h-7" />
                 </div>
-                <h3 className="text-3xl font-black">Comment Sticker UI</h3>
+                <h3 className="text-3xl font-black">1. Choose your platform</h3>
                 <p className="text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
-                  Le générateur le plus précis du marché. Choisissez parmi 8 réseaux sociaux et personnalisez chaque détail : avatar, username, badge certifié, likes et temps.
+                  Select TikTok, Instagram, YouTube or Twitter style. We provide the most accurate, pixel-perfect UI templates for 8 different social networks.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm font-bold text-pink-500">
-                    <CheckCircle2 className="w-4 h-4" /> Pixel Perfect TikTok & Insta
+                    <CheckCircle2 className="w-4 h-4" /> Pixel Perfect TikTok & Insta Overlays
                   </li>
                   <li className="flex items-center gap-2 text-sm font-bold text-pink-500">
-                    <CheckCircle2 className="w-4 h-4" /> Export HD sans perte
+                    <CheckCircle2 className="w-4 h-4" /> Native design elements (Verified badges, hearts)
                   </li>
                 </ul>
                 <button
                   onClick={() => onNavigate('generator')}
                   className="inline-flex items-center gap-2 text-sm font-black hover:gap-3 transition-all underline underline-offset-4 decoration-pink-500 decoration-2"
                 >
-                  Essayer l'outil <ChevronRight className="w-4 h-4" />
+                  Try the tool <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
 
@@ -250,13 +281,13 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
                 <Search className="w-6 h-6" />
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-black">Question Finder</h3>
+                <h3 className="text-2xl font-black">2. Customize message</h3>
                 <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
-                  Ne soyez plus jamais en panne d'inspiration. Trouvez les sujets brûlants.
+                  Add a custom profile picture, username, likes count, and the exact text of the comment you need.
                 </p>
               </div>
-              <button onClick={() => onNavigate('finder')} className="w-10 h-10 rounded-full bg-white dark:bg-neutral-800 border flex items-center justify-center hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
+              <button onClick={() => onNavigate('finder')} className="inline-flex items-center gap-2 text-sm font-black hover:gap-3 transition-all underline underline-offset-4 decoration-green-500 decoration-2 w-fit">
+                Customize <ChevronRight className="w-4 h-4" />
               </button>
             </div>
 
@@ -267,13 +298,13 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
                 <Zap className="w-6 h-6" />
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-black">Patterns Viraux</h3>
+                <h3 className="text-2xl font-black">3. Download your PNG</h3>
                 <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
-                  Plus de 100 structures de scripts pour maximiser vos likes et abonnés.
+                  Get your transparent comment overlay instantly, ready to be dropped into your video editor (CapCut, Premiere Pro).
                 </p>
               </div>
-              <button onClick={() => onNavigate('scripts')} className="w-10 h-10 rounded-full bg-white dark:bg-neutral-800 border flex items-center justify-center hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
+              <button onClick={() => onNavigate('scripts')} className="inline-flex items-center gap-2 text-sm font-black hover:gap-3 transition-all underline underline-offset-4 decoration-orange-500 decoration-2 w-fit">
+                Download <ChevronRight className="w-4 h-4" />
               </button>
             </div>
 
@@ -281,13 +312,13 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             <div className={`md:col-span-4 rounded-[2.5rem] border p-8 flex items-center justify-between group transition-all duration-500 hover:shadow-2xl relative overflow-hidden ${darkMode ? 'bg-neutral-900 border-neutral-800 hover:border-neutral-700' : 'bg-neutral-900 border-neutral-900 text-white'
               }`}>
               <div className="relative z-10 w-full md:w-3/4 space-y-4">
-                <div className="text-xs font-black uppercase tracking-widest text-pink-500">Master Prompt</div>
-                <h3 className="text-3xl font-black leading-[1.1]">AI-Powered Script Generator <br /> <span className="opacity-50">Basé sur vos propres questions.</span></h3>
+                <div className="text-xs font-black uppercase tracking-widest text-pink-500">Why Advertisers Use It</div>
+                <h3 className="text-3xl font-black leading-[1.1]">Perfect for UGC Ads <br /> <span className="opacity-50">& Video Editors.</span></h3>
                 <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-400'}`}>
-                  Collez une question et notre moteur génère un script structuré : Hook, Transition, Valeur, et CTA de clôture.
+                  Increase video retention. Showcasing a customer comment ("Where did you buy this?") at the start of an ad creates immediate curiosity. 100% transparent overlays make it easy to embed on any content.
                 </p>
-                <button onClick={() => onNavigate('scripts')} className="px-6 py-3 bg-white text-black rounded-xl text-sm font-black hover:scale-105 active:scale-95 transition-all w-fit">
-                  Explorer les scripts
+                <button onClick={() => onNavigate('templates')} className="px-6 py-3 bg-white text-black rounded-xl text-sm font-black hover:scale-105 active:scale-95 transition-all w-fit">
+                  Explore Comment Ideas
                 </button>
               </div>
 
@@ -304,19 +335,19 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center space-y-2">
             <div className="text-3xl md:text-5xl font-black text-pink-500">100%</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Gratuit à vie</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Free Forever</div>
           </div>
           <div className="text-center space-y-2">
-            <div className="text-3xl md:text-5xl font-black">50+</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Hooks Viraux</div>
+            <div className="text-3xl md:text-5xl font-black">100+</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Viral Hooks</div>
           </div>
           <div className="text-center space-y-2">
             <div className="text-3xl md:text-5xl font-black">8</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Plateformes UI</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Native UI Platforms</div>
           </div>
           <div className="text-center space-y-2">
             <div className="text-3xl md:text-5xl font-black">10K+</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Stickers créés</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Stickers Generated</div>
           </div>
         </div>
       </section>
@@ -328,23 +359,23 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             <div className="inline-flex gap-1 text-yellow-500">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
             </div>
-            <h2 className="text-3xl md:text-5xl font-black">Approuvé par les créateurs.</h2>
+            <h2 className="text-3xl md:text-5xl font-black">Trusted by top UGC Creators.</h2>
           </div>
 
           <div className="columns-1 md:columns-3 gap-6 space-y-6">
             {[
-              { text: "L'outil gratuit le plus indispensable pour mes hooks TikTok. Le rendu est juste parfait.", author: "Thomas L.", role: "350k abonnés" },
-              { text: "Le Question Finder m'a sauvé plus d'une fois. Je n'ai plus jamais de syndrome de la page blanche.", author: "Marie K.", role: "YouTubeuse Education" },
-              { text: "Les stickers sont d'une qualité incroyable. On ne voit pas la différence avec un vrai screen.", author: "Léo D.", role: "Social Media Manager" },
-              { text: "J'utilise le script generator pour mes Reels. Le format 'Story' est surpuissant.", author: "Sarah M.", role: "Influencer Lifestyle" },
-              { text: "Finit le détourage manuel sur Photoshop. En 2 clics mon sticker est prêt.", author: "Julien R.", role: "Graphiste & Créateur" },
-              { text: "Je recommandais Canva avant, maintenant je ne jure que par CommentSticker.", author: "Emma S.", role: "TikTok Strategist" },
+              { text: "The most essential free tool for my TikTok ad hooks. The render is literally pixel perfect.", author: "Thomas L.", role: "350k followers" },
+              { text: "Having transparent PNGs ready to drop into CapCut saves my editing team hours every week.", author: "Marie K.", role: "UGC Agency Owner" },
+              { text: "The quality of these comment bubbles is incredible. You can't tell the difference from a real screenshot.", author: "Leo D.", role: "Social Media Manager" },
+              { text: "I use this generator for my Instagram Reels. The 'Story' template is extremely powerful.", author: "Sarah M.", role: "Influencer Lifestyle" },
+              { text: "No more manually cutting out backgrounds in Photoshop. 2 clicks and my sticker is ready.", author: "Julien R.", role: "Video Editor" },
+              { text: "Used to recommend Canva, but now I swear by CommentSticker for all my custom overlays.", author: "Emma S.", role: "TikTok Strategist" },
             ].map((t, i) => (
               <div key={i} className={`break-inside-avoid p-8 rounded-3xl border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-100 shadow-sm'
                 }`}>
                 <p className="text-lg font-medium leading-relaxed italic mb-6">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center font-bold text-sm">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${i % 3 === 0 ? 'from-pink-500 to-rose-500' : i % 3 === 1 ? 'from-purple-500 to-indigo-500' : 'from-orange-500 to-red-500'} flex items-center justify-center font-bold text-sm text-white shadow-lg`}>
                     {t.author[0]}
                   </div>
                   <div>
@@ -362,8 +393,8 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
       <section id="faq" className="py-24 px-6 bg-neutral-500/[0.03]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16 space-y-2">
-            <h2 className="text-3xl md:text-4xl font-black">Questions Fréquentes</h2>
-            <p className="text-neutral-500 font-medium">Tout savoir sur CommentSticker</p>
+            <h2 className="text-3xl md:text-4xl font-black">Frequently Asked Questions (FAQ)</h2>
+            <p className="text-neutral-500 font-medium">Everything you need to know about CommentSticker</p>
           </div>
 
           <div className="space-y-4">
@@ -400,27 +431,27 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 blur-[100px] -z-10" />
 
             <h3 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
-              Prêt à <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500">dominer</span> votre niche ?
+              Ready to <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500">dominate</span> your niche?
             </h3>
-            <p className="text-lg md:text-xl text-neutral-500 mb-12 max-w-2xl mx-auto font-medium">Rejoignez des milliers de créateurs qui utilisent déjà CommentSticker pour démultiplier leur engagement et gagner du temps.</p>
+            <p className="text-lg md:text-xl text-neutral-500 mb-12 max-w-2xl mx-auto font-medium">Join thousands of creators who already use CommentSticker to multiply their engagement and save time editing.</p>
 
             <div className="max-w-md mx-auto">
               <div className={`flex flex-col sm:flex-row p-2 rounded-[1.25rem] border transition-all ${darkMode ? 'bg-neutral-950 border-neutral-800 focus-within:border-pink-500/50' : 'bg-neutral-50 border-neutral-200 focus-within:border-pink-500/50 shadow-inner'
                 }`}>
                 <input
                   type="email"
-                  placeholder="Votre adresse email..."
+                  placeholder="Your email address..."
                   className="flex-1 bg-transparent px-4 py-4 text-sm focus:outline-none placeholder:font-medium"
                 />
                 <button
                   onClick={() => onNavigate('generator')}
                   className="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-bold text-sm shadow-xl shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
                 >
-                  C'est parti gratuitement
+                  Start for Free
                 </button>
               </div>
               <p className="mt-6 text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400">
-                🚀 Aucun frais caché • Accès instantané
+                🚀 No hidden fees • Instant Access
               </p>
             </div>
           </div>
@@ -442,13 +473,13 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
               </div>
               <span className="font-bold text-lg">CommentSticker</span>
             </div>
-            <p className="text-sm font-medium text-neutral-400">Boostez votre présence digitale avec nos outils créatifs gratuits.</p>
+            <p className="text-sm font-medium text-neutral-400">Boost your digital presence with our free creative tools.</p>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Outils</h4>
+            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Tools</h4>
             <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('generator')} className="text-sm font-medium hover:text-pink-500 w-fit">Générateur Sticker</button>
+              <button onClick={() => onNavigate('generator')} className="text-sm font-medium hover:text-pink-500 w-fit">Sticker Generator</button>
               <button onClick={() => onNavigate('finder')} className="text-sm font-medium hover:text-pink-500 w-fit">Question Finder</button>
               <button onClick={() => onNavigate('scripts')} className="text-sm font-medium hover:text-pink-500 w-fit">Script Generator</button>
               <button onClick={() => onNavigate('templates')} className="text-sm font-medium hover:text-pink-500 w-fit">Templates</button>
@@ -456,11 +487,11 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Ressources</h4>
+            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Resources</h4>
             <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('about')} className="text-sm font-medium hover:text-pink-500 w-fit">À Propos</button>
+              <button onClick={() => onNavigate('about')} className="text-sm font-medium hover:text-pink-500 w-fit">About</button>
+              <button onClick={() => onNavigate('blog')} className="text-sm font-medium hover:text-pink-500 w-fit">Blog & Guides</button>
               <button onClick={() => onNavigate('contact')} className="text-sm font-medium hover:text-pink-500 w-fit">Contact</button>
-              <span className="text-sm font-medium hover:text-pink-500 cursor-pointer">Guide d'utilisation</span>
             </div>
           </div>
 
@@ -480,7 +511,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
 
           <div className="flex items-center gap-6 text-neutral-400">
             <button
-              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent("J'utilise CommentSticker pour mes vidéos ! 🚀")}&url=${encodeURIComponent("https://commentsticker.com")}`, '_blank')}
+              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent("I use CommentSticker for my videos! 🚀")}&url=${encodeURIComponent("https://commentsticker.com")}`, '_blank')}
               className="hover:text-[#1DA1F2] transition-colors"
             >
               <Twitter className="w-5 h-5" />
@@ -492,7 +523,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
               <Linkedin className="w-5 h-5" />
             </button>
             <button
-              onClick={() => window.open(`https://t.me/share/url?url=${encodeURIComponent("https://commentsticker.com")}&text=${encodeURIComponent("L'outil indispensable pour les créateurs.")}`, '_blank')}
+              onClick={() => window.open(`https://t.me/share/url?url=${encodeURIComponent("https://commentsticker.com")}&text=${encodeURIComponent("The essential tool for creators.")}`, '_blank')}
               className="hover:text-[#229ED9] transition-colors"
             >
               <ShareIcon className="w-5 h-5" />
@@ -504,14 +535,16 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
       {/* --- FLOATING SHARE BAR (Desktop) --- */}
       <div className="fixed left-6 top-1/2 -translate-y-1/2 flex-col gap-4 hidden lg:flex z-50">
         {[
-          { icon: <Twitter className="w-5 h-5" />, color: 'bg-[#1DA1F2]', url: `https://twitter.com/intent/tweet?text=${encodeURIComponent("J'utilise CommentSticker pour mes vidéos ! 🚀")}&url=${encodeURIComponent("https://commentsticker.com")}` },
-          { icon: <Linkedin className="w-5 h-5" />, color: 'bg-[#0A66C2]', url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://commentsticker.com")}` },
-          { icon: <Facebook className="w-5 h-5" />, color: 'bg-[#1877F2]', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://commentsticker.com")}` },
-          { icon: <Instagram className="w-5 h-5" />, color: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]', url: '#' }
+          { name: 'Share on Twitter', icon: <Twitter className="w-5 h-5" />, color: 'bg-[#1DA1F2]', url: `https://twitter.com/intent/tweet?text=${encodeURIComponent("I use CommentSticker for my videos! 🚀")}&url=${encodeURIComponent("https://commentsticker.com")}` },
+          { name: 'Share on LinkedIn', icon: <Linkedin className="w-5 h-5" />, color: 'bg-[#0A66C2]', url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://commentsticker.com")}` },
+          { name: 'Share on Facebook', icon: <Facebook className="w-5 h-5" />, color: 'bg-[#1877F2]', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://commentsticker.com")}` },
+          { name: 'Follow us on Instagram', icon: <Instagram className="w-5 h-5" />, color: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]', url: '#' }
         ].map((s, i) => (
           <button
             key={i}
             onClick={() => s.url !== '#' && window.open(s.url, '_blank')}
+            title={s.name}
+            aria-label={s.name}
             className={`w-12 h-12 ${s.color} text-white rounded-2xl flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all group relative`}
           >
             {s.icon}
