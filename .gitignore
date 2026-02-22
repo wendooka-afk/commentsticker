@@ -37,5 +37,6 @@ dist-ssr
 # Antigravity Brain
 brain/
 *.txt
+!public/ads.txt
 *.webp
 *.png
