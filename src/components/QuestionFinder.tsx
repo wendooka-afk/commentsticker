@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Search, Shuffle, ArrowRight, Copy, Check, ChevronDown } from 'lucide-react';
 import { nicheData, trendingKeywords, questionStarters } from '../data/questions';
+import { AdSense } from './AdSense';
 
 interface QuestionFinderProps {
   darkMode: boolean;
@@ -308,6 +309,48 @@ export function QuestionFinder({ darkMode, onSelectQuestion }: QuestionFinderPro
           Use these questions as visual hooks for your videos.
         </p>
       </div>
+
+      {/* --- EDITORIAL CONTENT SECTION (AdSense Compliance) --- */}
+      <div className="mt-10 space-y-8 border-t border-neutral-100 dark:border-neutral-800 pt-8">
+
+        {/* Why Questions Work */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-black">Why Comment Questions Are the #1 TikTok Hook</h2>
+          <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            The comment-reply video format has become one of the highest-performing content strategies on TikTok, Instagram Reels, and YouTube Shorts. When a viewer sees a creator responding to a specific comment, the brain immediately processes it as social proof — proof that real people asked this question, and that the answer matters. This creates an immediate curiosity loop that significantly improves watch time and saves rates, two of the most important signals for algorithm distribution.
+          </p>
+          <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            Our Question Finder database contains hundreds of battle-tested, high-engagement questions across all major niches. These questions are based on real comment patterns observed in top-performing short-form content, categorized by niche so you can instantly find the most relevant hook for your next video.
+          </p>
+        </section>
+
+        {/* Strategies */}
+        <section className={`p-6 rounded-2xl border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
+          <h3 className="font-black text-lg mb-4">3 Strategies to Use These Questions Effectively</h3>
+          <div className="space-y-4">
+            {[
+              { num: "01", title: "Use as a Video Hook", desc: "Start your video with the generated comment sticker visible on screen for the first 3-5 seconds. This immediately communicates the topic of your video and gives the viewer a reason to keep watching to hear your answer." },
+              { num: "02", title: "Script the Answer Before Recording", desc: "Use our AI Script Generator to turn any question into a full, structured video script. This saves time and ensures your videos always follow a proven narrative structure that retains viewers to the end." },
+              { num: "03", title: "A/B Test Different Questions", desc: "Test two different questions as hooks for the same core piece of content. The one with higher watch-time wins. Over time, this data reveals exactly which pain points resonate most with your specific audience." },
+            ].map((s) => (
+              <div key={s.num} className="flex gap-4">
+                <div className={`text-2xl font-black shrink-0 ${darkMode ? 'text-neutral-700' : 'text-neutral-200'}`}>{s.num}</div>
+                <div>
+                  <h4 className="font-black mb-1">{s.title}</h4>
+                  <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* AdSense */}
+        <div className="pt-4">
+          <p className={`text-[10px] font-black uppercase tracking-widest mb-3 ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>Sponsored</p>
+          <AdSense adSlot="2233445566" />
+        </div>
+      </div>
     </div>
   );
 }
+

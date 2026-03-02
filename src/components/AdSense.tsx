@@ -14,8 +14,8 @@ declare global {
 }
 
 /**
- * Composant Google AdSense
- * @param adSlot - L'identifiant de l'emplacement publicitaire (Slot ID)
+ * Google AdSense Component
+ * @param adSlot - The advertisement slot ID
  */
 export function AdSense({ adClient = "ca-pub-4434058814138910", adSlot, format = "auto", className = "" }: AdSenseProps) {
     useEffect(() => {

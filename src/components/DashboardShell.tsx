@@ -11,7 +11,6 @@ import {
     Home,
     Bell
 } from 'lucide-react';
-import { AdSense } from './AdSense';
 
 interface NavItem {
     id: string;
@@ -39,7 +38,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
     ];
 
     const secondaryItems = [
-        { id: 'home', label: 'Retour Accueil', icon: Home },
+        { id: 'home', label: 'Back to Home', icon: Home },
     ];
 
     return (
@@ -57,7 +56,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                     </div>
 
                     <nav className="space-y-1.5">
-                        <p className="text-[10px] font-black uppercase tracking-widest text-neutral-500 mb-4 px-4">Outils principaux</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-neutral-500 mb-4 px-4">Primary tools</p>
                         {navItems.map((item) => {
                             const isActive = currentPage === item.id;
                             return (
@@ -94,7 +93,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
 
                     <div className={`mt-6 p-4 rounded-2xl border ${darkMode ? 'bg-neutral-800/50 border-neutral-700' : 'bg-neutral-50 border-neutral-200'}`}>
                         <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold">{darkMode ? 'Mode Sombre' : 'Mode Clair'}</span>
+                            <span className="text-xs font-bold">{darkMode ? 'Dark Mode' : 'Light Mode'}</span>
                             <button
                                 onClick={() => setDarkMode(!darkMode)}
                                 className={`p-2 rounded-xl transition-all ${darkMode ? 'bg-neutral-700 text-yellow-400' : 'bg-white shadow-sm text-neutral-500'}`}
@@ -153,7 +152,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                                 }`}
                         >
                             <Home className="w-5 h-5" />
-                            Retour Accueil
+                            Back to Home
                         </button>
                     </div>
                 </div>
@@ -196,11 +195,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                     <div className="max-w-6xl mx-auto">
                         {children}
 
-                        {/* --- DASHBOARD ADS --- */}
-                        <div className="mt-12 pt-12 border-t border-neutral-100 dark:border-neutral-900">
-                            <p className="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-4 text-center">Partenaire</p>
-                            <AdSense adSlot="1122334455" />
-                        </div>
+
                     </div>
                 </main>
             </div>

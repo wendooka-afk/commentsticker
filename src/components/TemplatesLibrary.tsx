@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Copy, Check, ArrowRight, Search } from 'lucide-react';
+import { Copy, Check, ArrowRight, Search, Zap, Info, HelpCircle } from 'lucide-react';
 import { commentTemplates, templateCategories } from '../data/templates';
+import { AdSense } from './AdSense';
 
 interface TemplatesLibraryProps {
   darkMode: boolean;
@@ -27,7 +28,7 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {/* Search */}
       <div className="relative">
         <Search className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
@@ -37,8 +38,8 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for a template..."
           className={`w-full pl-12 pr-4 py-4 rounded-xl border text-sm transition-colors ${darkMode
-              ? 'bg-neutral-900 border-neutral-800 text-white placeholder-neutral-500 focus:border-neutral-700'
-              : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-300'
+            ? 'bg-neutral-900 border-neutral-800 text-white placeholder-neutral-500 focus:border-neutral-700'
+            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-300'
             } focus:outline-none`}
         />
       </div>
@@ -48,8 +49,8 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
         <button
           onClick={() => setSelectedCategory(null)}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === null
-              ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-              : darkMode ? 'bg-neutral-900 text-neutral-500 hover:bg-neutral-800 border border-neutral-800' : 'bg-white text-neutral-500 hover:bg-neutral-100 border border-neutral-200'
+            ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+            : darkMode ? 'bg-neutral-900 text-neutral-500 hover:bg-neutral-800 border border-neutral-800' : 'bg-white text-neutral-500 hover:bg-neutral-100 border border-neutral-200'
             }`}
         >
           All
@@ -59,8 +60,8 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
             key={cat.name}
             onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === cat.name
-                ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
-                : darkMode ? 'bg-neutral-900 text-neutral-500 hover:bg-neutral-800 border border-neutral-800' : 'bg-white text-neutral-500 hover:bg-neutral-100 border border-neutral-200'
+              ? darkMode ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'
+              : darkMode ? 'bg-neutral-900 text-neutral-500 hover:bg-neutral-800 border border-neutral-800' : 'bg-white text-neutral-500 hover:bg-neutral-100 border border-neutral-200'
               }`}
           >
             <span>{cat.icon}</span>
@@ -104,8 +105,8 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
                   <button
                     onClick={() => handleCopy(template.text, template.id)}
                     className={`p-2 rounded-lg transition-colors ${copiedId === template.id
-                        ? 'bg-green-500 text-white'
-                        : darkMode ? 'bg-neutral-700 hover:bg-neutral-600 text-neutral-400' : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-600'
+                      ? 'bg-green-500 text-white'
+                      : darkMode ? 'bg-neutral-700 hover:bg-neutral-600 text-neutral-400' : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-600'
                       }`}
                   >
                     {copiedId === template.id ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -130,6 +131,76 @@ export function TemplatesLibrary({ darkMode, onSelectTemplate }: TemplatesLibrar
             </div>
           )}
         </div>
+      </div>
+
+      {/* --- EDITORIAL CONTENT SECTION (AdSense Compliance) --- */}
+      <div className="mt-12 space-y-10 border-t border-neutral-100 dark:border-neutral-800 pt-10">
+
+        {/* Why Templates Matter */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-3">
+            <Zap className={`w-6 h-6 ${darkMode ? 'text-pink-500' : 'text-pink-600'}`} />
+            <h2 className="text-2xl font-black">Why Strategic Comment Templates Scale UGC Ads</h2>
+          </div>
+          <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            In the world of short-form video advertising, especially on TikTok and Instagram Reels, authenticity is currency. Comment templates aren't just strings of text; they are psychological triggers. By using templates that mimic common customer questions, objections, or glowing reviews, performance marketers can create "native hooks" that don't look like an ad.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 pt-2">
+            <div className={`p-5 rounded-2xl ${darkMode ? 'bg-neutral-900' : 'bg-neutral-50'}`}>
+              <h3 className="font-black mb-2 flex items-center gap-2">
+                <Info className="w-4 h-4 text-blue-500" />
+                The Curiosity Loop
+              </h3>
+              <p className="text-xs text-neutral-500 leading-relaxed font-medium">
+                Using a "Curiosity Hook" template (e.g. "Wait, it can actually do X?") forces the viewer to watch the video for the answer, massively increasing your 3-second view rate.
+              </p>
+            </div>
+            <div className={`p-5 rounded-2xl ${darkMode ? 'bg-neutral-900' : 'bg-neutral-50'}`}>
+              <h3 className="font-black mb-2 flex items-center gap-2">
+                <Info className="w-4 h-4 text-orange-500" />
+                Social Proof at Scale
+              </h3>
+              <p className="text-xs text-neutral-500 leading-relaxed font-medium">
+                "Validation" templates (e.g. "Best purchase I've made this year") help bypass "ad blindness" by establishing immediate credibility through peer-to-peer recommendation style.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* AdSense Slot */}
+        <div className="py-4 border-y border-neutral-100 dark:border-neutral-900">
+          <p className={`text-[10px] font-black uppercase tracking-widest mb-3 text-center ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>Partner Insight</p>
+          <AdSense adSlot="3344556677" />
+        </div>
+
+        {/* FAQ Section */}
+        <section className="space-y-6">
+          <div className="flex items-center gap-3">
+            <HelpCircle className={`w-6 h-6 ${darkMode ? 'text-emerald-500' : 'text-emerald-600'}`} />
+            <h2 className="text-2xl font-black">Templates Strategy FAQ</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              {
+                q: "How many comment stickers should I use per video?",
+                a: "For a 15-30 second UGC ad, we recommend one primary 'hook comment' at the start, and optionally one 'validation comment' near the CTA (Call to Action)."
+              },
+              {
+                q: "Should I use typos in my custom comments?",
+                a: "Yes! Subtle typos or all-lowercase text can actually make the comment look more organic and native to platforms like TikTok, as long as it remains readable."
+              },
+              {
+                q: "Can I use these templates for commercial ads?",
+                a: "Absolutely. These templates are designed specifically to help media buyers and UGC agencies create higher-converting creative assets for social media campaigns."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="space-y-2">
+                <h4 className={`text-sm font-black ${darkMode ? 'text-neutral-200' : 'text-neutral-800'}`}>{faq.q}</h4>
+                <p className={`text-xs font-medium leading-relaxed ${darkMode ? 'text-neutral-500' : 'text-neutral-500'}`}>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
