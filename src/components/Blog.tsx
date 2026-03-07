@@ -18,7 +18,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Feb 19, 2026',
             ts: 20260219,
             readTime: '5 min read',
-            category: 'Tutorial'
+            category: 'Tutorial',
+            thumb: { from: 'from-pink-500', to: 'to-rose-600', emoji: '📱', label: 'TikTok Guide' }
         },
         {
             id: 'guide-instagram',
@@ -28,7 +29,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Feb 19, 2026',
             ts: 20260219,
             readTime: '4 min read',
-            category: 'Strategy'
+            category: 'Strategy',
+            thumb: { from: 'from-purple-500', to: 'to-pink-500', emoji: '📸', label: 'Instagram' }
         },
         {
             id: 'guide-youtube',
@@ -38,7 +40,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Feb 19, 2026',
             ts: 20260219,
             readTime: '4 min read',
-            category: 'Strategy'
+            category: 'Strategy',
+            thumb: { from: 'from-red-500', to: 'to-orange-500', emoji: '▶️', label: 'YouTube' }
         },
         {
             id: 'guide-comparison',
@@ -48,7 +51,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Feb 19, 2026',
             ts: 20260219,
             readTime: '6 min read',
-            category: 'Comparison'
+            category: 'Comparison',
+            thumb: { from: 'from-blue-500', to: 'to-cyan-500', emoji: '⚖️', label: 'Compare' }
         },
         {
             id: 'guide-tiktok-comment-generator',
@@ -58,7 +62,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Mar 2, 2026',
             ts: 20260302,
             readTime: '7 min read',
-            category: 'Tool Guide'
+            category: 'Tool Guide',
+            thumb: { from: 'from-fuchsia-500', to: 'to-pink-600', emoji: '💬', label: 'Generator' }
         },
         {
             id: 'guide-tiktok-comment-picker',
@@ -68,7 +73,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Mar 2, 2026',
             ts: 20260302,
             readTime: '6 min read',
-            category: 'Free Tools'
+            category: 'Free Tools',
+            thumb: { from: 'from-amber-500', to: 'to-orange-500', emoji: '🎯', label: 'Picker' }
         },
         {
             id: 'guide-tiktok-giveaway-picker',
@@ -78,7 +84,8 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             date: 'Mar 2, 2026',
             ts: 20260302,
             readTime: '8 min read',
-            category: 'Giveaway'
+            category: 'Giveaway',
+            thumb: { from: 'from-emerald-500', to: 'to-teal-500', emoji: '🎁', label: 'Giveaway' }
         }
     ].sort((a, b) => b.ts - a.ts); // newest first
 
@@ -107,9 +114,16 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
                                 <a
                                     href={article.slug}
                                     onClick={(e) => { e.preventDefault(); onNavigate(article.id as any); }}
-                                    className="aspect-video bg-gradient-to-br from-pink-500/20 to-orange-500/20 w-full relative block"
+                                    className={`aspect-video bg-gradient-to-br ${article.thumb.from} ${article.thumb.to} w-full relative flex flex-col items-center justify-center gap-3 block`}
                                 >
-                                    <span className="absolute top-4 left-4 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/20">
+                                    {/* Decorative circles */}
+                                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                                        <div className="absolute -top-6 -right-6 w-32 h-32 bg-white/10 rounded-full" />
+                                        <div className="absolute -bottom-8 -left-4 w-24 h-24 bg-black/10 rounded-full" />
+                                    </div>
+                                    <span className="text-5xl relative z-10 drop-shadow-lg">{article.thumb.emoji}</span>
+                                    <span className="relative z-10 text-white/90 text-xs font-black uppercase tracking-widest">{article.thumb.label}</span>
+                                    <span className="absolute top-4 left-4 px-3 py-1 bg-black/20 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/20 z-10">
                                         {article.category}
                                     </span>
                                 </a>
