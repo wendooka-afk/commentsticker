@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense, Component, type ReactNode, type ErrorInfo } from 'react';
 import {
   type Page,
   SLUG_TO_PAGE,
@@ -17,7 +17,7 @@ import { TemplatesLibrary } from './components/TemplatesLibrary';
 import { ScriptGenerator } from './components/ScriptGenerator';
 import { BatchGenerator } from './components/BatchGenerator';
 
-// ── Lazy imports — guide/blog pages (code-split, loaded on demand) ───────────
+// ── Lazy imports — guide/blog/legal pages (code-split, loaded on demand) ─────
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const TermsOfService = lazy(() => import('./components/Terms').then(m => ({ default: m.TermsOfService })));
 const AboutUs = lazy(() => import('./components/About').then(m => ({ default: m.AboutUs })));
@@ -30,6 +30,7 @@ const BlogComparison = lazy(() => import('./components/BlogComparison').then(m =
 const GuideTikTokCommentGenerator = lazy(() => import('./components/GuideTikTokCommentGenerator').then(m => ({ default: m.GuideTikTokCommentGenerator })));
 const GuideTikTokCommentPicker = lazy(() => import('./components/GuideTikTokCommentPicker').then(m => ({ default: m.GuideTikTokCommentPicker })));
 const GuideTikTokGiveawayPicker = lazy(() => import('./components/GuideTikTokGiveawayPicker').then(m => ({ default: m.GuideTikTokGiveawayPicker })));
+const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 function getPageFromPath(pathname: string): Page {
   return SLUG_TO_PAGE[pathname] ?? 'home';
@@ -43,12 +44,43 @@ function PageLoader() {
   );
 }
 
+// ── ErrorBoundary — catches chunk-load failures for lazy pages ────────────────
+class LazyErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+  componentDidCatch(err: Error, info: ErrorInfo) { console.error('Lazy load error:', err, info); }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-neutral-950 text-white gap-4 px-6">
+          <p className="text-lg font-semibold text-center">Failed to load this page.</p>
+          <button
+            onClick={() => { this.setState({ hasError: false }); window.location.reload(); }}
+            className="px-5 py-2.5 bg-pink-500 hover:bg-pink-600 rounded-xl text-sm font-bold transition-colors"
+          >
+            Reload
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // ── Component ────────────────────────────────────────────────────────────────
 export function App() {
   const [currentPage, setCurrentPage] = useState<Page>(() => getPageFromPath(window.location.pathname));
-  const [darkMode, setDarkMode] = useState(true);
+  const [isNotFound, setIsNotFound] = useState(() => !SLUG_TO_PAGE[window.location.pathname]);
+  const [darkMode, setDarkMode] = useState(() => {
+    try { const s = localStorage.getItem('cs_dark'); return s === null ? true : s === 'true'; } catch { return true; }
+  });
   const [sharedComment, setSharedComment] = useState<string>('');
   const [scriptQuestion, setScriptQuestion] = useState<string>('');
+
+  // Persist dark mode preference
+  useEffect(() => {
+    try { localStorage.setItem('cs_dark', String(darkMode)); } catch {}
+  }, [darkMode]);
 
   // Sync document head (title, meta, OG, canonical, schema.org) on every navigation
   useEffect(() => {
@@ -117,6 +149,7 @@ export function App() {
   useEffect(() => {
     const onPopState = () => {
       setCurrentPage(getPageFromPath(window.location.pathname));
+      setIsNotFound(!SLUG_TO_PAGE[window.location.pathname]);
       window.scrollTo(0, 0);
     };
     window.addEventListener('popstate', onPopState);
@@ -127,6 +160,7 @@ export function App() {
     const slug = PAGE_TO_SLUG[page] ?? '/';
     window.history.pushState({ page }, '', slug);
     setCurrentPage(page);
+    setIsNotFound(false);
     window.scrollTo(0, 0);
   }, []);
 
@@ -148,6 +182,21 @@ export function App() {
   const handleCommentConsumed = useCallback(() => {
     setSharedComment('');
   }, []);
+
+  const handleQuestionConsumed = useCallback(() => {
+    setScriptQuestion('');
+  }, []);
+
+  // ── 404 ──────────────────────────────────────────────────────────────────
+  if (isNotFound) {
+    return (
+      <LazyErrorBoundary>
+        <Suspense fallback={<PageLoader />}>
+          <NotFound onNavigate={handleNavigate as any} darkMode={darkMode} />
+        </Suspense>
+      </LazyErrorBoundary>
+    );
+  }
 
   // ── Landing page (eager) ─────────────────────────────────────────────────
   if (currentPage === 'home') {
@@ -175,7 +224,11 @@ export function App() {
 
   const lazyPage = renderLazyPage();
   if (lazyPage) {
-    return <Suspense fallback={<PageLoader />}>{lazyPage}</Suspense>;
+    return (
+      <LazyErrorBoundary>
+        <Suspense fallback={<PageLoader />}>{lazyPage}</Suspense>
+      </LazyErrorBoundary>
+    );
   }
 
   // ── Dashboard (tool pages) ───────────────────────────────────────────────
@@ -202,7 +255,11 @@ export function App() {
         <TemplatesLibrary darkMode={darkMode} onSelectTemplate={handleSelectTemplate} />
       )}
       {currentPage === 'scripts' && (
-        <ScriptGenerator darkMode={darkMode} initialQuestion={scriptQuestion} />
+        <ScriptGenerator
+          darkMode={darkMode}
+          initialQuestion={scriptQuestion}
+          onQuestionConsumed={handleQuestionConsumed}
+        />
       )}
       {currentPage === 'batch' && (
         <BatchGenerator darkMode={darkMode} />

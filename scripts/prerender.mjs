@@ -189,4 +189,14 @@ for (const [slug, { title, description }] of Object.entries(ROUTES)) {
   console.log(`  ✓  ${slug}`);
 }
 
+// Generate 404.html for Cloudflare Pages / Netlify catch-all
+const notFoundHtml = template
+  .replace(/<title>[^<]*<\/title>/, '<title>Page Not Found | CommentSticker</title>')
+  .replace(
+    /(<meta\s+name="description"[\s\S]*?content=")[^"]*(")/,
+    `$1Page not found — go back to CommentSticker, the free comment sticker generator.$2`
+  );
+writeFileSync(join(DIST, '404.html'), notFoundHtml, 'utf-8');
+console.log('  ✓  /404.html');
+
 console.log('\n✅  Pre-rendering complete — all routes have a dedicated index.html\n');

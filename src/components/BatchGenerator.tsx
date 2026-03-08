@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Download, Plus, Trash2, Shuffle, Layers } from 'lucide-react';
 import { toPng, toJpeg } from 'html-to-image';
+import { AdSense } from './AdSense';
 import { platforms, defaultAvatars, sampleUsernames, type Platform } from '../data/platforms';
 import { PlatformIcon } from './PlatformIcons';
 import { TikTokComment } from './TikTokComment';
@@ -382,6 +383,14 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
                         )}
                     </div>
                 </div>
+            </div>
+
+            {/* AdSense */}
+            <div className="py-6 border-t border-neutral-100 dark:border-neutral-900">
+                <p className={`text-[10px] font-black uppercase tracking-widest mb-4 text-center ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>
+                    Sponsored
+                </p>
+                <AdSense adSlot="9988776655" />
             </div>
         </div>
     );

@@ -16,9 +16,10 @@ import { AdSense } from './AdSense';
 interface ScriptGeneratorProps {
   darkMode: boolean;
   initialQuestion?: string;
+  onQuestionConsumed?: () => void;
 }
 
-export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGeneratorProps) {
+export function ScriptGenerator({ darkMode, initialQuestion = '', onQuestionConsumed }: ScriptGeneratorProps) {
   const [question, setQuestion] = useState(initialQuestion);
   const [niche, setNiche] = useState<NicheKey>('general');
   const [format, setFormat] = useState<ScriptFormat>('direct');
@@ -27,6 +28,12 @@ export function ScriptGenerator({ darkMode, initialQuestion = '' }: ScriptGenera
   const [generatedScript, setGeneratedScript] = useState<string>('');
   const [copied, setCopied] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
+
+  // Consume the initial question on mount so parent can clear it (prevents stale re-use)
+  useEffect(() => {
+    if (initialQuestion) onQuestionConsumed?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (initialQuestion) setQuestion(initialQuestion);

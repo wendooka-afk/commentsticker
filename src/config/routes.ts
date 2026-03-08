@@ -197,4 +197,35 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
       { '@type': 'HowToStep', name: 'Click Pick a Winner', text: 'Hit the button. The tool randomly selects one commenter as the winner.' },
     ],
   },
+  'guide-tiktok-giveaway-picker': {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Pick a Random TikTok Giveaway Winner',
+    description: 'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
+    step: [
+      { '@type': 'HowToStep', name: 'Collect giveaway entries', text: 'Copy all comments from your TikTok giveaway post or gather follower entries.' },
+      { '@type': 'HowToStep', name: 'Paste into a picker tool', text: 'Use a free TikTok giveaway picker — paste entries one per line into the tool.' },
+      { '@type': 'HowToStep', name: 'Pick a random winner', text: 'Click the pick button. The tool randomly selects one eligible commenter as the winner.' },
+    ],
+  },
+  'guide-comparison': {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Best TikTok Comment Generator in 2026: Top Alternatives Compared',
+    description: 'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
+    url: 'https://commentsticker.com/tiktok-comment-generator-alternatives',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
+  },
+  blog: {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'CommentSticker Blog & Guides',
+    url: 'https://commentsticker.com/blog',
+    description: 'Guides, tutorials and strategies for TikTok UGC creators. Learn how to create comment stickers, run giveaways, and grow your audience.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'CommentSticker',
+      url: 'https://commentsticker.com',
+    },
+  },
 };
