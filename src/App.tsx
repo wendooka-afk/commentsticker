@@ -86,6 +86,7 @@ export function App() {
     setTwitter('twitter:card', 'summary_large_image');
     setTwitter('twitter:title', PAGE_TITLES[currentPage]);
     setTwitter('twitter:description', PAGE_DESCRIPTIONS[currentPage]);
+    setTwitter('twitter:image', 'https://commentsticker.com/og-image.png');
 
     // Canonical link
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -144,6 +145,10 @@ export function App() {
     handleNavigate('scripts');
   };
 
+  const handleCommentConsumed = useCallback(() => {
+    setSharedComment('');
+  }, []);
+
   // ── Landing page (eager) ─────────────────────────────────────────────────
   if (currentPage === 'home') {
     return <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />;
@@ -186,6 +191,7 @@ export function App() {
           darkMode={darkMode}
           onNavigate={handleNavigate as any}
           initialComment={sharedComment}
+          onCommentConsumed={handleCommentConsumed}
           onGoToScript={handleGoToScript}
         />
       )}

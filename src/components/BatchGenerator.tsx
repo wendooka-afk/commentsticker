@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Download, Plus, Trash2, Shuffle, Layers } from 'lucide-react';
-import { toPng } from 'html-to-image';
+import { toPng, toJpeg } from 'html-to-image';
 import { platforms, defaultAvatars, sampleUsernames, type Platform } from '../data/platforms';
 import { PlatformIcon } from './PlatformIcons';
 import { TikTokComment } from './TikTokComment';
@@ -76,6 +76,7 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
     const [comments, setComments] = useState<string[]>(['How did you start?', 'This is exactly what I needed!']);
     const [isDownloading, setIsDownloading] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [exportFormat, setExportFormat] = useState<'png' | 'jpeg'>('png');
 
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -109,12 +110,12 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
     const downloadSingle = async (index: number) => {
         const el = itemRefs.current[index];
         if (!el || !comments[index].trim()) return;
-        const dataUrl = await toPng(el, {
-            pixelRatio: 3,
-            backgroundColor: getBgColor(platform),
-        });
+        const opts = { pixelRatio: 3, backgroundColor: getBgColor(platform) };
+        const dataUrl = exportFormat === 'jpeg'
+            ? await toJpeg(el, { ...opts, quality: 0.95 })
+            : await toPng(el, opts);
         const link = document.createElement('a');
-        link.download = `comment-${platform}-${index + 1}.png`;
+        link.download = `comment-${platform}-${index + 1}.${exportFormat}`;
         link.href = dataUrl;
         link.click();
     };
@@ -301,6 +302,22 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
                         )}
                     </div>
 
+                    {/* Format toggle */}
+                    <div className={`flex items-center gap-2 p-1.5 rounded-2xl ${darkMode ? 'bg-neutral-800' : 'bg-neutral-100'}`}>
+                        {(['png', 'jpeg'] as const).map(fmt => (
+                            <button
+                                key={fmt}
+                                onClick={() => setExportFormat(fmt)}
+                                className={`flex-1 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${exportFormat === fmt
+                                    ? (darkMode ? 'bg-white text-black shadow' : 'bg-neutral-900 text-white shadow')
+                                    : (darkMode ? 'text-neutral-500 hover:text-neutral-300' : 'text-neutral-400 hover:text-neutral-600')
+                                    }`}
+                            >
+                                {fmt}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Download All */}
                     <button
                         onClick={downloadAll}
@@ -315,7 +332,7 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
                         ) : (
                             <>
                                 <Download className="w-5 h-5" />
-                                Download All ({validCount} PNG{validCount !== 1 ? 's' : ''})
+                                Download All ({validCount} {exportFormat.toUpperCase()}{validCount !== 1 ? 's' : ''})
                             </>
                         )}
                     </button>
@@ -343,7 +360,7 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
                                             }`}
                                     >
                                         <Download className="w-3 h-3" />
-                                        PNG
+                                        {exportFormat.toUpperCase()}
                                     </button>
                                 </div>
                                 {/* Capture target */}

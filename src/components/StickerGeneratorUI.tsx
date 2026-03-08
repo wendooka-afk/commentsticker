@@ -18,6 +18,7 @@ interface StickerGeneratorProps {
     darkMode: boolean;
     onNavigate: (page: any) => void;
     initialComment?: string;
+    onCommentConsumed?: () => void;
     onGoToScript?: (question: string) => void;
 }
 
@@ -68,7 +69,7 @@ function getBgColorForPlatform(p: Platform): string {
     return '#ffffff';
 }
 
-export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoToScript }: StickerGeneratorProps) {
+export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onCommentConsumed, onGoToScript }: StickerGeneratorProps) {
     const [selectedPlatform, setSelectedPlatform] = useState<Platform>('tiktok');
     const [username, setUsername] = useState('curious_user_2024');
     const [displayName, setDisplayName] = useState('Curious User');
@@ -100,6 +101,13 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onGoT
     useEffect(() => {
         localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     }, [history]);
+
+    // Tell the parent (App.tsx) that initialComment has been consumed so it
+    // can clear sharedComment — prevents stale comment on re-navigation.
+    useEffect(() => {
+        if (initialComment) onCommentConsumed?.();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const commentRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
