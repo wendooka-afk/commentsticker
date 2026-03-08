@@ -1,97 +1,46 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import {
+  type Page,
+  SLUG_TO_PAGE,
+  PAGE_TO_SLUG,
+  PAGE_TITLES,
+  PAGE_DESCRIPTIONS,
+  PAGE_SCHEMAS,
+} from './config/routes';
+
+// ── Eager imports — core app pages (always needed) ───────────────────────────
 import { LandingPage } from './components/LandingPage';
 import { DashboardShell } from './components/DashboardShell';
 import { StickerGeneratorUI } from './components/StickerGeneratorUI';
 import { QuestionFinder } from './components/QuestionFinder';
 import { TemplatesLibrary } from './components/TemplatesLibrary';
 import { ScriptGenerator } from './components/ScriptGenerator';
-import { PrivacyPolicy } from './components/PrivacyPolicy';
-import { TermsOfService } from './components/Terms';
-import { AboutUs } from './components/About';
-import { Contact } from './components/Contact';
-import { GuideHowToAddComment } from './components/GuideHowToAddComment';
-import { GuideInstagramCommentSticker } from './components/GuideInstagramCommentSticker';
-import { GuideYoutubeCommentSticker } from './components/GuideYoutubeCommentSticker';
-import { BlogComparison } from './components/BlogComparison';
-import { Blog } from './components/Blog';
-import { GuideTikTokCommentGenerator } from './components/GuideTikTokCommentGenerator';
-import { GuideTikTokCommentPicker } from './components/GuideTikTokCommentPicker';
-import { GuideTikTokGiveawayPicker } from './components/GuideTikTokGiveawayPicker';
+import { BatchGenerator } from './components/BatchGenerator';
 
-// ── URL slug ↔ internal page ID mapping ──────────────────────────────────────
-type Page =
-  | 'home' | 'generator' | 'finder' | 'templates' | 'scripts'
-  | 'privacy' | 'terms' | 'about' | 'contact' | 'blog'
-  | 'guide' | 'guide-instagram' | 'guide-youtube' | 'guide-comparison'
-  | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker';
-
-const SLUG_TO_PAGE: Record<string, Page> = {
-  '/': 'home',
-  '/app': 'generator',
-  '/question-finder': 'finder',
-  '/templates': 'templates',
-  '/script-generator': 'scripts',
-  '/privacy': 'privacy',
-  '/terms': 'terms',
-  '/about': 'about',
-  '/contact': 'contact',
-  '/blog': 'blog',
-  '/how-to-add-comment-sticker-tiktok': 'guide',
-  '/instagram-comment-sticker-generator': 'guide-instagram',
-  '/youtube-comment-sticker-generator': 'guide-youtube',
-  '/tiktok-comment-generator-alternatives': 'guide-comparison',
-  '/tiktok-comment-generator': 'guide-tiktok-comment-generator',
-  '/tiktok-comment-picker': 'guide-tiktok-comment-picker',
-  '/tiktok-giveaway-picker': 'guide-tiktok-giveaway-picker',
-};
-
-const PAGE_TO_SLUG: Record<Page, string> = Object.fromEntries(
-  Object.entries(SLUG_TO_PAGE).map(([slug, page]) => [page, slug])
-) as Record<Page, string>;
-
-const PAGE_TITLES: Record<Page, string> = {
-  home: 'Free TikTok Comment Generator & Sticker Maker | CommentSticker',
-  generator: 'Comment Sticker Generator — Create Fake Comments Free',
-  finder: 'Find Viral TikTok Questions | CommentSticker',
-  templates: 'UGC Comment Templates Library | CommentSticker',
-  scripts: 'AI UGC Script Generator | CommentSticker',
-  privacy: 'Privacy Policy | CommentSticker',
-  terms: 'Terms of Service | CommentSticker',
-  about: 'About CommentSticker — Free UGC Tools for Creators',
-  contact: 'Contact Us | CommentSticker',
-  blog: 'Blog & Guides for TikTok Creators | CommentSticker',
-  guide: 'How to Add Comment Sticker on TikTok (Ultimate Guide 2026)',
-  'guide-instagram': 'Free Instagram Comment Sticker Generator for Reels',
-  'guide-youtube': 'Free YouTube Comment Sticker Generator for Shorts',
-  'guide-comparison': 'Best TikTok Comment Generator in 2026: Top Alternatives',
-  'guide-tiktok-comment-generator': 'Free TikTok Comment Generator — Create Fake TikTok Comments',
-  'guide-tiktok-comment-picker': 'TikTok Comment Picker — Free Random Winner Tool',
-  'guide-tiktok-giveaway-picker': 'TikTok Giveaway Picker — Free Random Winner Selector',
-};
-
-const PAGE_DESCRIPTIONS: Record<Page, string> = {
-  home: 'CommentSticker is the #1 free TikTok comment generator. Create fake TikTok, Instagram, YouTube & Discord comment stickers — transparent PNG, no watermark.',
-  generator: 'Create pixel-perfect fake comment stickers for TikTok, Instagram, YouTube and more. Download as transparent PNG. Free, no login, no watermark.',
-  finder: 'Discover the most viral questions and comments for your niche. Use them as hooks in your TikTok UGC ads.',
-  templates: 'Browse 100+ proven UGC comment templates for TikTok, Instagram and YouTube ads. Free to use.',
-  scripts: 'Generate high-converting UGC video scripts based on your comment hooks. Free AI script generator.',
-  privacy: 'Privacy Policy for CommentSticker — how we collect, use, and protect your data.',
-  terms: 'Terms of Service for CommentSticker.',
-  about: 'Learn about CommentSticker — the free UGC creative tool built for creators, marketers, and brands.',
-  contact: 'Get in touch with the CommentSticker team.',
-  blog: 'Guides, tutorials and strategies for TikTok UGC creators. Learn how to create comment stickers, run giveaways, and grow your audience.',
-  guide: 'Learn how to add a comment sticker on a TikTok video natively and using a free generator. Ultimate 2026 guide.',
-  'guide-instagram': 'Create a perfect Instagram comment sticker for Reels. Free generator, transparent PNG, no watermark.',
-  'guide-youtube': 'Create a YouTube comment sticker for Shorts. Free generator, 3x resolution, transparent PNG.',
-  'guide-comparison': 'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
-  'guide-tiktok-comment-generator': 'Use a free TikTok comment generator to create realistic fake TikTok comments as transparent PNGs for UGC ads.',
-  'guide-tiktok-comment-picker': 'Pick a random winner from TikTok comments for free. Best TikTok comment picker tools compared for 2026.',
-  'guide-tiktok-giveaway-picker': 'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
-};
+// ── Lazy imports — guide/blog pages (code-split, loaded on demand) ───────────
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./components/Terms').then(m => ({ default: m.TermsOfService })));
+const AboutUs = lazy(() => import('./components/About').then(m => ({ default: m.AboutUs })));
+const Contact = lazy(() => import('./components/Contact').then(m => ({ default: m.Contact })));
+const Blog = lazy(() => import('./components/Blog').then(m => ({ default: m.Blog })));
+const GuideHowToAddComment = lazy(() => import('./components/GuideHowToAddComment').then(m => ({ default: m.GuideHowToAddComment })));
+const GuideInstagramCommentSticker = lazy(() => import('./components/GuideInstagramCommentSticker').then(m => ({ default: m.GuideInstagramCommentSticker })));
+const GuideYoutubeCommentSticker = lazy(() => import('./components/GuideYoutubeCommentSticker').then(m => ({ default: m.GuideYoutubeCommentSticker })));
+const BlogComparison = lazy(() => import('./components/BlogComparison').then(m => ({ default: m.BlogComparison })));
+const GuideTikTokCommentGenerator = lazy(() => import('./components/GuideTikTokCommentGenerator').then(m => ({ default: m.GuideTikTokCommentGenerator })));
+const GuideTikTokCommentPicker = lazy(() => import('./components/GuideTikTokCommentPicker').then(m => ({ default: m.GuideTikTokCommentPicker })));
+const GuideTikTokGiveawayPicker = lazy(() => import('./components/GuideTikTokGiveawayPicker').then(m => ({ default: m.GuideTikTokGiveawayPicker })));
 
 function getPageFromPath(pathname: string): Page {
-  const page = SLUG_TO_PAGE[pathname];
-  return page ?? 'home';
+  return SLUG_TO_PAGE[pathname] ?? 'home';
+}
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-neutral-950">
+      <div className="w-8 h-8 border-2 border-pink-500/30 border-t-pink-500 rounded-full animate-spin" />
+    </div>
+  );
 }
 
 // ── Component ────────────────────────────────────────────────────────────────
@@ -101,7 +50,7 @@ export function App() {
   const [sharedComment, setSharedComment] = useState<string>('');
   const [scriptQuestion, setScriptQuestion] = useState<string>('');
 
-  // Sync document title + meta description + canonical on every page change
+  // Sync document head (title, meta, OG, canonical, schema.org) on every navigation
   useEffect(() => {
     document.title = PAGE_TITLES[currentPage];
 
@@ -146,9 +95,24 @@ export function App() {
       document.head.appendChild(canonical);
     }
     canonical.href = canonicalUrl;
+
+    // Schema.org structured data (JSON-LD)
+    const schema = PAGE_SCHEMAS[currentPage];
+    let schemaEl = document.getElementById('schema-ld') as HTMLScriptElement | null;
+    if (schema) {
+      if (!schemaEl) {
+        schemaEl = document.createElement('script');
+        schemaEl.type = 'application/ld+json';
+        schemaEl.id = 'schema-ld';
+        document.head.appendChild(schemaEl);
+      }
+      schemaEl.textContent = JSON.stringify(schema);
+    } else if (schemaEl) {
+      schemaEl.remove();
+    }
   }, [currentPage]);
 
-  // Handle browser back/forward buttons
+  // Handle browser back/forward
   useEffect(() => {
     const onPopState = () => {
       setCurrentPage(getPageFromPath(window.location.pathname));
@@ -180,26 +144,50 @@ export function App() {
     handleNavigate('scripts');
   };
 
-  // ── Routes ──────────────────────────────────────────────────────────────
-  if (currentPage === 'home') return <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />;
-  if (currentPage === 'privacy') return <PrivacyPolicy darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'terms') return <TermsOfService darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'about') return <AboutUs darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'contact') return <Contact darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'blog') return <Blog darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide') return <GuideHowToAddComment darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-instagram') return <GuideInstagramCommentSticker darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-youtube') return <GuideYoutubeCommentSticker darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-comparison') return <BlogComparison darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-tiktok-comment-generator') return <GuideTikTokCommentGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-tiktok-comment-picker') return <GuideTikTokCommentPicker darkMode={darkMode} onNavigate={handleNavigate} />;
-  if (currentPage === 'guide-tiktok-giveaway-picker') return <GuideTikTokGiveawayPicker darkMode={darkMode} onNavigate={handleNavigate} />;
+  // ── Landing page (eager) ─────────────────────────────────────────────────
+  if (currentPage === 'home') {
+    return <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />;
+  }
 
-  // Dashboard (tool pages)
+  // ── Lazy-loaded content pages ────────────────────────────────────────────
+  const renderLazyPage = () => {
+    switch (currentPage) {
+      case 'privacy': return <PrivacyPolicy darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'terms': return <TermsOfService darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'about': return <AboutUs darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'contact': return <Contact darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'blog': return <Blog darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide': return <GuideHowToAddComment darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-instagram': return <GuideInstagramCommentSticker darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-youtube': return <GuideYoutubeCommentSticker darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-comparison': return <BlogComparison darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-tiktok-comment-generator': return <GuideTikTokCommentGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-tiktok-comment-picker': return <GuideTikTokCommentPicker darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'guide-tiktok-giveaway-picker': return <GuideTikTokGiveawayPicker darkMode={darkMode} onNavigate={handleNavigate} />;
+      default: return null;
+    }
+  };
+
+  const lazyPage = renderLazyPage();
+  if (lazyPage) {
+    return <Suspense fallback={<PageLoader />}>{lazyPage}</Suspense>;
+  }
+
+  // ── Dashboard (tool pages) ───────────────────────────────────────────────
   return (
-    <DashboardShell currentPage={currentPage} onNavigate={handleNavigate as any} darkMode={darkMode} setDarkMode={setDarkMode}>
+    <DashboardShell
+      currentPage={currentPage}
+      onNavigate={handleNavigate as any}
+      darkMode={darkMode}
+      setDarkMode={setDarkMode}
+    >
       {currentPage === 'generator' && (
-        <StickerGeneratorUI darkMode={darkMode} onNavigate={handleNavigate as any} initialComment={sharedComment} onGoToScript={handleGoToScript} />
+        <StickerGeneratorUI
+          darkMode={darkMode}
+          onNavigate={handleNavigate as any}
+          initialComment={sharedComment}
+          onGoToScript={handleGoToScript}
+        />
       )}
       {currentPage === 'finder' && (
         <QuestionFinder darkMode={darkMode} onSelectQuestion={handleSelectQuestion} />
@@ -209,6 +197,9 @@ export function App() {
       )}
       {currentPage === 'scripts' && (
         <ScriptGenerator darkMode={darkMode} initialQuestion={scriptQuestion} />
+      )}
+      {currentPage === 'batch' && (
+        <BatchGenerator darkMode={darkMode} />
       )}
     </DashboardShell>
   );

@@ -9,7 +9,8 @@ import {
     Menu,
     X,
     Home,
-    Bell
+    Bell,
+    Layers
 } from 'lucide-react';
 
 interface NavItem {
@@ -32,6 +33,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
 
     const navItems: NavItem[] = [
         { id: 'generator', label: 'Sticker Generator', icon: MessageSquare, color: 'text-pink-500' },
+        { id: 'batch', label: 'Batch Generator', icon: Layers, color: 'text-emerald-500' },
         { id: 'finder', label: 'Question Finder', icon: Search, color: 'text-blue-500' },
         { id: 'templates', label: 'Templates Library', icon: Bookmark, color: 'text-orange-500' },
         { id: 'scripts', label: 'AI Script Generator', icon: FileText, color: 'text-purple-500' },

@@ -1,4 +1,4 @@
-export type Platform = 'tiktok' | 'instagram' | 'youtube' | 'twitter' | 'facebook' | 'threads' | 'snapchat' | 'discord';
+export type Platform = 'tiktok' | 'instagram' | 'youtube' | 'twitter' | 'facebook' | 'threads' | 'snapchat' | 'discord' | 'linkedin';
 
 export interface PlatformConfig {
   id: Platform;
@@ -82,6 +82,15 @@ export const platforms: PlatformConfig[] = [
     iconBg: 'bg-indigo-500',
     textColor: 'text-white',
     accentColor: '#5865F2',
+  },
+  {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    color: '#0A66C2',
+    bgGradient: 'from-blue-600 to-blue-700',
+    iconBg: 'bg-blue-600',
+    textColor: 'text-white',
+    accentColor: '#0A66C2',
   },
 ];
 

@@ -39,6 +39,11 @@ const ROUTES = {
     description:
       'Generate high-converting UGC video scripts based on your comment hooks. Free AI script generator.',
   },
+  '/batch-generator': {
+    title: 'Batch Comment Sticker Generator — Export Multiple at Once | CommentSticker',
+    description:
+      'Generate and download multiple comment stickers at once. Batch export PNG for TikTok, Instagram, YouTube. Free, no watermark.',
+  },
   '/privacy': {
     title: 'Privacy Policy | CommentSticker',
     description:

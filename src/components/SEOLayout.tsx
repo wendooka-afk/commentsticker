@@ -193,6 +193,7 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                         <NavLink page="scripts" label="Script Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="templates" label="Templates Library" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="guide-tiktok-comment-picker" label="Comment Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="batch" label="Batch Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                     </div>
                 </div>
 
