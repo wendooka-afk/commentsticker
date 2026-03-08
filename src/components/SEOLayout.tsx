@@ -1,31 +1,14 @@
 import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { PAGE_TO_SLUG } from '../config/routes';
 
 interface SEOHeaderProps {
     onNavigate: (page: any) => void;
     darkMode: boolean;
 }
 
-// Page slug map for real <a href> links
-const PAGE_SLUGS: Record<string, string> = {
-    home: '/',
-    generator: '/app',
-    finder: '/question-finder',
-    templates: '/templates',
-    scripts: '/script-generator',
-    blog: '/blog',
-    about: '/about',
-    contact: '/contact',
-    privacy: '/privacy',
-    terms: '/terms',
-    guide: '/how-to-add-comment-sticker-tiktok',
-    'guide-instagram': '/instagram-comment-sticker-generator',
-    'guide-youtube': '/youtube-comment-sticker-generator',
-    'guide-comparison': '/tiktok-comment-generator-alternatives',
-    'guide-tiktok-comment-generator': '/tiktok-comment-generator',
-    'guide-tiktok-comment-picker': '/tiktok-comment-picker',
-    'guide-tiktok-giveaway-picker': '/tiktok-giveaway-picker',
-};
+// Use centralized route registry — single source of truth
+const PAGE_SLUGS = PAGE_TO_SLUG as Record<string, string>;
 
 // Metadata for all articles — used by RelatedArticles component
 const ARTICLE_META: Record<string, { title: string; excerpt: string; category: string; readTime: string; emoji: string; from: string; to: string }> = {

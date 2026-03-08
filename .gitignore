@@ -40,3 +40,4 @@ brain/
 !public/ads.txt
 *.webp
 *.png
+!public/og-image.png
