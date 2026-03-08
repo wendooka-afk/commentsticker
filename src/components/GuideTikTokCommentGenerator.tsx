@@ -174,7 +174,7 @@ export function GuideTikTokCommentGenerator({ darkMode, onNavigate }: GuideProps
                                 },
                                 {
                                     q: "What's the best fake TikTok comment maker for UGC ads?",
-                                    a: "CommentSticker is widely considered the best free option because it supports 8 social platforms (TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord), exports at 3x resolution as a transparent PNG, and requires no login."
+                                    a: "CommentSticker is widely considered the best free option because it supports 9 social platforms (TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, LinkedIn), exports at 3x resolution as a transparent PNG, and requires no login."
                                 },
                                 {
                                     q: "Can I customize the profile picture?",

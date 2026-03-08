@@ -29,7 +29,7 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
         },
         {
             q: "How is CommentSticker different from TokComment or other alternatives?",
-            a: "Unlike older tools, CommentSticker supports 8 different social platforms natively (TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord). We also provide higher-resolution exports (3x pixel ratio), transparent backgrounds by default, and additional tools like the AI Question Finder and Script Generator that are unique to our platform."
+            a: "Unlike older tools, CommentSticker supports 9 different social platforms natively (TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, LinkedIn). We also provide higher-resolution exports (3x pixel ratio), transparent backgrounds by default, and additional tools like the AI Question Finder, Batch Generator, and Script Generator that are unique to our platform."
         },
         {
             q: "Do you have a roadmap or upcoming features?",
@@ -119,7 +119,7 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
                             CommentSticker was created with a single mission: to democratize professional content creation tools. We believe that a solo creator or a small UGC agency should have access to the same quality tools as a major media buying firm — without paying thousands of dollars in design software licenses.
                         </p>
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 font-medium leading-relaxed">
-                            By providing free, browser-based tools for generating pixel-perfect social comment stickers across 8 platforms, we level the playing field for independent creators who want to build the same high-converting ad creatives as the biggest brands on TikTok, Instagram, and YouTube.
+                            By providing free, browser-based tools for generating pixel-perfect social comment stickers across 9 platforms, we level the playing field for independent creators who want to build the same high-converting ad creatives as the biggest brands on TikTok, Instagram, and YouTube.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -164,7 +164,7 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
                     <h2 className="text-3xl md:text-4xl font-black">How CommentSticker Works</h2>
                     <div className="space-y-6">
                         {[
-                            { step: "01", title: "Choose Your Platform", desc: "Select from 8 natively-designed social media templates: TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, or Discord. Each template is an exact pixel-perfect reproduction of the platform's comment UI, updated to reflect the latest app designs." },
+                            { step: "01", title: "Choose Your Platform", desc: "Select from 9 natively-designed social media templates: TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, or LinkedIn. Each template is an exact pixel-perfect reproduction of the platform's comment UI, updated to reflect the latest app designs." },
                             { step: "02", title: "Customize the Comment", desc: "Enter any username, display name, comment text, number of likes, and timestamp. Upload a custom profile picture or choose from our default avatars. Toggle the verified badge, liked state, or generate a fully random comment with one click." },
                             { step: "03", title: "Download Your Transparent PNG", desc: "Click 'Export PNG' to download your comment sticker at 3x resolution with a transparent background (where applicable). Use it directly in CapCut as an Overlay, or import it into Adobe Premiere Pro, DaVinci Resolve, or Final Cut Pro as a video layer." },
                         ].map((step, i) => (
