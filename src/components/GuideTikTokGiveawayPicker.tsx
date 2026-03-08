@@ -1,5 +1,5 @@
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -246,6 +246,12 @@ export function GuideTikTokGiveawayPicker({ darkMode, onNavigate }: GuideProps) 
                             Open Free Comment Generator →
                         </button>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide-tiktok-comment-picker', 'guide', 'guide-tiktok-comment-generator']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 

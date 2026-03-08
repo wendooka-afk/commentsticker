@@ -1,5 +1,5 @@
 import { ArrowRight, Instagram } from 'lucide-react';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 import { AdSense } from './AdSense';
 
 interface GuideProps {
@@ -106,6 +106,12 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
                             Open the iOS/Instagram Generator <ArrowRight className="w-5 h-5" />
                         </button>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide', 'guide-youtube', 'guide-tiktok-comment-generator']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 

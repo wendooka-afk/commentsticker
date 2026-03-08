@@ -1,4 +1,4 @@
-import { MessageSquare, Twitter, Linkedin, Send as ShareIcon } from 'lucide-react';
+import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface SEOHeaderProps {
@@ -25,6 +25,45 @@ const PAGE_SLUGS: Record<string, string> = {
     'guide-tiktok-comment-generator': '/tiktok-comment-generator',
     'guide-tiktok-comment-picker': '/tiktok-comment-picker',
     'guide-tiktok-giveaway-picker': '/tiktok-giveaway-picker',
+};
+
+// Metadata for all articles — used by RelatedArticles component
+const ARTICLE_META: Record<string, { title: string; excerpt: string; category: string; readTime: string; emoji: string; from: string; to: string }> = {
+    guide: {
+        title: 'How to Add a Comment Sticker on TikTok (2026)',
+        excerpt: 'Learn the native method & how to create custom comment stickers for UGC ads.',
+        category: 'Tutorial', readTime: '5 min', emoji: '📱', from: 'from-pink-500', to: 'to-rose-600',
+    },
+    'guide-instagram': {
+        title: 'Free Instagram Comment Sticker Generator for Reels',
+        excerpt: 'Create pixel-perfect Instagram comment stickers as transparent PNGs.',
+        category: 'Strategy', readTime: '4 min', emoji: '📸', from: 'from-purple-500', to: 'to-pink-500',
+    },
+    'guide-youtube': {
+        title: 'Free YouTube Comment Sticker Generator for Shorts',
+        excerpt: 'Generate YouTube comment overlays and boost your Shorts retention.',
+        category: 'Strategy', readTime: '4 min', emoji: '▶️', from: 'from-red-500', to: 'to-orange-500',
+    },
+    'guide-comparison': {
+        title: 'Best TikTok Comment Generator in 2026: Alternatives Compared',
+        excerpt: 'Full comparison of TokComment alternatives — find the best free tool.',
+        category: 'Comparison', readTime: '6 min', emoji: '⚖️', from: 'from-blue-500', to: 'to-cyan-500',
+    },
+    'guide-tiktok-comment-generator': {
+        title: 'TikTok Comment Generator: Create Fake TikTok Comments Free',
+        excerpt: 'Create realistic TikTok comment stickers as transparent PNGs — no watermark.',
+        category: 'Tool Guide', readTime: '7 min', emoji: '💬', from: 'from-fuchsia-500', to: 'to-pink-600',
+    },
+    'guide-tiktok-comment-picker': {
+        title: 'TikTok Comment Picker: Pick a Random Winner (Free)',
+        excerpt: 'Paste your comments, pick a random winner. Free tool + guide.',
+        category: 'Free Tools', readTime: '6 min', emoji: '🎯', from: 'from-amber-500', to: 'to-orange-500',
+    },
+    'guide-tiktok-giveaway-picker': {
+        title: 'TikTok Giveaway Picker: Free Random Winner Tool',
+        excerpt: 'Run a fair TikTok giveaway and randomly select a winner from comments.',
+        category: 'Giveaway', readTime: '8 min', emoji: '🎁', from: 'from-emerald-500', to: 'to-teal-500',
+    },
 };
 
 function NavLink({ page, label, onNavigate, className }: { page: string; label: string; onNavigate: (p: any) => void; className?: string }) {
@@ -65,8 +104,8 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                 </a>
 
                 <div className="hidden md:flex items-center gap-8">
+                    <NavLink page="generator" label="Free Tool" onNavigate={onNavigate} className="text-sm font-bold hover:text-pink-500 transition-colors" />
                     <NavLink page="blog" label="Blog & Guides" onNavigate={onNavigate} className="text-sm font-bold hover:text-pink-500 transition-colors" />
-                    <NavLink page="home" label="Features" onNavigate={onNavigate} />
                     <NavLink page="about" label="About" onNavigate={onNavigate} />
                 </div>
 
@@ -79,6 +118,56 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                 </a>
             </div>
         </nav>
+    );
+}
+
+// ── Reusable Related Articles section ────────────────────────────────────────
+
+interface RelatedArticlesProps {
+    ids: string[];
+    onNavigate: (page: any) => void;
+    darkMode: boolean;
+}
+
+export function RelatedArticles({ ids, onNavigate, darkMode }: RelatedArticlesProps) {
+    const articles = ids
+        .map(id => ({ id, ...ARTICLE_META[id] }))
+        .filter(a => a.title);
+
+    if (articles.length === 0) return null;
+
+    return (
+        <section className="mt-16 pt-12 border-t border-neutral-200 dark:border-neutral-800">
+            <h2 className={`text-2xl font-black mb-6 ${darkMode ? 'text-white' : 'text-neutral-900'}`}>
+                Related Articles
+            </h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {articles.map(article => (
+                    <a
+                        key={article.id}
+                        href={PAGE_SLUGS[article.id]}
+                        onClick={(e) => { e.preventDefault(); onNavigate(article.id); }}
+                        className={`group flex flex-col rounded-2xl border overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}
+                    >
+                        <div className={`h-20 bg-gradient-to-br ${article.from} ${article.to} flex items-center justify-center relative overflow-hidden`}>
+                            <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-full" />
+                            <span className="text-3xl relative z-10">{article.emoji}</span>
+                        </div>
+                        <div className="p-4 flex flex-col flex-1">
+                            <span className={`text-[10px] font-black uppercase tracking-widest mb-1.5 ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                                {article.category} · {article.readTime} read
+                            </span>
+                            <h3 className={`text-sm font-bold mb-2 line-clamp-2 group-hover:text-pink-500 transition-colors ${darkMode ? 'text-neutral-100' : 'text-neutral-800'}`}>
+                                {article.title}
+                            </h3>
+                            <p className={`text-xs leading-relaxed line-clamp-2 mt-auto ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                                {article.excerpt}
+                            </p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </section>
     );
 }
 
@@ -102,7 +191,8 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                         <NavLink page="generator" label="Sticker Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="finder" label="Question Finder" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="scripts" label="Script Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
-                        <NavLink page="templates" label="Templates" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="templates" label="Templates Library" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide-tiktok-comment-picker" label="Comment Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                     </div>
                 </div>
 
@@ -110,8 +200,12 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                     <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Articles</h4>
                     <div className="flex flex-col gap-2">
                         <NavLink page="guide-tiktok-comment-generator" label="TikTok Comment Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide" label="Add Comment Sticker (TikTok)" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide-instagram" label="Instagram Comment Sticker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide-youtube" label="YouTube Comment Sticker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="guide-tiktok-comment-picker" label="TikTok Comment Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="guide-tiktok-giveaway-picker" label="TikTok Giveaway Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide-comparison" label="Generator Alternatives" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="blog" label="All Guides →" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left text-pink-500" />
                     </div>
                 </div>

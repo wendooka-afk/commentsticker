@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { Shuffle, Trophy, Clock, Copy, Check, X, Filter, Users } from 'lucide-react';
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -489,6 +489,12 @@ export function GuideTikTokCommentPicker({ darkMode, onNavigate }: GuideProps) {
                             Try the Free Comment Sticker Generator →
                         </button>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide-tiktok-giveaway-picker', 'guide', 'guide-tiktok-comment-generator']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 

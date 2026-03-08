@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -152,7 +152,16 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
                         <p className="font-medium text-lg mt-6 p-6 bg-pink-500/5 rounded-2xl border border-pink-500/20">
                             Stop photoshopping your own comment bubbles manually. It's a massive waste of editing time. Use a dedicated <strong>TikTok comment bubble generator</strong>, download the PNG transparent image with one click, and elevate your content creation workflow to an elite level today. Your ROAS (Return On Ad Spend) will thank you.
                         </p>
+                        <p className="text-sm text-neutral-400 mt-4">
+                            This guide is referenced by external resources such as <a href="https://bresdel.com/blogs/1447125/7-fa%C3%A7ons-d-utiliser-les-comment-stickers-pour-booster-l" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline font-semibold">7 ways to use comment stickers to boost engagement (Bresdel)</a>.
+                        </p>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide-tiktok-comment-generator', 'guide-instagram', 'guide-youtube']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 

@@ -1,5 +1,5 @@
 import { CheckCircle2, XCircle } from 'lucide-react';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 import { AdSense } from './AdSense';
 
 interface GuideProps {
@@ -128,6 +128,12 @@ export function BlogComparison({ darkMode, onNavigate }: GuideProps) {
                             </button>
                         </div>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide-tiktok-comment-generator', 'guide', 'guide-instagram']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 

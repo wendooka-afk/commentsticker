@@ -1,5 +1,5 @@
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -204,6 +204,12 @@ export function GuideTikTokCommentGenerator({ darkMode, onNavigate }: GuideProps
                             Open Comment Generator →
                         </button>
                     </section>
+
+                    <RelatedArticles
+                        ids={['guide', 'guide-comparison', 'guide-instagram']}
+                        onNavigate={onNavigate}
+                        darkMode={darkMode}
+                    />
                 </div>
             </main>
 
