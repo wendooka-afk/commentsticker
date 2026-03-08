@@ -1,4 +1,4 @@
-import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, ArrowRight } from 'lucide-react';
+import { MessageSquare, Twitter, Linkedin, Send as ShareIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PAGE_TO_SLUG } from '../config/routes';
 

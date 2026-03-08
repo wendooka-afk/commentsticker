@@ -42,7 +42,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
     },
     {
       q: "Which platforms are supported?",
-      a: "We support TikTok, Instagram, YouTube, Twitter (X), Facebook, Threads, Snapchat, and Discord. Each comment sticker is designed natively to be pixel-perfect."
+      a: "We support TikTok, Instagram, YouTube, Twitter (X), Facebook, Threads, Snapchat, Discord, and LinkedIn. Each comment sticker is designed natively to be pixel-perfect."
     },
     {
       q: "Can I use these comment stickers in CapCut?",
@@ -173,8 +173,11 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
               <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="instagram" size={28} /> Instagram</span>
               <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="youtube" size={32} /> YouTube</span>
               <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="twitter" size={28} /> Twitter</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="facebook" size={28} /> Facebook</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="threads" size={28} /> Threads</span>
               <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="snapchat" size={28} /> Snapchat</span>
               <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="discord" size={28} /> Discord</span>
+              <span className="flex items-center gap-2 font-black text-2xl tracking-tighter"><PlatformIcon platform="linkedin" size={28} /> LinkedIn</span>
             </div>
           </div>
         </div>
@@ -247,7 +250,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
                 </div>
                 <h3 className="text-3xl font-black">1. Choose your platform</h3>
                 <p className="text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
-                  Select TikTok, Instagram, YouTube or Twitter style. We provide the most accurate, pixel-perfect UI templates for 8 different social networks.
+                  Select TikTok, Instagram, YouTube, LinkedIn or any other style. We provide the most accurate, pixel-perfect UI templates for 9 different social networks.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm font-bold text-pink-500">
@@ -480,6 +483,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Tools</h4>
             <div className="flex flex-col gap-2">
               <button onClick={() => onNavigate('generator')} className="text-sm font-medium hover:text-pink-500 w-fit">Sticker Generator</button>
+              <button onClick={() => onNavigate('batch')} className="text-sm font-medium hover:text-pink-500 w-fit">Batch Generator</button>
               <button onClick={() => onNavigate('finder')} className="text-sm font-medium hover:text-pink-500 w-fit">Question Finder</button>
               <button onClick={() => onNavigate('scripts')} className="text-sm font-medium hover:text-pink-500 w-fit">Script Generator</button>
               <button onClick={() => onNavigate('templates')} className="text-sm font-medium hover:text-pink-500 w-fit">Templates</button>
