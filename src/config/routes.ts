@@ -5,7 +5,8 @@ export type Page =
   | 'home' | 'generator' | 'finder' | 'templates' | 'scripts' | 'batch'
   | 'privacy' | 'terms' | 'about' | 'contact' | 'blog'
   | 'guide' | 'guide-instagram' | 'guide-youtube' | 'guide-comparison'
-  | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker';
+  | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker'
+  | 'hashtag-generator' | 'font-generator' | 'caption-generator' | 'engagement-calculator';
 
 export const SLUG_TO_PAGE: Record<string, Page> = {
   '/': 'home',
@@ -26,6 +27,10 @@ export const SLUG_TO_PAGE: Record<string, Page> = {
   '/tiktok-comment-generator': 'guide-tiktok-comment-generator',
   '/tiktok-comment-picker': 'guide-tiktok-comment-picker',
   '/tiktok-giveaway-picker': 'guide-tiktok-giveaway-picker',
+  '/hashtag-generator': 'hashtag-generator',
+  '/tiktok-font-generator': 'font-generator',
+  '/caption-generator': 'caption-generator',
+  '/engagement-rate-calculator': 'engagement-calculator',
 };
 
 export const PAGE_TO_SLUG: Record<Page, string> = Object.fromEntries(
@@ -51,6 +56,10 @@ export const PAGE_TITLES: Record<Page, string> = {
   'guide-tiktok-comment-generator': 'Free TikTok Comment Generator — Create Fake TikTok Comments',
   'guide-tiktok-comment-picker': 'TikTok Comment Picker — Free Random Winner Tool',
   'guide-tiktok-giveaway-picker': 'TikTok Giveaway Picker — Free Random Winner Selector',
+  'hashtag-generator': 'Free TikTok Hashtag Generator — Best Hashtags for Your Niche (2026)',
+  'font-generator': 'TikTok Font Generator — Copy & Paste Fonts for Bio & Captions',
+  'caption-generator': 'Free Social Media Caption Generator — TikTok, Instagram, LinkedIn',
+  'engagement-calculator': 'Engagement Rate Calculator — Free Tool for All Platforms (2026)',
 };
 
 export const PAGE_DESCRIPTIONS: Record<Page, string> = {
@@ -72,6 +81,10 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   'guide-tiktok-comment-generator': 'Use a free TikTok comment generator to create realistic fake TikTok comments as transparent PNGs for UGC ads.',
   'guide-tiktok-comment-picker': 'Pick a random winner from TikTok comments for free. Best TikTok comment picker tools compared for 2026.',
   'guide-tiktok-giveaway-picker': 'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
+  'hashtag-generator': 'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator — copy and paste instantly, no sign-up.',
+  'font-generator': 'Generate stylish fonts for TikTok bio and captions. Bold, italic, script, Fraktur and 13 more Unicode font styles. Copy and paste free.',
+  'caption-generator': 'Generate engaging social media captions for TikTok, Instagram, LinkedIn and YouTube. Free caption generator with hashtag suggestions.',
+  'engagement-calculator': 'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
 };
 
 // Schema.org structured data — injected as <script type="application/ld+json"> per page
@@ -215,6 +228,46 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     description: 'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
     url: 'https://commentsticker.com/tiktok-comment-generator-alternatives',
     publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
+  },
+  'hashtag-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Hashtag Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator with 12 niches and viral/growth/niche tiers.',
+    url: 'https://commentsticker.com/hashtag-generator',
+  },
+  'font-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Font Generator',
+    applicationCategory: 'DesignApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Generate 13 stylish Unicode font styles for TikTok bio, captions and usernames. Bold, italic, script, cursive, Fraktur and more. Free copy & paste.',
+    url: 'https://commentsticker.com/tiktok-font-generator',
+  },
+  'caption-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'Social Media Caption Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free caption generator for TikTok, Instagram, LinkedIn and YouTube. Choose your platform, vibe, and topic — get 4 ready-to-post captions instantly.',
+    url: 'https://commentsticker.com/caption-generator',
+  },
+  'engagement-calculator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'Social Media Engagement Rate Calculator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Calculate your engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks and improvement tips.',
+    url: 'https://commentsticker.com/engagement-rate-calculator',
   },
   blog: {
     '@context': 'https://schema.org',

@@ -47,6 +47,26 @@ const ARTICLE_META: Record<string, { title: string; excerpt: string; category: s
         excerpt: 'Run a fair TikTok giveaway and randomly select a winner from comments.',
         category: 'Giveaway', readTime: '8 min', emoji: '🎁', from: 'from-emerald-500', to: 'to-teal-500',
     },
+    'hashtag-generator': {
+        title: 'Free TikTok Hashtag Generator — Best Hashtags for Your Niche',
+        excerpt: 'Generate viral, growth and niche hashtags for TikTok, Instagram and YouTube.',
+        category: 'Free Tool', readTime: '3 min', emoji: '#️⃣', from: 'from-violet-500', to: 'to-purple-600',
+    },
+    'font-generator': {
+        title: 'TikTok Font Generator — Copy & Paste Fonts',
+        excerpt: '13 Unicode font styles for TikTok bio, captions and usernames.',
+        category: 'Free Tool', readTime: '3 min', emoji: '✍️', from: 'from-indigo-500', to: 'to-blue-600',
+    },
+    'caption-generator': {
+        title: 'Free Social Media Caption Generator',
+        excerpt: 'Generate captions for TikTok, Instagram, LinkedIn and YouTube instantly.',
+        category: 'Free Tool', readTime: '3 min', emoji: '✏️', from: 'from-pink-500', to: 'to-fuchsia-600',
+    },
+    'engagement-calculator': {
+        title: 'Engagement Rate Calculator — All Platforms',
+        excerpt: 'Calculate your ER for TikTok, Instagram, YouTube and more with benchmarks.',
+        category: 'Free Tool', readTime: '4 min', emoji: '📊', from: 'from-orange-500', to: 'to-amber-500',
+    },
 };
 
 function NavLink({ page, label, onNavigate, className }: { page: string; label: string; onNavigate: (p: any) => void; className?: string }) {
@@ -176,7 +196,12 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                         <NavLink page="scripts" label="Script Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="templates" label="Templates Library" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="guide-tiktok-comment-picker" label="Comment Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="guide-tiktok-giveaway-picker" label="Giveaway Picker" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="batch" label="Batch Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="hashtag-generator" label="Hashtag Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="font-generator" label="Font Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="caption-generator" label="Caption Generator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="engagement-calculator" label="Engagement Calculator" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                     </div>
                 </div>
 

@@ -1,5 +1,209 @@
+import { useState, useCallback } from 'react';
+import { Trophy, Shuffle, Copy, Check, Users, Filter } from 'lucide-react';
 import { AdSense } from './AdSense';
 import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+
+// ── Giveaway Picker Tool ──────────────────────────────────────────────────────
+
+function GiveawayPickerTool({ darkMode }: { darkMode: boolean }) {
+    const [entries, setEntries] = useState('');
+    const [numWinners, setNumWinners] = useState(1);
+    const [filterKeyword, setFilterKeyword] = useState('');
+    const [removeDupes, setRemoveDupes] = useState(true);
+    const [spinning, setSpinning] = useState(false);
+    const [winners, setWinners] = useState<string[]>([]);
+    const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+    const [copiedAll, setCopiedAll] = useState(false);
+    const [error, setError] = useState('');
+
+    const pick = useCallback(() => {
+        setError('');
+        let pool = entries
+            .split('\n')
+            .map(e => e.trim())
+            .filter(e => e.length > 0);
+
+        if (filterKeyword.trim()) {
+            const kw = filterKeyword.toLowerCase();
+            pool = pool.filter(e => e.toLowerCase().includes(kw));
+        }
+        if (removeDupes) {
+            pool = [...new Set(pool.map(e => e.toLowerCase()))].map(
+                lower => pool.find(e => e.toLowerCase() === lower)!
+            );
+        }
+        if (pool.length === 0) { setError('No valid entries found. Check your list and filters.'); return; }
+        if (pool.length < numWinners) { setError(`Not enough entries (${pool.length}) for ${numWinners} winner(s).`); return; }
+
+        setSpinning(true);
+        setWinners([]);
+        const shuffled = [...pool].sort(() => Math.random() - 0.5);
+        setTimeout(() => {
+            const picked: string[] = [];
+            const remaining = [...shuffled];
+            for (let i = 0; i < numWinners; i++) {
+                const idx = Math.floor(Math.random() * remaining.length);
+                picked.push(remaining[idx]);
+                remaining.splice(idx, 1);
+            }
+            setWinners(picked);
+            setSpinning(false);
+        }, 1200);
+    }, [entries, numWinners, filterKeyword, removeDupes]);
+
+    const copyWinner = (w: string, idx: number) => {
+        navigator.clipboard.writeText(w);
+        setCopiedIdx(idx);
+        setTimeout(() => setCopiedIdx(null), 2000);
+    };
+
+    const copyAll = () => {
+        navigator.clipboard.writeText(winners.join('\n'));
+        setCopiedAll(true);
+        setTimeout(() => setCopiedAll(false), 2000);
+    };
+
+    const entryCount = entries.split('\n').filter(e => e.trim()).length;
+
+    return (
+        <div className={`rounded-3xl border p-8 mb-12 ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-xl'}`}>
+            <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+                    <Trophy className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                    <h2 className="text-xl font-black">Free TikTok Giveaway Picker</h2>
+                    <p className="text-sm text-neutral-500 font-medium">Paste entries → pick random winner(s) instantly</p>
+                </div>
+            </div>
+
+            {/* Entries Textarea */}
+            <div className="mb-5">
+                <div className="flex items-center justify-between mb-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-neutral-500">
+                        Entries (one per line)
+                    </label>
+                    {entryCount > 0 && (
+                        <span className="text-xs font-bold text-pink-500">{entryCount} entries</span>
+                    )}
+                </div>
+                <textarea
+                    rows={8}
+                    placeholder={"@username1\n@username2\n@username3\n...\n\nPaste your TikTok comments or usernames here, one per line."}
+                    value={entries}
+                    onChange={e => setEntries(e.target.value)}
+                    className={`w-full px-4 py-3 rounded-2xl text-sm font-medium border outline-none resize-none transition-all focus:border-pink-500 ${darkMode ? 'bg-neutral-800 border-neutral-700 text-white placeholder:text-neutral-600' : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder:text-neutral-400'}`}
+                />
+            </div>
+
+            {/* Options Row */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                {/* Number of winners */}
+                <div>
+                    <label className="text-xs font-black uppercase tracking-widest text-neutral-500 mb-2 flex items-center gap-1.5">
+                        <Users className="w-3 h-3" /> Winners
+                    </label>
+                    <select
+                        value={numWinners}
+                        onChange={e => setNumWinners(Number(e.target.value))}
+                        className={`w-full px-3 py-2.5 rounded-xl text-sm font-bold border outline-none transition-all focus:border-pink-500 ${darkMode ? 'bg-neutral-800 border-neutral-700 text-white' : 'bg-white border-neutral-200 text-neutral-900'}`}
+                    >
+                        {[1, 2, 3, 4, 5].map(n => (
+                            <option key={n} value={n}>{n} winner{n > 1 ? 's' : ''}</option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Keyword filter */}
+                <div>
+                    <label className="text-xs font-black uppercase tracking-widest text-neutral-500 mb-2 flex items-center gap-1.5">
+                        <Filter className="w-3 h-3" /> Filter keyword
+                    </label>
+                    <input
+                        type="text"
+                        placeholder="e.g. following"
+                        value={filterKeyword}
+                        onChange={e => setFilterKeyword(e.target.value)}
+                        className={`w-full px-3 py-2.5 rounded-xl text-sm font-medium border outline-none transition-all focus:border-pink-500 ${darkMode ? 'bg-neutral-800 border-neutral-700 text-white placeholder:text-neutral-600' : 'bg-white border-neutral-200 text-neutral-900 placeholder:text-neutral-400'}`}
+                    />
+                </div>
+
+                {/* Remove dupes */}
+                <div>
+                    <label className="text-xs font-black uppercase tracking-widest text-neutral-500 mb-2 block">
+                        Duplicates
+                    </label>
+                    <button
+                        onClick={() => setRemoveDupes(v => !v)}
+                        className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold border transition-all ${removeDupes
+                            ? 'bg-pink-500/10 border-pink-500/30 text-pink-500'
+                            : darkMode ? 'bg-neutral-800 border-neutral-700 text-neutral-400' : 'bg-neutral-50 border-neutral-200 text-neutral-500'
+                            }`}
+                    >
+                        <span>{removeDupes ? 'Remove dupes ✓' : 'Allow dupes'}</span>
+                        <div className={`w-8 h-4.5 rounded-full relative transition-all ${removeDupes ? 'bg-pink-500' : darkMode ? 'bg-neutral-600' : 'bg-neutral-300'}`}>
+                            <div className={`absolute top-0.5 w-3.5 h-3.5 bg-white rounded-full shadow transition-all ${removeDupes ? 'right-0.5' : 'left-0.5'}`} />
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            {error && (
+                <p className="text-sm font-bold text-red-500 mb-4 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20">{error}</p>
+            )}
+
+            {/* Pick Button */}
+            <button
+                onClick={pick}
+                disabled={spinning || !entries.trim()}
+                className={`w-full py-4 rounded-2xl font-black text-white text-lg transition-all shadow-lg flex items-center justify-center gap-2 ${spinning || !entries.trim()
+                    ? 'bg-neutral-400 cursor-not-allowed opacity-60'
+                    : 'bg-gradient-to-r from-pink-500 to-rose-600 hover:opacity-90 active:scale-[0.99] shadow-pink-500/20'
+                    }`}
+            >
+                <Shuffle className={`w-5 h-5 ${spinning ? 'animate-spin' : ''}`} />
+                {spinning ? 'Picking winner…' : winners.length > 0 ? 'Pick Again' : `Pick ${numWinners > 1 ? numWinners + ' Winners' : 'a Winner'}`}
+            </button>
+
+            {/* Winners */}
+            {winners.length > 0 && !spinning && (
+                <div className="mt-6 space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h3 className="font-black text-base flex items-center gap-2">
+                            🏆 {winners.length > 1 ? `${winners.length} Winners` : 'Winner'}
+                        </h3>
+                        {winners.length > 1 && (
+                            <button
+                                onClick={copyAll}
+                                className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border transition-all ${copiedAll ? 'bg-emerald-500 text-white border-emerald-500' : darkMode ? 'border-neutral-700 hover:border-pink-500 text-neutral-400' : 'border-neutral-200 hover:border-pink-400 text-neutral-500'}`}
+                            >
+                                {copiedAll ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                                {copiedAll ? 'Copied!' : 'Copy All'}
+                            </button>
+                        )}
+                    </div>
+                    {winners.map((w, i) => (
+                        <div key={i} className={`flex items-center justify-between gap-4 p-4 rounded-2xl border ${darkMode ? 'bg-neutral-800 border-neutral-700' : 'bg-pink-50 border-pink-100'}`}>
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-black text-sm shrink-0">
+                                    {i + 1}
+                                </div>
+                                <span className={`font-bold text-sm ${darkMode ? 'text-white' : 'text-neutral-900'}`}>{w}</span>
+                            </div>
+                            <button
+                                onClick={() => copyWinner(w, i)}
+                                className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border transition-all shrink-0 ${copiedIdx === i ? 'bg-emerald-500 text-white border-emerald-500' : darkMode ? 'border-neutral-600 hover:border-pink-500 text-neutral-400' : 'border-neutral-200 hover:border-pink-400 text-neutral-500 bg-white'}`}
+                            >
+                                {copiedIdx === i ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                                {copiedIdx === i ? 'Copied!' : 'Copy'}
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
 
 interface GuideProps {
     darkMode: boolean;
@@ -23,6 +227,9 @@ export function GuideTikTokGiveawayPicker({ darkMode, onNavigate }: GuideProps) 
                         Running a TikTok giveaway? Use a free <span className="font-bold text-neutral-900 dark:text-white">TikTok giveaway picker</span> to randomly and fairly select a winner from your comments or followers. Here's everything you need to know.
                     </p>
                 </div>
+
+                {/* ── Interactive Giveaway Picker Tool ── */}
+                <GiveawayPickerTool darkMode={darkMode} />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
                     {/* Quick Answer */}

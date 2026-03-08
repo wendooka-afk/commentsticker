@@ -30,6 +30,10 @@ const BlogComparison = lazy(() => import('./components/BlogComparison').then(m =
 const GuideTikTokCommentGenerator = lazy(() => import('./components/GuideTikTokCommentGenerator').then(m => ({ default: m.GuideTikTokCommentGenerator })));
 const GuideTikTokCommentPicker = lazy(() => import('./components/GuideTikTokCommentPicker').then(m => ({ default: m.GuideTikTokCommentPicker })));
 const GuideTikTokGiveawayPicker = lazy(() => import('./components/GuideTikTokGiveawayPicker').then(m => ({ default: m.GuideTikTokGiveawayPicker })));
+const HashtagGenerator = lazy(() => import('./components/HashtagGenerator').then(m => ({ default: m.HashtagGenerator })));
+const FontGenerator = lazy(() => import('./components/FontGenerator').then(m => ({ default: m.FontGenerator })));
+const CaptionGenerator = lazy(() => import('./components/CaptionGenerator').then(m => ({ default: m.CaptionGenerator })));
+const EngagementCalculator = lazy(() => import('./components/EngagementCalculator').then(m => ({ default: m.EngagementCalculator })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 function getPageFromPath(pathname: string): Page {
@@ -218,6 +222,10 @@ export function App() {
       case 'guide-tiktok-comment-generator': return <GuideTikTokCommentGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'guide-tiktok-comment-picker': return <GuideTikTokCommentPicker darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'guide-tiktok-giveaway-picker': return <GuideTikTokGiveawayPicker darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'hashtag-generator': return <HashtagGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'font-generator': return <FontGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'caption-generator': return <CaptionGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'engagement-calculator': return <EngagementCalculator darkMode={darkMode} onNavigate={handleNavigate} />;
       default: return null;
     }
   };

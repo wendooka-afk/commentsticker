@@ -102,6 +102,26 @@ const ROUTES = {
     description:
       'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
   },
+  '/hashtag-generator': {
+    title: 'Free TikTok Hashtag Generator — Best Hashtags for Your Niche (2026)',
+    description:
+      'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator — copy and paste instantly, no sign-up.',
+  },
+  '/tiktok-font-generator': {
+    title: 'TikTok Font Generator — Copy & Paste Fonts for Bio & Captions',
+    description:
+      'Generate stylish fonts for TikTok bio and captions. Bold, italic, script, Fraktur and 13 more Unicode font styles. Copy and paste free.',
+  },
+  '/caption-generator': {
+    title: 'Free Social Media Caption Generator — TikTok, Instagram, LinkedIn',
+    description:
+      'Generate engaging social media captions for TikTok, Instagram, LinkedIn and YouTube. Free caption generator with hashtag suggestions.',
+  },
+  '/engagement-rate-calculator': {
+    title: 'Engagement Rate Calculator — Free Tool for All Platforms (2026)',
+    description:
+      'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
+  },
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
