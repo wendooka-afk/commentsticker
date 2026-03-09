@@ -122,6 +122,11 @@ const ROUTES = {
     description:
       'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
   },
+  '/free-tools': {
+    title: 'Free Social Media Tools — Hashtag Generator, Font Generator & More | CommentSticker',
+    description:
+      'All free social media tools in one place — hashtag generator, TikTok font generator, caption generator, engagement rate calculator, comment picker and giveaway picker.',
+  },
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

@@ -15,7 +15,9 @@ import {
   Send as ShareIcon,
   Layout,
   Instagram,
-  Facebook
+  Facebook,
+  Menu,
+  X,
 } from 'lucide-react';
 import { AdSense } from './AdSense';
 import { PlatformIcon } from './PlatformIcons';
@@ -28,9 +30,13 @@ interface LandingPageProps {
 export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) setIsMobileMenuOpen(false);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -90,12 +96,12 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* --- NAVBAR --- */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-4`}>
-        <div className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-2xl border transition-all duration-300 ${isScrolled
-          ? (darkMode ? 'bg-neutral-900/80 border-neutral-800' : 'bg-white/80 border-white/50 shadow-lg shadow-black/5') + ' backdrop-blur-xl'
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+        <div className={`max-w-7xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl border transition-all duration-300 ${isScrolled
+          ? (darkMode ? 'bg-neutral-900/90 border-neutral-800' : 'bg-white/90 border-white/50 shadow-lg shadow-black/5') + ' backdrop-blur-xl'
           : 'bg-transparent border-transparent'
           }`}>
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('home')}>
+          <div className="flex items-center gap-2 cursor-pointer flex-shrink-0" onClick={() => onNavigate('home')}>
             <div className="w-9 h-9 bg-gradient-to-br from-pink-500 via-rose-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg shadow-pink-500/20">
               <MessageSquare className="w-5 h-5 text-white" />
             </div>
@@ -104,21 +110,58 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             </span>
           </div>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => onNavigate('blog')} className="text-sm font-medium text-pink-500 hover:text-pink-400 font-bold transition-colors">Blog & Guides</button>
-            <a href="#features" className="text-sm font-medium hover:text-pink-500 transition-colors">Features</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-pink-500 transition-colors">Testimonials</a>
+            <button onClick={() => onNavigate('free-tools')} className="text-sm font-bold hover:text-pink-500 transition-colors">Free Tools</button>
+            <button onClick={() => onNavigate('blog')} className="text-sm font-bold text-pink-500 hover:text-pink-400 transition-colors">Blog & Guides</button>
             <a href="#faq" className="text-sm font-medium hover:text-pink-500 transition-colors">FAQ</a>
           </div>
 
-          <button
-            onClick={() => onNavigate('generator')}
-            className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95"
-          >
-            Launch App
-          </button>
+          {/* Right side */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+              className={`md:hidden p-2 rounded-xl transition-colors ${darkMode ? 'text-neutral-300 hover:bg-neutral-800' : 'text-neutral-700 hover:bg-neutral-100'}`}
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+            <button
+              onClick={() => onNavigate('generator')}
+              className="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
+            >
+              Launch App
+            </button>
+          </div>
         </div>
-      </nav>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className={`md:hidden mt-2 rounded-2xl border overflow-hidden shadow-xl ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
+            <div className="flex flex-col p-3 gap-1">
+              {[
+                { label: '🛠️  Free Tools', action: () => { onNavigate('free-tools'); setIsMobileMenuOpen(false); } },
+                { label: '📖  Blog & Guides', action: () => { onNavigate('blog'); setIsMobileMenuOpen(false); } },
+                { label: '❓  FAQ', action: () => { setIsMobileMenuOpen(false); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); } },
+              ].map(({ label, action }) => (
+                <button
+                  key={label}
+                  onClick={action}
+                  className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors ${darkMode ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}
+                >
+                  {label}
+                </button>
+              ))}
+              <button
+                onClick={() => { onNavigate('generator'); setIsMobileMenuOpen(false); }}
+                className="mt-1 w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-black"
+              >
+                Launch App →
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
 
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
@@ -422,6 +465,61 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
         </div>
       </section>
 
+      {/* --- FREE TOOLS SECTION --- */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <span className={`inline-block text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 ${
+              darkMode ? 'bg-violet-500/10 text-violet-400 border border-violet-500/20' : 'bg-violet-50 text-violet-600 border border-violet-100'
+            }`}>
+              More Free Tools
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
+              Every tool you need to grow
+            </h2>
+            <p className={`text-base max-w-xl mx-auto ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
+              Hashtag generator, font styles, captions, engagement calculator, giveaway picker — all free, all in one place.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {[
+              { page: 'hashtag-generator', emoji: '#️⃣', label: 'Hashtag Generator', desc: '12 niches, 3 platforms' },
+              { page: 'font-generator', emoji: '✍️', label: 'Font Generator', desc: '13 Unicode styles' },
+              { page: 'caption-generator', emoji: '✏️', label: 'Caption Generator', desc: '4 platforms, 5 vibes' },
+              { page: 'engagement-calculator', emoji: '📊', label: 'Engagement Rate', desc: '6 platforms + benchmarks' },
+              { page: 'guide-tiktok-comment-picker', emoji: '🎯', label: 'Comment Picker', desc: 'Random winner tool' },
+              { page: 'guide-tiktok-giveaway-picker', emoji: '🎁', label: 'Giveaway Picker', desc: 'Up to 5 winners' },
+            ].map(tool => (
+              <button
+                key={tool.page}
+                onClick={() => onNavigate(tool.page)}
+                className={`flex flex-col items-start gap-2 p-4 rounded-2xl border text-left transition-all hover:scale-[1.02] hover:border-pink-500/30 ${
+                  darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'
+                }`}
+              >
+                <span className="text-2xl">{tool.emoji}</span>
+                <div>
+                  <div className={`text-sm font-black ${darkMode ? 'text-white' : 'text-neutral-900'}`}>{tool.label}</div>
+                  <div className={`text-xs mt-0.5 ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>{tool.desc}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => onNavigate('free-tools')}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black transition-all border ${
+                darkMode ? 'border-neutral-700 hover:border-pink-500/50 text-neutral-300 hover:text-white' : 'border-neutral-200 hover:border-pink-300 text-neutral-600 hover:text-neutral-900'
+              }`}
+            >
+              See All Free Tools →
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* --- FINAL CTA --- */}
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-neutral-950 -z-20" />
@@ -482,6 +580,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
           <div className="space-y-4">
             <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Tools</h4>
             <div className="flex flex-col gap-2">
+              <button onClick={() => onNavigate('free-tools')} className="text-sm font-black hover:text-pink-500 w-fit text-pink-500">All Free Tools →</button>
               <button onClick={() => onNavigate('generator')} className="text-sm font-medium hover:text-pink-500 w-fit">Sticker Generator</button>
               <button onClick={() => onNavigate('batch')} className="text-sm font-medium hover:text-pink-500 w-fit">Batch Generator</button>
               <button onClick={() => onNavigate('finder')} className="text-sm font-medium hover:text-pink-500 w-fit">Question Finder</button>

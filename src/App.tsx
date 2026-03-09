@@ -34,9 +34,20 @@ const HashtagGenerator = lazy(() => import('./components/HashtagGenerator').then
 const FontGenerator = lazy(() => import('./components/FontGenerator').then(m => ({ default: m.FontGenerator })));
 const CaptionGenerator = lazy(() => import('./components/CaptionGenerator').then(m => ({ default: m.CaptionGenerator })));
 const EngagementCalculator = lazy(() => import('./components/EngagementCalculator').then(m => ({ default: m.EngagementCalculator })));
+const FreeTools = lazy(() => import('./components/FreeTools').then(m => ({ default: m.FreeTools })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
+// ── Subdomain detection ───────────────────────────────────────────────────────
+// If running on app.commentsticker.com, treat the app as dashboard-only:
+// default page = generator (not landing), same routes still work via direct URL.
+const IS_APP_SUBDOMAIN =
+  typeof window !== 'undefined' &&
+  (window.location.hostname === 'app.commentsticker.com' ||
+    window.location.hostname === 'app.localhost');
+
 function getPageFromPath(pathname: string): Page {
+  // On app subdomain, treat root as generator
+  if (IS_APP_SUBDOMAIN && pathname === '/') return 'generator';
   return SLUG_TO_PAGE[pathname] ?? 'home';
 }
 
@@ -202,8 +213,8 @@ export function App() {
     );
   }
 
-  // ── Landing page (eager) ─────────────────────────────────────────────────
-  if (currentPage === 'home') {
+  // ── Landing page (eager) — not shown on app subdomain ───────────────────
+  if (currentPage === 'home' && !IS_APP_SUBDOMAIN) {
     return <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />;
   }
 
@@ -226,6 +237,7 @@ export function App() {
       case 'font-generator': return <FontGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'caption-generator': return <CaptionGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'engagement-calculator': return <EngagementCalculator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'free-tools': return <FreeTools darkMode={darkMode} onNavigate={handleNavigate} />;
       default: return null;
     }
   };

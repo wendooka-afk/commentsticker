@@ -10,7 +10,8 @@ import {
     X,
     Home,
     Bell,
-    Layers
+    Layers,
+    Wrench,
 } from 'lucide-react';
 
 interface NavItem {
@@ -40,6 +41,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
     ];
 
     const secondaryItems = [
+        { id: 'free-tools', label: 'Free Tools', icon: Wrench },
         { id: 'home', label: 'Back to Home', icon: Home },
     ];
 
@@ -161,43 +163,67 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
             </aside>
 
             {/* --- MAIN CONTENT --- */}
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col min-w-0">
                 {/* Topbar */}
-                <header className={`sticky top-0 z-40 h-20 flex items-center px-8 border-b transition-colors ${darkMode ? 'bg-neutral-950/80 border-neutral-900' : 'bg-white/80 border-neutral-100'
+                <header className={`sticky top-0 z-40 h-16 flex items-center px-4 lg:px-8 border-b transition-colors ${darkMode ? 'bg-neutral-950/80 border-neutral-900' : 'bg-white/80 border-neutral-100'
                     } backdrop-blur-xl`}>
+                    {/* Mobile: hamburger + logo */}
                     <button
                         onClick={() => setIsMobileMenuOpen(true)}
-                        className="lg:hidden p-2 -ml-2 mr-4"
+                        className="lg:hidden p-2 -ml-1 mr-2"
                     >
-                        <Menu className="w-6 h-6" />
+                        <Menu className="w-5 h-5" />
                     </button>
+                    <div
+                        className="lg:hidden flex items-center gap-2 cursor-pointer mr-4"
+                        onClick={() => onNavigate('home')}
+                    >
+                        <div className="w-7 h-7 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
+                            <MessageSquare className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="font-black text-sm tracking-tight">CommentSticker</span>
+                    </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 hidden lg:block">
                         <h2 className="text-sm font-black uppercase tracking-widest text-neutral-500">
                             {navItems.find(i => i.id === currentPage)?.label || 'Dashboard'}
                         </h2>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <button className={`p-2.5 rounded-full transition-all ${darkMode ? 'hover:bg-neutral-800 text-neutral-400' : 'hover:bg-neutral-100 text-neutral-500'}`}>
-                            <Bell className="w-5 h-5" />
+                    {/* Desktop: global nav links */}
+                    <div className="hidden lg:flex items-center gap-1 mr-4">
+                        {[
+                            { id: 'free-tools', label: 'Free Tools' },
+                            { id: 'blog', label: 'Blog' },
+                        ].map(item => (
+                            <button
+                                key={item.id}
+                                onClick={() => onNavigate(item.id)}
+                                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${darkMode ? 'text-neutral-400 hover:bg-neutral-800 hover:text-white' : 'text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900'}`}
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                        <button className={`p-2 rounded-full transition-all ${darkMode ? 'hover:bg-neutral-800 text-neutral-400' : 'hover:bg-neutral-100 text-neutral-500'}`}>
+                            <Bell className="w-4 h-4" />
                         </button>
-                        <div className={`w-10 h-10 rounded-full border-2 p-0.5 ${darkMode ? 'border-neutral-800' : 'border-neutral-100'}`}>
+                        <div className={`w-8 h-8 rounded-full border-2 p-0.5 ${darkMode ? 'border-neutral-800' : 'border-neutral-100'}`}>
                             <div className="w-full h-full rounded-full bg-gradient-to-br from-pink-500 to-orange-500" />
                         </div>
                     </div>
                 </header>
 
                 {/* Page Content */}
-                <main className="flex-1 overflow-y-auto p-8 lg:p-12 relative">
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10 relative">
                     {/* Subtle background abstract elements */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
-                    <div className="max-w-6xl mx-auto">
+                    <div className="max-w-6xl mx-auto w-full">
                         {children}
-
-
                     </div>
                 </main>
             </div>

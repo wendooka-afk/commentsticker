@@ -3,7 +3,7 @@
 
 export type Page =
   | 'home' | 'generator' | 'finder' | 'templates' | 'scripts' | 'batch'
-  | 'privacy' | 'terms' | 'about' | 'contact' | 'blog'
+  | 'privacy' | 'terms' | 'about' | 'contact' | 'blog' | 'free-tools'
   | 'guide' | 'guide-instagram' | 'guide-youtube' | 'guide-comparison'
   | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker'
   | 'hashtag-generator' | 'font-generator' | 'caption-generator' | 'engagement-calculator';
@@ -20,6 +20,7 @@ export const SLUG_TO_PAGE: Record<string, Page> = {
   '/about': 'about',
   '/contact': 'contact',
   '/blog': 'blog',
+  '/free-tools': 'free-tools',
   '/how-to-add-comment-sticker-tiktok': 'guide',
   '/instagram-comment-sticker-generator': 'guide-instagram',
   '/youtube-comment-sticker-generator': 'guide-youtube',
@@ -49,6 +50,7 @@ export const PAGE_TITLES: Record<Page, string> = {
   about: 'About CommentSticker — Free UGC Tools for Creators',
   contact: 'Contact Us | CommentSticker',
   blog: 'Blog & Guides for TikTok Creators | CommentSticker',
+  'free-tools': 'Free Social Media Tools — Hashtag Generator, Font Generator & More | CommentSticker',
   guide: 'How to Add Comment Sticker on TikTok (Ultimate Guide 2026)',
   'guide-instagram': 'Free Instagram Comment Sticker Generator for Reels',
   'guide-youtube': 'Free YouTube Comment Sticker Generator for Shorts',
@@ -74,6 +76,7 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   about: 'Learn about CommentSticker — the free UGC creative tool built for creators, marketers, and brands.',
   contact: 'Get in touch with the CommentSticker team.',
   blog: 'Guides, tutorials and strategies for TikTok UGC creators. Learn how to create comment stickers, run giveaways, and grow your audience.',
+  'free-tools': 'All free social media tools in one place — hashtag generator, TikTok font generator, caption generator, engagement rate calculator, comment picker and giveaway picker.',
   guide: 'Learn how to add a comment sticker on a TikTok video natively and using a free generator. Ultimate 2026 guide.',
   'guide-instagram': 'Create a perfect Instagram comment sticker for Reels. Free generator, transparent PNG, no watermark.',
   'guide-youtube': 'Create a YouTube comment sticker for Shorts. Free generator, 3x resolution, transparent PNG.',
@@ -268,6 +271,14 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Calculate your engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks and improvement tips.',
     url: 'https://commentsticker.com/engagement-rate-calculator',
+  },
+  'free-tools': {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Free Social Media Tools',
+    url: 'https://commentsticker.com/free-tools',
+    description: 'All free social media tools by CommentSticker — hashtag generator, font generator, caption generator, engagement calculator, comment picker and giveaway picker.',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
   },
   blog: {
     '@context': 'https://schema.org',
