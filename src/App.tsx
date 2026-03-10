@@ -45,10 +45,14 @@ const IS_APP_SUBDOMAIN =
   (window.location.hostname === 'app.commentsticker.com' ||
     window.location.hostname === 'app.localhost');
 
+function normalizePath(pathname: string): string {
+  return pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+}
+
 function getPageFromPath(pathname: string): Page {
   // On app subdomain, treat root as generator
   if (IS_APP_SUBDOMAIN && pathname === '/') return 'generator';
-  return SLUG_TO_PAGE[pathname] ?? 'home';
+  return SLUG_TO_PAGE[normalizePath(pathname)] ?? 'home';
 }
 
 function PageLoader() {
@@ -85,7 +89,7 @@ class LazyErrorBoundary extends Component<{ children: ReactNode }, { hasError: b
 // ── Component ────────────────────────────────────────────────────────────────
 export function App() {
   const [currentPage, setCurrentPage] = useState<Page>(() => getPageFromPath(window.location.pathname));
-  const [isNotFound, setIsNotFound] = useState(() => !SLUG_TO_PAGE[window.location.pathname]);
+  const [isNotFound, setIsNotFound] = useState(() => !SLUG_TO_PAGE[normalizePath(window.location.pathname)]);
   const [darkMode, setDarkMode] = useState(() => {
     try { const s = localStorage.getItem('cs_dark'); return s === null ? true : s === 'true'; } catch { return true; }
   });

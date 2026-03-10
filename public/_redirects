@@ -1,3 +1,5 @@
-# Netlify / Cloudflare Pages — SPA fallback
-# All routes are served by index.html, client-side router handles the rest
+# Netlify / Cloudflare Pages — strip trailing slashes (SEO canonical)
+/:path/    /:path    301
+
+# SPA fallback — all routes are served by index.html, client-side router handles the rest
 /*    /index.html    200
