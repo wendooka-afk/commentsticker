@@ -40,7 +40,7 @@ const ROUTES = {
       'Generate high-converting UGC video scripts based on your comment hooks. Free AI script generator.',
   },
   '/batch-generator': {
-    title: 'Batch Comment Sticker Generator — Export Multiple at Once | CommentSticker',
+    title: 'Batch Comment Sticker Generator | CommentSticker',
     description:
       'Generate and download multiple comment stickers at once. Batch export PNG for TikTok, Instagram, YouTube. Free, no watermark.',
   },
@@ -103,7 +103,7 @@ const ROUTES = {
       'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
   },
   '/hashtag-generator': {
-    title: 'Free TikTok Hashtag Generator — Best Hashtags for Your Niche (2026)',
+    title: 'Free Hashtag Generator for TikTok & Instagram (2026)',
     description:
       'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator — copy and paste instantly, no sign-up.',
   },
@@ -113,7 +113,7 @@ const ROUTES = {
       'Generate stylish fonts for TikTok bio and captions. Bold, italic, script, Fraktur and 13 more Unicode font styles. Copy and paste free.',
   },
   '/caption-generator': {
-    title: 'Free Social Media Caption Generator — TikTok, Instagram, LinkedIn',
+    title: 'Free Caption Generator — TikTok, Instagram & LinkedIn',
     description:
       'Generate engaging social media captions for TikTok, Instagram, LinkedIn and YouTube. Free caption generator with hashtag suggestions.',
   },
@@ -123,9 +123,9 @@ const ROUTES = {
       'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
   },
   '/free-tools': {
-    title: 'Free Social Media Tools — Hashtag Generator, Font Generator & More | CommentSticker',
+    title: 'Free Social Media Tools for Creators | CommentSticker',
     description:
-      'All free social media tools in one place — hashtag generator, TikTok font generator, caption generator, engagement rate calculator, comment picker and giveaway picker.',
+      'All free social media tools in one place — hashtag generator, font generator, caption generator, engagement rate calculator, comment picker and giveaway picker.',
   },
 };
 
