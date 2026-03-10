@@ -168,7 +168,7 @@ export function App() {
   useEffect(() => {
     const onPopState = () => {
       setCurrentPage(getPageFromPath(window.location.pathname));
-      setIsNotFound(!SLUG_TO_PAGE[window.location.pathname]);
+      setIsNotFound(!SLUG_TO_PAGE[normalizePath(window.location.pathname)]);
       window.scrollTo(0, 0);
     };
     window.addEventListener('popstate', onPopState);
