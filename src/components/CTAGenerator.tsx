@@ -136,7 +136,7 @@ export function CTAGenerator({ darkMode, onNavigate }: Props) {
         </p>
       </section>
 
-      <AdSense slot="cta-generator-top" darkMode={isDark} />
+      <AdSense adSlot="cta-generator-top" />
 
       {/* Generator */}
       <section className="px-4 pb-10 max-w-2xl mx-auto">
@@ -206,7 +206,7 @@ export function CTAGenerator({ darkMode, onNavigate }: Props) {
         </section>
       )}
 
-      <AdSense slot="cta-generator-mid" darkMode={isDark} />
+      <AdSense adSlot="cta-generator-mid" />
 
       {/* SEO */}
       <section className={`px-4 py-16 max-w-3xl mx-auto prose ${isDark ? 'prose-invert' : ''} prose-sm max-w-none`}>
@@ -231,9 +231,9 @@ export function CTAGenerator({ darkMode, onNavigate }: Props) {
         <p>Technically yes — but it's not recommended. Viewers who receive two or more CTAs are less likely to act on any of them. Choose the single most important action you want your viewer to take, and focus the entire end of the video on that one thing.</p>
       </section>
 
-      <AdSense slot="cta-generator-bottom" darkMode={isDark} />
-      <RelatedArticles current="caption-generator" darkMode={isDark} onNavigate={onNavigate} />
-      <SEOFooter onNavigate={onNavigate} darkMode={isDark} />
+      <AdSense adSlot="cta-generator-bottom" />
+      <RelatedArticles ids={["caption-generator","hashtag-generator","engagement-calculator"]} darkMode={isDark} onNavigate={onNavigate} />
+      <SEOFooter onNavigate={onNavigate} />
     </div>
   );
 }

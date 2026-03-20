@@ -206,7 +206,7 @@ export function BioGenerator({ darkMode, onNavigate }: Props) {
         </p>
       </section>
 
-      <AdSense slot="bio-generator-top" darkMode={isDark} />
+      <AdSense adSlot="bio-generator-top" />
 
       {/* Generator */}
       <section className="px-4 pb-10 max-w-2xl mx-auto">
@@ -267,7 +267,7 @@ export function BioGenerator({ darkMode, onNavigate }: Props) {
         </section>
       )}
 
-      <AdSense slot="bio-generator-mid" darkMode={isDark} />
+      <AdSense adSlot="bio-generator-mid" />
 
       {/* SEO */}
       <section className={`px-4 py-16 max-w-3xl mx-auto prose ${isDark ? 'prose-invert' : ''} prose-sm max-w-none`}>
@@ -292,9 +292,9 @@ export function BioGenerator({ darkMode, onNavigate }: Props) {
         <p>Update your bio whenever your content direction, main topic, or CTA changes. A bio that says "new video every Tuesday" should be updated if your posting schedule changes.</p>
       </section>
 
-      <AdSense slot="bio-generator-bottom" darkMode={isDark} />
-      <RelatedArticles current="font-generator" darkMode={isDark} onNavigate={onNavigate} />
-      <SEOFooter onNavigate={onNavigate} darkMode={isDark} />
+      <AdSense adSlot="bio-generator-bottom" />
+      <RelatedArticles ids={["font-generator","hashtag-generator","caption-generator"]} darkMode={isDark} onNavigate={onNavigate} />
+      <SEOFooter onNavigate={onNavigate} />
     </div>
   );
 }

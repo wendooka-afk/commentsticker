@@ -136,7 +136,7 @@ export function CommentReplyGenerator({ darkMode, onNavigate }: Props) {
         </p>
       </section>
 
-      <AdSense slot="reply-generator-top" darkMode={isDark} />
+      <AdSense adSlot="reply-generator-top" />
 
       {/* Generator */}
       <section className="px-4 pb-10 max-w-2xl mx-auto">
@@ -204,7 +204,7 @@ export function CommentReplyGenerator({ darkMode, onNavigate }: Props) {
         </section>
       )}
 
-      <AdSense slot="reply-generator-mid" darkMode={isDark} />
+      <AdSense adSlot="reply-generator-mid" />
 
       {/* SEO */}
       <section className={`px-4 py-16 max-w-3xl mx-auto prose ${isDark ? 'prose-invert' : ''} prose-sm max-w-none`}>
@@ -227,9 +227,9 @@ export function CommentReplyGenerator({ darkMode, onNavigate }: Props) {
         <p>Yes. All replies in this generator are platform-agnostic and work on Instagram Reels, YouTube Shorts, LinkedIn, and any other comment section.</p>
       </section>
 
-      <AdSense slot="reply-generator-bottom" darkMode={isDark} />
-      <RelatedArticles current="guide-tiktok-comment-generator" darkMode={isDark} onNavigate={onNavigate} />
-      <SEOFooter onNavigate={onNavigate} darkMode={isDark} />
+      <AdSense adSlot="reply-generator-bottom" />
+      <RelatedArticles ids={["guide-tiktok-comment-generator","hashtag-generator","caption-generator"]} darkMode={isDark} onNavigate={onNavigate} />
+      <SEOFooter onNavigate={onNavigate} />
     </div>
   );
 }

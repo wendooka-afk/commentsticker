@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lightbulb, Copy, Check, RefreshCw, Shuffle } from 'lucide-react';
+import { Lightbulb, Copy, Check, Shuffle } from 'lucide-react';
 import { AdSense } from './AdSense';
 import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
 
@@ -225,7 +225,7 @@ export function VideoIdeasGenerator({ darkMode, onNavigate }: Props) {
         </p>
       </section>
 
-      <AdSense slot="video-ideas-top" darkMode={isDark} />
+      <AdSense adSlot="video-ideas-top" />
 
       {/* Generator card */}
       <section className="px-4 pb-10 max-w-2xl mx-auto">
@@ -308,7 +308,7 @@ export function VideoIdeasGenerator({ darkMode, onNavigate }: Props) {
         </section>
       )}
 
-      <AdSense slot="video-ideas-mid" darkMode={isDark} />
+      <AdSense adSlot="video-ideas-mid" />
 
       {/* SEO content */}
       <section className={`px-4 py-16 max-w-3xl mx-auto prose ${isDark ? 'prose-invert' : ''} prose-sm max-w-none`}>
@@ -333,9 +333,9 @@ export function VideoIdeasGenerator({ darkMode, onNavigate }: Props) {
         <p>Yes. All formats in this generator are platform-agnostic. Tutorial, storytime, challenge, and POV formats perform equally well on Instagram Reels, YouTube Shorts, and TikTok.</p>
       </section>
 
-      <AdSense slot="video-ideas-bottom" darkMode={isDark} />
-      <RelatedArticles current="guide-tiktok-comment-generator" darkMode={isDark} onNavigate={onNavigate} />
-      <SEOFooter onNavigate={onNavigate} darkMode={isDark} />
+      <AdSense adSlot="video-ideas-bottom" />
+      <RelatedArticles ids={["hashtag-generator","caption-generator","guide-tiktok-comment-generator"]} darkMode={isDark} onNavigate={onNavigate} />
+      <SEOFooter onNavigate={onNavigate} />
     </div>
   );
 }

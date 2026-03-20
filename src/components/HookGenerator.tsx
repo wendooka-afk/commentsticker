@@ -172,7 +172,7 @@ export function HookGenerator({ darkMode, onNavigate }: Props) {
         </p>
       </section>
 
-      <AdSense slot="hook-generator-top" darkMode={isDark} />
+      <AdSense adSlot="hook-generator-top" />
 
       {/* Generator */}
       <section className="px-4 pb-10 max-w-2xl mx-auto">
@@ -240,7 +240,7 @@ export function HookGenerator({ darkMode, onNavigate }: Props) {
         </section>
       )}
 
-      <AdSense slot="hook-generator-mid" darkMode={isDark} />
+      <AdSense adSlot="hook-generator-mid" />
 
       {/* SEO */}
       <section className={`px-4 py-16 max-w-3xl mx-auto prose ${isDark ? 'prose-invert' : ''} prose-sm max-w-none`}>
@@ -265,9 +265,9 @@ export function HookGenerator({ darkMode, onNavigate }: Props) {
         <p>Both. The most effective TikTok hooks are both spoken (in the first 2–3 seconds of audio) and shown as on-screen text, since a significant portion of TikTok is watched without sound.</p>
       </section>
 
-      <AdSense slot="hook-generator-bottom" darkMode={isDark} />
-      <RelatedArticles current="caption-generator" darkMode={isDark} onNavigate={onNavigate} />
-      <SEOFooter onNavigate={onNavigate} darkMode={isDark} />
+      <AdSense adSlot="hook-generator-bottom" />
+      <RelatedArticles ids={["caption-generator","hashtag-generator","guide-tiktok-comment-generator"]} darkMode={isDark} onNavigate={onNavigate} />
+      <SEOFooter onNavigate={onNavigate} />
     </div>
   );
 }
