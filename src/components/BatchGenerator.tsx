@@ -385,12 +385,64 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
                 </div>
             </div>
 
-            {/* AdSense */}
-            <div className="py-6 border-t border-neutral-100 dark:border-neutral-900">
-                <p className={`text-[10px] font-black uppercase tracking-widest mb-4 text-center ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>
-                    Sponsored
-                </p>
-                <AdSense adSlot="9988776655" />
+            {/* --- EDITORIAL CONTENT SECTION (AdSense Compliance) --- */}
+            <div className="mt-4 space-y-8 border-t border-neutral-100 dark:border-neutral-800 pt-10">
+
+                {/* Why Batch */}
+                <section className="space-y-4">
+                    <h2 className={`text-2xl font-black ${darkMode ? 'text-white' : 'text-neutral-900'}`}>Why Batch Generate Comment Stickers?</h2>
+                    <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                        Running a UGC ad campaign means testing multiple creative angles simultaneously. Manually generating each comment sticker one at a time is a workflow bottleneck — especially when you need 5-10 different comment hooks for a single ad set. The Batch Generator solves this by letting you prepare your entire hook library in a single session and export all stickers with one click.
+                    </p>
+                    <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                        Performance marketers use batch exports to A/B test hooks at scale. By preparing multiple question-based comment stickers upfront, you can feed them directly into your video editor as overlay assets without ever breaking your creative flow. This reduces per-creative production time from several minutes to under 30 seconds.
+                    </p>
+                </section>
+
+                {/* Tips */}
+                <section className={`p-6 rounded-2xl border ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
+                    <h3 className={`font-black text-lg mb-4 ${darkMode ? 'text-white' : 'text-neutral-900'}`}>4 Tips to Get the Most from Batch Generation</h3>
+                    <div className="space-y-4">
+                        {[
+                            { num: "01", title: "Vary the Hook Angle, Not the Visual", desc: "Keep the same username and avatar across all 10 stickers in a batch. What you want to test is the comment text itself — the question or pain point — not the profile. This isolates your A/B variable and produces cleaner performance data." },
+                            { num: "02", title: "Use PNG for Overlays, JPEG for Mockups", desc: "Select PNG format when you plan to overlay the sticker on a video (CapCut, Premiere, DaVinci). Choose JPEG when you need a standalone mockup for a social post or ad thumbnail — JPEG's smaller file size loads faster in ad previews." },
+                            { num: "03", title: "Prepare Hooks Across Multiple Platforms", desc: "Run a batch for TikTok, then switch platform and run another for Instagram. Many UGC creators repurpose the same video script across platforms. Having a TikTok-style and an Instagram-style sticker for the same comment saves editing time in post." },
+                            { num: "04", title: "Organize Downloads by Campaign", desc: "Each file downloads as comment-[platform]-[number].[format]. Rename the folder immediately after downloading (e.g., campaign-skincare-may-hooks) so you can find the right asset during editing without hunting through a generic downloads folder." },
+                        ].map((tip) => (
+                            <div key={tip.num} className="flex gap-4">
+                                <div className={`text-2xl font-black shrink-0 ${darkMode ? 'text-neutral-700' : 'text-neutral-200'}`}>{tip.num}</div>
+                                <div>
+                                    <h4 className={`font-black mb-1 ${darkMode ? 'text-white' : 'text-neutral-900'}`}>{tip.title}</h4>
+                                    <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>{tip.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* AdSense */}
+                <div className="pt-4">
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-3 ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>Sponsored</p>
+                    <AdSense adSlot="9988776655" />
+                </div>
+
+                {/* FAQ */}
+                <section className="space-y-4">
+                    <h2 className={`text-2xl font-black ${darkMode ? 'text-white' : 'text-neutral-900'}`}>Frequently Asked Questions</h2>
+                    <div className="space-y-3">
+                        {[
+                            { q: "How many stickers can I generate in one batch?", a: "Up to 10 comment stickers per batch run. All 10 download sequentially with a short delay between each to ensure clean captures. There is no limit on how many batch runs you can do." },
+                            { q: "Can I mix different platforms in the same batch?", a: "Not within a single batch — all items in a batch share the same platform selection. To generate stickers for multiple platforms, run separate batches (e.g., one for TikTok, one for Instagram). This keeps the visual style consistent within each export." },
+                            { q: "Will the stickers have a watermark?", a: "No. All exports are completely free and watermark-free. The PNG files are transparent where the platform UI has no background, making them ready to use as overlay assets immediately." },
+                            { q: "What's the best way to use batch stickers in CapCut?", a: "After downloading, open CapCut and add your main video. Tap 'Overlay', import each PNG sticker as a separate overlay layer. Position each in the upper 40% of the frame, clear of the right-side UI icons. Add a quick 'pop' sound effect on each sticker's entry keyframe for maximum retention impact." },
+                        ].map((item, i) => (
+                            <div key={i} className={`p-5 rounded-2xl border ${darkMode ? 'bg-neutral-900/50 border-neutral-800' : 'bg-white border-neutral-100 shadow-sm'}`}>
+                                <h4 className={`font-black mb-2 ${darkMode ? 'text-white' : 'text-neutral-900'}`}>{item.q}</h4>
+                                <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
             </div>
         </div>
     );

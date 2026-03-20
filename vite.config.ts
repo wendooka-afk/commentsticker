@@ -15,6 +15,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  build: {
+    // Don't empty the dist dir before building — avoids EPERM issues on
+    // mounted/network filesystems (Cloudflare Pages CI, WSL2, etc.).
+    // The prerender script (run after vite build) overwrites all static pages.
+    emptyOutDir: false,
+  },
   // Vite dev server natively serves index.html for all paths (SPA mode).
   // For production, _redirects (Netlify) or _headers (Cloudflare) handle routing.
 });
