@@ -1,5 +1,4 @@
 import { SEOHeader, SEOFooter } from './SEOLayout';
-import { AdSense } from './AdSense';
 
 interface FreeToolsProps {
   darkMode: boolean;
@@ -79,6 +78,56 @@ const TOOLS: ToolCard[] = [
     from: 'from-emerald-500',
     to: 'to-teal-500',
     cta: 'Run Giveaway',
+  },
+  {
+    page: 'video-ideas-generator',
+    emoji: '💡',
+    label: 'TikTok Video Ideas Generator',
+    description: '500+ TikTok video ideas across 12 niches and 8 formats. Tutorials, POVs, challenges, reactions, comparisons — instantly generated and ready to film.',
+    tag: 'Ideas',
+    from: 'from-amber-400',
+    to: 'to-orange-500',
+    cta: 'Get Video Ideas',
+  },
+  {
+    page: 'hook-generator',
+    emoji: '⚡',
+    label: 'TikTok Hook Generator',
+    description: 'Generate scroll-stopping hooks for your TikTok videos. 8 hook types — question, secret, mistake, POV, contrast, hot take, storytime — across 8 niches.',
+    tag: 'Hooks',
+    from: 'from-yellow-400',
+    to: 'to-orange-500',
+    cta: 'Generate Hooks',
+  },
+  {
+    page: 'comment-reply-generator',
+    emoji: '💬',
+    label: 'Comment Reply Generator',
+    description: 'Generate the perfect reply to any TikTok comment — compliments, questions, criticism, haters, collab requests. 4 tone options, copy in one click.',
+    tag: 'Replies',
+    from: 'from-teal-400',
+    to: 'to-cyan-500',
+    cta: 'Generate Replies',
+  },
+  {
+    page: 'bio-generator',
+    emoji: '👤',
+    label: 'TikTok Bio Generator',
+    description: 'Generate 5 optimized TikTok bios for your niche and vibe. Includes character counter to stay within TikTok\'s 80-character limit. Funny, inspiring, bold and more.',
+    tag: 'Bio',
+    from: 'from-violet-400',
+    to: 'to-purple-600',
+    cta: 'Generate Bios',
+  },
+  {
+    page: 'cta-generator',
+    emoji: '🎯',
+    label: 'CTA Generator',
+    description: 'Generate high-converting calls-to-action for TikTok, Instagram, YouTube and LinkedIn. 8 goals — follow, comment, save, share, link in bio, duet and more.',
+    tag: 'CTAs',
+    from: 'from-rose-400',
+    to: 'to-pink-500',
+    cta: 'Generate CTAs',
   },
 ];
 
@@ -185,8 +234,6 @@ export function FreeTools({ darkMode, onNavigate }: FreeToolsProps) {
             ))}
           </div>
         </section>
-
-        <AdSense slot="7788990011" darkMode={darkMode} />
 
         {/* Standalone Free Tools */}
         <section className="mt-14">

@@ -384,11 +384,11 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Free Forever</div>
           </div>
           <div className="text-center space-y-2">
-            <div className="text-3xl md:text-5xl font-black">100+</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Viral Hooks</div>
+            <div className="text-3xl md:text-5xl font-black">13</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Free Tools</div>
           </div>
           <div className="text-center space-y-2">
-            <div className="text-3xl md:text-5xl font-black">8</div>
+            <div className="text-3xl md:text-5xl font-black">9</div>
             <div className="text-xs font-bold uppercase tracking-widest text-neutral-400 text-center">Native UI Platforms</div>
           </div>
           <div className="text-center space-y-2">
@@ -466,30 +466,63 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
       </section>
 
       {/* --- FREE TOOLS SECTION --- */}
-      <section className="py-20 px-6">
+      <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <span className={`inline-block text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 ${
+          <div className="text-center mb-12">
+            <span className={`inline-block text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 ${
               darkMode ? 'bg-violet-500/10 text-violet-400 border border-violet-500/20' : 'bg-violet-50 text-violet-600 border border-violet-100'
             }`}>
-              More Free Tools
+              13 Free Tools · No Login · No Watermark
             </span>
-            <h2 className="text-3xl md:text-4xl font-black mb-3">
+            <h2 className="text-3xl md:text-5xl font-black mb-4">
               Every tool you need to grow
             </h2>
-            <p className={`text-base max-w-xl mx-auto ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
-              Hashtag generator, font styles, captions, engagement calculator, giveaway picker — all free, all in one place.
+            <p className={`text-base max-w-2xl mx-auto ${darkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
+              Hook generator, video ideas, comment replies, bio builder, CTA generator, hashtags, captions, giveaway picker — all free, all in one place.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {/* New tools spotlight */}
+          <div className={`mb-6 rounded-2xl border p-5 ${darkMode ? 'bg-neutral-900/60 border-neutral-800' : 'bg-gradient-to-r from-violet-50 to-pink-50 border-violet-100'}`}>
+            <div className={`text-[10px] font-black uppercase tracking-widest mb-4 ${darkMode ? 'text-violet-400' : 'text-violet-500'}`}>✨ New Content Tools</div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+              {[
+                { page: 'video-ideas-generator', emoji: '💡', label: 'Video Ideas', desc: '500+ ideas · 12 niches', from: 'from-amber-400', to: 'to-orange-500' },
+                { page: 'hook-generator', emoji: '⚡', label: 'Hook Generator', desc: '8 types · scroll-stopping', from: 'from-yellow-400', to: 'to-orange-500' },
+                { page: 'comment-reply-generator', emoji: '💬', label: 'Reply Generator', desc: '8 types · 4 tones', from: 'from-teal-400', to: 'to-cyan-500' },
+                { page: 'bio-generator', emoji: '👤', label: 'Bio Generator', desc: '12 niches · 6 vibes', from: 'from-violet-400', to: 'to-purple-600' },
+                { page: 'cta-generator', emoji: '🎯', label: 'CTA Generator', desc: '4 platforms · 8 goals', from: 'from-rose-400', to: 'to-pink-500' },
+              ].map(tool => (
+                <button
+                  key={tool.page}
+                  onClick={() => onNavigate(tool.page)}
+                  className={`flex flex-col items-start gap-2 p-3.5 rounded-xl border text-left transition-all hover:scale-[1.03] group ${
+                    darkMode ? 'bg-neutral-800 border-neutral-700 hover:border-violet-500/40' : 'bg-white border-violet-100 hover:border-violet-300 shadow-sm'
+                  }`}
+                >
+                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${tool.from} ${tool.to} flex items-center justify-center text-lg shadow-md`}>
+                    {tool.emoji}
+                  </div>
+                  <div>
+                    <div className={`text-xs font-black ${darkMode ? 'text-white' : 'text-neutral-900'}`}>{tool.label}</div>
+                    <div className={`text-[10px] mt-0.5 ${darkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>{tool.desc}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Classic tools grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { page: 'hashtag-generator', emoji: '#️⃣', label: 'Hashtag Generator', desc: '12 niches, 3 platforms' },
+              { page: 'hashtag-generator', emoji: '#️⃣', label: 'Hashtag Generator', desc: '12 niches · 3 platforms' },
               { page: 'font-generator', emoji: '✍️', label: 'Font Generator', desc: '13 Unicode styles' },
-              { page: 'caption-generator', emoji: '✏️', label: 'Caption Generator', desc: '4 platforms, 5 vibes' },
+              { page: 'caption-generator', emoji: '✏️', label: 'Caption Generator', desc: '4 platforms · 5 vibes' },
               { page: 'engagement-calculator', emoji: '📊', label: 'Engagement Rate', desc: '6 platforms + benchmarks' },
               { page: 'guide-tiktok-comment-picker', emoji: '🎯', label: 'Comment Picker', desc: 'Random winner tool' },
               { page: 'guide-tiktok-giveaway-picker', emoji: '🎁', label: 'Giveaway Picker', desc: 'Up to 5 winners' },
+              { page: 'generator', emoji: '💬', label: 'Sticker Generator', desc: '9 platforms · PNG export' },
+              { page: 'batch', emoji: '⚡', label: 'Batch Generator', desc: '10 stickers at once' },
             ].map(tool => (
               <button
                 key={tool.page}
@@ -507,14 +540,12 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
             ))}
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-8 text-center">
             <button
               onClick={() => onNavigate('free-tools')}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black transition-all border ${
-                darkMode ? 'border-neutral-700 hover:border-pink-500/50 text-neutral-300 hover:text-white' : 'border-neutral-200 hover:border-pink-300 text-neutral-600 hover:text-neutral-900'
-              }`}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500 to-purple-600 text-white text-sm font-black rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-violet-500/20"
             >
-              See All Free Tools →
+              Explore All 13 Free Tools →
             </button>
           </div>
         </div>

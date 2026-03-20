@@ -6,7 +6,8 @@ export type Page =
   | 'privacy' | 'terms' | 'about' | 'contact' | 'blog' | 'free-tools'
   | 'guide' | 'guide-instagram' | 'guide-youtube' | 'guide-comparison'
   | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker'
-  | 'hashtag-generator' | 'font-generator' | 'caption-generator' | 'engagement-calculator';
+  | 'hashtag-generator' | 'font-generator' | 'caption-generator' | 'engagement-calculator'
+  | 'video-ideas-generator' | 'hook-generator' | 'comment-reply-generator' | 'bio-generator' | 'cta-generator';
 
 export const SLUG_TO_PAGE: Record<string, Page> = {
   '/': 'home',
@@ -32,6 +33,11 @@ export const SLUG_TO_PAGE: Record<string, Page> = {
   '/tiktok-font-generator': 'font-generator',
   '/caption-generator': 'caption-generator',
   '/engagement-rate-calculator': 'engagement-calculator',
+  '/tiktok-video-ideas-generator': 'video-ideas-generator',
+  '/tiktok-hook-generator': 'hook-generator',
+  '/comment-reply-generator': 'comment-reply-generator',
+  '/tiktok-bio-generator': 'bio-generator',
+  '/cta-generator': 'cta-generator',
 };
 
 export const PAGE_TO_SLUG: Record<Page, string> = Object.fromEntries(
@@ -62,6 +68,11 @@ export const PAGE_TITLES: Record<Page, string> = {
   'font-generator': 'TikTok Font Generator — Copy & Paste Fonts for Bio & Captions',
   'caption-generator': 'Free Caption Generator — TikTok, Instagram & LinkedIn',
   'engagement-calculator': 'Engagement Rate Calculator — Free Tool for All Platforms (2026)',
+  'video-ideas-generator': 'Free TikTok Video Ideas Generator — 500+ Ideas by Niche (2026)',
+  'hook-generator': 'Free TikTok Hook Generator — High-Retention Hooks for Every Niche',
+  'comment-reply-generator': 'Free TikTok Comment Reply Generator — Replies for Any Comment',
+  'bio-generator': 'Free TikTok Bio Generator — Optimized Bios by Niche & Vibe (2026)',
+  'cta-generator': 'Free CTA Generator for TikTok, Instagram, YouTube & LinkedIn',
 };
 
 export const PAGE_DESCRIPTIONS: Record<Page, string> = {
@@ -88,6 +99,11 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   'font-generator': 'Generate stylish fonts for TikTok bio and captions. Bold, italic, script, Fraktur and 13 more Unicode font styles. Copy and paste free.',
   'caption-generator': 'Generate engaging social media captions for TikTok, Instagram, LinkedIn and YouTube. Free caption generator with hashtag suggestions.',
   'engagement-calculator': 'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
+  'video-ideas-generator': 'Generate 500+ TikTok video ideas by niche and format. Free TikTok video ideas generator — tutorials, POVs, challenges, reactions and more. No sign-up.',
+  'hook-generator': 'Generate high-retention TikTok hooks for your niche. Free hook generator with 8 hook types — question, secret, mistake, POV, number, contrast, hot take, storytime.',
+  'comment-reply-generator': 'Generate perfect TikTok comment replies for compliments, questions, criticism, and haters. Free reply generator with 4 tones. Copy and paste instantly.',
+  'bio-generator': 'Generate optimized TikTok bios for your niche and vibe. Free TikTok bio generator with character counter — funny, inspiring, professional, bold and more.',
+  'cta-generator': 'Generate high-converting calls-to-action for TikTok, Instagram, YouTube and LinkedIn. Free CTA generator — follow, comment, save, share, link in bio and more.',
 };
 
 // Schema.org structured data — injected as <script type="application/ld+json"> per page
@@ -279,6 +295,56 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     url: 'https://commentsticker.com/free-tools',
     description: 'All free social media tools by CommentSticker — hashtag generator, font generator, caption generator, engagement calculator, comment picker and giveaway picker.',
     publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
+  },
+  'video-ideas-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Video Ideas Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free TikTok video ideas generator — 500+ ideas across 12 niches and 8 formats. Tutorials, POVs, challenges, reactions, comparisons and more. No sign-up.',
+    url: 'https://commentsticker.com/tiktok-video-ideas-generator',
+  },
+  'hook-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Hook Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free TikTok hook generator — 8 hook types (question, secret, mistake, POV, number, contrast, hot take, storytime) across 8 niches. Copy and paste instantly.',
+    url: 'https://commentsticker.com/tiktok-hook-generator',
+  },
+  'comment-reply-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Comment Reply Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free TikTok comment reply generator — perfect replies for compliments, questions, criticism, haters, collab requests and more. 4 tone options. Copy and paste.',
+    url: 'https://commentsticker.com/comment-reply-generator',
+  },
+  'bio-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'TikTok Bio Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free TikTok bio generator — 5 optimized bios per niche and vibe combination. Includes character counter for TikTok\'s 80-character limit. Copy and paste instantly.',
+    url: 'https://commentsticker.com/tiktok-bio-generator',
+  },
+  'cta-generator': {
+    '@context': 'https://schema.org',
+    '@type': ['SoftwareApplication', 'WebApplication'],
+    name: 'Social Media CTA Generator',
+    applicationCategory: 'MarketingApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Free CTA generator for TikTok, Instagram, YouTube and LinkedIn. 8 goal types — follow, comment, save, share, link in bio, duet, collab, profile. Copy and paste.',
+    url: 'https://commentsticker.com/cta-generator',
   },
   blog: {
     '@context': 'https://schema.org',

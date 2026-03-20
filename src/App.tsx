@@ -10,6 +10,7 @@ import {
 
 // ── Eager imports — core app pages (always needed) ───────────────────────────
 import { LandingPage } from './components/LandingPage';
+import { CookieConsent } from './components/CookieConsent';
 import { DashboardShell } from './components/DashboardShell';
 import { StickerGeneratorUI } from './components/StickerGeneratorUI';
 import { QuestionFinder } from './components/QuestionFinder';
@@ -35,6 +36,11 @@ const FontGenerator = lazy(() => import('./components/FontGenerator').then(m => 
 const CaptionGenerator = lazy(() => import('./components/CaptionGenerator').then(m => ({ default: m.CaptionGenerator })));
 const EngagementCalculator = lazy(() => import('./components/EngagementCalculator').then(m => ({ default: m.EngagementCalculator })));
 const FreeTools = lazy(() => import('./components/FreeTools').then(m => ({ default: m.FreeTools })));
+const VideoIdeasGenerator = lazy(() => import('./components/VideoIdeasGenerator').then(m => ({ default: m.VideoIdeasGenerator })));
+const HookGenerator = lazy(() => import('./components/HookGenerator').then(m => ({ default: m.HookGenerator })));
+const CommentReplyGenerator = lazy(() => import('./components/CommentReplyGenerator').then(m => ({ default: m.CommentReplyGenerator })));
+const BioGenerator = lazy(() => import('./components/BioGenerator').then(m => ({ default: m.BioGenerator })));
+const CTAGenerator = lazy(() => import('./components/CTAGenerator').then(m => ({ default: m.CTAGenerator })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 // ── Subdomain detection ───────────────────────────────────────────────────────
@@ -206,20 +212,33 @@ export function App() {
     setScriptQuestion('');
   }, []);
 
+  // ── Cookie consent banner — always mounted, self-manages visibility ────────
+  const cookieBanner = (
+    <CookieConsent onNavigate={handleNavigate as any} darkMode={darkMode} />
+  );
+
   // ── 404 ──────────────────────────────────────────────────────────────────
   if (isNotFound) {
     return (
-      <LazyErrorBoundary>
-        <Suspense fallback={<PageLoader />}>
-          <NotFound onNavigate={handleNavigate as any} darkMode={darkMode} />
-        </Suspense>
-      </LazyErrorBoundary>
+      <>
+        <LazyErrorBoundary>
+          <Suspense fallback={<PageLoader />}>
+            <NotFound onNavigate={handleNavigate as any} darkMode={darkMode} />
+          </Suspense>
+        </LazyErrorBoundary>
+        {cookieBanner}
+      </>
     );
   }
 
   // ── Landing page (eager) — not shown on app subdomain ───────────────────
   if (currentPage === 'home' && !IS_APP_SUBDOMAIN) {
-    return <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />;
+    return (
+      <>
+        <LandingPage onNavigate={handleNavigate as any} darkMode={darkMode} />
+        {cookieBanner}
+      </>
+    );
   }
 
   // ── Lazy-loaded content pages ────────────────────────────────────────────
@@ -242,6 +261,11 @@ export function App() {
       case 'caption-generator': return <CaptionGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'engagement-calculator': return <EngagementCalculator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'free-tools': return <FreeTools darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'video-ideas-generator': return <VideoIdeasGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'hook-generator': return <HookGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'comment-reply-generator': return <CommentReplyGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'bio-generator': return <BioGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'cta-generator': return <CTAGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       default: return null;
     }
   };
@@ -249,45 +273,51 @@ export function App() {
   const lazyPage = renderLazyPage();
   if (lazyPage) {
     return (
-      <LazyErrorBoundary>
-        <Suspense fallback={<PageLoader />}>{lazyPage}</Suspense>
-      </LazyErrorBoundary>
+      <>
+        <LazyErrorBoundary>
+          <Suspense fallback={<PageLoader />}>{lazyPage}</Suspense>
+        </LazyErrorBoundary>
+        {cookieBanner}
+      </>
     );
   }
 
   // ── Dashboard (tool pages) ───────────────────────────────────────────────
   return (
-    <DashboardShell
-      currentPage={currentPage}
-      onNavigate={handleNavigate as any}
-      darkMode={darkMode}
-      setDarkMode={setDarkMode}
-    >
-      {currentPage === 'generator' && (
-        <StickerGeneratorUI
-          darkMode={darkMode}
-          onNavigate={handleNavigate as any}
-          initialComment={sharedComment}
-          onCommentConsumed={handleCommentConsumed}
-          onGoToScript={handleGoToScript}
-        />
-      )}
-      {currentPage === 'finder' && (
-        <QuestionFinder darkMode={darkMode} onSelectQuestion={handleSelectQuestion} />
-      )}
-      {currentPage === 'templates' && (
-        <TemplatesLibrary darkMode={darkMode} onSelectTemplate={handleSelectTemplate} />
-      )}
-      {currentPage === 'scripts' && (
-        <ScriptGenerator
-          darkMode={darkMode}
-          initialQuestion={scriptQuestion}
-          onQuestionConsumed={handleQuestionConsumed}
-        />
-      )}
-      {currentPage === 'batch' && (
-        <BatchGenerator darkMode={darkMode} />
-      )}
-    </DashboardShell>
+    <>
+      <DashboardShell
+        currentPage={currentPage}
+        onNavigate={handleNavigate as any}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      >
+        {currentPage === 'generator' && (
+          <StickerGeneratorUI
+            darkMode={darkMode}
+            onNavigate={handleNavigate as any}
+            initialComment={sharedComment}
+            onCommentConsumed={handleCommentConsumed}
+            onGoToScript={handleGoToScript}
+          />
+        )}
+        {currentPage === 'finder' && (
+          <QuestionFinder darkMode={darkMode} onSelectQuestion={handleSelectQuestion} />
+        )}
+        {currentPage === 'templates' && (
+          <TemplatesLibrary darkMode={darkMode} onSelectTemplate={handleSelectTemplate} />
+        )}
+        {currentPage === 'scripts' && (
+          <ScriptGenerator
+            darkMode={darkMode}
+            initialQuestion={scriptQuestion}
+            onQuestionConsumed={handleQuestionConsumed}
+          />
+        )}
+        {currentPage === 'batch' && (
+          <BatchGenerator darkMode={darkMode} />
+        )}
+      </DashboardShell>
+      {cookieBanner}
+    </>
   );
 }

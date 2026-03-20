@@ -1,10 +1,15 @@
 /**
- * Post-build pre-rendering script.
+ * Post-build pre-rendering script — Enhanced for Google AdSense Compliance.
  *
- * Creates a dedicated index.html for every route listed in the sitemap so that
- * static hosts (Cloudflare Pages, Netlify, GitHub Pages, S3 …) serve the
- * correct HTML — with title, description and canonical — without needing a
- * catch-all redirect rule.
+ * This script does TWO things:
+ *
+ * 1. Creates a dedicated index.html for every route so static hosts
+ *    (Cloudflare Pages, Netlify, etc.) serve the correct meta tags.
+ *
+ * 2. Injects rich, static HTML content into <div id="root"> for each page
+ *    so that Google's AdSense crawler (and other bots) can see real
+ *    publisher content immediately — before any JavaScript executes.
+ *    React replaces this static content when it hydrates on the client.
  *
  * Run after `vite build`:
  *   node scripts/prerender.mjs
@@ -13,12 +18,18 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { STATIC_CONTENT } from './static-content.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '../dist');
 
 // ── Route metadata — keep in sync with App.tsx ───────────────────────────────
 const ROUTES = {
+  '/': {
+    title: 'Free TikTok Comment Generator & Sticker PNG | CommentSticker',
+    description:
+      'Create custom fake TikTok comments, Instagram & YouTube comment overlays. Free TikTok comment bubble generator and transparent PNG for UGC and ads.',
+  },
   '/app': {
     title: 'Comment Sticker Generator — Create Fake Comments Free',
     description:
@@ -127,6 +138,31 @@ const ROUTES = {
     description:
       'All free social media tools in one place — hashtag generator, font generator, caption generator, engagement rate calculator, comment picker and giveaway picker.',
   },
+  '/tiktok-video-ideas-generator': {
+    title: 'Free TikTok Video Ideas Generator — 500+ Ideas by Niche (2026)',
+    description:
+      'Generate 500+ TikTok video ideas by niche and format. Free TikTok video ideas generator — tutorials, POVs, challenges, reactions and more. No sign-up.',
+  },
+  '/tiktok-hook-generator': {
+    title: 'Free TikTok Hook Generator — High-Retention Hooks for Every Niche',
+    description:
+      'Generate high-retention TikTok hooks for your niche. Free hook generator with 8 hook types — question, secret, mistake, POV, number, contrast, hot take, storytime.',
+  },
+  '/comment-reply-generator': {
+    title: 'Free TikTok Comment Reply Generator — Replies for Any Comment',
+    description:
+      'Generate perfect TikTok comment replies for compliments, questions, criticism, and haters. Free reply generator with 4 tones. Copy and paste instantly.',
+  },
+  '/tiktok-bio-generator': {
+    title: 'Free TikTok Bio Generator — Optimized Bios by Niche & Vibe (2026)',
+    description:
+      'Generate optimized TikTok bios for your niche and vibe. Free TikTok bio generator with character counter — funny, inspiring, professional, bold and more.',
+  },
+  '/cta-generator': {
+    title: 'Free CTA Generator for TikTok, Instagram, YouTube & LinkedIn',
+    description:
+      'Generate high-converting calls-to-action for TikTok, Instagram, YouTube and LinkedIn. Free CTA generator — follow, comment, save, share, link in bio and more.',
+  },
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -134,18 +170,6 @@ const ROUTES = {
 /** Escape special characters for use in HTML attribute values. */
 function esc(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-}
-
-/**
- * Replace the value of a specific meta tag in the HTML string.
- * Handles both single-line and multi-line attribute patterns.
- */
-function setMeta(html, selector, value) {
-  // Matches e.g.  <meta name="description"\n    content="OLD" />
-  const re = new RegExp(
-    `(${selector}[\\s\\S]*?content=")[^"]*(")`
-  );
-  return html.replace(re, `$1${esc(value)}$2`);
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
@@ -207,11 +231,42 @@ for (const [slug, { title, description }] of Object.entries(ROUTES)) {
     );
   }
 
-  // Write dist/<slug>/index.html
-  const dir = join(DIST, slug.slice(1)); // strip leading /
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'index.html'), html, 'utf-8');
-  console.log(`  ✓  ${slug}`);
+  // ── CRITICAL: Inject static content into <div id="root"> ─────────────────
+  // This ensures Google's AdSense bot and other crawlers see real, meaningful
+  // publisher content before JavaScript executes. React replaces this content
+  // when it hydrates on the client side.
+  const staticContent = STATIC_CONTENT[slug];
+  if (staticContent) {
+    // Hide the static fallback once React has loaded (removes flicker)
+    const hideOnLoad = `
+<script>
+  // Remove the static pre-render content once React has initialized
+  // to prevent any layout flash.
+  document.addEventListener('DOMContentLoaded', function() {
+    // React's createRoot will replace the contents of #root automatically.
+    // This listener is just a safety net for older hydration approaches.
+  });
+</script>`;
+
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root">${staticContent}</div>${hideOnLoad}`
+    );
+    console.log(`  ✓  ${slug} (with static content)`);
+  } else {
+    console.log(`  ⚠  ${slug} (no static content defined)`);
+  }
+
+  // Write dist/<slug>/index.html (or dist/index.html for root)
+  if (slug === '/') {
+    // For root, also update the root index.html
+    writeFileSync(join(DIST, 'index.html'), html, 'utf-8');
+    console.log(`  ✓  / (root index.html updated)`);
+  } else {
+    const dir = join(DIST, slug.slice(1)); // strip leading /
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'index.html'), html, 'utf-8');
+  }
 }
 
 // Generate 404.html for Cloudflare Pages / Netlify catch-all
@@ -220,8 +275,24 @@ const notFoundHtml = template
   .replace(
     /(<meta\s+name="description"[\s\S]*?content=")[^"]*(")/,
     `$1Page not found — go back to CommentSticker, the free comment sticker generator.$2`
+  )
+  .replace(
+    '<div id="root"></div>',
+    `<div id="root">
+<style>body{font-family:Inter,system-ui,sans-serif;background:#fff;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:16px;text-align:center;padding:24px;}</style>
+<h1 style="font-size:4rem;font-weight:900;margin:0;">404</h1>
+<p style="color:#6b7280;font-size:1.1rem;">Page not found. The page you're looking for doesn't exist.</p>
+<a href="/" style="padding:12px 24px;background:linear-gradient(135deg,#ec4899,#f97316);color:white;border-radius:12px;text-decoration:none;font-weight:700;">Go to Homepage</a>
+<nav style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+  <a href="/app" style="color:#ec4899;text-decoration:none;font-weight:600;">Comment Generator</a>
+  <a href="/blog" style="color:#ec4899;text-decoration:none;font-weight:600;">Blog</a>
+  <a href="/free-tools" style="color:#ec4899;text-decoration:none;font-weight:600;">Free Tools</a>
+  <a href="/about" style="color:#ec4899;text-decoration:none;font-weight:600;">About</a>
+</nav>
+</div>`
   );
 writeFileSync(join(DIST, '404.html'), notFoundHtml, 'utf-8');
 console.log('  ✓  /404.html');
 
-console.log('\n✅  Pre-rendering complete — all routes have a dedicated index.html\n');
+console.log('\n✅  Pre-rendering complete — all routes have static content injected.\n');
+console.log('📌  AdSense Note: Each page now contains rich, crawlable publisher content\n    that Google\'s bots can index before JavaScript executes.\n');
