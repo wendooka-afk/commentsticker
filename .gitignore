@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
 
@@ -41,3 +40,5 @@ brain/
 *.webp
 *.png
 !public/og-image.png
+!public/logo-icon.png
+!public/logo-full.png
