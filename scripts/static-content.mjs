@@ -19,8 +19,9 @@ const NAV = `
   </a>
   <div style="display:flex;gap:24px;align-items:center;">
     <a href="/free-tools" style="color:#374151;text-decoration:none;font-weight:600;font-size:14px;">Free Tools</a>
-    <a href="/blog" style="color:#ec4899;text-decoration:none;font-weight:600;font-size:14px;">Blog & Guides</a>
-    <a href="/about" style="color:#374151;text-decoration:none;font-weight:600;font-size:14px;">About</a>
+    <a href="/features" style="color:#374151;text-decoration:none;font-weight:600;font-size:14px;">Features</a>
+    <a href="/use-cases" style="color:#374151;text-decoration:none;font-weight:600;font-size:14px;">Use Cases</a>
+    <a href="/pricing" style="color:#374151;text-decoration:none;font-weight:600;font-size:14px;">Pricing</a>
     <a href="/app" style="padding:10px 20px;background:linear-gradient(135deg,#ec4899,#f97316);color:white;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;">Launch App</a>
   </div>
 </nav>`;
@@ -1391,6 +1392,73 @@ ${FOOTER}`,
     <p><strong>Should I say the CTA out loud or just show it as text?</strong> Both, when possible. If you can only choose one, choose spoken — it performs better for follow and comment CTAs.</p>
     <p><strong>Does "like and subscribe" still work?</strong> Generic asks perform worse than CTAs with specific reasons. "Follow for the recipe in tomorrow's video" dramatically outperforms "follow me."</p>
     <p><strong>Can I use multiple CTAs in one video?</strong> Not recommended. Viewers who receive two or more CTAs are less likely to act on any of them. Choose one and focus the entire end of the video on it.</p>
+  </div>
+</div>
+${FOOTER}`,
+
+
+  // ── FEATURES PAGE ─────────────────────────────────────────────────────────
+  '/features': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">✨ Everything included — free</span>
+  <h1>Built for creators who move fast.</h1>
+  <p class="lead">CommentSticker gives you pixel-perfect comment stickers for 9 platforms, a batch exporter, 15+ creator tools, and transparent PNG export — all free, no login required.</p>
+  <a href="/app/" class="cs-cta">Try the Generator →</a>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <h2>9 Platforms. One Tool.</h2>
+    <p>Every comment is rendered natively — exact colors, fonts, and layout for TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord and LinkedIn.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Key Features</h2>
+    <div class="cs-grid">
+      <div class="cs-card"><h3>Pixel-perfect stickers</h3><p>Native rendering for each platform — not a template, not a screenshot.</p></div>
+      <div class="cs-card"><h3>Transparent PNG &amp; JPEG export</h3><p>3× pixel ratio. No watermark, no login, instant download.</p></div>
+      <div class="cs-card"><h3>Batch generator</h3><p>Generate up to 10 stickers at once and download all in one click.</p></div>
+      <div class="cs-card"><h3>Export history</h3><p>Your last 8 exports saved locally — revisit or re-download anytime.</p></div>
+      <div class="cs-card"><h3>15+ free tools</h3><p>Hashtag generator, caption generator, hook generator, engagement calculator and more.</p></div>
+      <div class="cs-card"><h3>No account required</h3><p>Every free feature works instantly in your browser. No sign-up ever.</p></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>Free vs Pro</h2>
+    <p>The free plan covers everything for most creators. Pro unlocks unlimited exports across all 9 platforms.</p>
+    <a href="/pricing/" class="cs-cta" style="margin-top:16px;">View Pricing →</a>
+  </div>
+</div>
+${FOOTER}`,
+
+  // ── USE CASES PAGE ────────────────────────────────────────────────────────
+  '/use-cases': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">8 use cases</span>
+  <h1>How creators use CommentSticker.</h1>
+  <p class="lead">From UGC ads and giveaways to batch production and community management — here's how real creators are using the tools.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <h2>UGC Ads (Most Popular)</h2>
+    <p>Add a comment sticker at the top of your TikTok or Instagram Reel ad to instantly create social proof. A question like "Does this really work?" hooks viewers in the first second.</p>
+    <a href="/app/" class="cs-cta" style="margin-top:12px;">Create your sticker →</a>
+  </div>
+  <div class="cs-section">
+    <h2>Short-form Content Creation</h2>
+    <p>Create a custom comment sticker to highlight a specific reaction. Perfect for "comment said I couldn't do it" hooks on TikTok and Reels.</p>
+  </div>
+  <div class="cs-section">
+    <h2>E-commerce &amp; Dropshipping</h2>
+    <p>Simulate customer questions about shipping, results, or sizing in a realistic comment format. Used by top e-com brands to boost ROAS on Meta and TikTok Ads.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Giveaways &amp; Contests</h2>
+    <p>Paste all comment entries into the free giveaway picker and pick 1–5 random winners with keyword filters and duplicate removal.</p>
+    <a href="/tiktok-giveaway-picker/" class="cs-cta" style="margin-top:12px;">Try the picker →</a>
+  </div>
+  <div class="cs-section">
+    <h2>Content Agencies &amp; Batch Production</h2>
+    <p>Use the Batch Generator to produce up to 10 comment stickers in one session and download all as a set. Save hours per week vs manual production.</p>
+    <a href="/batch-generator/" class="cs-cta" style="margin-top:12px;">Open batch generator →</a>
   </div>
 </div>
 ${FOOTER}`,

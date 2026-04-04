@@ -1,5 +1,5 @@
-import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, Menu, X, Crown, LogIn } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Twitter, Linkedin, Send as ShareIcon, Menu, X, Crown, LogIn, ChevronDown, Hash, Type, AlignLeft, BarChart2, Zap, Lightbulb, MessageCircle, User, MousePointer, Layers, Shuffle, Target, Search } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { PAGE_TO_SLUG } from '../config/routes';
 import { useAuth } from '../contexts/AuthContext';
 import { AuthModal } from './AuthModal';
@@ -84,34 +84,76 @@ function NavLink({ page, label, onNavigate, className }: { page: string; label: 
     );
 }
 
+const FREE_TOOLS_STICKER = [
+    { page: 'generator', label: 'Sticker Generator', icon: <Target className="w-4 h-4" />, desc: '9 platforms, transparent PNG' },
+    { page: 'batch', label: 'Batch Generator', icon: <Layers className="w-4 h-4" />, desc: 'Up to 10 stickers at once' },
+    { page: 'guide-tiktok-comment-picker', label: 'Comment Picker', icon: <Shuffle className="w-4 h-4" />, desc: 'Random winner tool' },
+    { page: 'guide-tiktok-giveaway-picker', label: 'Giveaway Picker', icon: <MousePointer className="w-4 h-4" />, desc: 'Pick 1–5 winners' },
+];
+const FREE_TOOLS_CONTENT = [
+    { page: 'hashtag-generator', label: 'Hashtag Generator', icon: <Hash className="w-4 h-4" /> },
+    { page: 'caption-generator', label: 'Caption Generator', icon: <AlignLeft className="w-4 h-4" /> },
+    { page: 'hook-generator', label: 'Hook Generator', icon: <Zap className="w-4 h-4" /> },
+    { page: 'video-ideas-generator', label: 'Video Ideas', icon: <Lightbulb className="w-4 h-4" /> },
+    { page: 'font-generator', label: 'Font Generator', icon: <Type className="w-4 h-4" /> },
+    { page: 'comment-reply-generator', label: 'Comment Reply', icon: <MessageCircle className="w-4 h-4" /> },
+    { page: 'bio-generator', label: 'Bio Generator', icon: <User className="w-4 h-4" /> },
+    { page: 'cta-generator', label: 'CTA Generator', icon: <MousePointer className="w-4 h-4" /> },
+];
+const FREE_TOOLS_ANALYTICS = [
+    { page: 'engagement-calculator', label: 'Engagement Calculator', icon: <BarChart2 className="w-4 h-4" /> },
+    { page: 'finder', label: 'Question Finder', icon: <Search className="w-4 h-4" /> },
+];
+
 export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [freeToolsOpen, setFreeToolsOpen] = useState(false);
     const [showAuth, setShowAuth] = useState(false);
-    const { user, isProUser, signOut } = useAuth();
+    const { user, isProUser } = useAuth();
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
-            if (window.scrollY > 20) setIsMobileMenuOpen(false);
+            if (window.scrollY > 20) { setIsMobileMenuOpen(false); setFreeToolsOpen(false); }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close dropdown on outside click
+    useEffect(() => {
+        const handler = (e: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setFreeToolsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, []);
+
+    const nav = (page: string) => { onNavigate(page); setIsMobileMenuOpen(false); setFreeToolsOpen(false); };
+
     const mobileNavItems = [
-        { page: 'free-tools', label: 'Free Tools', emoji: '🛠️' },
-        { page: 'blog', label: 'Blog & Guides', emoji: '📖' },
-        { page: 'about', label: 'About', emoji: 'ℹ️' },
+        { page: 'free-tools', label: '🛠️  All Free Tools' },
+        { page: 'features', label: '✨  Features' },
+        { page: 'use-cases', label: '💡  Use Cases' },
+        { page: 'pricing', label: '💎  Pricing' },
+        { page: 'blog', label: '📖  Blog & Guides' },
     ];
+
+    const dm = darkMode;
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
             <div className={`max-w-7xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl border transition-all duration-300 ${isScrolled
-                ? (darkMode ? 'bg-neutral-900/90 border-neutral-800' : 'bg-white/90 border-white/50 shadow-lg shadow-black/5') + ' backdrop-blur-xl'
+                ? (dm ? 'bg-neutral-900/90 border-neutral-800' : 'bg-white/90 border-white/50 shadow-lg shadow-black/5') + ' backdrop-blur-xl'
                 : 'bg-transparent border-transparent'
                 }`}>
-                <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="flex items-center gap-2 flex-shrink-0">
+
+                {/* Logo */}
+                <a href="/" onClick={(e) => { e.preventDefault(); nav('home'); }} className="flex items-center gap-2 flex-shrink-0">
                     <img src="/logo-icon.png" alt="CommentSticker" className="w-9 h-9 object-contain" />
                     <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-400 dark:from-white dark:via-neutral-200 dark:to-neutral-500">
                         CommentSticker
@@ -119,10 +161,76 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                 </a>
 
                 {/* Desktop nav */}
-                <div className="hidden md:flex items-center gap-8">
-                    <NavLink page="free-tools" label="Free Tools" onNavigate={onNavigate} className="text-sm font-bold hover:text-pink-500 transition-colors" />
-                    <NavLink page="blog" label="Blog & Guides" onNavigate={onNavigate} className="text-sm font-bold hover:text-pink-500 transition-colors" />
-                    <NavLink page="about" label="About" onNavigate={onNavigate} />
+                <div className="hidden md:flex items-center gap-7">
+
+                    {/* Free Tools dropdown */}
+                    <div className="relative" ref={dropdownRef}>
+                        <button
+                            onClick={() => setFreeToolsOpen(v => !v)}
+                            className={`flex items-center gap-1 text-sm font-bold transition-colors hover:text-pink-500 ${freeToolsOpen ? 'text-pink-500' : ''}`}
+                        >
+                            Free Tools <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${freeToolsOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        {freeToolsOpen && (
+                            <div className={`absolute left-0 top-full mt-3 w-[580px] rounded-2xl border shadow-2xl overflow-hidden z-50 ${dm ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
+                                <div className="p-5 grid grid-cols-2 gap-6">
+                                    {/* Sticker Tools */}
+                                    <div>
+                                        <p className={`text-[10px] font-black uppercase tracking-widest mb-3 ${dm ? 'text-neutral-500' : 'text-neutral-400'}`}>🎨 Sticker Tools</p>
+                                        <div className="flex flex-col gap-1">
+                                            {FREE_TOOLS_STICKER.map(t => (
+                                                <button key={t.page} onClick={() => nav(t.page)}
+                                                    className={`flex items-start gap-3 px-3 py-2.5 rounded-xl text-left transition-colors ${dm ? 'hover:bg-neutral-800' : 'hover:bg-neutral-50'}`}>
+                                                    <span className={`mt-0.5 ${dm ? 'text-neutral-400' : 'text-neutral-500'}`}>{t.icon}</span>
+                                                    <div>
+                                                        <div className="text-sm font-bold leading-tight">{t.label}</div>
+                                                        <div className={`text-xs ${dm ? 'text-neutral-500' : 'text-neutral-400'}`}>{t.desc}</div>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <p className={`text-[10px] font-black uppercase tracking-widest mb-3 mt-5 ${dm ? 'text-neutral-500' : 'text-neutral-400'}`}>📊 Analytics</p>
+                                        <div className="flex flex-col gap-1">
+                                            {FREE_TOOLS_ANALYTICS.map(t => (
+                                                <button key={t.page} onClick={() => nav(t.page)}
+                                                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors ${dm ? 'hover:bg-neutral-800' : 'hover:bg-neutral-50'}`}>
+                                                    <span className={`${dm ? 'text-neutral-400' : 'text-neutral-500'}`}>{t.icon}</span>
+                                                    <span className="text-sm font-bold">{t.label}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Content Tools */}
+                                    <div>
+                                        <p className={`text-[10px] font-black uppercase tracking-widest mb-3 ${dm ? 'text-neutral-500' : 'text-neutral-400'}`}>✏️ Content Tools</p>
+                                        <div className="flex flex-col gap-1">
+                                            {FREE_TOOLS_CONTENT.map(t => (
+                                                <button key={t.page} onClick={() => nav(t.page)}
+                                                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors ${dm ? 'hover:bg-neutral-800' : 'hover:bg-neutral-50'}`}>
+                                                    <span className={`${dm ? 'text-neutral-400' : 'text-neutral-500'}`}>{t.icon}</span>
+                                                    <span className="text-sm font-bold">{t.label}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Footer */}
+                                <div className={`px-5 py-3 border-t flex items-center justify-between ${dm ? 'border-neutral-800 bg-neutral-950/50' : 'border-neutral-100 bg-neutral-50'}`}>
+                                    <span className={`text-xs font-medium ${dm ? 'text-neutral-500' : 'text-neutral-400'}`}>15+ free tools — no login required</span>
+                                    <button onClick={() => nav('free-tools')} className="text-xs font-black text-pink-500 hover:text-pink-400 transition-colors">
+                                        View all tools →
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    <NavLink page="features" label="Features" onNavigate={nav} className="text-sm font-bold hover:text-pink-500 transition-colors" />
+                    <NavLink page="use-cases" label="Use Cases" onNavigate={nav} className="text-sm font-bold hover:text-pink-500 transition-colors" />
+                    <NavLink page="pricing" label="Pricing" onNavigate={nav} className="text-sm font-bold hover:text-pink-500 transition-colors" />
                 </div>
 
                 {/* Right side */}
@@ -130,7 +238,7 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
-                        className={`md:hidden p-2 rounded-xl transition-colors ${darkMode ? 'text-neutral-300 hover:bg-neutral-800' : 'text-neutral-700 hover:bg-neutral-100'}`}
+                        className={`md:hidden p-2 rounded-xl transition-colors ${dm ? 'text-neutral-300 hover:bg-neutral-800' : 'text-neutral-700 hover:bg-neutral-100'}`}
                     >
                         {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </button>
@@ -138,11 +246,8 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                     {user ? (
                         <>
                             {!isProUser && (
-                                <a
-                                    href="/pricing/"
-                                    onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
-                                    className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-pink-500 border border-pink-500/30 hover:bg-pink-500/10 transition-all"
-                                >
+                                <a href="/pricing/" onClick={(e) => { e.preventDefault(); nav('pricing'); }}
+                                    className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-pink-500 border border-pink-500/30 hover:bg-pink-500/10 transition-all">
                                     <Crown className="w-3.5 h-3.5" /> Upgrade
                                 </a>
                             )}
@@ -151,29 +256,21 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                                     <Crown className="w-3.5 h-3.5" /> Pro
                                 </span>
                             )}
-                            <a
-                                href="/account/"
-                                onClick={(e) => { e.preventDefault(); onNavigate('account'); }}
-                                className={`hidden md:flex items-center justify-center w-9 h-9 rounded-xl font-black text-sm transition-colors ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-neutral-100 hover:bg-neutral-200'}`}
-                                title={user.email}
-                            >
+                            <a href="/account/" onClick={(e) => { e.preventDefault(); nav('account'); }}
+                                className={`hidden md:flex items-center justify-center w-9 h-9 rounded-xl font-black text-sm transition-colors ${dm ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-neutral-100 hover:bg-neutral-200'}`}
+                                title={user.email}>
                                 {user.email?.[0].toUpperCase()}
                             </a>
                         </>
                     ) : (
-                        <button
-                            onClick={() => setShowAuth(true)}
-                            className={`hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold border transition-all hover:scale-105 ${darkMode ? 'border-neutral-700 text-neutral-300 hover:bg-neutral-800' : 'border-neutral-200 text-neutral-700 hover:bg-neutral-50'}`}
-                        >
+                        <button onClick={() => setShowAuth(true)}
+                            className={`hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold border transition-all hover:scale-105 ${dm ? 'border-neutral-700 text-neutral-300 hover:bg-neutral-800' : 'border-neutral-200 text-neutral-700 hover:bg-neutral-50'}`}>
                             <LogIn className="w-3.5 h-3.5" /> Log in
                         </button>
                     )}
 
-                    <a
-                        href="/app/"
-                        onClick={(e) => { e.preventDefault(); onNavigate('generator'); }}
-                        className="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
-                    >
+                    <a href="/app/" onClick={(e) => { e.preventDefault(); nav('generator'); }}
+                        className="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap">
                         Launch App
                     </a>
                 </div>
@@ -183,21 +280,27 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
 
             {/* Mobile menu */}
             {isMobileMenuOpen && (
-                <div className={`md:hidden mt-2 rounded-2xl border overflow-hidden shadow-xl ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
+                <div className={`md:hidden mt-2 rounded-2xl border overflow-hidden shadow-xl ${dm ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
                     <div className="flex flex-col p-3 gap-1">
-                        {mobileNavItems.map(({ page, label, emoji }) => (
-                            <button
-                                key={page}
-                                onClick={() => { onNavigate(page); setIsMobileMenuOpen(false); }}
-                                className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors flex items-center gap-3 ${darkMode ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}
-                            >
-                                <span>{emoji}</span>{label}
+                        {mobileNavItems.map(({ page, label }) => (
+                            <button key={page} onClick={() => nav(page)}
+                                className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors ${dm ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}>
+                                {label}
                             </button>
                         ))}
-                        <button
-                            onClick={() => { onNavigate('generator'); setIsMobileMenuOpen(false); }}
-                            className="mt-1 w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-black"
-                        >
+                        {user ? (
+                            <button onClick={() => nav('account')}
+                                className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors ${dm ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}>
+                                👤  My Account
+                            </button>
+                        ) : (
+                            <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }}
+                                className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors ${dm ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}>
+                                🔑  Log in
+                            </button>
+                        )}
+                        <button onClick={() => nav('generator')}
+                            className="mt-1 w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-black">
                             Launch App →
                         </button>
                     </div>
@@ -304,6 +407,9 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                 <div className="space-y-4">
                     <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Company</h4>
                     <div className="flex flex-col gap-2">
+                        <NavLink page="features" label="Features" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="use-cases" label="Use Cases" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="pricing" label="Pricing" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="about" label="About" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="contact" label="Contact" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="privacy" label="Privacy Policy" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />

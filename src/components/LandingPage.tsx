@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
-  MessageSquare,
   Sparkles,
   Zap,
   ChevronRight,
@@ -16,11 +15,10 @@ import {
   Layout,
   Instagram,
   Facebook,
-  Menu,
-  X,
 } from 'lucide-react';
 import { AdSense } from './AdSense';
 import { PlatformIcon } from './PlatformIcons';
+import { SEOHeader, SEOFooter } from './SEOLayout';
 
 interface LandingPageProps {
   darkMode: boolean;
@@ -28,18 +26,7 @@ interface LandingPageProps {
 }
 
 export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      if (window.scrollY > 20) setIsMobileMenuOpen(false);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const faqItems = [
     {
@@ -95,71 +82,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
     <div className={`min-h-screen font-sans selection:bg-pink-500/30 ${darkMode ? 'bg-neutral-950 text-white' : 'bg-neutral-50 text-neutral-900'}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
-      {/* --- NAVBAR --- */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
-        <div className={`max-w-7xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl border transition-all duration-300 ${isScrolled
-          ? (darkMode ? 'bg-neutral-900/90 border-neutral-800' : 'bg-white/90 border-white/50 shadow-lg shadow-black/5') + ' backdrop-blur-xl'
-          : 'bg-transparent border-transparent'
-          }`}>
-          <div className="flex items-center gap-2 cursor-pointer flex-shrink-0" onClick={() => onNavigate('home')}>
-            <img src="/logo-icon.png" alt="CommentSticker" className="w-9 h-9 object-contain" />
-            <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-400 dark:from-white dark:via-neutral-200 dark:to-neutral-500">
-              CommentSticker
-            </span>
-          </div>
-
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => onNavigate('free-tools')} className="text-sm font-bold hover:text-pink-500 transition-colors">Free Tools</button>
-            <button onClick={() => onNavigate('blog')} className="text-sm font-bold text-pink-500 hover:text-pink-400 transition-colors">Blog & Guides</button>
-            <a href="#faq" className="text-sm font-medium hover:text-pink-500 transition-colors">FAQ</a>
-          </div>
-
-          {/* Right side */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-              className={`md:hidden p-2 rounded-xl transition-colors ${darkMode ? 'text-neutral-300 hover:bg-neutral-800' : 'text-neutral-700 hover:bg-neutral-100'}`}
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-            <button
-              onClick={() => onNavigate('generator')}
-              className="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
-            >
-              Launch App
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {isMobileMenuOpen && (
-          <div className={`md:hidden mt-2 rounded-2xl border overflow-hidden shadow-xl ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}>
-            <div className="flex flex-col p-3 gap-1">
-              {[
-                { label: '🛠️  Free Tools', action: () => { onNavigate('free-tools'); setIsMobileMenuOpen(false); } },
-                { label: '📖  Blog & Guides', action: () => { onNavigate('blog'); setIsMobileMenuOpen(false); } },
-                { label: '❓  FAQ', action: () => { setIsMobileMenuOpen(false); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); } },
-              ].map(({ label, action }) => (
-                <button
-                  key={label}
-                  onClick={action}
-                  className={`text-left w-full px-4 py-3.5 rounded-xl text-sm font-bold transition-colors ${darkMode ? 'hover:bg-neutral-800 text-neutral-200' : 'hover:bg-neutral-50 text-neutral-700'}`}
-                >
-                  {label}
-                </button>
-              ))}
-              <button
-                onClick={() => { onNavigate('generator'); setIsMobileMenuOpen(false); }}
-                className="mt-1 w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-black"
-              >
-                Launch App →
-              </button>
-            </div>
-          </div>
-        )}
-      </header>
+      <SEOHeader onNavigate={onNavigate} darkMode={darkMode} />
 
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
@@ -593,74 +516,7 @@ export function LandingPage({ darkMode, onNavigate }: LandingPageProps) {
         <AdSense adSlot="0987654321" />
       </div>
 
-      {/* --- FOOTER --- */}
-      <footer className="py-12 px-6 border-t border-neutral-100 dark:border-neutral-900">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="space-y-4 col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2">
-              <img src="/logo-icon.png" alt="CommentSticker" className="w-8 h-8 object-contain" />
-              <span className="font-bold text-lg">CommentSticker</span>
-            </div>
-            <p className="text-sm font-medium text-neutral-400">Boost your digital presence with our free creative tools.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Tools</h4>
-            <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('free-tools')} className="text-sm font-black hover:text-pink-500 w-fit text-pink-500">All Free Tools →</button>
-              <button onClick={() => onNavigate('generator')} className="text-sm font-medium hover:text-pink-500 w-fit">Sticker Generator</button>
-              <button onClick={() => onNavigate('batch')} className="text-sm font-medium hover:text-pink-500 w-fit">Batch Generator</button>
-              <button onClick={() => onNavigate('finder')} className="text-sm font-medium hover:text-pink-500 w-fit">Question Finder</button>
-              <button onClick={() => onNavigate('scripts')} className="text-sm font-medium hover:text-pink-500 w-fit">Script Generator</button>
-              <button onClick={() => onNavigate('templates')} className="text-sm font-medium hover:text-pink-500 w-fit">Templates</button>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Resources</h4>
-            <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('about')} className="text-sm font-medium hover:text-pink-500 w-fit">About</button>
-              <button onClick={() => onNavigate('blog')} className="text-sm font-medium hover:text-pink-500 w-fit">Blog & Guides</button>
-              <button onClick={() => onNavigate('contact')} className="text-sm font-medium hover:text-pink-500 w-fit">Contact</button>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-black text-sm uppercase tracking-widest text-neutral-400">Legal</h4>
-            <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('privacy')} className="text-sm font-medium hover:text-pink-500 w-fit">Privacy Policy</button>
-              <button onClick={() => onNavigate('terms')} className="text-sm font-medium hover:text-pink-500 w-fit">Terms of Service</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto pt-12 border-t border-neutral-100 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest">
-            © {new Date().getFullYear()} CommentSticker. Made for Creators.
-          </div>
-
-          <div className="flex items-center gap-6 text-neutral-400">
-            <button
-              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent("I use CommentSticker for my videos! 🚀")}&url=${encodeURIComponent("https://commentsticker.com")}`, '_blank')}
-              className="hover:text-[#1DA1F2] transition-colors"
-            >
-              <Twitter className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://commentsticker.com")}`, '_blank')}
-              className="hover:text-[#0A66C2] transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => window.open(`https://t.me/share/url?url=${encodeURIComponent("https://commentsticker.com")}&text=${encodeURIComponent("The essential tool for creators.")}`, '_blank')}
-              className="hover:text-[#229ED9] transition-colors"
-            >
-              <ShareIcon className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </footer>
+      <SEOFooter onNavigate={onNavigate} />
 
       {/* --- FLOATING SHARE BAR (Desktop) --- */}
       <div className="fixed left-6 top-1/2 -translate-y-1/2 flex-col gap-4 hidden lg:flex z-50">

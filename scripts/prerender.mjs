@@ -171,6 +171,14 @@ const ROUTES = {
     description:
       'Generate high-converting calls-to-action for TikTok, Instagram, YouTube and LinkedIn. Free CTA generator — follow, comment, save, share, link in bio and more.',
   },
+  '/features': {
+    title: 'Features — Everything CommentSticker Can Do | Free Tools for Creators',
+    description: 'Explore all CommentSticker features — 9 platforms, transparent PNG export, batch generator, comment picker, 15+ free tools for TikTok, Instagram and YouTube creators.',
+  },
+  '/use-cases': {
+    title: 'Use Cases — How Creators Use CommentSticker for UGC & Ads',
+    description: 'See how creators, brands and agencies use CommentSticker — UGC ads, TikTok content, brand social proof, giveaways, reels and more.',
+  },
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

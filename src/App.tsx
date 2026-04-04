@@ -44,6 +44,8 @@ const BioGenerator = lazy(() => import('./components/BioGenerator').then(m => ({
 const CTAGenerator = lazy(() => import('./components/CTAGenerator').then(m => ({ default: m.CTAGenerator })));
 const PricingPage = lazy(() => import('./components/PricingPage').then(m => ({ default: m.PricingPage })));
 const AccountPage = lazy(() => import('./components/AccountPage').then(m => ({ default: m.AccountPage })));
+const Features = lazy(() => import('./components/Features').then(m => ({ default: m.Features })));
+const UseCases = lazy(() => import('./components/UseCases').then(m => ({ default: m.UseCases })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 // ── Subdomain detection ───────────────────────────────────────────────────────
@@ -264,6 +266,8 @@ export function App() {
       case 'free-tools': return <FreeTools darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'pricing':    return <PricingPage darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'account':    return <AccountPage darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'features':   return <Features darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'use-cases':  return <UseCases darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'video-ideas-generator': return <VideoIdeasGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'hook-generator': return <HookGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'comment-reply-generator': return <CommentReplyGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
