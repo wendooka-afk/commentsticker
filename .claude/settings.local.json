@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -c \":*)",
+      "Bash(pip install pypdf pdfplumber -q)",
+      "Bash(pip install pymupdf -q)"
+    ]
+  }
+}
