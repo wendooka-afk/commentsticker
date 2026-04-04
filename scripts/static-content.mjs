@@ -497,6 +497,66 @@ ${FOOTER}`,
 </div>
 ${FOOTER}`,
 
+  // ── PRICING PAGE ─────────────────────────────────────────────────────────
+  '/pricing': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">💎 Pro Plan</span>
+  <h1>Simple, Transparent Pricing</h1>
+  <p class="lead">One Pro plan. All features. Cancel anytime. Unlock unlimited exports, all 9 platforms, batch generation, no watermark, and no ads.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;">
+    <div class="cs-card">
+      <h2>Free</h2>
+      <p style="font-size:28px;font-weight:900;margin:8px 0;">$0 <span style="font-size:14px;font-weight:500;color:#6b7280;">/month</span></p>
+      <ul style="list-style:none;padding:0;margin:16px 0;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#6b7280;">
+        <li>✓ 3 exports per day</li>
+        <li>✓ TikTok, Instagram, YouTube</li>
+        <li>✓ Standard resolution</li>
+        <li>✓ Watermark on exports</li>
+        <li>✓ Basic sticker generator</li>
+      </ul>
+    </div>
+    <div class="cs-card" style="border:2px solid #ec4899;position:relative;">
+      <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ec4899,#f97316);color:white;font-size:11px;font-weight:800;padding:4px 12px;border-radius:999px;white-space:nowrap;">⚡ Most popular</span>
+      <h2 style="color:#ec4899;">Pro</h2>
+      <p style="font-size:28px;font-weight:900;margin:8px 0;">$5.75 <span style="font-size:14px;font-weight:500;color:#6b7280;">/month</span></p>
+      <p style="font-size:12px;color:#10b981;font-weight:700;margin-bottom:12px;">Billed $69/year · 2 months free</p>
+      <ul style="list-style:none;padding:0;margin:16px 0;display:flex;flex-direction:column;gap:8px;font-size:14px;">
+        <li>✓ Unlimited exports</li>
+        <li>✓ All 9 platforms</li>
+        <li>✓ 3× high-resolution PNG</li>
+        <li>✓ No watermark</li>
+        <li>✓ Batch Generator (up to 10)</li>
+        <li>✓ AI Question Finder</li>
+        <li>✓ UGC Script Generator</li>
+        <li>✓ 100+ Templates Library</li>
+        <li>✓ Export history saved</li>
+        <li>✓ No ads</li>
+        <li>✓ Priority support</li>
+      </ul>
+      <a href="/pricing/" class="cs-cta" style="display:block;text-align:center;">Upgrade to Pro</a>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="cs-card"><h3>Can I cancel anytime?</h3><p>Yes. Cancel in one click from your Account page. Your Pro access remains until the end of the billing period.</p></div>
+    <div class="cs-card"><h3>What payment methods are accepted?</h3><p>All major credit and debit cards via Dodo Payments — a secure global payment provider.</p></div>
+    <div class="cs-card"><h3>Is there a free trial?</h3><p>The Free tier lets you try the core generator with no credit card required before upgrading to Pro.</p></div>
+    <div class="cs-card"><h3>Do you offer refunds?</h3><p>Not satisfied within the first 7 days? Contact support@commentsticker.com for a full refund.</p></div>
+  </div>
+</div>
+${FOOTER}`,
+
+  // ── ACCOUNT PAGE (minimal — gated behind auth) ────────────────────────────
+  '/account': `${STYLES}${NAV}
+<div class="cs-hero">
+  <h1>My Account</h1>
+  <p class="lead">Manage your CommentSticker subscription, billing, and account settings.</p>
+  <a href="/account/" class="cs-cta">Log in to your account</a>
+</div>
+${FOOTER}`,
+
   // ── FREE TOOLS PAGE ───────────────────────────────────────────────────────
   '/free-tools': `${STYLES}${NAV}
 <div class="cs-hero">

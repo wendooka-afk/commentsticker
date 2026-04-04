@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, lazy, Suspense, Component, type ReactNode, type ErrorInfo } from 'react';
+import { AuthProvider } from './contexts/AuthContext';
 import {
   type Page,
   SLUG_TO_PAGE,
@@ -41,6 +42,8 @@ const HookGenerator = lazy(() => import('./components/HookGenerator').then(m => 
 const CommentReplyGenerator = lazy(() => import('./components/CommentReplyGenerator').then(m => ({ default: m.CommentReplyGenerator })));
 const BioGenerator = lazy(() => import('./components/BioGenerator').then(m => ({ default: m.BioGenerator })));
 const CTAGenerator = lazy(() => import('./components/CTAGenerator').then(m => ({ default: m.CTAGenerator })));
+const PricingPage = lazy(() => import('./components/PricingPage').then(m => ({ default: m.PricingPage })));
+const AccountPage = lazy(() => import('./components/AccountPage').then(m => ({ default: m.AccountPage })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 // ── Subdomain detection ───────────────────────────────────────────────────────
@@ -213,9 +216,7 @@ export function App() {
   }, []);
 
   // ── Cookie consent banner — always mounted, self-manages visibility ────────
-  const cookieBanner = (
-    <CookieConsent onNavigate={handleNavigate as any} darkMode={darkMode} />
-  );
+  const cookieBanner = <CookieConsent onNavigate={handleNavigate as any} darkMode={darkMode} />;
 
   // ── 404 ──────────────────────────────────────────────────────────────────
   if (isNotFound) {
@@ -261,6 +262,8 @@ export function App() {
       case 'caption-generator': return <CaptionGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'engagement-calculator': return <EngagementCalculator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'free-tools': return <FreeTools darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'pricing':    return <PricingPage darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'account':    return <AccountPage darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'video-ideas-generator': return <VideoIdeasGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'hook-generator': return <HookGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'comment-reply-generator': return <CommentReplyGenerator darkMode={darkMode} onNavigate={handleNavigate} />;

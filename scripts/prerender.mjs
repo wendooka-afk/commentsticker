@@ -133,6 +133,14 @@ const ROUTES = {
     description:
       'Calculate your social media engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks.',
   },
+  '/pricing': {
+    title: 'Pricing — CommentSticker Pro | Unlimited Exports & All Platforms',
+    description: 'Get CommentSticker Pro — unlimited exports, all 9 platforms, batch generator, no watermark, no ads. $9/month or $69/year.',
+  },
+  '/account': {
+    title: 'My Account | CommentSticker',
+    description: 'Manage your CommentSticker subscription, billing, and account settings.',
+  },
   '/free-tools': {
     title: 'Free Social Media Tools for Creators | CommentSticker',
     description:

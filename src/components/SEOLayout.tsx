@@ -1,6 +1,8 @@
-import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, Menu, X } from 'lucide-react';
+import { MessageSquare, Twitter, Linkedin, Send as ShareIcon, Menu, X, Crown, LogIn } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PAGE_TO_SLUG } from '../config/routes';
+import { useAuth } from '../contexts/AuthContext';
+import { AuthModal } from './AuthModal';
 
 interface SEOHeaderProps {
     onNavigate: (page: any) => void;
@@ -85,6 +87,8 @@ function NavLink({ page, label, onNavigate, className }: { page: string; label: 
 export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
+    const { user, isProUser, signOut } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -132,14 +136,51 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                     >
                         {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </button>
+
+                    {user ? (
+                        <>
+                            {!isProUser && (
+                                <a
+                                    href="/pricing/"
+                                    onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
+                                    className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-pink-500 border border-pink-500/30 hover:bg-pink-500/10 transition-all"
+                                >
+                                    <Crown className="w-3.5 h-3.5" /> Upgrade
+                                </a>
+                            )}
+                            {isProUser && (
+                                <span className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black text-pink-500 bg-pink-500/10">
+                                    <Crown className="w-3.5 h-3.5" /> Pro
+                                </span>
+                            )}
+                            <a
+                                href="/account/"
+                                onClick={(e) => { e.preventDefault(); onNavigate('account'); }}
+                                className={`hidden md:flex items-center justify-center w-9 h-9 rounded-xl font-black text-sm transition-colors ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-neutral-100 hover:bg-neutral-200'}`}
+                                title={user.email}
+                            >
+                                {user.email?.[0].toUpperCase()}
+                            </a>
+                        </>
+                    ) : (
+                        <button
+                            onClick={() => setShowAuth(true)}
+                            className={`hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold border transition-all hover:scale-105 ${darkMode ? 'border-neutral-700 text-neutral-300 hover:bg-neutral-800' : 'border-neutral-200 text-neutral-700 hover:bg-neutral-50'}`}
+                        >
+                            <LogIn className="w-3.5 h-3.5" /> Log in
+                        </button>
+                    )}
+
                     <a
-                        href="/app"
+                        href="/app/"
                         onClick={(e) => { e.preventDefault(); onNavigate('generator'); }}
                         className="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-pink-500/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
                     >
                         Launch App
                     </a>
                 </div>
+
+                {showAuth && <AuthModal darkMode={darkMode} onClose={() => setShowAuth(false)} />}
             </div>
 
             {/* Mobile menu */}
