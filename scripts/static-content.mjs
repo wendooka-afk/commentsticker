@@ -1397,6 +1397,44 @@ ${FOOTER}`,
 ${FOOTER}`,
 
 
+  // ── BLOG: TIKTOK USERNAME IDEAS ───────────────────────────────────────────
+  '/tiktok-username-ideas': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">🔥 Trending — Record high searches</span>
+  <h1>200+ TikTok Username Ideas for 2026</h1>
+  <p class="lead">Google Trends shows "TikTok name ideas for girls" and "TikTok username ideas with your name" both hit record highs in March 2026. We've curated 200+ username ideas — aesthetic, funny, cute, dark academia, Y2K and more — with tips to make yours stick.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <h2>Why Your TikTok Username Matters in 2026</h2>
+    <p>Your TikTok handle is more than a tag — it's your brand. With TikTok Shop now driving billions in e-commerce, your username is often the first brand impression a potential follower sees. A great username like @that.girlera earns followers. A forgettable one loses them.</p>
+  </div>
+  <div class="cs-section">
+    <h2>TikTok Name Ideas for Girls (Record Trend ↑)</h2>
+    <p>Soft &amp; aesthetic: @softpetal, @lavendersky, @moonlitgirl, @peachyvibes, @ivoryrose</p>
+    <p>Cute &amp; playful: @sugarkisses, @bubbletea.girl, @cottagecoregirl, @pastelwitch, @daydreamingdaisy</p>
+    <p>Cool &amp; edgy: @neonvoidgirl, @midnightmuse_, @darlingchaos, @glitchprincess, @voidpixie</p>
+    <p>Trendy 2026: @that.girlera, @maincharacter.era, @softlife.girl, @cleangirlera, @delululife</p>
+  </div>
+  <div class="cs-section">
+    <h2>TikTok Username Ideas with Your Name (Record Trend ↑)</h2>
+    <p>Best patterns: [name].creates, [name]tok, its[name], [name]vibes, just[name], official[name], xo.[name], by[name]</p>
+    <p>Pro tip: Add a period or niche keyword after your name if it's taken. Try @yourname.tok or @itsyourname.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Aesthetic TikTok Usernames</h2>
+    <p>Dark academia: @inkandivory, @dustyarchives, @libraryghost, @weatheredbookmark</p>
+    <p>Cottagecore: @fernandfoliage, @wildflowerwitch, @morningmistgirl, @mushroommoment</p>
+    <p>Y2K / Cyber: @pixelrave, @cyberbarbie, @y2kcrash, @glitterglitch, @neonnostalgia</p>
+  </div>
+  <div class="cs-section">
+    <h2>7 Rules for the Perfect TikTok Username</h2>
+    <p>1. Keep it under 20 characters. 2. Make it pronounceable. 3. Hint at your niche. 4. Avoid years. 5. Check cross-platform availability. 6. Use dots over underscores. 7. Preview it in a comment sticker.</p>
+    <a href="/app/" class="cs-cta" style="margin-top:12px;">Preview your username in a TikTok comment →</a>
+  </div>
+</div>
+${FOOTER}`,
+
   // ── FEATURES PAGE ─────────────────────────────────────────────────────────
   '/features': `${STYLES}${NAV}
 <div class="cs-hero">

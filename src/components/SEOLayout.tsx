@@ -69,6 +69,11 @@ const ARTICLE_META: Record<string, { title: string; excerpt: string; category: s
         excerpt: 'Calculate your ER for TikTok, Instagram, YouTube and more with benchmarks.',
         category: 'Free Tool', readTime: '4 min', emoji: '📊', from: 'from-orange-500', to: 'to-amber-500',
     },
+    'blog-tiktok-username-ideas': {
+        title: '200+ TikTok Username Ideas for 2026',
+        excerpt: 'Cute, aesthetic, funny and personal-brand name ideas for girls, boys and more.',
+        category: 'Trending', readTime: '8 min', emoji: '✨', from: 'from-pink-500', to: 'to-rose-500',
+    },
 };
 
 function NavLink({ page, label, onNavigate, className }: { page: string; label: string; onNavigate: (p: any) => void; className?: string }) {

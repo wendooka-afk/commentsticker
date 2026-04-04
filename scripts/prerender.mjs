@@ -171,6 +171,10 @@ const ROUTES = {
     description:
       'Generate high-converting calls-to-action for TikTok, Instagram, YouTube and LinkedIn. Free CTA generator — follow, comment, save, share, link in bio and more.',
   },
+  '/tiktok-username-ideas': {
+    title: '200+ TikTok Username Ideas for 2026 — Name Ideas for Girls, Boys & More',
+    description: '200+ TikTok username ideas for 2026 — cute, aesthetic, funny, dark academia, Y2K and personal-brand names for girls and boys. Find a unique TikTok name with your name.',
+  },
   '/features': {
     title: 'Features — Everything CommentSticker Can Do | Free Tools for Creators',
     description: 'Explore all CommentSticker features — 9 platforms, transparent PNG export, batch generator, comment picker, 15+ free tools for TikTok, Instagram and YouTube creators.',
