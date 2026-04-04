@@ -112,9 +112,7 @@ export function SEOHeader({ onNavigate, darkMode }: SEOHeaderProps) {
                 : 'bg-transparent border-transparent'
                 }`}>
                 <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="flex items-center gap-2 flex-shrink-0">
-                    <div className="w-9 h-9 bg-gradient-to-br from-pink-500 via-rose-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg shadow-pink-500/20">
-                        <MessageSquare className="w-5 h-5 text-white" />
-                    </div>
+                    <img src="/logo-icon.png" alt="CommentSticker" className="w-9 h-9 object-contain" />
                     <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-400 dark:from-white dark:via-neutral-200 dark:to-neutral-500">
                         CommentSticker
                     </span>
@@ -265,9 +263,7 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div className="space-y-4 col-span-1 md:col-span-1">
                     <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-gradient-to-br from-pink-500 via-rose-500 to-orange-500 rounded-lg flex items-center justify-center">
-                            <MessageSquare className="w-4 h-4 text-white" />
-                        </div>
+                        <img src="/logo-icon.png" alt="CommentSticker" className="w-8 h-8 object-contain" />
                         <span className="font-bold text-lg">CommentSticker</span>
                     </a>
                     <p className="text-sm font-medium text-neutral-400">The free comment sticker generator for TikTok, Instagram, YouTube & more.</p>

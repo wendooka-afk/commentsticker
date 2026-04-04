@@ -10,8 +10,8 @@ export function NotFound({ onNavigate, darkMode }: NotFoundProps) {
     <div className={`min-h-screen flex flex-col items-center justify-center px-6 ${darkMode ? 'bg-neutral-950' : 'bg-white'}`}>
       <div className="text-center max-w-md w-full">
         {/* Logo */}
-        <div className="w-20 h-20 bg-gradient-to-br from-pink-500 via-rose-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-pink-500/20">
-          <MessageSquare className="w-10 h-10 text-white" />
+        <div className="w-20 h-20 mx-auto mb-8">
+          <img src="/logo-icon.png" alt="CommentSticker" className="w-full h-full object-contain" />
         </div>
 
         {/* 404 */}

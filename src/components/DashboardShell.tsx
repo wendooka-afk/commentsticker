@@ -53,9 +53,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                 }`}>
                 <div className="p-8">
                     <div className="flex items-center gap-3 mb-10 cursor-pointer" onClick={() => onNavigate('home')}>
-                        <div className="w-9 h-9 bg-gradient-to-br from-pink-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-pink-500/20">
-                            <MessageSquare className="w-5 h-5 text-white" />
-                        </div>
+                        <img src="/logo-icon.png" alt="CommentSticker" className="w-9 h-9 object-contain" />
                         <span className="font-black text-xl tracking-tighter">CommentSticker</span>
                     </div>
 
@@ -123,9 +121,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                 <div className="p-8 h-full flex flex-col">
                     <div className="flex items-center justify-between mb-10">
                         <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
-                                <MessageSquare className="w-4 h-4 text-white" />
-                            </div>
+                            <img src="/logo-icon.png" alt="CommentSticker" className="w-8 h-8 object-contain" />
                             <span className="font-bold">CommentSticker</span>
                         </div>
                         <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 -mr-2">
@@ -178,9 +174,7 @@ export function DashboardShell({ children, currentPage, onNavigate, darkMode, se
                         className="lg:hidden flex items-center gap-2 cursor-pointer mr-4"
                         onClick={() => onNavigate('home')}
                     >
-                        <div className="w-7 h-7 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
-                            <MessageSquare className="w-4 h-4 text-white" />
-                        </div>
+                        <img src="/logo-icon.png" alt="CommentSticker" className="w-7 h-7 object-contain" />
                         <span className="font-black text-sm tracking-tight">CommentSticker</span>
                     </div>
 
