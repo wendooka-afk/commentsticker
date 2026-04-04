@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, BookOpen } from 'lucide-react';
-import { AdSense } from './AdSense';
 import { SEOHeader, SEOFooter } from './SEOLayout';
 
 interface BlogProps {
@@ -106,7 +105,7 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {articles.map((article, index) => (
+                    {articles.map((article) => (
                         <React.Fragment key={article.id}>
                             <article
                                 className={`flex flex-col rounded-3xl border overflow-hidden transition-all hover:-translate-y-1 hover:shadow-xl ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200'}`}
@@ -144,12 +143,6 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
                                     </a>
                                 </div>
                             </article>
-                            {index === 2 && (
-                                <div className="md:col-span-2 lg:col-span-3 py-8">
-                                    <p className={`text-[10px] font-black uppercase tracking-widest mb-4 text-center ${darkMode ? 'text-neutral-600' : 'text-neutral-400'}`}>Sponsored</p>
-                                    <AdSense adSlot="8899001122" />
-                                </div>
-                            )}
                         </React.Fragment>
                     ))}
                 </div>

@@ -127,7 +127,7 @@ export function App() {
       el.content = content;
     };
     const slug = PAGE_TO_SLUG[currentPage];
-    const canonicalUrl = `https://commentsticker.com${slug}`;
+    const canonicalUrl = `https://commentsticker.com${slug.endsWith('/') ? slug : slug + '/'}`;
     setOG('og:title', PAGE_TITLES[currentPage]);
     setOG('og:description', PAGE_DESCRIPTIONS[currentPage]);
     setOG('og:url', canonicalUrl);

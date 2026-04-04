@@ -1,5 +1,4 @@
 import { ArrowLeft, Users, Heart, Target, Zap, Star, CheckCircle2, MessageSquare, TrendingUp, Video, ChevronDown } from 'lucide-react';
-import { AdSense } from './AdSense';
 import { useState } from 'react';
 
 interface LegalPageProps {
@@ -38,7 +37,7 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
     ];
 
     const stats = [
-        { value: "8", label: "Native Platform UIs", icon: <MessageSquare className="w-6 h-6" /> },
+        { value: "9", label: "Native Platform UIs", icon: <MessageSquare className="w-6 h-6" /> },
         { value: "10,000+", label: "Stickers Generated", icon: <Star className="w-6 h-6" /> },
         { value: "100%", label: "Free Forever", icon: <Heart className="w-6 h-6" /> },
         { value: "3x", label: "Export Pixel Ratio", icon: <Zap className="w-6 h-6" /> },
@@ -178,11 +177,6 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
                         ))}
                     </div>
                 </section>
-
-                {/* --- ADSENSE --- */}
-                <div>
-                    <AdSense adSlot="5566778899" />
-                </div>
 
                 {/* --- FAQ --- */}
                 <section className="space-y-8">

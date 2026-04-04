@@ -112,7 +112,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'CommentSticker',
-    url: 'https://commentsticker.com',
+    url: 'https://commentsticker.com/',
     description: 'Free TikTok comment sticker generator — create transparent PNG comment overlays for UGC ads.',
     potentialAction: {
       '@type': 'SearchAction',
@@ -128,7 +128,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free tool to generate pixel-perfect comment stickers for TikTok, Instagram, YouTube, LinkedIn, and more. Transparent PNG, no watermark.',
-    url: 'https://commentsticker.com/app',
+    url: 'https://commentsticker.com/app/',
     featureList: 'TikTok comments, Instagram comments, YouTube comments, LinkedIn comments, PNG export, JPEG export, Batch generator',
   },
   batch: {
@@ -139,7 +139,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Generate and download up to 10 comment stickers at once for TikTok, Instagram, YouTube and more. Free batch PNG/JPEG export, no watermark.',
-    url: 'https://commentsticker.com/batch-generator',
+    url: 'https://commentsticker.com/batch-generator/',
   },
   finder: {
     '@context': 'https://schema.org',
@@ -149,7 +149,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Discover viral TikTok questions and comment hooks for your niche. Free tool for UGC creators and ad marketers.',
-    url: 'https://commentsticker.com/question-finder',
+    url: 'https://commentsticker.com/question-finder/',
   },
   templates: {
     '@context': 'https://schema.org',
@@ -159,7 +159,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Browse 100+ proven UGC comment templates for TikTok, Instagram and YouTube ads. Copy and use for free.',
-    url: 'https://commentsticker.com/templates',
+    url: 'https://commentsticker.com/templates/',
   },
   scripts: {
     '@context': 'https://schema.org',
@@ -169,7 +169,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Generate high-converting UGC video scripts from comment hooks. Free AI script generator for TikTok and Instagram.',
-    url: 'https://commentsticker.com/script-generator',
+    url: 'https://commentsticker.com/script-generator/',
   },
   guide: {
     '@context': 'https://schema.org',
@@ -245,8 +245,8 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     '@type': 'Article',
     headline: 'Best TikTok Comment Generator in 2026: Top Alternatives Compared',
     description: 'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
-    url: 'https://commentsticker.com/tiktok-comment-generator-alternatives',
-    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
+    url: 'https://commentsticker.com/tiktok-comment-generator-alternatives/',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
   },
   'hashtag-generator': {
     '@context': 'https://schema.org',
@@ -256,7 +256,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator with 12 niches and viral/growth/niche tiers.',
-    url: 'https://commentsticker.com/hashtag-generator',
+    url: 'https://commentsticker.com/hashtag-generator/',
   },
   'font-generator': {
     '@context': 'https://schema.org',
@@ -266,7 +266,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Generate 13 stylish Unicode font styles for TikTok bio, captions and usernames. Bold, italic, script, cursive, Fraktur and more. Free copy & paste.',
-    url: 'https://commentsticker.com/tiktok-font-generator',
+    url: 'https://commentsticker.com/tiktok-font-generator/',
   },
   'caption-generator': {
     '@context': 'https://schema.org',
@@ -276,7 +276,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free caption generator for TikTok, Instagram, LinkedIn and YouTube. Choose your platform, vibe, and topic — get 4 ready-to-post captions instantly.',
-    url: 'https://commentsticker.com/caption-generator',
+    url: 'https://commentsticker.com/caption-generator/',
   },
   'engagement-calculator': {
     '@context': 'https://schema.org',
@@ -286,15 +286,15 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Calculate your engagement rate for TikTok, Instagram, YouTube, Twitter, LinkedIn and Facebook. Free tool with industry benchmarks and improvement tips.',
-    url: 'https://commentsticker.com/engagement-rate-calculator',
+    url: 'https://commentsticker.com/engagement-rate-calculator/',
   },
   'free-tools': {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Free Social Media Tools',
-    url: 'https://commentsticker.com/free-tools',
+    url: 'https://commentsticker.com/free-tools/',
     description: 'All free social media tools by CommentSticker — hashtag generator, font generator, caption generator, engagement calculator, comment picker and giveaway picker.',
-    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com' },
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
   },
   'video-ideas-generator': {
     '@context': 'https://schema.org',
@@ -304,7 +304,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free TikTok video ideas generator — 500+ ideas across 12 niches and 8 formats. Tutorials, POVs, challenges, reactions, comparisons and more. No sign-up.',
-    url: 'https://commentsticker.com/tiktok-video-ideas-generator',
+    url: 'https://commentsticker.com/tiktok-video-ideas-generator/',
   },
   'hook-generator': {
     '@context': 'https://schema.org',
@@ -314,7 +314,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free TikTok hook generator — 8 hook types (question, secret, mistake, POV, number, contrast, hot take, storytime) across 8 niches. Copy and paste instantly.',
-    url: 'https://commentsticker.com/tiktok-hook-generator',
+    url: 'https://commentsticker.com/tiktok-hook-generator/',
   },
   'comment-reply-generator': {
     '@context': 'https://schema.org',
@@ -324,7 +324,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free TikTok comment reply generator — perfect replies for compliments, questions, criticism, haters, collab requests and more. 4 tone options. Copy and paste.',
-    url: 'https://commentsticker.com/comment-reply-generator',
+    url: 'https://commentsticker.com/comment-reply-generator/',
   },
   'bio-generator': {
     '@context': 'https://schema.org',
@@ -334,7 +334,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free TikTok bio generator — 5 optimized bios per niche and vibe combination. Includes character counter for TikTok\'s 80-character limit. Copy and paste instantly.',
-    url: 'https://commentsticker.com/tiktok-bio-generator',
+    url: 'https://commentsticker.com/tiktok-bio-generator/',
   },
   'cta-generator': {
     '@context': 'https://schema.org',
@@ -344,18 +344,18 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free CTA generator for TikTok, Instagram, YouTube and LinkedIn. 8 goal types — follow, comment, save, share, link in bio, duet, collab, profile. Copy and paste.',
-    url: 'https://commentsticker.com/cta-generator',
+    url: 'https://commentsticker.com/cta-generator/',
   },
   blog: {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'CommentSticker Blog & Guides',
-    url: 'https://commentsticker.com/blog',
+    url: 'https://commentsticker.com/blog/',
     description: 'Guides, tutorials and strategies for TikTok UGC creators. Learn how to create comment stickers, run giveaways, and grow your audience.',
     publisher: {
       '@type': 'Organization',
       name: 'CommentSticker',
-      url: 'https://commentsticker.com',
+      url: 'https://commentsticker.com/',
     },
   },
 };

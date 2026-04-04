@@ -177,7 +177,7 @@ function esc(str) {
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
 for (const [slug, { title, description }] of Object.entries(ROUTES)) {
-  const canonicalUrl = `https://commentsticker.com${slug}`;
+  const canonicalUrl = `https://commentsticker.com${slug.endsWith('/') ? slug : slug + '/'}`;
 
   let html = template
     // <title>
