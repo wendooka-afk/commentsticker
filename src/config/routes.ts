@@ -9,7 +9,8 @@ export type Page =
   | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker'
   | 'hashtag-generator' | 'font-generator' | 'caption-generator' | 'engagement-calculator'
   | 'video-ideas-generator' | 'hook-generator' | 'comment-reply-generator' | 'bio-generator' | 'cta-generator'
-  | 'blog-tiktok-username-ideas';
+  | 'blog-tiktok-username-ideas'
+  | 'blog-tiktok-giveaway' | 'blog-ugc-content' | 'blog-tiktok-algorithm' | 'blog-tiktok-views';
 
 export const SLUG_TO_PAGE: Record<string, Page> = {
   '/': 'home',
@@ -29,6 +30,10 @@ export const SLUG_TO_PAGE: Record<string, Page> = {
   '/features': 'features',
   '/use-cases': 'use-cases',
   '/tiktok-username-ideas': 'blog-tiktok-username-ideas',
+  '/tiktok-giveaway-guide': 'blog-tiktok-giveaway',
+  '/what-is-ugc-content': 'blog-ugc-content',
+  '/tiktok-algorithm-guide': 'blog-tiktok-algorithm',
+  '/how-to-get-more-views-tiktok': 'blog-tiktok-views',
   '/how-to-add-comment-sticker-tiktok': 'guide',
   '/instagram-comment-sticker-generator': 'guide-instagram',
   '/youtube-comment-sticker-generator': 'guide-youtube',
@@ -69,6 +74,10 @@ export const PAGE_TITLES: Record<Page, string> = {
   features: 'Features — Everything CommentSticker Can Do | Free Tools for Creators',
   'use-cases': 'Use Cases — How Creators Use CommentSticker for UGC & Ads',
   'blog-tiktok-username-ideas': '200+ TikTok Username Ideas for 2026 — Name Ideas for Girls, Boys & More',
+  'blog-tiktok-giveaway': 'How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide',
+  'blog-ugc-content': 'What is UGC Content? The Complete 2026 Guide for Creators and Brands',
+  'blog-tiktok-algorithm': 'How the TikTok Algorithm Works in 2026: Complete For You Page Guide',
+  'blog-tiktok-views': 'How to Get More Views on TikTok in 2026: 15 Proven Strategies',
   guide: 'How to Add Comment Sticker on TikTok (Ultimate Guide 2026)',
   'guide-instagram': 'Free Instagram Comment Sticker Generator for Reels',
   'guide-youtube': 'Free YouTube Comment Sticker Generator for Shorts',
@@ -105,6 +114,10 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   features: 'Explore all CommentSticker features — 9 platforms, transparent PNG export, batch generator, comment picker, 15+ free tools for TikTok, Instagram and YouTube creators.',
   'use-cases': 'See how creators, brands and agencies use CommentSticker — UGC ads, TikTok content, brand social proof, giveaways, reels and more.',
   'blog-tiktok-username-ideas': '200+ TikTok username ideas for 2026 — cute, aesthetic, funny, dark academia, Y2K and personal-brand names for girls and boys. Find a unique TikTok name with your name.',
+  'blog-tiktok-giveaway': 'Complete guide to running a successful TikTok giveaway in 2026 — rules, promotion strategy, how to pick a random winner, and mistakes to avoid.',
+  'blog-ugc-content': 'What is UGC content? Learn what User Generated Content means, why brands pay for it, and how to start as a UGC creator in 2026 — no following required.',
+  'blog-tiktok-algorithm': 'How the TikTok algorithm works in 2026 — ranking signals, For You Page distribution model, and 10 actionable strategies to get more views.',
+  'blog-tiktok-views': 'Get more views on TikTok with these 15 proven strategies — hook optimization, completion rate, hashtags, posting times, and audience retention tips.',
   guide: 'Learn how to add a comment sticker on a TikTok video natively and using a free generator. Ultimate 2026 guide.',
   'guide-instagram': 'Create a perfect Instagram comment sticker for Reels. Free generator, transparent PNG, no watermark.',
   'guide-youtube': 'Create a YouTube comment sticker for Shorts. Free generator, 3x resolution, transparent PNG.',
@@ -362,6 +375,46 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: 'Free CTA generator for TikTok, Instagram, YouTube and LinkedIn. 8 goal types — follow, comment, save, share, link in bio, duet, collab, profile. Copy and paste.',
     url: 'https://commentsticker.com/cta-generator/',
+  },
+  'blog-tiktok-giveaway': {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide',
+    description: 'Complete guide to running a successful TikTok giveaway — rules, strategy, winner selection, and best practices.',
+    url: 'https://commentsticker.com/tiktok-giveaway-guide/',
+    datePublished: '2026-04-14',
+    dateModified: '2026-04-14',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
+  },
+  'blog-ugc-content': {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'What is UGC Content? The Complete 2026 Guide for Creators and Brands',
+    description: 'Everything you need to know about UGC content — definition, types, why brands pay for it, and how to become a UGC creator.',
+    url: 'https://commentsticker.com/what-is-ugc-content/',
+    datePublished: '2026-04-14',
+    dateModified: '2026-04-14',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
+  },
+  'blog-tiktok-algorithm': {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'How the TikTok Algorithm Works in 2026: Complete For You Page Guide',
+    description: 'A complete breakdown of the TikTok algorithm, FYP ranking signals, distribution model, and 10 actionable strategies.',
+    url: 'https://commentsticker.com/tiktok-algorithm-guide/',
+    datePublished: '2026-04-14',
+    dateModified: '2026-04-14',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
+  },
+  'blog-tiktok-views': {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'How to Get More Views on TikTok in 2026: 15 Proven Strategies',
+    description: '15 data-backed strategies to get more TikTok views — hook optimization, completion rate, hashtags, posting times, and audience retention.',
+    url: 'https://commentsticker.com/how-to-get-more-views-tiktok/',
+    datePublished: '2026-04-14',
+    dateModified: '2026-04-14',
+    publisher: { '@type': 'Organization', name: 'CommentSticker', url: 'https://commentsticker.com/' },
   },
   'blog-tiktok-username-ideas': {
     '@context': 'https://schema.org',

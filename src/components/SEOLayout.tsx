@@ -74,6 +74,26 @@ const ARTICLE_META: Record<string, { title: string; excerpt: string; category: s
         excerpt: 'Cute, aesthetic, funny and personal-brand name ideas for girls, boys and more.',
         category: 'Trending', readTime: '8 min', emoji: '✨', from: 'from-pink-500', to: 'to-rose-500',
     },
+    'blog-tiktok-giveaway': {
+        title: 'How to Run a TikTok Giveaway in 2026: Complete Guide',
+        excerpt: 'Step-by-step guide to running a successful TikTok giveaway and picking a fair random winner.',
+        category: 'Giveaway', readTime: '10 min', emoji: '🎁', from: 'from-emerald-500', to: 'to-teal-600',
+    },
+    'blog-ugc-content': {
+        title: 'What is UGC Content? Complete 2026 Guide',
+        excerpt: 'Learn what UGC content is, why brands pay creators for it, and how to get started.',
+        category: 'Creator Guide', readTime: '11 min', emoji: '🎬', from: 'from-violet-500', to: 'to-purple-600',
+    },
+    'blog-tiktok-algorithm': {
+        title: 'How the TikTok Algorithm Works in 2026',
+        excerpt: 'Every FYP ranking signal explained — and 10 strategies to get on the For You Page.',
+        category: 'Growth', readTime: '12 min', emoji: '🧠', from: 'from-blue-500', to: 'to-cyan-600',
+    },
+    'blog-tiktok-views': {
+        title: 'How to Get More Views on TikTok in 2026',
+        excerpt: '15 proven strategies to break out of the algorithm loop and grow your TikTok audience.',
+        category: 'Growth Tips', readTime: '10 min', emoji: '📈', from: 'from-orange-500', to: 'to-red-500',
+    },
 };
 
 function NavLink({ page, label, onNavigate, className }: { page: string; label: string; onNavigate: (p: any) => void; className?: string }) {

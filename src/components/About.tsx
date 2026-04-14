@@ -1,5 +1,6 @@
-import { ArrowLeft, Users, Heart, Target, Zap, Star, CheckCircle2, MessageSquare, TrendingUp, Video, ChevronDown } from 'lucide-react';
+import { Users, Heart, Target, Zap, Star, CheckCircle2, MessageSquare, TrendingUp, Video, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { SEOHeader, SEOFooter } from './SEOLayout';
 
 interface LegalPageProps {
     darkMode: boolean;
@@ -68,17 +69,9 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
 
     return (
         <div className={`min-h-screen font-sans ${darkMode ? 'bg-neutral-950 text-white' : 'bg-neutral-50 text-neutral-900'}`}>
-            <nav className="p-6">
-                <button
-                    onClick={() => onNavigate('home')}
-                    className="flex items-center gap-2 text-sm font-bold hover:text-pink-500 transition-colors"
-                >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to home
-                </button>
-            </nav>
+            <SEOHeader onNavigate={onNavigate} darkMode={darkMode} />
 
-            <main className="max-w-5xl mx-auto px-6 py-12 space-y-20">
+            <main className="max-w-5xl mx-auto px-6 py-32 space-y-20">
 
                 {/* --- HERO --- */}
                 <header className="space-y-6">
@@ -231,6 +224,8 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
                 </section>
 
             </main>
+
+            <SEOFooter onNavigate={onNavigate} />
         </div>
     );
 }

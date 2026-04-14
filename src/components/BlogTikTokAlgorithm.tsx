@@ -1,0 +1,205 @@
+import { AdSense } from './AdSense';
+import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+
+interface GuideProps {
+    darkMode: boolean;
+    onNavigate: (page: any) => void;
+}
+
+export function BlogTikTokAlgorithm({ darkMode, onNavigate }: GuideProps) {
+    const dm = darkMode;
+    const card = dm ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-sm';
+    const muted = dm ? 'text-neutral-400' : 'text-neutral-500';
+
+    return (
+        <div className={`min-h-screen font-sans ${dm ? 'bg-neutral-950 text-white' : 'bg-neutral-50 text-neutral-900'}`}>
+            <SEOHeader onNavigate={onNavigate} darkMode={dm} />
+
+            <main className="max-w-4xl mx-auto px-6 py-32">
+                <div className="space-y-6 mb-12">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 text-xs font-bold uppercase tracking-wider">
+                        Growth Strategy
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1]">
+                        How the TikTok Algorithm Works in 2026: Complete For You Page Guide
+                    </h1>
+                    <p className={`text-xl font-medium ${muted}`}>
+                        Understanding the <strong className="text-neutral-900 dark:text-white">TikTok algorithm</strong> is the single most important skill for any creator trying to grow on the platform. This guide breaks down every ranking signal, what the algorithm rewards, and actionable strategies to get your videos on the For You Page.
+                    </p>
+                    <div className={`flex items-center gap-4 text-sm ${muted}`}>
+                        <span>April 14, 2026</span>
+                        <span>·</span>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+
+                <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
+
+                    <section className={`p-6 rounded-2xl mb-8 font-medium text-lg border-l-4 border-blue-500 ${dm ? 'bg-neutral-900/50 text-neutral-200' : 'bg-blue-50 text-neutral-800'}`}>
+                        <p className="m-0"><strong>Quick Answer:</strong> The TikTok algorithm determines what appears on each user's For You Page (FYP) based on three main categories of signals: <strong>video information</strong> (captions, hashtags, sounds), <strong>user interaction</strong> (likes, comments, shares, completions), and <strong>device/account settings</strong> (language, location). The most heavily weighted signal is video completion rate — if people watch your video all the way through, TikTok shows it to more people.</p>
+                    </section>
+
+                    <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
+                        <img
+                            src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=1200&auto=format&fit=crop"
+                            alt="TikTok For You Page on a smartphone"
+                            className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                    </div>
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">What is the TikTok Algorithm?</h2>
+                        <p>
+                            The TikTok algorithm is a recommendation system — a complex machine learning model that decides which videos to show each user on their For You Page (FYP). Unlike platforms like Instagram, which historically prioritized content from accounts you follow, TikTok's FYP is primarily driven by <strong>video performance signals</strong>, not follower count.
+                        </p>
+                        <p>
+                            This is the defining feature that makes TikTok unique and the reason why an account with zero followers can go viral overnight. The algorithm continuously tests each new video with small groups of users. If those users respond well (high completion rate, likes, comments, shares), TikTok shows the video to progressively larger groups — like a series of expanding test pools.
+                        </p>
+                        <p>
+                            TikTok has published limited official information about its recommendation system, but through creator experiments, platform documentation, and independent research, the core ranking signals are now well understood.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">The 3 Core Algorithm Signal Categories</h2>
+
+                        <h3 className="text-2xl font-bold mt-8 mb-4">Category 1: User Interactions (Most Weighted)</h3>
+                        <p>These are signals generated by how users respond to your video:</p>
+                        <div className="grid md:grid-cols-2 gap-4 mt-4">
+                            {[
+                                { signal: "Video Completion Rate", weight: "🔴 Highest", desc: "The percentage of viewers who watch your video from start to finish. The single most important ranking signal." },
+                                { signal: "Replay Rate", weight: "🔴 Very High", desc: "How often viewers watch the video more than once. TikTok interprets replays as a strong quality signal." },
+                                { signal: "Comments", weight: "🟠 High", desc: "TikTok weighs comment quality and sentiment. Controversial or polarizing content that drives debate ranks well." },
+                                { signal: "Shares", weight: "🟠 High", desc: "Shares to other apps (Instagram, WhatsApp, SMS) are a powerful signal of genuine value." },
+                                { signal: "Likes", weight: "🟡 Medium", desc: "Important but less weighted than completions and comments. Easy to game, so TikTok trusts them less." },
+                                { signal: "Profile Visits", weight: "🟡 Medium", desc: "If viewers click to your profile after watching, it signals strong interest in you as a creator." },
+                                { signal: "Follows from Video", weight: "🟠 High", desc: "When someone follows you directly from watching a specific video, it's a strong relevance signal." },
+                                { signal: "Not Interested / Skip", weight: "🔴 Negative", desc: "Viewers pressing 'Not Interested' or swiping away in the first second is the most damaging signal." },
+                            ].map((item, i) => (
+                                <div key={i} className={`p-4 rounded-xl border ${card}`}>
+                                    <div className="flex items-center justify-between mb-1">
+                                        <span className="font-black text-sm">{item.signal}</span>
+                                        <span className="text-xs font-bold">{item.weight}</span>
+                                    </div>
+                                    <p className={`text-xs leading-relaxed ${muted}`}>{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <h3 className="text-2xl font-bold mt-10 mb-4">Category 2: Video Information</h3>
+                        <p>These are signals derived from the content and metadata of your video itself:</p>
+                        <ul className="list-disc pl-6 mt-3 space-y-3">
+                            <li><strong>Sounds and music:</strong> TikTok strongly promotes videos that use trending sounds. Videos using a trending audio are distributed to users who have recently interacted with that sound, giving you a built-in discovery path.</li>
+                            <li><strong>Captions and on-screen text:</strong> TikTok's AI reads your caption and the text displayed on screen. Relevant keywords signal the topic of your video and help match it to interested users.</li>
+                            <li><strong>Hashtags:</strong> While hashtags are less powerful than they used to be, using 3–5 relevant hashtags (including 1–2 niche-specific) still helps TikTok categorize your content.</li>
+                            <li><strong>Visual content analysis:</strong> TikTok's computer vision analyzes the objects, scenes, and activities visible in your video to understand what it's about.</li>
+                            <li><strong>Stickers and effects:</strong> Using TikTok's native effects, Q&A stickers, and polls can boost distribution as TikTok promotes content that uses platform features.</li>
+                        </ul>
+
+                        <h3 className="text-2xl font-bold mt-10 mb-4">Category 3: Device and Account Settings</h3>
+                        <p>These are contextual signals that help TikTok match content to the right audience:</p>
+                        <ul className="list-disc pl-6 mt-3 space-y-2">
+                            <li><strong>Language preference:</strong> Content in your language is prioritized.</li>
+                            <li><strong>Country/location:</strong> Local content and trending topics in your region are weighted higher.</li>
+                            <li><strong>Device type:</strong> This is a minor signal, primarily used for content that requires specific technical features.</li>
+                        </ul>
+                    </section>
+
+                    <AdSense adSlot="9900112233" />
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">The For You Page Distribution Model: How Videos Go Viral</h2>
+                        <p>
+                            TikTok distributes new videos through a series of escalating test pools. Understanding this model is critical for optimizing your content strategy:
+                        </p>
+                        <div className="space-y-4 mt-6">
+                            {[
+                                { pool: "Pool 1", size: "200–500 views", desc: "Initial distribution to a small test group, primarily among your existing followers and users with similar interest profiles. If your video performs above threshold (typically ~70% completion rate), it advances." },
+                                { pool: "Pool 2", size: "1,000–5,000 views", desc: "Wider distribution to users algorithmically matched to your content. This is where most videos stop. To advance, you need continued strong completion rates and engagement velocity." },
+                                { pool: "Pool 3", size: "10,000–100,000 views", desc: "Mainstream FYP distribution. Your video is now being shown to users who don't necessarily follow you and may have no prior interaction with your content. Hook quality becomes critical here." },
+                                { pool: "Pool 4+", size: "100K–millions", desc: "Viral territory. Achieved by a combination of exceptional completion rate, rapid share velocity, external traffic (links from Twitter, Reddit, YouTube), and sometimes manual editorial boost from TikTok." },
+                            ].map((item, i) => (
+                                <div key={i} className={`flex gap-4 p-5 rounded-2xl border ${card}`}>
+                                    <div className="shrink-0">
+                                        <div className="font-black text-xs uppercase tracking-widest text-blue-500">{item.pool}</div>
+                                        <div className="font-black text-lg">{item.size}</div>
+                                    </div>
+                                    <p className={`text-sm font-medium leading-relaxed ${muted}`}>{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">10 Actionable Strategies to Beat the TikTok Algorithm</h2>
+                        <div className="space-y-4">
+                            {[
+                                { n: "1", title: "Master the 3-second hook", desc: "Your first 3 seconds are the most critical. The algorithm measures the immediate scroll-away rate. A strong hook — a surprising statement, a visual pattern interrupt, or a comment sticker overlay — can double your completion rate instantly." },
+                                { n: "2", title: "Optimize for full completions, not length", desc: "A 15-second video with a 90% completion rate will outperform a 3-minute video with a 20% completion rate every single time. Keep your videos tight. Cut every second that doesn't add value." },
+                                { n: "3", title: "Post consistently (not just frequently)", desc: "Consistency — same time, same day, every week — trains the algorithm to distribute your content to the same engaged audience repeatedly. 3–5 videos per week is the optimal range for most creators." },
+                                { n: "4", title: "Use trending sounds within 72 hours", desc: "TikTok's trending sound recommendation engine peaks within 3–7 days of a sound going viral. Using it in the first 72 hours puts you in the highest-traffic window for that sound." },
+                                { n: "5", title: "Engineer high comment velocity", desc: "Ask a question at the end of your video that is easy and compelling to answer. Comment velocity (comments per hour) in the first 30 minutes after posting is one of the strongest early signals of content quality." },
+                                { n: "6", title: "Reply to comments with videos", desc: "TikTok's 'Video Reply' feature — where you respond to a comment with a new video — creates a powerful loop. The reply video is distributed to both your audience and the commenter's network, and the comment sticker overlay acts as a natural hook." },
+                                { n: "7", title: "Use niche hashtags, not mega ones", desc: "Avoid #foryoupage (2 trillion+ views) — the competition is impossible. Target niche hashtags with 100M–500M views where your content can actually rank and reach a highly relevant audience." },
+                                { n: "8", title: "Post at your audience's peak hours", desc: "Check your TikTok Analytics (requires a Pro/Creator account) to see when your followers are most active. Posting 30–60 minutes before peak activity gives your video momentum when the most users are online." },
+                                { n: "9", title: "Drive external traffic to new videos", desc: "Share your new TikTok videos on Instagram Stories, Twitter/X, and Reddit. External click-through traffic signals to TikTok that your content has value beyond the platform, boosting distribution." },
+                                { n: "10", title: "Analyze your top-performing content and double down", desc: "Use TikTok Analytics to identify your highest-retention videos. Analyze what those videos have in common — topic, hook style, length, format — and produce more content using those same characteristics." },
+                            ].map((item) => (
+                                <div key={item.n} className={`flex gap-4 p-5 rounded-2xl border ${card}`}>
+                                    <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center font-black text-sm shrink-0 text-white">{item.n}</div>
+                                    <div>
+                                        <h3 className="font-bold text-base mb-1">{item.title}</h3>
+                                        <p className={`text-sm leading-relaxed ${muted}`}>{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">What the TikTok Algorithm Does NOT Care About</h2>
+                        <p>Common myths debunked:</p>
+                        <div className="grid md:grid-cols-2 gap-4 mt-4">
+                            {[
+                                { myth: "Follower count", truth: "The FYP algorithm is completely independent of your follower count. A new account with 0 followers can go viral on the first video." },
+                                { myth: "Posting frequency alone", truth: "Posting 10 mediocre videos a day is worse than posting 1 excellent video. Quality always outperforms quantity on TikTok." },
+                                { myth: "Having a verified account", truth: "Verification (the blue checkmark) does not boost algorithmic distribution. It only affects search credibility." },
+                                { myth: "Using #foryoupage or #fyp", truth: "These mega-hashtags are so saturated that they provide essentially zero ranking benefit. Use niche-specific hashtags instead." },
+                            ].map((item, i) => (
+                                <div key={i} className={`p-4 rounded-xl border ${card}`}>
+                                    <p className="font-black text-red-400 text-sm mb-1">Myth: {item.myth}</p>
+                                    <p className={`text-sm ${muted}`}>{item.truth}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">TikTok Algorithm FAQ</h2>
+                        <div className="space-y-4">
+                            {[
+                                { q: "Does the TikTok algorithm shadowban accounts?", a: "TikTok denies the existence of shadowbanning but does apply 'content filtering' that reduces distribution for videos that violate Community Guidelines, use banned hashtags, or contain restricted content. If your reach drops suddenly, review your recent content against TikTok's current guidelines." },
+                                { q: "Does posting time matter for the algorithm?", a: "Yes, but only marginally. The algorithm adapts to your audience's behavior over time. More important than the exact time is consistency — posting at roughly the same times each week trains both the algorithm and your audience to expect your content." },
+                                { q: "Can old videos go viral on TikTok?", a: "Yes. Unlike Instagram, TikTok recirculates older content. Videos from months or years ago can suddenly go viral if they get picked up by a new wave of interaction. This 'revived video' phenomenon is unique to TikTok's recommendation model." },
+                                { q: "How does TikTok decide which niche to put me in?", a: "TikTok builds a content profile for your account based on the first 10–15 videos you post. It then compares this to the interest graphs of users who interacted with similar content. This is why posting consistently in one niche early on dramatically accelerates niche authority and FYP placement." },
+                            ].map((item, i) => (
+                                <div key={i} className={`p-5 rounded-2xl border ${dm ? 'bg-neutral-900/50 border-neutral-800' : 'bg-white border-neutral-100 shadow-sm'}`}>
+                                    <h4 className="font-black mb-2">{item.q}</h4>
+                                    <p className={`text-sm font-medium leading-relaxed ${muted}`}>{item.a}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <RelatedArticles
+                        ids={['blog-tiktok-views', 'guide-tiktok-comment-generator', 'hashtag-generator']}
+                        onNavigate={onNavigate}
+                        darkMode={dm}
+                    />
+                </div>
+            </main>
+
+            <SEOFooter onNavigate={onNavigate} />
+        </div>
+    );
+}

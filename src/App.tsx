@@ -47,6 +47,10 @@ const AccountPage = lazy(() => import('./components/AccountPage').then(m => ({ d
 const Features = lazy(() => import('./components/Features').then(m => ({ default: m.Features })));
 const UseCases = lazy(() => import('./components/UseCases').then(m => ({ default: m.UseCases })));
 const BlogTikTokUsernameIdeas = lazy(() => import('./components/BlogTikTokUsernameIdeas').then(m => ({ default: m.BlogTikTokUsernameIdeas })));
+const BlogTikTokGiveaway = lazy(() => import('./components/BlogTikTokGiveaway').then(m => ({ default: m.BlogTikTokGiveaway })));
+const BlogUGCContent = lazy(() => import('./components/BlogUGCContent').then(m => ({ default: m.BlogUGCContent })));
+const BlogTikTokAlgorithm = lazy(() => import('./components/BlogTikTokAlgorithm').then(m => ({ default: m.BlogTikTokAlgorithm })));
+const BlogTikTokViews = lazy(() => import('./components/BlogTikTokViews').then(m => ({ default: m.BlogTikTokViews })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 // ── Subdomain detection ───────────────────────────────────────────────────────
@@ -275,6 +279,10 @@ export function App() {
       case 'comment-reply-generator': return <CommentReplyGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'bio-generator': return <BioGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'cta-generator': return <CTAGenerator darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'blog-tiktok-giveaway': return <BlogTikTokGiveaway darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'blog-ugc-content': return <BlogUGCContent darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'blog-tiktok-algorithm': return <BlogTikTokAlgorithm darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'blog-tiktok-views': return <BlogTikTokViews darkMode={darkMode} onNavigate={handleNavigate} />;
       default: return null;
     }
   };

@@ -1501,4 +1501,198 @@ ${FOOTER}`,
 </div>
 ${FOOTER}`,
 
+  // ── BLOG: HOW TO RUN A TIKTOK GIVEAWAY ────────────────────────────────────
+  '/tiktok-giveaway-guide': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">🎁 Giveaway Guide</span>
+  <h1>How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide</h1>
+  <p class="lead">Everything you need to know to run a successful TikTok giveaway — from setting the rules and promoting your contest to picking a fair random winner and growing your audience.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <div class="cs-highlight"><p><strong>Quick Answer:</strong> To run a TikTok giveaway, post a video explaining the prize and entry rules (follow, like, comment), set a clear deadline, then use a free TikTok giveaway picker to randomly select a winner from eligible comments. Announce the winner publicly in a follow-up video for maximum transparency.</p></div>
+  </div>
+  <div class="cs-section">
+    <h2>Why TikTok Giveaways Are So Powerful for Growth</h2>
+    <p>TikTok giveaways are one of the fastest ways to accelerate follower growth, boost engagement, and increase brand awareness simultaneously. When you run a well-structured giveaway, your existing audience becomes a recruitment machine: every comment and tag acts as a free advertisement reaching new networks.</p>
+    <p>The TikTok algorithm responds very well to sudden spikes in engagement. A giveaway post generating hundreds of comments in the first few hours gets pushed to the For You Page, creating a compounding snowball effect. Brands and creators who run giveaways consistently report 2x to 10x their usual engagement on giveaway posts.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Types of TikTok Giveaways</h2>
+    <div class="cs-grid">
+      <div class="cs-card"><h3>💬 Comment-to-Win</h3><p>Most common format. Ask followers to comment a specific word or tag a friend. High engagement, easy to manage.</p></div>
+      <div class="cs-card"><h3>👥 Follow + Like</h3><p>Require users to follow your account and like the post. Great for growing followers quickly.</p></div>
+      <div class="cs-card"><h3>📲 Duet or Stitch</h3><p>Users create a Duet or Stitch with your video. Massive reach — each entry creates new content pointing back to you.</p></div>
+      <div class="cs-card"><h3>🏷️ Tag-a-Friend</h3><p>Require users to tag 1–3 friends. Each tag notifies a potential new follower, expanding your reach exponentially.</p></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>Step-by-Step: How to Run a TikTok Giveaway</h2>
+    <div class="cs-steps">
+      <div class="cs-step"><div class="cs-step-num">1</div><div class="cs-step-body"><h3>Define Your Prize and Budget</h3><p>Choose a prize relevant to your niche. A $50 gift card or branded product works better than a generic cash prize because it attracts genuinely interested followers.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">2</div><div class="cs-step-body"><h3>Set Clear Entry Rules</h3><p>Specify exactly what users must do: follow, like, comment a specific word, tag friends. Keep rules simple — each extra step reduces participation.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">3</div><div class="cs-step-body"><h3>Create an Engaging Giveaway Video</h3><p>Film a high-energy video that clearly shows the prize, explains the rules, and includes a strong CTA. Pin the giveaway video to your profile.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">4</div><div class="cs-step-body"><h3>Pick a Random Winner Fairly</h3><p>Use a free TikTok giveaway picker tool. Paste all eligible comments, apply keyword filters, and pick. Record your screen for transparency.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">5</div><div class="cs-step-body"><h3>Announce the Winner Publicly</h3><p>Film a winner announcement video — curious followers return to see results, making this consistently one of your most-watched videos.</p></div></div>
+    </div>
+    <a href="/tiktok-giveaway-picker/" class="cs-cta">Try the Free Giveaway Picker →</a>
+  </div>
+  <div class="cs-section">
+    <h2>TikTok Giveaway Rules: What You Must Know</h2>
+    <ul>
+      <li>Clearly state the promotion is not affiliated with TikTok.</li>
+      <li>Include a clear start and end date.</li>
+      <li>Specify eligibility requirements (age, country).</li>
+      <li>Use a random selection method — manual picks damage trust.</li>
+      <li>Do not require purchase to enter (illegal lottery in many jurisdictions).</li>
+    </ul>
+  </div>
+</div>
+${FOOTER}`,
+
+  // ── BLOG: WHAT IS UGC CONTENT ─────────────────────────────────────────────
+  '/what-is-ugc-content': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">🎬 Creator Guide</span>
+  <h1>What is UGC Content? The Complete 2026 Guide for Creators and Brands</h1>
+  <p class="lead">UGC — User Generated Content — has become one of the most powerful marketing formats in the world. Learn exactly what it is, why brands pay creators for it, and how to get started as a UGC creator in 2026.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <div class="cs-highlight"><p><strong>Quick Answer:</strong> UGC (User Generated Content) is content created by real people about a product or service. In marketing, UGC specifically refers to branded content made by independent creators that looks authentic — not polished. Brands hire UGC creators because their content performs better in ads than traditional advertising.</p></div>
+  </div>
+  <div class="cs-section">
+    <h2>What Does UGC Mean?</h2>
+    <p>UGC stands for <strong>User Generated Content</strong>. In its broadest form, it refers to content created by individuals rather than brands — think a customer posting an unboxing video on TikTok or writing a detailed Amazon review. In modern digital marketing, UGC specifically means <strong>paid content made by independent creators designed to look organic and authentic</strong>. Brands commission UGC creators for this content because it performs significantly better in paid ads than traditional marketing.</p>
+    <p>The core insight is simple: people trust other people far more than they trust brands. A creator talking naturally about a product — with imperfect lighting and authentic reactions — generates more sales than a professionally produced $50,000 brand commercial.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Types of UGC Content</h2>
+    <div class="cs-grid">
+      <div class="cs-card"><h3>📦 Unboxing Videos</h3><p>Creator opens and reacts to a product for the first time. One of the highest-performing UGC formats.</p></div>
+      <div class="cs-card"><h3>📋 Review &amp; Testimonial</h3><p>An honest (or scripted-to-seem-honest) product review from the user's perspective.</p></div>
+      <div class="cs-card"><h3>📖 Tutorial / How-To</h3><p>Creator demonstrates how to use a product. Reduces buyer hesitation by showing it in real use.</p></div>
+      <div class="cs-card"><h3>💬 Comment Reply Format</h3><p>Creator responds to a viewer comment using it as the video hook. The most effective format on TikTok and Reels.</p></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>Why Brands Love UGC</h2>
+    <ul>
+      <li><strong>Ad fatigue is at an all-time high</strong> — polished ads are filtered out mentally. UGC bypasses this filter entirely.</li>
+      <li><strong>Authenticity drives purchase decisions</strong> — 92% of consumers trust recommendations from individuals over brands (Nielsen).</li>
+      <li><strong>Lower production costs, higher performance</strong> — UGC videos cost $200–$500 vs $5,000–$50,000+ for professional production, yet outperform them by 20–50% in CTR.</li>
+      <li><strong>Platform algorithm alignment</strong> — UGC ads experience lower CPMs because platforms treat them as organic content.</li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <h2>How to Become a UGC Creator</h2>
+    <p>You do not need a large following. Brands pay for your content creation skills, not your audience. Here is a 6-step roadmap:</p>
+    <div class="cs-steps">
+      <div class="cs-step"><div class="cs-step-num">1</div><div class="cs-step-body"><h3>Build a Portfolio of Spec Ads</h3><p>Create 5–10 unpaid UGC videos for products you own. These prove your ability to brands.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">2</div><div class="cs-step-body"><h3>Set Your Rates</h3><p>New creators charge $100–$300/video. Experienced creators with proven performance charge $500–$2,000+.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">3</div><div class="cs-step-body"><h3>Specialize in a Niche</h3><p>Focus on 2–3 product categories you know: skincare, supplements, tech. Niche expertise commands higher rates.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">4</div><div class="cs-step-body"><h3>Master the Comment Reply Format</h3><p>The comment-reply hook is the most requested UGC format. Use CommentSticker to create realistic overlays for your ads.</p></div></div>
+    </div>
+    <a href="/app/" class="cs-cta">Create Comment Stickers for UGC →</a>
+  </div>
+</div>
+${FOOTER}`,
+
+  // ── BLOG: TIKTOK ALGORITHM GUIDE ─────────────────────────────────────────
+  '/tiktok-algorithm-guide': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">🧠 Growth Strategy</span>
+  <h1>How the TikTok Algorithm Works in 2026: Complete For You Page Guide</h1>
+  <p class="lead">Understanding the TikTok algorithm is the single most important skill for any creator trying to grow on the platform. This guide breaks down every ranking signal and how to get on the For You Page.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <div class="cs-highlight"><p><strong>Quick Answer:</strong> The TikTok algorithm ranks videos based on three signal categories: <strong>user interactions</strong> (completion rate, likes, comments, shares), <strong>video information</strong> (captions, hashtags, sounds), and <strong>device settings</strong> (language, location). The most heavily weighted signal is video completion rate — if people watch your video all the way through, TikTok shows it to more people.</p></div>
+  </div>
+  <div class="cs-section">
+    <h2>What is the TikTok Algorithm?</h2>
+    <p>The TikTok algorithm is a recommendation system that decides which videos appear on each user's For You Page (FYP). Unlike Instagram (which prioritizes content from accounts you follow), TikTok's FYP is driven primarily by <strong>video performance signals</strong>, not follower count. This is why an account with zero followers can go viral overnight.</p>
+    <p>The algorithm continuously tests each new video with small user groups. If those users respond well (high completion rate, likes, comments), TikTok distributes the video to progressively larger groups — like a series of expanding test pools.</p>
+  </div>
+  <div class="cs-section">
+    <h2>Core Ranking Signals (Most to Least Weighted)</h2>
+    <table>
+      <tr><th>Signal</th><th>Weight</th><th>Notes</th></tr>
+      <tr><td>Video Completion Rate</td><td>🔴 Highest</td><td>% of viewers who watch start to finish — the #1 signal</td></tr>
+      <tr><td>Replay Rate</td><td>🔴 Very High</td><td>Replays signal exceptional quality</td></tr>
+      <tr><td>Comments</td><td>🟠 High</td><td>Quality and sentiment analyzed by AI</td></tr>
+      <tr><td>Shares</td><td>🟠 High</td><td>External shares (to other apps) are very powerful</td></tr>
+      <tr><td>Follows from Video</td><td>🟠 High</td><td>Strong relevance signal</td></tr>
+      <tr><td>Likes</td><td>🟡 Medium</td><td>Important but less trusted than completions</td></tr>
+      <tr><td>Skip / Not Interested</td><td>🔴 Negative</td><td>Most damaging signal — avoid weak hooks</td></tr>
+    </table>
+  </div>
+  <div class="cs-section">
+    <h2>The FYP Distribution Model: How Videos Go Viral</h2>
+    <div class="cs-steps">
+      <div class="cs-step"><div class="cs-step-num">1</div><div class="cs-step-body"><h3>Pool 1: 200–500 views</h3><p>Initial distribution to a small test group. Videos with &gt;70% completion rate advance to Pool 2.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">2</div><div class="cs-step-body"><h3>Pool 2: 1,000–5,000 views</h3><p>Wider distribution to interest-matched users. Most videos stop here. Strong engagement needed to advance.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">3</div><div class="cs-step-body"><h3>Pool 3: 10,000–100,000 views</h3><p>Mainstream FYP distribution. Hook quality becomes critical as content reaches unfamiliar audiences.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">4</div><div class="cs-step-body"><h3>Pool 4+: 100K–millions</h3><p>Viral territory. Driven by exceptional completion rate, rapid share velocity, and external traffic.</p></div></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>Top 5 Strategies to Beat the TikTok Algorithm</h2>
+    <ol>
+      <li><strong>Master the 3-second hook</strong> — Use a comment sticker overlay, surprising statement, or direct question to stop the scroll immediately.</li>
+      <li><strong>Optimize for completions, not length</strong> — A 15-second video at 90% completion beats a 3-minute video at 20% completion every time.</li>
+      <li><strong>Use trending sounds within 72 hours</strong> — TikTok peaks trending sound distribution in the first 3–7 days.</li>
+      <li><strong>Engage comments in the first hour</strong> — Reply to every comment. Comment velocity in the first 60 minutes drives early distribution.</li>
+      <li><strong>Post consistently at the same times</strong> — Consistent scheduling trains both the algorithm and your audience.</li>
+    </ol>
+    <a href="/tiktok-hook-generator/" class="cs-cta">Generate High-Retention Hooks →</a>
+  </div>
+</div>
+${FOOTER}`,
+
+  // ── BLOG: HOW TO GET MORE TIKTOK VIEWS ────────────────────────────────────
+  '/how-to-get-more-views-tiktok': `${STYLES}${NAV}
+<div class="cs-hero">
+  <span class="cs-badge">📈 Growth Tips</span>
+  <h1>How to Get More Views on TikTok in 2026: 15 Proven Strategies</h1>
+  <p class="lead">Struggling to get views on TikTok? These 15 data-backed strategies will help you break out of the algorithm loop, reach the For You Page, and consistently grow your audience in 2026.</p>
+</div>
+<div class="cs-main">
+  <div class="cs-section">
+    <div class="cs-highlight"><p><strong>Quick Answer:</strong> To get more views on TikTok, focus on: (1) a hook so strong viewers can't scroll away in the first 3 seconds, (2) a completion rate above 70%, and (3) posting when your audience is most active. Everything else is secondary to these three fundamentals.</p></div>
+  </div>
+  <div class="cs-section">
+    <h2>Why You're Not Getting Views on TikTok</h2>
+    <div class="cs-grid">
+      <div class="cs-card"><h3>Weak hook</h3><p>Viewers scroll past in the first 1–2 seconds. TikTok marks your video low-quality before it gets a real test.</p></div>
+      <div class="cs-card"><h3>Low completion rate</h3><p>If viewers consistently watch only 30–40% of your video, TikTok stops distributing it entirely.</p></div>
+      <div class="cs-card"><h3>Inconsistent posting</h3><p>Posting randomly destroys algorithmic momentum. TikTok rewards predictable posting schedules.</p></div>
+      <div class="cs-card"><h3>Content too broad</h3><p>Videos that try to appeal to everyone appeal to no one. Niche content consistently outperforms general content.</p></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <h2>15 Proven Strategies to Get More TikTok Views</h2>
+    <div class="cs-steps">
+      <div class="cs-step"><div class="cs-step-num">1</div><div class="cs-step-body"><h3>Master the 3-Second Hook</h3><p>Use a comment sticker overlay, surprising statement, or direct question. The comment-reply format is the most effective hook on TikTok because it creates instant curiosity.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">2</div><div class="cs-step-body"><h3>Optimize for Watch Time, Not Video Length</h3><p>Cut every unnecessary second. Your goal is to end the video just before the viewer would stop watching.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">3</div><div class="cs-step-body"><h3>Use Trending Audio in the First 48 Hours</h3><p>TikTok boosts videos using trending sounds. Being early to a trend gives you the best distribution window.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">4</div><div class="cs-step-body"><h3>Post Consistently at the Same Times</h3><p>Check TikTok Analytics → Follower Activity to find your audience's peak hours, then post 30–60 minutes before.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">5</div><div class="cs-step-body"><h3>Engage With Comments in the First Hour</h3><p>Reply to every comment within 60 minutes of posting. Each reply reopens the comment section and boosts engagement velocity.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">6</div><div class="cs-step-body"><h3>Use the Video Reply Feature</h3><p>Reply to a comment with a video. The comment sticker overlay is TikTok's most effective native format — it distributes your video to the commenter's network too.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">7</div><div class="cs-step-body"><h3>Use Niche-Specific Hashtags</h3><p>Use 3–5 hashtags: 1 broad category (100M+ views), 2 mid-tier niche (10M–100M), 1–2 highly specific (1M–10M). Avoid #foryoupage — too saturated.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">8</div><div class="cs-step-body"><h3>Add Text Overlays for Silent Viewing</h3><p>Over 40% of TikToks are watched without sound. Text overlays dramatically increase completion rates for silent viewers.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">9</div><div class="cs-step-body"><h3>Create Series Content for Binge-Watch Loops</h3><p>When viewers watch 3+ videos from your account in one session, TikTok significantly increases distribution to that user type.</p></div></div>
+      <div class="cs-step"><div class="cs-step-num">10</div><div class="cs-step-body"><h3>Stitch and Duet High-Traffic Videos</h3><p>Stitching a video with 100K+ views borrows algorithmic momentum. Add genuine value or a unique perspective.</p></div></div>
+    </div>
+    <a href="/app/" class="cs-cta">Create Comment Sticker Hooks →</a>
+  </div>
+  <div class="cs-section">
+    <h2>TikTok Views FAQ</h2>
+    <div class="cs-card"><h3>Why do my TikToks get 200–300 views and stop?</h3><p>This is the "Pool 1" ceiling. Your video didn't perform well enough to advance to wider distribution. Focus on hook quality first — reduce immediate swipe-away rate, then improve completion rate.</p></div>
+    <div class="cs-card"><h3>Does deleting and reposting a video help?</h3><p>Occasionally yes — a fresh upload gets a new test cycle. But you lose all existing engagement. Only repost if the original had zero traction.</p></div>
+    <div class="cs-card"><h3>How many views is considered good on TikTok?</h3><p>For accounts under 1K followers: 500–2,000 views is good. For 10K–50K accounts: 5,000–20,000 is solid. Track view-to-follower ratio, not absolute counts.</p></div>
+  </div>
+</div>
+${FOOTER}`,
+
 };

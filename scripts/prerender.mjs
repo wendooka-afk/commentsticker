@@ -175,6 +175,22 @@ const ROUTES = {
     title: '200+ TikTok Username Ideas for 2026 — Name Ideas for Girls, Boys & More',
     description: '200+ TikTok username ideas for 2026 — cute, aesthetic, funny, dark academia, Y2K and personal-brand names for girls and boys. Find a unique TikTok name with your name.',
   },
+  '/tiktok-giveaway-guide': {
+    title: 'How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide',
+    description: 'Complete guide to running a successful TikTok giveaway in 2026 — rules, promotion strategy, how to pick a random winner, and mistakes to avoid.',
+  },
+  '/what-is-ugc-content': {
+    title: 'What is UGC Content? The Complete 2026 Guide for Creators and Brands',
+    description: 'What is UGC content? Learn what User Generated Content means, why brands pay for it, and how to start as a UGC creator in 2026 — no following required.',
+  },
+  '/tiktok-algorithm-guide': {
+    title: 'How the TikTok Algorithm Works in 2026: Complete For You Page Guide',
+    description: 'How the TikTok algorithm works in 2026 — ranking signals, For You Page distribution model, and 10 actionable strategies to get more views.',
+  },
+  '/how-to-get-more-views-tiktok': {
+    title: 'How to Get More Views on TikTok in 2026: 15 Proven Strategies',
+    description: 'Get more views on TikTok with these 15 proven strategies — hook optimization, completion rate, hashtags, posting times, and audience retention tips.',
+  },
   '/features': {
     title: 'Features — Everything CommentSticker Can Do | Free Tools for Creators',
     description: 'Explore all CommentSticker features — 9 platforms, transparent PNG export, batch generator, comment picker, 15+ free tools for TikTok, Instagram and YouTube creators.',

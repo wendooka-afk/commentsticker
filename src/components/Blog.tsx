@@ -85,7 +85,51 @@ export function Blog({ darkMode, onNavigate }: BlogProps) {
             readTime: '8 min read',
             category: 'Giveaway',
             thumb: { from: 'from-emerald-500', to: 'to-teal-500', emoji: '🎁', label: 'Giveaway' }
-        }
+        },
+        {
+            id: 'blog-tiktok-giveaway',
+            slug: '/tiktok-giveaway-guide',
+            title: 'How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide',
+            excerpt: "Everything you need to know to run a successful TikTok giveaway — rules, promotion, winner selection, and mistakes to avoid.",
+            date: 'Apr 14, 2026',
+            ts: 20260414,
+            readTime: '10 min read',
+            category: 'Giveaway',
+            thumb: { from: 'from-emerald-500', to: 'to-teal-600', emoji: '🎁', label: 'Giveaway' }
+        },
+        {
+            id: 'blog-ugc-content',
+            slug: '/what-is-ugc-content',
+            title: 'What is UGC Content? The Complete 2026 Guide for Creators and Brands',
+            excerpt: "UGC has become one of the most powerful marketing formats. Learn what it is, why brands pay creators for it, and how to get started — no following required.",
+            date: 'Apr 14, 2026',
+            ts: 20260414,
+            readTime: '11 min read',
+            category: 'Creator Guide',
+            thumb: { from: 'from-violet-500', to: 'to-purple-600', emoji: '🎬', label: 'UGC Guide' }
+        },
+        {
+            id: 'blog-tiktok-algorithm',
+            slug: '/tiktok-algorithm-guide',
+            title: 'How the TikTok Algorithm Works in 2026: Complete For You Page Guide',
+            excerpt: "Understanding the TikTok algorithm is the most important skill for any creator. This guide breaks down every ranking signal and how to get on the FYP.",
+            date: 'Apr 14, 2026',
+            ts: 20260414,
+            readTime: '12 min read',
+            category: 'Growth',
+            thumb: { from: 'from-blue-500', to: 'to-cyan-600', emoji: '🧠', label: 'Algorithm' }
+        },
+        {
+            id: 'blog-tiktok-views',
+            slug: '/how-to-get-more-views-tiktok',
+            title: 'How to Get More Views on TikTok in 2026: 15 Proven Strategies',
+            excerpt: "Struggling to get views on TikTok? These 15 data-backed strategies will help you break out of the algorithm loop and consistently grow your audience.",
+            date: 'Apr 14, 2026',
+            ts: 20260414,
+            readTime: '10 min read',
+            category: 'Growth Tips',
+            thumb: { from: 'from-orange-500', to: 'to-red-500', emoji: '📈', label: 'Views' }
+        },
     ].sort((a, b) => b.ts - a.ts); // newest first
 
 

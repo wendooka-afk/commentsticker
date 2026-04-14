@@ -1,4 +1,5 @@
-import { ArrowLeft, Mail, MessageCircle, Send } from 'lucide-react';
+import { Mail, MessageCircle, Send } from 'lucide-react';
+import { SEOHeader, SEOFooter } from './SEOLayout';
 
 interface LegalPageProps {
     darkMode: boolean;
@@ -8,17 +9,9 @@ interface LegalPageProps {
 export function Contact({ darkMode, onNavigate }: LegalPageProps) {
     return (
         <div className={`min-h-screen font-sans ${darkMode ? 'bg-neutral-950 text-white' : 'bg-neutral-50 text-neutral-900'}`}>
-            <nav className="p-6">
-                <button
-                    onClick={() => onNavigate('home')}
-                    className="flex items-center gap-2 text-sm font-bold hover:text-pink-500 transition-colors"
-                >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to home
-                </button>
-            </nav>
+            <SEOHeader onNavigate={onNavigate} darkMode={darkMode} />
 
-            <main className="max-w-4xl mx-auto px-6 py-12">
+            <main className="max-w-4xl mx-auto px-6 py-32">
                 <div className="flex items-center gap-4 mb-8">
                     <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500">
                         <Mail className="w-6 h-6" />
@@ -74,6 +67,8 @@ export function Contact({ darkMode, onNavigate }: LegalPageProps) {
                     </form>
                 </div>
             </main>
+
+            <SEOFooter onNavigate={onNavigate} />
         </div>
     );
 }
