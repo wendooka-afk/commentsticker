@@ -57,8 +57,8 @@ export const PAGE_TO_SLUG: Record<Page, string> = Object.fromEntries(
 ) as Record<Page, string>;
 
 export const PAGE_TITLES: Record<Page, string> = {
-  home: 'Free TikTok Comment Generator & Sticker Maker | CommentSticker',
-  generator: 'Comment Sticker Generator — Create Fake Comments Free',
+  home: 'Free TikTok Comment Mockup Generator for UGC Ads | CommentSticker',
+  generator: 'Comment Mockup Generator — Create UGC Comment Overlays Free',
   finder: 'Find Viral TikTok Questions | CommentSticker',
   templates: 'UGC Comment Templates Library | CommentSticker',
   scripts: 'AI UGC Script Generator | CommentSticker',
@@ -78,11 +78,11 @@ export const PAGE_TITLES: Record<Page, string> = {
   'blog-ugc-content': 'What is UGC Content? The Complete 2026 Guide for Creators and Brands',
   'blog-tiktok-algorithm': 'How the TikTok Algorithm Works in 2026: Complete For You Page Guide',
   'blog-tiktok-views': 'How to Get More Views on TikTok in 2026: 15 Proven Strategies',
-  guide: 'How to Add Comment Sticker on TikTok (Ultimate Guide 2026)',
+  guide: 'How to Add Comment Stickers on TikTok (Complete 2026 Guide)',
   'guide-instagram': 'Free Instagram Comment Sticker Generator for Reels',
   'guide-youtube': 'Free YouTube Comment Sticker Generator for Shorts',
   'guide-comparison': 'Best TikTok Comment Generator in 2026: Top Alternatives',
-  'guide-tiktok-comment-generator': 'Free TikTok Comment Generator — Create Fake TikTok Comments',
+  'guide-tiktok-comment-generator': 'Free TikTok Comment Mockup Generator for UGC Ad Creatives',
   'guide-tiktok-comment-picker': 'TikTok Comment Picker — Free Random Winner Tool',
   'guide-tiktok-giveaway-picker': 'TikTok Giveaway Picker — Free Random Winner Selector',
   'hashtag-generator': 'Free Hashtag Generator for TikTok & Instagram (2026)',
@@ -97,8 +97,8 @@ export const PAGE_TITLES: Record<Page, string> = {
 };
 
 export const PAGE_DESCRIPTIONS: Record<Page, string> = {
-  home: 'CommentSticker is the #1 free TikTok comment generator. Create fake TikTok, Instagram, YouTube & Discord comment stickers — transparent PNG, no watermark.',
-  generator: 'Create pixel-perfect fake comment stickers for TikTok, Instagram, YouTube and more. Download as transparent PNG. Free, no login, no watermark.',
+  home: 'CommentSticker is a free comment mockup generator for UGC creators and advertisers. Build pixel-perfect TikTok, Instagram, YouTube & LinkedIn comment overlays for video ad creatives — transparent PNG, no watermark.',
+  generator: 'Create pixel-perfect comment mockup overlays for TikTok, Instagram, YouTube and more. Designed for UGC ad creatives, content demos and creator tutorials. Download as transparent PNG. Free, no login, no watermark.',
   finder: 'Discover the most viral questions and comments for your niche. Use them as hooks in your TikTok UGC ads.',
   templates: 'Browse 100+ proven UGC comment templates for TikTok, Instagram and YouTube ads. Free to use.',
   scripts: 'Generate high-converting UGC video scripts based on your comment hooks. Free AI script generator.',
@@ -122,7 +122,7 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   'guide-instagram': 'Create a perfect Instagram comment sticker for Reels. Free generator, transparent PNG, no watermark.',
   'guide-youtube': 'Create a YouTube comment sticker for Shorts. Free generator, 3x resolution, transparent PNG.',
   'guide-comparison': 'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
-  'guide-tiktok-comment-generator': 'Use a free TikTok comment generator to create realistic fake TikTok comments as transparent PNGs for UGC ads.',
+  'guide-tiktok-comment-generator': 'Use a free TikTok comment mockup generator to create pixel-perfect comment overlays as transparent PNGs for UGC ad creatives and content demos.',
   'guide-tiktok-comment-picker': 'Pick a random winner from TikTok comments for free. Best TikTok comment picker tools compared for 2026.',
   'guide-tiktok-giveaway-picker': 'Run a fair TikTok giveaway and pick a random winner from comments or followers. Free tools compared.',
   'hashtag-generator': 'Generate the best TikTok, Instagram and YouTube hashtags for your niche. Free hashtag generator — copy and paste instantly, no sign-up.',
@@ -143,7 +143,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     '@type': 'WebSite',
     name: 'CommentSticker',
     url: 'https://commentsticker.com/',
-    description: 'Free TikTok comment sticker generator — create transparent PNG comment overlays for UGC ads.',
+    description: 'Free TikTok comment mockup generator — create pixel-perfect transparent PNG comment overlays for UGC ad creatives, content demos and tutorials.',
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://commentsticker.com/app',
@@ -157,7 +157,7 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
     applicationCategory: 'DesignApplication',
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    description: 'Free tool to generate pixel-perfect comment stickers for TikTok, Instagram, YouTube, LinkedIn, and more. Transparent PNG, no watermark.',
+    description: 'Free tool to generate pixel-perfect comment mockup overlays for TikTok, Instagram, YouTube, LinkedIn, and more. Designed for UGC ad creatives, content demos and tutorials. Transparent PNG, no watermark.',
     url: 'https://commentsticker.com/app/',
     featureList: 'TikTok comments, Instagram comments, YouTube comments, LinkedIn comments, PNG export, JPEG export, Batch generator',
   },
@@ -240,11 +240,11 @@ export const PAGE_SCHEMAS: Partial<Record<Page, object>> = {
   'guide-tiktok-comment-generator': {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: 'How to Create a Fake TikTok Comment Sticker',
-    description: 'Create a realistic TikTok comment as a transparent PNG for UGC ads.',
+    name: 'How to Create a TikTok Comment Mockup for UGC Ads',
+    description: 'Build a pixel-perfect TikTok comment mockup overlay as a transparent PNG for UGC ad creatives and content demos.',
     step: [
       { '@type': 'HowToStep', name: 'Go to the generator', text: 'Open commentsticker.com/app and select TikTok.' },
-      { '@type': 'HowToStep', name: 'Configure the comment', text: 'Set username, avatar, comment text, likes, and timestamp.' },
+      { '@type': 'HowToStep', name: 'Configure the mockup overlay', text: 'Set username, avatar, comment text, likes, and timestamp to match your UGC ad creative or content demo.' },
       { '@type': 'HowToStep', name: 'Export as transparent PNG', text: 'Click Export PNG. The file downloads at 3x pixel ratio with transparent background.' },
     ],
   },

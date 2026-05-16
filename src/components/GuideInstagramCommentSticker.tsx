@@ -27,7 +27,7 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
                     <section className={`p-6 rounded-2xl mb-8 font-medium text-lg border-l-4 border-pink-500 ${darkMode ? 'bg-neutral-900/50 text-neutral-200' : 'bg-pink-50 text-neutral-800'}`}>
-                        <p className="m-0"><strong>Quick Answer:</strong> How do you make a custom Instagram comment sticker? You can create a fake <strong>Instagram comment sticker</strong> for Reels and Stories using a free generator tool. Simply select the Instagram template, input your profile picture and text, and export it as a high-res transparent PNG. This overlay can then be imported seamlessly into any video editor like CapCut to boost your viewer retention.</p>
+                        <p className="m-0"><strong>Quick Answer:</strong> How do you build a custom Instagram comment overlay? Build an <strong>Instagram comment mockup overlay</strong> for Reels and Stories with a free generator. Select the Instagram template, author your profile image, username and comment text, and export a high-resolution transparent PNG. Drop the PNG into CapCut, Premiere Pro or any editor as an overlay layer on top of your footage.</p>
                     </section>
 
                     <section>
@@ -42,7 +42,7 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
                             TikTok started the trend, but Instagram Reels has quickly adopted the "comment reply" video format, becoming a cornerstone of <a href="https://business.instagram.com/instagram-reels" target="_blank" rel="noopener noreferrer" className="text-pink-500 font-bold hover:underline transition-colors">Instagram's organic business strategy</a>. When a creator takes a comment and slaps it directly on screen to answer it, viewers naturally stop their mindless scrolling. This visual cue of an <strong>Instagram comment sticker</strong> creates immediate, potent curiosity.
                         </p>
                         <p>
-                            However, relying purely on the native Instagram app can be extremely limiting for content professionals. The text often blends in with the video background, you can't customize the look perfectly to match brand guidelines, and most importantly for media buyers and advertisers: <em>you can't fake it natively if you don't already have the perfect comment to reply to.</em>
+                            However, the native Instagram comment-reply feature is limited for content professionals. The text often blends in with the video background, you can't customize the typography to match brand guidelines, and — most importantly for media buyers — the native feature only lets you reply to a comment that a real user has actually left on your post. You cannot prototype a hook variant that surfaces a buyer objection until that objection has organically appeared in your comments.
                         </p>
                     </section>
 
@@ -76,7 +76,7 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 flex items-center justify-center font-bold text-sm shrink-0 text-white">3</div>
                                 <div>
                                     <h3 className="font-bold text-xl">Export as Transparent PNG</h3>
-                                    <p className="text-neutral-500 mt-2">Click download. You will receive a high-resolution, perfectly cropped <strong>fake instagram comment sticker free</strong> of charge. Drop that PNG into CapCut and place it over your Reel.</p>
+                                    <p className="text-neutral-500 mt-2">Click download. You receive a high-resolution, perfectly cropped <strong>Instagram comment mockup overlay</strong> free of charge. Drop that transparent PNG into CapCut and place it over your Reel.</p>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
                     </section>
 
                     <section className={`p-10 rounded-[2rem] border mt-16 text-center shadow-lg transition-transform hover:-translate-y-1 ${darkMode ? 'bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-pink-500/20' : 'bg-gradient-to-br from-purple-50 to-pink-50 border-pink-100'}`}>
-                        <h2 className="text-3xl font-black mb-4">Start creating Instagram Fake Comments</h2>
+                        <h2 className="text-3xl font-black mb-4">Start building Instagram comment overlay mockups</h2>
                         <p className="mb-8 font-medium">Don't wait for your audience to ask the right question. Put the question in their minds proactively with a realistic, high-converting comment overlay.</p>
                         <button onClick={() => onNavigate('generator')} className="px-8 py-4 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl font-black shadow-xl shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
                             Open the iOS/Instagram Generator <ArrowRight className="w-5 h-5" />

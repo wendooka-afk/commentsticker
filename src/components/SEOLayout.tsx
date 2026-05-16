@@ -35,8 +35,8 @@ const ARTICLE_META: Record<string, { title: string; excerpt: string; category: s
         category: 'Comparison', readTime: '6 min', emoji: '⚖️', from: 'from-blue-500', to: 'to-cyan-500',
     },
     'guide-tiktok-comment-generator': {
-        title: 'TikTok Comment Generator: Create Fake TikTok Comments Free',
-        excerpt: 'Create realistic TikTok comment stickers as transparent PNGs — no watermark.',
+        title: 'TikTok Comment Mockup Generator for UGC Ads',
+        excerpt: 'Create pixel-perfect TikTok comment mockup overlays as transparent PNGs — no watermark.',
         category: 'Tool Guide', readTime: '7 min', emoji: '💬', from: 'from-fuchsia-500', to: 'to-pink-600',
     },
     'guide-tiktok-comment-picker': {
@@ -476,5 +476,45 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                 </div>
             </div>
         </footer>
+    );
+}
+
+// Article byline — adds EEAT signals (author role, published/reviewed dates) to each guide.
+// Pass any subset of props; falls back to sensible defaults.
+interface ArticleBylineProps {
+    role?: string;
+    published?: string;
+    reviewed?: string;
+    readTime?: string;
+    darkMode: boolean;
+}
+
+export function ArticleByline({
+    role = 'CommentSticker Editorial Team',
+    published,
+    reviewed,
+    readTime,
+    darkMode,
+}: ArticleBylineProps) {
+    const subtle = darkMode ? 'text-neutral-500' : 'text-neutral-500';
+    const border = darkMode ? 'border-neutral-800' : 'border-neutral-200';
+    const bg = darkMode ? 'bg-neutral-900/40' : 'bg-white';
+    return (
+        <div className={`flex flex-wrap items-center gap-4 p-4 rounded-2xl border ${bg} ${border} mb-8`}>
+            <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-black text-sm">CS</div>
+                <div className="text-sm">
+                    <div className="font-black">{role}</div>
+                    <div className={`text-xs ${subtle}`}>UGC creator tooling · editorial standards on the <button className="underline">About page</button></div>
+                </div>
+            </div>
+            <div className={`flex flex-wrap items-center gap-3 text-xs font-medium ${subtle} ml-auto`}>
+                {published && <span><strong className="text-neutral-700 dark:text-neutral-300">Published:</strong> {published}</span>}
+                {reviewed && <span>·</span>}
+                {reviewed && <span><strong className="text-neutral-700 dark:text-neutral-300">Last reviewed:</strong> {reviewed}</span>}
+                {readTime && <span>·</span>}
+                {readTime && <span>{readTime} read</span>}
+            </div>
+        </div>
     );
 }

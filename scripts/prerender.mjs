@@ -26,14 +26,14 @@ const DIST = join(__dirname, '../dist');
 // ── Route metadata — keep in sync with App.tsx ───────────────────────────────
 const ROUTES = {
   '/': {
-    title: 'Free TikTok Comment Generator & Sticker PNG | CommentSticker',
+    title: 'Free TikTok Comment Mockup Generator for UGC Ads | CommentSticker',
     description:
-      'Create custom fake TikTok comments, Instagram & YouTube comment overlays. Free TikTok comment bubble generator and transparent PNG for UGC and ads.',
+      'CommentSticker is a free comment mockup generator for UGC creators and advertisers. Build pixel-perfect TikTok, Instagram, YouTube & LinkedIn comment overlays for video ad creatives — transparent PNG, no watermark.',
   },
   '/app': {
-    title: 'Comment Sticker Generator — Create Fake Comments Free',
+    title: 'Comment Mockup Generator — Create UGC Comment Overlays Free',
     description:
-      'Create pixel-perfect fake comment stickers for TikTok, Instagram, YouTube and more. Download as transparent PNG. Free, no login, no watermark.',
+      'Create pixel-perfect comment mockup overlays for TikTok, Instagram, YouTube and more. Designed for UGC ad creatives, content demos and creator tutorials. Download as transparent PNG. Free, no login, no watermark.',
   },
   '/question-finder': {
     title: 'Find Viral TikTok Questions | CommentSticker',
@@ -99,9 +99,9 @@ const ROUTES = {
       'Comparison of the best free TikTok comment generator tools in 2026. Find the best TokComment alternative.',
   },
   '/tiktok-comment-generator': {
-    title: 'Free TikTok Comment Generator — Create Fake TikTok Comments',
+    title: 'Free TikTok Comment Mockup Generator for UGC Ad Creatives',
     description:
-      'Use a free TikTok comment generator to create realistic fake TikTok comments as transparent PNGs for UGC ads.',
+      'Use a free TikTok comment mockup generator to create pixel-perfect comment overlays as transparent PNGs for UGC ad creatives and content demos.',
   },
   '/tiktok-comment-picker': {
     title: 'TikTok Comment Picker — Free Random Winner Tool',

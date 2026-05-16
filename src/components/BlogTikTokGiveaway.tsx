@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles, ArticleByline } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -27,12 +27,8 @@ export function BlogTikTokGiveaway({ darkMode, onNavigate }: GuideProps) {
                     <p className={`text-xl font-medium ${muted}`}>
                         Everything you need to know to run a successful <strong className="text-neutral-900 dark:text-white">TikTok giveaway</strong> — from setting the rules and promoting your contest to picking a fair random winner and growing your audience.
                     </p>
-                    <div className={`flex items-center gap-4 text-sm ${muted}`}>
-                        <span>April 14, 2026</span>
-                        <span>·</span>
-                        <span>10 min read</span>
-                    </div>
                 </div>
+                <ArticleByline darkMode={dm} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="10 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

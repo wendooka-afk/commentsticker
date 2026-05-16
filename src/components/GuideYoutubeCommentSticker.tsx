@@ -58,7 +58,7 @@ export function GuideYoutubeCommentSticker({ darkMode, onNavigate }: GuideProps)
                             <Youtube className="w-8 h-8 text-red-500" />
                             How to Create a YouTube Comment Overlay
                         </h2>
-                        <p className="mb-6">For YouTube content strategies (like "Storytime" or "Q&A"), having full control over a <strong>fake youtube comment</strong> is essential. Follow these steps to generate yours.</p>
+                        <p className="mb-6">For YouTube content strategies (like "Storytime" or "Q&A"), having full control over the <strong>YouTube comment mockup overlay</strong> lets you author the exact hook copy you want. Follow these steps to generate yours.</p>
 
                         <div className="space-y-6">
                             <div className="flex gap-4">
@@ -71,8 +71,8 @@ export function GuideYoutubeCommentSticker({ darkMode, onNavigate }: GuideProps)
                             <div className="flex gap-4">
                                 <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center font-bold text-sm shrink-0 text-white">2</div>
                                 <div>
-                                    <h3 className="font-bold text-xl">Design your Fake Comment</h3>
-                                    <p className="text-neutral-500 mt-2">Pick a real-sounding username. Pro-tip: YouTube comments often use usernames starting with "@". Type out an engaging question: "Can you do a tutorial on exactly how you did this?".</p>
+                                    <h3 className="font-bold text-xl">Author the mockup copy</h3>
+                                    <p className="text-neutral-500 mt-2">Pick a plausible generic username (do not reuse a real third party's actual handle). Pro-tip: YouTube usernames usually start with "@". Author an engaging question: "Can you do a tutorial on exactly how you did this?".</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">

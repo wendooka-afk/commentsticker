@@ -1,5 +1,5 @@
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles, ArticleByline } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -26,12 +26,8 @@ export function BlogUGCContent({ darkMode, onNavigate }: GuideProps) {
                     <p className={`text-xl font-medium ${muted}`}>
                         UGC — User Generated Content — has become one of the most powerful marketing formats in the world. Learn exactly what it is, why brands pay creators for it, and how to get started as a <strong className="text-neutral-900 dark:text-white">UGC creator</strong> in 2026.
                     </p>
-                    <div className={`flex items-center gap-4 text-sm ${muted}`}>
-                        <span>April 14, 2026</span>
-                        <span>·</span>
-                        <span>11 min read</span>
-                    </div>
                 </div>
+                <ArticleByline darkMode={dm} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="11 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

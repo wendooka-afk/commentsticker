@@ -21,7 +21,7 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
                         How to Add Comment Sticker on TikTok Video (Ultimate Guide 2026)
                     </h1>
                     <p className="text-xl text-neutral-500 font-medium">
-                        Learn how to natively reply to comments with a video, and discover the best <span className="font-bold text-neutral-900 dark:text-white">free TikTok comment generator</span> tools to create custom fake TikTok comments for your UGC and Ads.
+                        The native method for replying to a real comment with a video, plus the mockup workflow with a <span className="font-bold text-neutral-900 dark:text-white">free TikTok comment mockup generator</span> for building custom comment overlays for UGC ad creatives and content tutorials.
                     </p>
                 </div>
 
@@ -86,23 +86,23 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
                     </section>
 
                     <section>
-                        <h2 className="text-3xl font-bold mt-12 mb-6">Why Brands and UGC Creators Use "Fake" TikTok Comments</h2>
+                        <h2 className="text-3xl font-bold mt-12 mb-6">Why brands and UGC creators use comment mockup overlays</h2>
                         <p>
-                            While the native method is great for organic account growth, things get incredibly complicated when you are running Paid Media campaigns or creating UGC briefs for external brands. You might need to highlight a specific, niche product pain point ("Does this sunscreen leave a white cast on dark skin?") or showcase a frequently asked question ("How long does international shipping take?").
+                            The native comment-reply method works for organic account growth on videos you have already published. It does not work for paid-media production: when you are running TikTok or Reels ad campaigns, or producing UGC briefs for external brands, you typically need to surface a specific buyer objection ("Does this sunscreen leave a white cast on dark skin?") or a frequently-asked question ("How long does international shipping take?") in the first one to three seconds of the ad creative.
                         </p>
                         <p>
-                            If you are launching a new account, or you simply don't naturally have those exact comments on your previous videos, what do you do? Waiting for organic engagement to dictate your ad strategy is a recipe for burning ad spend.
+                            If you are launching a new account or you simply do not have a matching real comment under one of your past videos, you cannot use the native comment-reply feature. Waiting for organic engagement to surface the right question before you can ship the ad is not a viable production workflow.
                         </p>
                         <p>
-                            This is why <strong>fake TikTok comments</strong> (often referred to as custom comment overlays in the industry) are a standard operating procedure for elite video editors and media buyers. Instead of waiting organically for the perfect question, you use a sophisticated <strong>free TikTok comment sticker generator</strong> to design exact, pixel-perfect replicas exported in PNG file format. These PNGs are then layered seamlessly onto the video timeline using an external NLE (Non-Linear Editor).
+                            This is why <strong>comment mockup overlays</strong> have become a standard production workflow for video editors and media buyers across the UGC industry. Instead of waiting for the perfect organic comment, you build a comment-UI mockup with a <strong>free comment mockup generator</strong>, export it as a transparent PNG, and layer it onto the video timeline in your editor. The mockup is a creative illustration authored by you — not a screenshot of a real third-party comment.
                         </p>
                         <div className="bg-neutral-100 dark:bg-neutral-800/50 p-6 rounded-2xl my-8">
-                            <h3 className="font-bold text-xl mb-4">The core benefits of custom generated stickers:</h3>
+                            <h3 className="font-bold text-xl mb-4">The core benefits of mockup overlays in ad production:</h3>
                             <ul className="space-y-3 font-medium">
-                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Complete control over the copy and hook:</strong> You dictate the exact narrative of the video from second zero.</span></li>
-                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Manufactured Social Proof:</strong> Ability to add high amounts of 'likes' (e.g., 14.5K) to the comment to validate the question's importance.</span></li>
-                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Platform Agnosticism:</strong> Export in high-res PNG to use in <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-pink-500 transition-colors">CapCut</a>, <a href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-pink-500 transition-colors">Premiere Pro</a>, or DaVinci Resolve without native app restrictions.</span></li>
-                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Lower CPA:</strong> Keep ads feeling native and organic to bypass the user's inherent "ad blocker" mentality, ultimately lowering your Cost Per Acquisition.</span></li>
+                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Hook copy control:</strong> Author the exact buyer objection or FAQ you want to address from second zero of the ad.</span></li>
+                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Production speed:</strong> Build a hook variant in seconds rather than waiting for a relevant comment to organically appear under a past video.</span></li>
+                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Editor compatibility:</strong> Export high-res transparent PNG to drop into <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-pink-500 transition-colors">CapCut</a>, <a href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-pink-500 transition-colors">Premiere Pro</a> or DaVinci Resolve without native-app restrictions.</span></li>
+                                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" /> <span className="pt-0.5"><strong>Disclosure compliance:</strong> Because you authored the copy yourself, you can stay within advertising disclosure rules (FTC, ASA) — the overlay is a creative illustration, not a represented real testimonial.</span></li>
                             </ul>
                         </div>
                     </section>

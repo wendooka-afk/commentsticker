@@ -1,5 +1,5 @@
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles, ArticleByline } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -26,12 +26,8 @@ export function BlogTikTokViews({ darkMode, onNavigate }: GuideProps) {
                     <p className={`text-xl font-medium ${muted}`}>
                         Struggling to get views on TikTok? These 15 data-backed strategies will help you break out of the algorithm loop, reach the For You Page, and consistently grow your audience in 2026.
                     </p>
-                    <div className={`flex items-center gap-4 text-sm ${muted}`}>
-                        <span>April 14, 2026</span>
-                        <span>·</span>
-                        <span>10 min read</span>
-                    </div>
                 </div>
+                <ArticleByline darkMode={dm} role="UGC Industry Researcher · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="10 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

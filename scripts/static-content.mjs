@@ -110,16 +110,17 @@ export const STATIC_CONTENT = {
   // ── HOME / LANDING PAGE ────────────────────────────────────────────────────
   '/': `${STYLES}${NAV}
 <div class="cs-hero" style="text-align:center;padding-top:64px;padding-bottom:48px;">
-  <span class="cs-badge">✨ Free Comment Sticker Generator</span>
-  <h1>Free TikTok Comment Generator &amp; Sticker Maker</h1>
-  <p class="lead" style="max-width:650px;margin:0 auto 32px;">Create pixel-perfect fake comment stickers for TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, and LinkedIn. Download as transparent PNG. 100% free — no login, no watermark.</p>
+  <span class="cs-badge">✨ Free Comment Mockup Generator</span>
+  <h1>Free TikTok Comment Mockup Generator for UGC Ads</h1>
+  <p class="lead" style="max-width:650px;margin:0 auto 32px;">Build pixel-perfect comment mockup overlays for TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, and LinkedIn UGC ad creatives. Download as transparent PNG. 100% free — no login, no watermark.</p>
   <a href="/app" class="cs-cta">Open the Free Generator →</a>
 </div>
 <div class="cs-main">
   <div class="cs-section">
-    <h2>What is a Comment Sticker?</h2>
-    <p>A <strong>comment sticker</strong> is a visual overlay used in short-form videos (TikTok, Instagram Reels, YouTube Shorts) that displays a user comment in the platform's native UI style. It is one of the most powerful tools in a UGC (User Generated Content) creator's toolkit because it creates instant social proof, addresses viewer pain points, and boosts retention — all in the first 3 seconds of a video.</p>
-    <p>CommentSticker lets you generate these overlays in seconds, without any design skills. Simply enter your comment text, username, and likes count — and download a high-resolution, transparent PNG ready for CapCut, Adobe Premiere Pro, DaVinci Resolve, or any video editor.</p>
+    <h2>What is a comment mockup overlay?</h2>
+    <p>A <strong>comment mockup overlay</strong> is a transparent PNG image that visually replicates the design of a social media comment — the avatar, the username, the reply text, the like counter, the timestamp. It is a creative illustration, not a screenshot of a real comment, used as a hook device in short-form video advertising and content tutorials.</p>
+    <p>The comment-overlay hook — opening a TikTok or Reels ad with a comment-UI replica that surfaces a buyer question or objection — is a documented retention pattern in performance-marketing literature. CommentSticker lets you build the overlay in seconds, without any design skills. Pick a platform, author the comment text yourself, and download a high-resolution transparent PNG ready for CapCut, Adobe Premiere Pro, DaVinci Resolve, or any video editor.</p>
+    <p><strong>Acceptable use:</strong> mockup overlays are intended for creative and illustrative purposes — UGC ad creatives, content tutorials, demo videos, slide presentations, blog illustrations and creator portfolios. They are not intended for impersonation of real people, fabrication of evidence, or any use that misleads consumers. See the <a href="/terms">Terms of Service</a> for the full Acceptable Use policy.</p>
   </div>
   <div class="cs-section">
     <h2>Supported Platforms</h2>
@@ -162,7 +163,7 @@ export const STATIC_CONTENT = {
     <div class="cs-card"><h3>Is CommentSticker completely free?</h3><p>Yes. All core tools — the sticker generator, question finder, templates library, script generator, and batch generator — are 100% free with no sign-up required.</p></div>
     <div class="cs-card"><h3>Which platforms are supported?</h3><p>TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, and LinkedIn. Each template is a pixel-perfect reproduction of the platform's native comment UI.</p></div>
     <div class="cs-card"><h3>Can I use these stickers in CapCut?</h3><p>Absolutely. Download the transparent PNG and import it directly into CapCut as an overlay layer on top of your footage.</p></div>
-    <div class="cs-card"><h3>Are fake comment stickers allowed in ads?</h3><p>Custom comment overlays are a standard practice in UGC advertising. They are used to highlight common customer questions and pain points to make ads feel more organic and native.</p></div>
+    <div class="cs-card"><h3>Are comment mockup overlays acceptable in advertising?</h3><p>Comment-style overlays are a documented and widely used creative pattern in UGC advertising. The overlay is a creative illustration used to surface a typical customer question or objection the ad then answers — comparable to using a stock photo or a copywritten testimonial. Acceptable use: author the text yourself, do not impersonate a specific real person, do not present a mockup as a real third-party comment, and follow your jurisdiction's advertising-disclosure rules (such as the FTC Endorsement Guides in the United States).</p></div>
   </div>
 </div>
 ${FOOTER}`,
@@ -406,13 +407,13 @@ ${FOOTER}`,
   <div class="cs-section">
     <h2>Latest Articles</h2>
     <div class="cs-grid">
-      <div class="cs-card"><h3><a href="/tiktok-comment-generator" style="color:#ec4899;text-decoration:none;">TikTok Comment Generator: Create Fake TikTok Comments Free (2026)</a></h3><p>Learn how to use a free TikTok comment generator to create realistic, transparent PNG comment stickers for UGC ads — no watermark, instant download.</p><p style="font-size:12px;color:#9ca3af;">7 min read · Tool Guide</p></div>
-      <div class="cs-card"><h3><a href="/how-to-add-comment-sticker-tiktok" style="color:#ec4899;text-decoration:none;">How to Add Comment Sticker on TikTok Video (Ultimate Guide 2026)</a></h3><p>Learn how to natively reply to comments with a video, and discover the best free tools to create custom fake TikTok comments.</p><p style="font-size:12px;color:#9ca3af;">5 min read · Tutorial</p></div>
+      <div class="cs-card"><h3><a href="/tiktok-comment-generator" style="color:#ec4899;text-decoration:none;">TikTok Comment Mockup Generator for UGC Ads (2026)</a></h3><p>Learn how to use a free TikTok comment mockup generator to build pixel-perfect transparent PNG comment overlays for UGC ad creatives — no watermark, instant download.</p><p style="font-size:12px;color:#9ca3af;">7 min read · Tool Guide</p></div>
+      <div class="cs-card"><h3><a href="/how-to-add-comment-sticker-tiktok" style="color:#ec4899;text-decoration:none;">How to Add Comment Sticker on TikTok Video (Complete 2026 Guide)</a></h3><p>The native method for replying to a comment with a video, and the mockup workflow for building custom comment overlays for ad creatives.</p><p style="font-size:12px;color:#9ca3af;">5 min read · Tutorial</p></div>
       <div class="cs-card"><h3><a href="/instagram-comment-sticker-generator" style="color:#ec4899;text-decoration:none;">Free Instagram Comment Sticker Generator for Reels</a></h3><p>Boost your Instagram Reels engagement. Learn how to create a perfect Instagram comment sticker and download it as a transparent PNG.</p><p style="font-size:12px;color:#9ca3af;">4 min read · Strategy</p></div>
       <div class="cs-card"><h3><a href="/youtube-comment-sticker-generator" style="color:#ec4899;text-decoration:none;">Free YouTube Comment Sticker Generator for Shorts</a></h3><p>Master the YouTube Shorts algorithm. Create a YouTube comment sticker, download it as a PNG, and boost your retention.</p><p style="font-size:12px;color:#9ca3af;">4 min read · Strategy</p></div>
       <div class="cs-card"><h3><a href="/tiktok-comment-picker" style="color:#ec4899;text-decoration:none;">TikTok Comment Picker: Pick a Random Winner (Free)</a></h3><p>Looking for a free random TikTok comment picker? This guide covers the best tools to fairly pick a winner from your comments.</p><p style="font-size:12px;color:#9ca3af;">6 min read · Free Tools</p></div>
       <div class="cs-card"><h3><a href="/tiktok-giveaway-picker" style="color:#ec4899;text-decoration:none;">TikTok Giveaway Picker: Free Tool to Pick a Random Winner</a></h3><p>Running a TikTok giveaway? Use a free picker to randomly select a winner from your comments or followers.</p><p style="font-size:12px;color:#9ca3af;">8 min read · Giveaway</p></div>
-      <div class="cs-card"><h3><a href="/tiktok-comment-generator-alternatives" style="color:#ec4899;text-decoration:none;">Best TikTok Comment Generator in 2026: Alternatives Compared</a></h3><p>A complete comparison of the top free tools to create fake comment stickers. CommentSticker vs. TokComment and alternatives.</p><p style="font-size:12px;color:#9ca3af;">6 min read · Comparison</p></div>
+      <div class="cs-card"><h3><a href="/tiktok-comment-generator-alternatives" style="color:#ec4899;text-decoration:none;">Best TikTok Comment Generator in 2026: Alternatives Compared</a></h3><p>A complete comparison of the top free tools for building comment mockup overlays. CommentSticker vs. TokComment and other alternatives.</p><p style="font-size:12px;color:#9ca3af;">6 min read · Comparison</p></div>
     </div>
   </div>
 </div>
@@ -714,10 +715,10 @@ ${FOOTER}`,
 <div class="cs-hero">
   <span class="cs-badge">📱 Tutorial</span>
   <h1>How to Add Comment Sticker on TikTok Video (Ultimate Guide 2026)</h1>
-  <p class="lead">Learn how to natively reply to comments with a video on TikTok, and discover the best free TikTok comment generator tools to create custom fake TikTok comments for your UGC and Ads.</p>
+  <p class="lead">Learn the native method for replying to comments with a video on TikTok, and the mockup workflow for building custom comment overlays for UGC ad creatives and content tutorials.</p>
 </div>
 <div class="cs-main">
-  <div class="cs-highlight"><p><strong>Quick Answer:</strong> To add a comment sticker on TikTok natively, tap a comment → tap the camera icon → record your reply. To create a custom fake TikTok comment sticker for ads, use a free generator like CommentSticker to design the exact comment you need and download it as a transparent PNG.</p></div>
+  <div class="cs-highlight"><p><strong>Quick Answer:</strong> To add a comment sticker on TikTok natively, tap a comment → tap the camera icon → record your reply. To build a custom comment mockup overlay for a UGC ad creative or content tutorial, use a free generator like CommentSticker to design the overlay and download it as a transparent PNG.</p></div>
   <div class="cs-section">
     <h2>What is a TikTok Comment Sticker?</h2>
     <p>A <strong>TikTok comment sticker</strong> is a visual overlay used in TikTok videos to highlight a specific comment from a viewer. It appears as a floating bubble on the screen, showing the commenter's username, profile picture, the comment text, and the number of likes the comment received.</p>
@@ -784,7 +785,7 @@ ${FOOTER}`,
     <ul>
       <li><strong>Position in the lower third:</strong> Place the comment sticker 20–30% from the bottom of the frame. This matches where native Instagram comments appear and feels most natural to viewers.</li>
       <li><strong>Display for 3–5 seconds:</strong> Show the sticker long enough to be read, but remove it before it becomes distracting to the video's main content.</li>
-      <li><strong>Use authentic-sounding usernames:</strong> Choose usernames that sound like real people (e.g., @sarah_lifestyle, @mike_fitness2024) rather than obviously fake names.</li>
+      <li><strong>Use plausible usernames you author yourself:</strong> Choose generic-sounding usernames (e.g., @sarah_lifestyle, @mike_fitness2024) so the mockup reads as a typical UGC-style commenter. Never use a real third party's actual handle, name, photo or likeness.</li>
       <li><strong>Choose relatable comment text:</strong> The most effective comments address a real pain point ("This changed my morning routine completely") or ask a genuine question ("Does this work for oily skin?").</li>
       <li><strong>Match your brand's tone:</strong> The comment text should feel consistent with the type of audience your brand attracts.</li>
     </ul>
@@ -834,18 +835,18 @@ ${FOOTER}`,
   '/tiktok-comment-generator': `${STYLES}${NAV}
 <div class="cs-hero">
   <span class="cs-badge">💬 Tool Guide</span>
-  <h1>TikTok Comment Generator: Create Fake TikTok Comments Free (2026)</h1>
+  <h1>TikTok Comment Mockup Generator for UGC Ads (2026)</h1>
   <p class="lead">The complete guide to using a free TikTok comment generator to create realistic, transparent PNG comment stickers for UGC ads — no watermark, instant download, works in CapCut &amp; Premiere.</p>
 </div>
 <div class="cs-main">
-  <div class="cs-highlight"><p><strong>Quick Answer:</strong> A TikTok comment generator lets you create a realistic fake TikTok comment — with custom username, avatar, like count, and timestamp — and export it as a transparent PNG for use as a video overlay in ads and UGC content.</p></div>
+  <div class="cs-highlight"><p><strong>Quick Answer:</strong> A TikTok comment mockup generator lets you build a pixel-perfect TikTok comment overlay — with custom username, avatar, like count, and timestamp — and export it as a transparent PNG for use as a video overlay in UGC ad creatives, content tutorials and demos. The mockup is a creative illustration, not a screenshot of a real third-party comment.</p></div>
   <div class="cs-section">
     <h2>What is a TikTok Comment Generator?</h2>
     <p>A <strong>TikTok comment generator</strong> is a browser-based tool that replicates the visual design of the TikTok comment UI. You provide a username, profile picture, comment text, like count, and timestamp — and the tool renders a pixel-perfect replica of a real TikTok comment, exported as a transparent PNG at 3× resolution.</p>
     <p>This technique is used by thousands of performance marketers, UGC agencies, and e-commerce brands to create comment overlay stickers for TikTok Ads. The transparent PNG is imported into CapCut, Adobe Premiere Pro, or any other video editor and placed on top of the video footage — creating the appearance of a real user comment on the video.</p>
   </div>
   <div class="cs-section">
-    <h2>Why Use a Fake TikTok Comment Generator?</h2>
+    <h2>Why use a TikTok comment mockup generator?</h2>
     <div class="cs-grid">
       <div class="cs-card"><h3>🧠 Pattern Interrupt</h3><p>A comment overlay in the first 2 seconds breaks the scroll reflex and forces viewers to stop and read — increasing watch time by 2–3×.</p></div>
       <div class="cs-card"><h3>✅ Instant Social Proof</h3><p>A comment with 14.2K likes signals that thousands of people found this relevant — pre-validating your product before you say a word.</p></div>
@@ -868,7 +869,7 @@ ${FOOTER}`,
     <ul>
       <li>Use authentic-sounding usernames with profile pictures that match (fitness-looking avatar for fitness comments)</li>
       <li>Keep comment text concise — the best hooks are 8–15 words maximum</li>
-      <li>Set a realistic-looking like count (2K–50K feels authentic; 1M+ looks fake)</li>
+      <li>Set a plausible like count (2K–50K reads as a typical organic comment; 1M+ reads as implausible)</li>
       <li>Use recent timestamps ("2d", "1w") to signal recency and relevance</li>
       <li>Display the sticker for 2–4 seconds before transitioning to your main content</li>
     </ul>

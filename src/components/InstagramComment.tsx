@@ -16,7 +16,7 @@ export function InstagramComment({ username, comment, likes, time, avatarUrl, ve
       <div className="flex gap-3">
         <div className="flex-shrink-0">
           <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 ring-2 ring-pink-500 ring-offset-2">
-            <img src={avatarUrl} alt="fake instagram comment sticker profile picture" className="w-full h-full object-cover" crossOrigin="anonymous" />
+            <img src={avatarUrl} alt="instagram comment mockup avatar" className="w-full h-full object-cover" crossOrigin="anonymous" />
           </div>
         </div>
         <div className="flex-1 min-w-0">
