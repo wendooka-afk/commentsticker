@@ -439,6 +439,7 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
                         <NavLink page="contact" label="Contact" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="privacy" label="Privacy Policy" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                         <NavLink page="terms" label="Terms of Service" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
+                        <NavLink page="cookies" label="Cookie Policy" onNavigate={onNavigate} className="text-sm font-medium hover:text-pink-500 w-fit text-left" />
                     </div>
                 </div>
             </div>

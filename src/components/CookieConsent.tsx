@@ -68,10 +68,10 @@ export function CookieConsent({ onNavigate, darkMode }: CookieConsentProps) {
                     <strong>Google AdSense</strong>. By clicking "Accept", you consent to our use
                     of cookies as described in our{' '}
                     <button
-                        onClick={() => { decline(); onNavigate('privacy'); }}
+                        onClick={() => { decline(); onNavigate('cookies'); }}
                         className="text-pink-500 underline font-semibold hover:text-pink-400"
                     >
-                        Privacy Policy
+                        Cookie Policy
                     </button>.
                 </p>
 

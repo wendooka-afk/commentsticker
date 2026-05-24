@@ -64,6 +64,11 @@ const ROUTES = {
     title: 'Terms of Service | CommentSticker',
     description: 'Terms of Service for CommentSticker.',
   },
+  '/cookies': {
+    title: 'Cookie Policy | CommentSticker',
+    description:
+      'Cookie Policy for CommentSticker — how we use cookies, localStorage, Google AdSense and analytics, plus how to opt out.',
+  },
   '/about': {
     title: 'About CommentSticker — Free UGC Tools for Creators',
     description:

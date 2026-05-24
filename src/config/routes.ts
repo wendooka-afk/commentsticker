@@ -3,7 +3,7 @@
 
 export type Page =
   | 'home' | 'generator' | 'finder' | 'templates' | 'scripts' | 'batch'
-  | 'privacy' | 'terms' | 'about' | 'contact' | 'blog' | 'free-tools'
+  | 'privacy' | 'terms' | 'cookies' | 'about' | 'contact' | 'blog' | 'free-tools'
   | 'pricing' | 'account' | 'features' | 'use-cases'
   | 'guide' | 'guide-instagram' | 'guide-youtube' | 'guide-comparison'
   | 'guide-tiktok-comment-generator' | 'guide-tiktok-comment-picker' | 'guide-tiktok-giveaway-picker'
@@ -21,6 +21,7 @@ export const SLUG_TO_PAGE: Record<string, Page> = {
   '/batch-generator': 'batch',
   '/privacy': 'privacy',
   '/terms': 'terms',
+  '/cookies': 'cookies',
   '/about': 'about',
   '/contact': 'contact',
   '/blog': 'blog',
@@ -65,6 +66,7 @@ export const PAGE_TITLES: Record<Page, string> = {
   batch: 'Batch Comment Sticker Generator | CommentSticker',
   privacy: 'Privacy Policy | CommentSticker',
   terms: 'Terms of Service | CommentSticker',
+  cookies: 'Cookie Policy | CommentSticker',
   about: 'About CommentSticker — Free UGC Tools for Creators',
   contact: 'Contact Us | CommentSticker',
   blog: 'Blog & Guides for TikTok Creators | CommentSticker',
@@ -105,6 +107,7 @@ export const PAGE_DESCRIPTIONS: Record<Page, string> = {
   batch: 'Generate and download multiple comment stickers at once. Batch export PNG for TikTok, Instagram, YouTube. Free, no watermark.',
   privacy: 'Privacy Policy for CommentSticker — how we collect, use, and protect your data.',
   terms: 'Terms of Service for CommentSticker.',
+  cookies: 'Cookie Policy for CommentSticker — how we use cookies, localStorage, Google AdSense and analytics, plus how to opt out.',
   about: 'Learn about CommentSticker — the free UGC creative tool built for creators, marketers, and brands.',
   contact: 'Get in touch with the CommentSticker team.',
   blog: 'Guides, tutorials and strategies for TikTok UGC creators. Learn how to create comment stickers, run giveaways, and grow your audience.',

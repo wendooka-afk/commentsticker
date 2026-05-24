@@ -22,6 +22,7 @@ import { BatchGenerator } from './components/BatchGenerator';
 // ── Lazy imports — guide/blog/legal pages (code-split, loaded on demand) ─────
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const TermsOfService = lazy(() => import('./components/Terms').then(m => ({ default: m.TermsOfService })));
+const CookiePolicy = lazy(() => import('./components/CookiePolicy').then(m => ({ default: m.CookiePolicy })));
 const AboutUs = lazy(() => import('./components/About').then(m => ({ default: m.AboutUs })));
 const Contact = lazy(() => import('./components/Contact').then(m => ({ default: m.Contact })));
 const Blog = lazy(() => import('./components/Blog').then(m => ({ default: m.Blog })));
@@ -254,6 +255,7 @@ export function App() {
     switch (currentPage) {
       case 'privacy': return <PrivacyPolicy darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'terms': return <TermsOfService darkMode={darkMode} onNavigate={handleNavigate} />;
+      case 'cookies': return <CookiePolicy darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'about': return <AboutUs darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'contact': return <Contact darkMode={darkMode} onNavigate={handleNavigate} />;
       case 'blog': return <Blog darkMode={darkMode} onNavigate={handleNavigate} />;

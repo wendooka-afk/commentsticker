@@ -44,3 +44,7 @@ brain/
 !public/og-image.png
 !public/logo-icon.png
 !public/logo-full.png
+
+# Transient claude artifacts
+.claude/scheduled_tasks.lock
+.claude/worktrees/
