@@ -38,6 +38,7 @@ dist-ssr
 brain/
 *.txt
 !public/ads.txt
+!public/robots.txt
 *.webp
 *.png
 !public/og-image.png

@@ -487,6 +487,7 @@ interface ArticleBylineProps {
     reviewed?: string;
     readTime?: string;
     darkMode: boolean;
+    onNavigate?: (page: any) => void;
 }
 
 export function ArticleByline({
@@ -495,6 +496,7 @@ export function ArticleByline({
     reviewed,
     readTime,
     darkMode,
+    onNavigate,
 }: ArticleBylineProps) {
     const subtle = darkMode ? 'text-neutral-500' : 'text-neutral-500';
     const border = darkMode ? 'border-neutral-800' : 'border-neutral-200';
@@ -505,7 +507,13 @@ export function ArticleByline({
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-black text-sm">CS</div>
                 <div className="text-sm">
                     <div className="font-black">{role}</div>
-                    <div className={`text-xs ${subtle}`}>UGC creator tooling · editorial standards on the <button className="underline">About page</button></div>
+                    <div className={`text-xs ${subtle}`}>
+                        UGC creator tooling · editorial standards on the {onNavigate ? (
+                            <button onClick={() => onNavigate('about')} className="underline hover:text-pink-500 transition-colors">About page</button>
+                        ) : (
+                            <a href="/about" className="underline hover:text-pink-500 transition-colors">About page</a>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className={`flex flex-wrap items-center gap-3 text-xs font-medium ${subtle} ml-auto`}>

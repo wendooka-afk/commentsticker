@@ -27,7 +27,7 @@ export function BlogTikTokAlgorithm({ darkMode, onNavigate }: GuideProps) {
                         Understanding the <strong className="text-neutral-900 dark:text-white">TikTok algorithm</strong> is the single most important skill for any creator trying to grow on the platform. This guide breaks down every ranking signal, what the algorithm rewards, and actionable strategies to get your videos on the For You Page.
                     </p>
                 </div>
-                <ArticleByline darkMode={dm} role="UGC Industry Researcher · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="12 min" />
+                <ArticleByline darkMode={dm} onNavigate={onNavigate} role="UGC Industry Researcher · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="12 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

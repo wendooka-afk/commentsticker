@@ -28,7 +28,7 @@ export function BlogTikTokGiveaway({ darkMode, onNavigate }: GuideProps) {
                         Everything you need to know to run a successful <strong className="text-neutral-900 dark:text-white">TikTok giveaway</strong> — from setting the rules and promoting your contest to picking a fair random winner and growing your audience.
                     </p>
                 </div>
-                <ArticleByline darkMode={dm} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="10 min" />
+                <ArticleByline darkMode={dm} onNavigate={onNavigate} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="10 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

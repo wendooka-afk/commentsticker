@@ -1,0 +1,18 @@
+# robots.txt for commentsticker.com
+# Allow all crawlers — including Googlebot, Mediapartners-Google (AdSense), and AdsBot-Google
+
+User-agent: *
+Allow: /
+
+# Allow Google AdSense crawler explicit access (best practice for AdSense applicants)
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://commentsticker.com/sitemap.xml
