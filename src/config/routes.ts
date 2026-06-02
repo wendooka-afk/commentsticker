@@ -57,6 +57,21 @@ export const PAGE_TO_SLUG: Record<Page, string> = Object.fromEntries(
   Object.entries(SLUG_TO_PAGE).map(([slug, page]) => [page, slug])
 ) as Record<Page, string>;
 
+// ── Indexation policy ────────────────────────────────────────────────────────
+// Thin/templated tool-widget pages are kept fully usable but excluded from the
+// search index (meta robots noindex,follow) and from the sitemap. This presents
+// a small, dense, high-value surface to Google/AdSense instead of a large farm
+// of near-identical generator pages. Keep this list in sync with the
+// NOINDEX_SLUGS set in scripts/prerender.mjs (Node can't import this TS file).
+export const NOINDEX_PAGES: ReadonlySet<Page> = new Set<Page>([
+  'finder', 'templates', 'scripts', 'batch', 'free-tools', 'account',
+  'guide-instagram', 'guide-youtube', 'guide-tiktok-comment-generator',
+  'guide-tiktok-comment-picker', 'guide-tiktok-giveaway-picker',
+  'hashtag-generator', 'font-generator', 'caption-generator', 'engagement-calculator',
+  'video-ideas-generator', 'hook-generator', 'comment-reply-generator',
+  'bio-generator', 'cta-generator',
+]);
+
 export const PAGE_TITLES: Record<Page, string> = {
   home: 'Free TikTok Comment Mockup Generator for UGC Ads | CommentSticker',
   generator: 'Comment Mockup Generator — Create UGC Comment Overlays Free',

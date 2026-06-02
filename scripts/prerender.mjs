@@ -206,6 +206,22 @@ const ROUTES = {
   },
 };
 
+// ── Indexation policy ─────────────────────────────────────────────────────────
+// Thin/templated tool-widget routes are excluded from the search index via
+// meta robots noindex,follow and dropped from the sitemap. Presents a small,
+// dense surface to AdSense instead of a farm of near-identical generator pages.
+// KEEP IN SYNC with NOINDEX_PAGES in src/config/routes.ts.
+const NOINDEX_SLUGS = new Set([
+  '/question-finder', '/templates', '/script-generator', '/batch-generator',
+  '/free-tools', '/account',
+  '/instagram-comment-sticker-generator', '/youtube-comment-sticker-generator',
+  '/tiktok-comment-generator', '/tiktok-comment-picker', '/tiktok-giveaway-picker',
+  '/hashtag-generator', '/tiktok-font-generator', '/caption-generator',
+  '/engagement-rate-calculator', '/tiktok-video-ideas-generator',
+  '/tiktok-hook-generator', '/comment-reply-generator', '/tiktok-bio-generator',
+  '/cta-generator',
+]);
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 /** Escape special characters for use in HTML attribute values. */
@@ -259,6 +275,22 @@ for (const [slug, { title, description }] of Object.entries(ROUTES)) {
       `$1${esc(description)}$2`
     );
 
+  // Insert robots directive — noindex,follow for thin tool pages so they stay
+  // crawlable (link equity flows) but never enter the index. Indexable pages
+  // get an explicit index,follow.
+  const robots = NOINDEX_SLUGS.has(slug) ? 'noindex, follow' : 'index, follow';
+  if (html.includes('name="robots"')) {
+    html = html.replace(
+      /(<meta\s+name="robots"\s+content=")[^"]*(")/,
+      `$1${robots}$2`
+    );
+  } else {
+    html = html.replace(
+      '</head>',
+      `  <meta name="robots" content="${robots}" />\n</head>`
+    );
+  }
+
   // Insert / update canonical <link>
   if (html.includes('rel="canonical"')) {
     html = html.replace(
@@ -278,20 +310,14 @@ for (const [slug, { title, description }] of Object.entries(ROUTES)) {
   // when it hydrates on the client side.
   const staticContent = STATIC_CONTENT[slug];
   if (staticContent) {
-    // Hide the static fallback once React has loaded (removes flicker)
-    const hideOnLoad = `
-<script>
-  // Remove the static pre-render content once React has initialized
-  // to prevent any layout flash.
-  document.addEventListener('DOMContentLoaded', function() {
-    // React's createRoot will replace the contents of #root automatically.
-    // This listener is just a safety net for older hydration approaches.
-  });
-</script>`;
-
+    // Inject static publisher content so no-JS crawlers see real content.
+    // React's createRoot() cleanly replaces this node on mount (no hydration,
+    // no console errors); JS-running crawlers (Googlebot) get the live React
+    // page, which covers the same topic/intent — so the two views stay
+    // consistent and this is not cloaking.
     html = html.replace(
       '<div id="root"></div>',
-      `<div id="root">${staticContent}</div>${hideOnLoad}`
+      `<div id="root">${staticContent}</div>`
     );
     console.log(`  ✓  ${slug} (with static content)`);
   } else {

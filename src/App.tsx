@@ -7,6 +7,7 @@ import {
   PAGE_TITLES,
   PAGE_DESCRIPTIONS,
   PAGE_SCHEMAS,
+  NOINDEX_PAGES,
 } from './config/routes';
 
 // ── Eager imports — core app pages (always needed) ───────────────────────────
@@ -130,6 +131,20 @@ export function App() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = PAGE_DESCRIPTIONS[currentPage];
+
+    // Robots indexation directive — thin tool pages are noindex,follow.
+    // Must be flipped on every SPA navigation so a prerendered noindex page
+    // doesn't leave the directive in place when the user navigates to an
+    // indexable page (and vice-versa).
+    let metaRobots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.name = 'robots';
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.content = NOINDEX_PAGES.has(currentPage)
+      ? 'noindex, follow'
+      : 'index, follow';
 
     // Open Graph
     const setOG = (property: string, content: string) => {
