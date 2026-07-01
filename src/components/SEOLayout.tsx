@@ -483,6 +483,7 @@ export function SEOFooter({ onNavigate }: { onNavigate: (page: any) => void }) {
 // Article byline — adds EEAT signals (author role, published/reviewed dates) to each guide.
 // Pass any subset of props; falls back to sensible defaults.
 interface ArticleBylineProps {
+    author?: string;
     role?: string;
     published?: string;
     reviewed?: string;
@@ -492,7 +493,8 @@ interface ArticleBylineProps {
 }
 
 export function ArticleByline({
-    role = 'CommentSticker Editorial Team',
+    author = 'Oumarou Sanda',
+    role = 'Founder & Editor, CommentSticker',
     published,
     reviewed,
     readTime,
@@ -502,14 +504,15 @@ export function ArticleByline({
     const subtle = darkMode ? 'text-neutral-500' : 'text-neutral-500';
     const border = darkMode ? 'border-neutral-800' : 'border-neutral-200';
     const bg = darkMode ? 'bg-neutral-900/40' : 'bg-white';
+    const initials = author.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
     return (
         <div className={`flex flex-wrap items-center gap-4 p-4 rounded-2xl border ${bg} ${border} mb-8`}>
             <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-black text-sm">CS</div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-black text-sm">{initials}</div>
                 <div className="text-sm">
-                    <div className="font-black">{role}</div>
+                    <div className="font-black">By {author}</div>
                     <div className={`text-xs ${subtle}`}>
-                        UGC creator tooling · editorial standards on the {onNavigate ? (
+                        {role} · more on the {onNavigate ? (
                             <button onClick={() => onNavigate('about')} className="underline hover:text-pink-500 transition-colors">About page</button>
                         ) : (
                             <a href="/about" className="underline hover:text-pink-500 transition-colors">About page</a>

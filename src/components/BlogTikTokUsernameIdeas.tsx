@@ -96,7 +96,7 @@ export function BlogTikTokUsernameIdeas({ darkMode, onNavigate }: GuideProps) {
                         Google Trends shows "TikTok name ideas for girls" and "TikTok username ideas with your name" both hit <strong className={dm ? 'text-white' : 'text-neutral-900'}>record highs</strong> in March 2026. We've curated 200+ username ideas — aesthetic, funny, cute, dark academia, Y2K and more — with tips to make yours stick.
                     </p>
                 </div>
-                <ArticleByline darkMode={dm} onNavigate={onNavigate} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 4, 2026" reviewed="May 16, 2026" readTime="8 min" />
+                <ArticleByline darkMode={dm} onNavigate={onNavigate} published="April 4, 2026" reviewed="July 1, 2026" readTime="8 min" />
 
                 {/* Trend callout */}
                 <section className={`p-6 rounded-2xl mb-10 border-l-4 border-pink-500 ${dm ? 'bg-neutral-900/60 text-neutral-200' : 'bg-pink-50 text-neutral-800'}`}>

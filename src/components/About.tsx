@@ -159,6 +159,23 @@ export function AboutUs({ darkMode, onNavigate }: LegalPageProps) {
                             CommentSticker is built and edited by a small independent team focused on UGC creator tooling. Each published page passes through three editorial functions before it goes live.
                         </p>
                     </div>
+
+                    {/* Founder card — named authorship for E-E-A-T */}
+                    <div className={`p-8 rounded-3xl border flex flex-col md:flex-row gap-6 items-start ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'}`}>
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-black text-xl shrink-0">OS</div>
+                        <div className="space-y-3">
+                            <div>
+                                <h3 className="text-xl font-black">Oumarou Sanda</h3>
+                                <p className="text-sm font-bold text-pink-500">Founder & Editor</p>
+                            </div>
+                            <p className={`text-sm font-medium leading-relaxed ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                                Oumarou is a digital entrepreneur and product builder who founded CommentSticker after running short-form video ad campaigns and hitting the same bottleneck every week: rebuilding comment-UI overlays by hand in Photoshop for every hook test. He designed the original TikTok comment template, wrote the platform's editorial guides, and reviews every published page. He also runs a digital agency focused on creator tooling and AI-assisted content workflows for francophone African entrepreneurs.
+                            </p>
+                            <p className={`text-xs font-medium ${darkMode ? 'text-neutral-500' : 'text-neutral-500'}`}>
+                                Every article on this site carries a byline and a last-reviewed date. Questions or corrections? Use the <button onClick={() => onNavigate('contact')} className="underline hover:text-pink-500 transition-colors font-bold">contact form</button>.
+                            </p>
+                        </div>
+                    </div>
                     <div className="grid md:grid-cols-3 gap-6">
                         {teamRoles.map((role, i) => (
                             <div key={i} className={`p-8 rounded-3xl border space-y-4 ${darkMode ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'}`}>

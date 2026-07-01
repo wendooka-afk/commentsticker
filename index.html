@@ -3,6 +3,13 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Canonical host enforcement — www duplicates the whole site without a
+    // server-level 301 (Coolify static pack), so collapse it client-side.
+    if (location.hostname === 'www.commentsticker.com') {
+      location.replace('https://commentsticker.com' + location.pathname + location.search + location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/logo-icon.png" />
   <title>Free TikTok Comment Mockup Generator for UGC Ads | CommentSticker</title>

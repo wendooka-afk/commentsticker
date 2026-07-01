@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { AdSense } from './AdSense';
-import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles, ArticleByline } from './SEOLayout';
 
 interface GuideProps {
     darkMode: boolean;
@@ -24,6 +24,8 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
                         The native method for replying to a real comment with a video, plus the mockup workflow with a <span className="font-bold text-neutral-900 dark:text-white">free TikTok comment mockup generator</span> for building custom comment overlays for UGC ad creatives and content tutorials.
                     </p>
                 </div>
+
+                <ArticleByline darkMode={darkMode} onNavigate={onNavigate} published="February 10, 2026" reviewed="July 1, 2026" readTime="14 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
                     <section className={`p-6 rounded-2xl mb-8 font-medium text-lg border-l-4 border-pink-500 ${darkMode ? 'bg-neutral-900/50 text-neutral-200' : 'bg-pink-50 text-neutral-800'}`}>

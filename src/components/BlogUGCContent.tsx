@@ -27,7 +27,7 @@ export function BlogUGCContent({ darkMode, onNavigate }: GuideProps) {
                         UGC — User Generated Content — has become one of the most powerful marketing formats in the world. Learn exactly what it is, why brands pay creators for it, and how to get started as a <strong className="text-neutral-900 dark:text-white">UGC creator</strong> in 2026.
                     </p>
                 </div>
-                <ArticleByline darkMode={dm} onNavigate={onNavigate} role="Content & Editorial Lead · CommentSticker Editorial Team" published="April 14, 2026" reviewed="May 16, 2026" readTime="11 min" />
+                <ArticleByline darkMode={dm} onNavigate={onNavigate} published="April 14, 2026" reviewed="July 1, 2026" readTime="11 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 

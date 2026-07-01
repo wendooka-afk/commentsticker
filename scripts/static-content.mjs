@@ -182,7 +182,7 @@ ${FOOTER}`,
   <div class="cs-section">
     <h2>About the Comment Sticker Generator</h2>
     <p>The <strong>CommentSticker Generator</strong> is a free online tool that lets you create realistic social media comment overlays for use in videos, ads, and other digital content. Unlike generic image editors, every comment template in our generator is designed to exactly match the native UI of each social media platform — from the font weights to the button spacing.</p>
-    <p>This tool is used by thousands of UGC creators, performance marketers, social media managers, and video editors every day to produce high-quality ad creatives in seconds. The transparent PNG output means you can use the generated sticker in any video editing software without ugly white borders.</p>
+    <p>UGC creators, performance marketers, social media managers, and video editors use this tool to produce high-quality ad creatives in seconds. The transparent PNG output means you can use the generated sticker in any video editing software without ugly white borders.</p>
   </div>
   <div class="cs-section">
     <h2>Supported Platforms</h2>
@@ -433,6 +433,10 @@ ${FOOTER}`,
     <p>By providing free, browser-based tools for generating pixel-perfect social comment stickers across 9 platforms, we level the playing field for independent creators who want to build the same high-converting ad creatives as the biggest brands on TikTok, Instagram, and YouTube.</p>
   </div>
   <div class="cs-section">
+    <h2>Who's Behind CommentSticker</h2>
+    <p>CommentSticker was founded by <strong>Oumarou Sanda</strong>, a digital entrepreneur and product builder. After running short-form video ad campaigns and rebuilding comment-UI overlays by hand in Photoshop for every hook test, he built the original TikTok comment template and turned it into a free browser tool. Oumarou writes and reviews the editorial guides published on this site, and every article carries a byline and a last-reviewed date. He also runs a digital agency focused on creator tooling and AI-assisted content workflows.</p>
+  </div>
+  <div class="cs-section">
     <h2>What We Offer</h2>
     <div class="cs-grid">
       <div class="cs-card"><h3>💬 Comment Sticker Generator</h3><p>9 platforms, pixel-perfect UI templates, transparent PNG export at 3× resolution. Free, no login required.</p></div>
@@ -445,10 +449,10 @@ ${FOOTER}`,
   </div>
   <div class="cs-section">
     <h2>Who Uses CommentSticker?</h2>
-    <p>Thousands of creators, marketers, and editors use our platform every day:</p>
+    <p>Creators, marketers, and editors use our platform for four main workflows:</p>
     <ul>
       <li><strong>UGC Creators &amp; Freelancers:</strong> Create compelling comment hook overlays for client ad briefs in minutes, not hours.</li>
-      <li><strong>Performance Marketers:</strong> Produce native-feeling TikTok and Instagram ad creatives that lower CPA by bypassing ad-detection instincts.</li>
+      <li><strong>Performance Marketers:</strong> Produce native-feeling TikTok and Instagram ad creatives that feel native to the feed and consistently win hook tests.</li>
       <li><strong>Content Creators &amp; Influencers:</strong> Answer FAQs and reply to viral comments with pixel-perfect overlays to boost video retention.</li>
       <li><strong>Video Editors:</strong> Skip manual Photoshop workflows and generate transparent PNGs in seconds, ready for CapCut, Premiere, or DaVinci.</li>
     </ul>
@@ -459,7 +463,6 @@ ${FOOTER}`,
       <tr><th>Metric</th><th>Value</th></tr>
       <tr><td>Supported Platforms</td><td>9 (TikTok, Instagram, YouTube, Twitter/X, Facebook, Threads, Snapchat, Discord, LinkedIn)</td></tr>
       <tr><td>Export Resolution</td><td>3× pixel ratio (transparent PNG &amp; JPEG)</td></tr>
-      <tr><td>Monthly Active Users</td><td>10,000+</td></tr>
       <tr><td>Price</td><td>100% Free — core tools always free, no freemium traps</td></tr>
     </table>
   </div>
@@ -716,6 +719,7 @@ ${FOOTER}`,
   <span class="cs-badge">📱 Tutorial</span>
   <h1>How to Add Comment Sticker on TikTok Video (Ultimate Guide 2026)</h1>
   <p class="lead">Learn the native method for replying to comments with a video on TikTok, and the mockup workflow for building custom comment overlays for UGC ad creatives and content tutorials.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published February 10, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-highlight"><p><strong>Quick Answer:</strong> To add a comment sticker on TikTok natively, tap a comment → tap the camera icon → record your reply. To build a custom comment mockup overlay for a UGC ad creative or content tutorial, use a free generator like CommentSticker to design the overlay and download it as a transparent PNG.</p></div>
@@ -956,6 +960,7 @@ ${FOOTER}`,
   <span class="cs-badge">⚖️ Comparison</span>
   <h1>Best TikTok Comment Generator in 2026: Top Alternatives Compared</h1>
   <p class="lead">Looking for the best TikTok comment generator? Here is a complete, honest comparison of the top free tools — including CommentSticker, TokComment, and their alternatives.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published February 24, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">
@@ -1404,6 +1409,7 @@ ${FOOTER}`,
   <span class="cs-badge">🔥 Trending — Record high searches</span>
   <h1>200+ TikTok Username Ideas for 2026</h1>
   <p class="lead">Google Trends shows "TikTok name ideas for girls" and "TikTok username ideas with your name" both hit record highs in March 2026. We've curated 200+ username ideas — aesthetic, funny, cute, dark academia, Y2K and more — with tips to make yours stick.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published April 4, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">
@@ -1508,6 +1514,7 @@ ${FOOTER}`,
   <span class="cs-badge">🎁 Giveaway Guide</span>
   <h1>How to Run a TikTok Giveaway in 2026: Complete Step-by-Step Guide</h1>
   <p class="lead">Everything you need to know to run a successful TikTok giveaway — from setting the rules and promoting your contest to picking a fair random winner and growing your audience.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published April 14, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">
@@ -1557,6 +1564,7 @@ ${FOOTER}`,
   <span class="cs-badge">🎬 Creator Guide</span>
   <h1>What is UGC Content? The Complete 2026 Guide for Creators and Brands</h1>
   <p class="lead">UGC — User Generated Content — has become one of the most powerful marketing formats in the world. Learn exactly what it is, why brands pay creators for it, and how to get started as a UGC creator in 2026.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published April 14, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">
@@ -1605,6 +1613,7 @@ ${FOOTER}`,
   <span class="cs-badge">🧠 Growth Strategy</span>
   <h1>How the TikTok Algorithm Works in 2026: Complete For You Page Guide</h1>
   <p class="lead">Understanding the TikTok algorithm is the single most important skill for any creator trying to grow on the platform. This guide breaks down every ranking signal and how to get on the For You Page.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published April 14, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">
@@ -1657,6 +1666,7 @@ ${FOOTER}`,
   <span class="cs-badge">📈 Growth Tips</span>
   <h1>How to Get More Views on TikTok in 2026: 15 Proven Strategies</h1>
   <p class="lead">Struggling to get views on TikTok? These 15 data-backed strategies will help you break out of the algorithm loop, reach the For You Page, and consistently grow your audience in 2026.</p>
+  <p style="font-size:13px;color:#9ca3af;margin:-8px 0 0;">By <strong style="color:#4b5563;">Oumarou Sanda</strong> — Founder &amp; Editor, CommentSticker · Published April 14, 2026 · Last reviewed July 1, 2026</p>
 </div>
 <div class="cs-main">
   <div class="cs-section">

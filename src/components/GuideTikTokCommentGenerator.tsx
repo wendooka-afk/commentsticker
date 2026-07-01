@@ -24,7 +24,7 @@ export function GuideTikTokCommentGenerator({ darkMode, onNavigate }: GuideProps
                     </p>
                 </div>
 
-                <ArticleByline darkMode={darkMode} onNavigate={onNavigate} role="UGC Industry Researcher · CommentSticker Editorial Team" published="March 2, 2026" reviewed="May 16, 2026" readTime="7 min" />
+                <ArticleByline darkMode={darkMode} onNavigate={onNavigate} published="March 2, 2026" reviewed="July 1, 2026" readTime="7 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
                     {/* GEO / Quick Answer */}

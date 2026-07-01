@@ -1,5 +1,5 @@
 import { CheckCircle2, XCircle } from 'lucide-react';
-import { SEOHeader, SEOFooter, RelatedArticles } from './SEOLayout';
+import { SEOHeader, SEOFooter, RelatedArticles, ArticleByline } from './SEOLayout';
 import { AdSense } from './AdSense';
 
 interface GuideProps {
@@ -24,6 +24,8 @@ export function BlogComparison({ darkMode, onNavigate }: GuideProps) {
                         Looking for the best <span className="font-bold text-neutral-900 dark:text-white">TokComment alternative</span>? A complete comparison of the top free tools for building comment mockup overlays for UGC ad creatives.
                     </p>
                 </div>
+
+                <ArticleByline darkMode={darkMode} onNavigate={onNavigate} published="February 24, 2026" reviewed="July 1, 2026" readTime="9 min" />
 
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
                     <section className={`p-6 rounded-2xl mb-8 font-medium text-lg border-l-4 border-orange-500 ${darkMode ? 'bg-neutral-900/50 text-neutral-200' : 'bg-orange-50 text-neutral-800'}`}>
@@ -121,7 +123,7 @@ export function BlogComparison({ darkMode, onNavigate }: GuideProps) {
 
                     <section className={`p-8 rounded-3xl border mt-12 ${darkMode ? 'bg-gradient-to-br from-pink-500/10 to-orange-500/10 border-pink-500/20' : 'bg-gradient-to-br from-pink-50 to-orange-50 border-pink-100'}`}>
                         <h2 className="text-2xl font-bold mb-4 text-center">Ready to upgrade your workflow?</h2>
-                        <p className="text-center mb-6">Say goodbye to outdated generators and manual Photoshop templates. Join thousands of creators using the ultimate creative suite.</p>
+                        <p className="text-center mb-6">Say goodbye to outdated generators and manual Photoshop templates. Build your first comment mockup overlay in under a minute — free, no login.</p>
                         <div className="flex justify-center">
                             <button onClick={() => onNavigate('generator')} className="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-black shadow-xl shadow-pink-500/20 hover:scale-105 transition-all w-full md:w-auto text-center">
                                 Launch CommentSticker for Free
