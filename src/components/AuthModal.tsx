@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { X, Mail, Lock, User, Loader2, Sparkles } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 type Mode = 'login' | 'signup' | 'magic' | 'check-email';
 
@@ -28,6 +28,7 @@ export function AuthModal({ onClose, onSuccess, darkMode, checkoutPlan }: AuthMo
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setError('');
+    const supabase = await getSupabase();
     const { error } = await supabase.auth.signInWithPassword({ email, password: pass });
     if (error) { setError(error.message); setLoading(false); return; }
     onSuccess?.();
@@ -37,6 +38,7 @@ export function AuthModal({ onClose, onSuccess, darkMode, checkoutPlan }: AuthMo
   async function handleSignup(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setError('');
+    const supabase = await getSupabase();
     const { error } = await supabase.auth.signUp({
       email, password: pass,
       options: { data: { full_name: name } },
@@ -49,6 +51,7 @@ export function AuthModal({ onClose, onSuccess, darkMode, checkoutPlan }: AuthMo
   async function handleMagicLink(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setError('');
+    const supabase = await getSupabase();
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: checkoutPlan ? `https://commentsticker.com/pricing/` : `https://commentsticker.com/account/` },

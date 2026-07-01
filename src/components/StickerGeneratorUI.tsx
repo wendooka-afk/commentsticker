@@ -11,7 +11,9 @@ import { ThreadsComment } from './ThreadsComment';
 import { SnapchatComment } from './SnapchatComment';
 import { DiscordComment } from './DiscordComment';
 import { LinkedInComment } from './LinkedInComment';
-import { toPng, toJpeg } from 'html-to-image';
+// html-to-image is only needed at export time — loaded on demand to keep it
+// out of the main bundle.
+const loadHtmlToImage = () => import('html-to-image');
 import { AdSense } from './AdSense';
 
 interface StickerGeneratorProps {
@@ -99,7 +101,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onCom
     });
 
     useEffect(() => {
-        localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+        try { localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); } catch { /* storage unavailable (private mode) */ }
     }, [history]);
 
     // Tell the parent (App.tsx) that initialComment has been consumed so it
@@ -128,6 +130,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onCom
     const saveToHistory = useCallback(async () => {
         if (!commentRef.current) return;
         try {
+            const { toJpeg } = await loadHtmlToImage();
             const thumbnail = await toJpeg(commentRef.current, {
                 pixelRatio: 1,
                 quality: 0.5,
@@ -153,6 +156,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onCom
             const bg = getBgColorForPlatform(selectedPlatform);
             const opts = { cacheBust: true, pixelRatio: 3, backgroundColor: bg };
 
+            const { toPng, toJpeg } = await loadHtmlToImage();
             let dataUrl: string;
             if (exportFormat === 'jpeg') {
                 dataUrl = await toJpeg(commentRef.current, { ...opts, quality: 0.95 });
@@ -178,6 +182,7 @@ export function StickerGeneratorUI({ darkMode, onNavigate, initialComment, onCom
         if (!commentRef.current) return;
         try {
             const bg = getBgColorForPlatform(selectedPlatform);
+            const { toPng } = await loadHtmlToImage();
             const dataUrl = await toPng(commentRef.current, {
                 cacheBust: true, pixelRatio: 3, backgroundColor: bg,
             });

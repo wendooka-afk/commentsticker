@@ -1,15 +1,28 @@
-import { createClient } from '@supabase/supabase-js';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 const SUPABASE_URL  = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-    detectSessionInUrl: true,
-  },
-});
+// Lazy singleton — keeps @supabase/supabase-js out of the main bundle. The
+// chunk starts loading as soon as AuthProvider mounts, so OAuth redirect
+// handling (detectSessionInUrl) still runs at startup, just off the critical
+// rendering path.
+let clientPromise: Promise<SupabaseClient> | null = null;
+
+export function getSupabase(): Promise<SupabaseClient> {
+  if (!clientPromise) {
+    clientPromise = import('@supabase/supabase-js').then(({ createClient }) =>
+      createClient(SUPABASE_URL, SUPABASE_ANON, {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
+        },
+      })
+    );
+  }
+  return clientPromise;
+}
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -40,6 +53,7 @@ export function isPro(sub: CsSubscription | null): boolean {
 
 /** Call the create-checkout Edge Function and redirect to Dodo checkout. */
 export async function startCheckout(plan: 'pro_monthly' | 'pro_annual'): Promise<void> {
+  const supabase = await getSupabase();
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) throw new Error('Not authenticated');
 

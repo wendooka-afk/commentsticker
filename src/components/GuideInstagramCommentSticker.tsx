@@ -32,7 +32,7 @@ export function GuideInstagramCommentSticker({ darkMode, onNavigate }: GuideProp
 
                     <section>
                         <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800 relative bg-black">
-                            <img
+                            <img loading="lazy" decoding="async"
                                 src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1200&auto=format&fit=crop"
                                 alt="Instagram notification icon on a phone screen"
                                 className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"

@@ -110,7 +110,7 @@ export function BlogTikTokUsernameIdeas({ darkMode, onNavigate }: GuideProps) {
 
                 {/* Hero image */}
                 <div className="overflow-hidden rounded-3xl my-10 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200&auto=format&fit=crop"
                         alt="TikTok app on smartphone"
                         className="w-full h-[360px] object-cover"

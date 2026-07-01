@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import type { User, Session } from '@supabase/supabase-js';
-import { supabase, isPro, type CsSubscription } from '../lib/supabase';
+import { getSupabase, isPro, type CsSubscription } from '../lib/supabase';
 
 interface AuthContextValue {
   user:         User | null;
@@ -24,6 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading,      setLoading]      = useState(true);
 
   async function fetchSubscription(uid: string) {
+    const supabase = await getSupabase();
     const { data } = await supabase
       .from('cs_subscriptions')
       .select('*')
@@ -33,24 +34,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) fetchSubscription(session.user.id).finally(() => setLoading(false));
-      else setLoading(false);
+    let cancelled = false;
+    let unsubscribe: (() => void) | undefined;
+
+    getSupabase().then((supabase) => {
+      if (cancelled) return;
+
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (cancelled) return;
+        setSession(session);
+        setUser(session?.user ?? null);
+        if (session?.user) fetchSubscription(session.user.id).finally(() => setLoading(false));
+        else setLoading(false);
+      });
+
+      const { data: { subscription: listener } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        if (session?.user) fetchSubscription(session.user.id);
+        else setSubscription(null);
+      });
+      unsubscribe = () => listener.unsubscribe();
     });
 
-    const { data: { subscription: listener } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) fetchSubscription(session.user.id);
-      else setSubscription(null);
-    });
-
-    return () => listener.unsubscribe();
+    return () => { cancelled = true; unsubscribe?.(); };
   }, []);
 
   const signOut = async () => {
+    const supabase = await getSupabase();
     await supabase.auth.signOut();
     setSubscription(null);
   };

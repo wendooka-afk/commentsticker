@@ -81,8 +81,9 @@ function PageLoader() {
   );
 }
 
-// ── ErrorBoundary — catches chunk-load failures for lazy pages ────────────────
-class LazyErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+// ── ErrorBoundary — catches chunk-load failures for lazy pages and, wrapped
+// around the whole tree in main.tsx, any runtime render error (white screen).
+export class LazyErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
   static getDerivedStateFromError() { return { hasError: true }; }
   componentDidCatch(err: Error, info: ErrorInfo) { console.error('Lazy load error:', err, info); }

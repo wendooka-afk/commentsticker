@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { Download, Plus, Trash2, Shuffle, Layers } from 'lucide-react';
-import { toPng, toJpeg } from 'html-to-image';
+// html-to-image is only needed at export time — loaded on demand to keep it
+// out of the main bundle.
+const loadHtmlToImage = () => import('html-to-image');
 import { AdSense } from './AdSense';
 import { platforms, defaultAvatars, sampleUsernames, type Platform } from '../data/platforms';
 import { PlatformIcon } from './PlatformIcons';
@@ -112,6 +114,7 @@ export function BatchGenerator({ darkMode }: BatchGeneratorProps) {
         const el = itemRefs.current[index];
         if (!el || !comments[index].trim()) return;
         const opts = { pixelRatio: 3, backgroundColor: getBgColor(platform) };
+        const { toPng, toJpeg } = await loadHtmlToImage();
         const dataUrl = exportFormat === 'jpeg'
             ? await toJpeg(el, { ...opts, quality: 0.95 })
             : await toPng(el, opts);

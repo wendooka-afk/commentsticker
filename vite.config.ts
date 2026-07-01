@@ -15,12 +15,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  build: {
-    // Don't empty the dist dir before building — avoids EPERM issues on
-    // mounted/network filesystems (Cloudflare Pages CI, WSL2, etc.).
-    // The prerender script (run after vite build) overwrites all static pages.
-    emptyOutDir: false,
-  },
+  // dist/ is emptied on every build (vite default). The old emptyOutDir:false
+  // workaround targeted Cloudflare Pages CI; deployment is Coolify now and
+  // stale hashed bundles were accumulating (500+ files in dist/assets).
   // Vite dev server natively serves index.html for all paths (SPA mode).
   // For production, _redirects (Netlify) or _headers (Cloudflare) handle routing.
 });

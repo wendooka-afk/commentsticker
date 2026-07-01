@@ -283,7 +283,7 @@ export function GuideTikTokCommentPicker({ darkMode, onNavigate }: GuideProps) {
 
                     {/* Hero */}
                     <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
                             alt="Group of people on smartphones participating in a TikTok giveaway"
                             className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"

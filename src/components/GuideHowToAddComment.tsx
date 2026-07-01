@@ -34,7 +34,7 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
 
                     <section>
                         <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                            <img
+                            <img loading="lazy" decoding="async"
                                 src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop"
                                 alt="TikTok on smartphone showing engagement"
                                 className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
@@ -132,7 +132,7 @@ export function GuideHowToAddComment({ darkMode, onNavigate }: GuideProps) {
                     <section>
                         <h2 className="text-3xl font-bold mt-16 mb-6">Beyond TikTok: Building a Multi-Platform Strategy</h2>
                         <div className="float-right w-1/2 ml-8 mb-6 mt-2 overflow-hidden rounded-2xl shadow-xl hidden md:block">
-                            <img src="https://images.unsplash.com/photo-1616469830560-6dd8aeff328b?q=80&w=800&auto=format&fit=crop" alt="Multiple social media platforms on screens" className="w-full h-auto" />
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616469830560-6dd8aeff328b?q=80&w=800&auto=format&fit=crop" alt="Multiple social media platforms on screens" className="w-full h-auto" />
                         </div>
                         <p>
                             Historically, legacy tools like <button onClick={() => onNavigate('guide-comparison')} className="text-pink-500 font-bold hover:underline transition-all">TokComment</button> have been popular for generating these overlays. However, many alternatives have emerged that offer significantly better resolutions, transparent backgrounds right out of the box, and crucial multi-platform support.

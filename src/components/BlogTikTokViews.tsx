@@ -36,7 +36,7 @@ export function BlogTikTokViews({ darkMode, onNavigate }: GuideProps) {
                     </section>
 
                     <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="https://images.unsplash.com/photo-1616469830560-6dd8aeff328b?q=80&w=1200&auto=format&fit=crop"
                             alt="Social media analytics dashboard showing video views growth"
                             className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"

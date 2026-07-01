@@ -38,7 +38,7 @@ export function BlogTikTokGiveaway({ darkMode, onNavigate }: GuideProps) {
                     </section>
 
                     <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop"
                             alt="Gift box representing a social media giveaway prize"
                             className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"

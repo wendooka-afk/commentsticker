@@ -34,7 +34,7 @@ export function GuideTikTokCommentGenerator({ darkMode, onNavigate }: GuideProps
 
                     {/* Hero image */}
                     <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="https://images.unsplash.com/photo-1596558450268-9c27524ba856?q=80&w=1200&auto=format&fit=crop"
                             alt="Person using smartphone to create TikTok content"
                             className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"

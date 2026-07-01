@@ -37,7 +37,7 @@ export function BlogUGCContent({ darkMode, onNavigate }: GuideProps) {
                     </section>
 
                     <div className="group overflow-hidden rounded-3xl mb-8 shadow-2xl border border-neutral-200 dark:border-neutral-800">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop"
                             alt="Content creator filming a UGC video on smartphone"
                             className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"
